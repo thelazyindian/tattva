@@ -33,3 +33,5 @@ const authPrimaryBtnFontSize = 18.0;
 const authSecondaryBtnFontSize = 14.0;
 const authForgotPasswordBtnFontSize = 12.0;
 const authPageAppBarHeight = 125.0;
+const errorTextSize = 14.0;
+const successTextSize = 14.0;

@@ -1,4 +1,4 @@
-package com.example.tattva
+package com.tattva.app
 
 import io.flutter.embedding.android.FlutterActivity
 

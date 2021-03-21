@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1047659767662",
+    "project_id": "tattva-app",
+    "storage_bucket": "tattva-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047659767662:android:9621a53bfe5cf7d220037f",
+        "android_client_info": {
+          "package_name": "com.tattva.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1047659767662-o5kdvqoiar2u5vmohuvjpgs4cqrvg2qo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tattva.app",
+            "certificate_hash": "6d6a758f4404ded5d21cb34f14d68be3bef88572"
+          }
+        },
+        {
+          "client_id": "1047659767662-65ktsm5o07t5f21cagjtu91j5h6pph81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARjeFHYUS196k6YIgSzb3U-o1w5FuOPrE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1047659767662-65ktsm5o07t5f21cagjtu91j5h6pph81.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

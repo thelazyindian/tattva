@@ -25,3 +25,14 @@ const inputFieldFontWeight = FontWeight.w500;
 const authAppBarPadding = EdgeInsetsDirectional.only(start: 8, bottom: 12);
 const facebookColor = Color(0xFF7583CA);
 const googleBtnBorderColor = Color(0xFFEBEAEC);
+
+final usernameRegex =
+    RegExp(r'^(?=[a-zA-Z0-9_]{8,20}$)(?!.*[_]{2})[^_].*[^_]$');
+final emailRegex = RegExp(
+    r'^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$');
+final passRegex = RegExp(
+    r"""^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!"#$%&\'()*+,-.\/:;<=>?@[\]^_`{|}~])[\w\d!"#$%&\'()*+,-.\/:;<=>?@[\]^_`{|}~]{8,20}$""");
+final nameRegex = RegExp(r'^(([a-zA-Z.]+\s)*[a-zA-Z]{2,50})$');
+
+final errorTextColor = Color(0xFFE12B1F);
+final successTextColor = Color(0xFF6CB28E);

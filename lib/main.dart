@@ -1,12 +1,21 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:tattva/constants/dimens.dart';
-import 'package:tattva/constants/others.dart';
-import 'package:tattva/constants/styles.dart';
+import 'package:injectable/injectable.dart';
+import 'package:tattva/injection.dart';
+import 'package:tattva/pages/authentication/forgot_password_page.dart';
 import 'package:tattva/pages/authentication/login_page.dart';
 import 'package:tattva/pages/authentication/register_page.dart';
 import 'package:tattva/pages/home/home_page.dart';
+import 'package:tattva/pages/landing/landing_page.dart';
+import 'package:tattva/pages/splash/splash_page.dart';
+import 'package:tattva/utils/dimens.dart';
+import 'package:tattva/utils/others.dart';
+import 'package:tattva/utils/styles.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  configureInjection(Environment.dev);
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -46,11 +55,14 @@ class MyApp extends StatelessWidget {
           border: inputFieldBorder,
         ),
       ),
-      home: HomePage(),
+      home: SplashPage(),
       routes: {
+        '/landing': (_) => LandingPage(),
+        '/home': (_) => HomePage(),
         '/register': (_) => RegisterPage(),
         '/login': (_) => LoginPage(withEmail: false),
         '/login_with_email': (_) => LoginPage(withEmail: true),
+        '/forgot_password': (_) => ForgotPassword(),
       },
     );
   }

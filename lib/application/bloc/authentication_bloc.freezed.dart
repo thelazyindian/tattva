@@ -1,0 +1,2258 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+
+part of 'authentication_bloc.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+/// @nodoc
+class _$AuthenticationEventTearOff {
+  const _$AuthenticationEventTearOff();
+
+  _SetFormType setFormType(AuthFormType authFormType) {
+    return _SetFormType(
+      authFormType,
+    );
+  }
+
+  _OnEmailChanged onEmailChanged(String value) {
+    return _OnEmailChanged(
+      value,
+    );
+  }
+
+  _OnNameChanged onNameChanged(String value) {
+    return _OnNameChanged(
+      value,
+    );
+  }
+
+  _OnUsernameChanged onUsernameChanged(String value) {
+    return _OnUsernameChanged(
+      value,
+    );
+  }
+
+  _OnPasswordChanged onPasswordChanged(String value) {
+    return _OnPasswordChanged(
+      value,
+    );
+  }
+
+  _AuthCheckRequested authCheckRequested() {
+    return const _AuthCheckRequested();
+  }
+
+  _LoginWithEmail loginWithEmail() {
+    return const _LoginWithEmail();
+  }
+
+  _LoginWithUsername loginWithUsername() {
+    return const _LoginWithUsername();
+  }
+
+  _RegisterWithEmail registerWithEmail() {
+    return const _RegisterWithEmail();
+  }
+
+  _LoginWithGoogle loginWithGoogle() {
+    return const _LoginWithGoogle();
+  }
+
+  _LoginWithFacebook loginWithFacebook() {
+    return const _LoginWithFacebook();
+  }
+
+  _ResetPassword resetPassword() {
+    return const _ResetPassword();
+  }
+}
+
+/// @nodoc
+const $AuthenticationEvent = _$AuthenticationEventTearOff();
+
+/// @nodoc
+mixin _$AuthenticationEvent {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AuthenticationEventCopyWith<$Res> {
+  factory $AuthenticationEventCopyWith(
+          AuthenticationEvent value, $Res Function(AuthenticationEvent) then) =
+      _$AuthenticationEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$AuthenticationEventCopyWithImpl<$Res>
+    implements $AuthenticationEventCopyWith<$Res> {
+  _$AuthenticationEventCopyWithImpl(this._value, this._then);
+
+  final AuthenticationEvent _value;
+  // ignore: unused_field
+  final $Res Function(AuthenticationEvent) _then;
+}
+
+/// @nodoc
+abstract class _$SetFormTypeCopyWith<$Res> {
+  factory _$SetFormTypeCopyWith(
+          _SetFormType value, $Res Function(_SetFormType) then) =
+      __$SetFormTypeCopyWithImpl<$Res>;
+  $Res call({AuthFormType authFormType});
+
+  $AuthFormTypeCopyWith<$Res> get authFormType;
+}
+
+/// @nodoc
+class __$SetFormTypeCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$SetFormTypeCopyWith<$Res> {
+  __$SetFormTypeCopyWithImpl(
+      _SetFormType _value, $Res Function(_SetFormType) _then)
+      : super(_value, (v) => _then(v as _SetFormType));
+
+  @override
+  _SetFormType get _value => super._value as _SetFormType;
+
+  @override
+  $Res call({
+    Object? authFormType = freezed,
+  }) {
+    return _then(_SetFormType(
+      authFormType == freezed
+          ? _value.authFormType
+          : authFormType // ignore: cast_nullable_to_non_nullable
+              as AuthFormType,
+    ));
+  }
+
+  @override
+  $AuthFormTypeCopyWith<$Res> get authFormType {
+    return $AuthFormTypeCopyWith<$Res>(_value.authFormType, (value) {
+      return _then(_value.copyWith(authFormType: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_SetFormType implements _SetFormType {
+  const _$_SetFormType(this.authFormType);
+
+  @override
+  final AuthFormType authFormType;
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.setFormType(authFormType: $authFormType)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SetFormType &&
+            (identical(other.authFormType, authFormType) ||
+                const DeepCollectionEquality()
+                    .equals(other.authFormType, authFormType)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(authFormType);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SetFormTypeCopyWith<_SetFormType> get copyWith =>
+      __$SetFormTypeCopyWithImpl<_SetFormType>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return setFormType(authFormType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (setFormType != null) {
+      return setFormType(authFormType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return setFormType(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (setFormType != null) {
+      return setFormType(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetFormType implements AuthenticationEvent {
+  const factory _SetFormType(AuthFormType authFormType) = _$_SetFormType;
+
+  AuthFormType get authFormType => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SetFormTypeCopyWith<_SetFormType> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$OnEmailChangedCopyWith<$Res> {
+  factory _$OnEmailChangedCopyWith(
+          _OnEmailChanged value, $Res Function(_OnEmailChanged) then) =
+      __$OnEmailChangedCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$OnEmailChangedCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$OnEmailChangedCopyWith<$Res> {
+  __$OnEmailChangedCopyWithImpl(
+      _OnEmailChanged _value, $Res Function(_OnEmailChanged) _then)
+      : super(_value, (v) => _then(v as _OnEmailChanged));
+
+  @override
+  _OnEmailChanged get _value => super._value as _OnEmailChanged;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_OnEmailChanged(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_OnEmailChanged implements _OnEmailChanged {
+  const _$_OnEmailChanged(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.onEmailChanged(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _OnEmailChanged &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$OnEmailChangedCopyWith<_OnEmailChanged> get copyWith =>
+      __$OnEmailChangedCopyWithImpl<_OnEmailChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return onEmailChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (onEmailChanged != null) {
+      return onEmailChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return onEmailChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (onEmailChanged != null) {
+      return onEmailChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnEmailChanged implements AuthenticationEvent {
+  const factory _OnEmailChanged(String value) = _$_OnEmailChanged;
+
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$OnEmailChangedCopyWith<_OnEmailChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$OnNameChangedCopyWith<$Res> {
+  factory _$OnNameChangedCopyWith(
+          _OnNameChanged value, $Res Function(_OnNameChanged) then) =
+      __$OnNameChangedCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$OnNameChangedCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$OnNameChangedCopyWith<$Res> {
+  __$OnNameChangedCopyWithImpl(
+      _OnNameChanged _value, $Res Function(_OnNameChanged) _then)
+      : super(_value, (v) => _then(v as _OnNameChanged));
+
+  @override
+  _OnNameChanged get _value => super._value as _OnNameChanged;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_OnNameChanged(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_OnNameChanged implements _OnNameChanged {
+  const _$_OnNameChanged(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.onNameChanged(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _OnNameChanged &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$OnNameChangedCopyWith<_OnNameChanged> get copyWith =>
+      __$OnNameChangedCopyWithImpl<_OnNameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return onNameChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (onNameChanged != null) {
+      return onNameChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return onNameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (onNameChanged != null) {
+      return onNameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnNameChanged implements AuthenticationEvent {
+  const factory _OnNameChanged(String value) = _$_OnNameChanged;
+
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$OnNameChangedCopyWith<_OnNameChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$OnUsernameChangedCopyWith<$Res> {
+  factory _$OnUsernameChangedCopyWith(
+          _OnUsernameChanged value, $Res Function(_OnUsernameChanged) then) =
+      __$OnUsernameChangedCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$OnUsernameChangedCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$OnUsernameChangedCopyWith<$Res> {
+  __$OnUsernameChangedCopyWithImpl(
+      _OnUsernameChanged _value, $Res Function(_OnUsernameChanged) _then)
+      : super(_value, (v) => _then(v as _OnUsernameChanged));
+
+  @override
+  _OnUsernameChanged get _value => super._value as _OnUsernameChanged;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_OnUsernameChanged(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_OnUsernameChanged implements _OnUsernameChanged {
+  const _$_OnUsernameChanged(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.onUsernameChanged(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _OnUsernameChanged &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$OnUsernameChangedCopyWith<_OnUsernameChanged> get copyWith =>
+      __$OnUsernameChangedCopyWithImpl<_OnUsernameChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return onUsernameChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (onUsernameChanged != null) {
+      return onUsernameChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return onUsernameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (onUsernameChanged != null) {
+      return onUsernameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnUsernameChanged implements AuthenticationEvent {
+  const factory _OnUsernameChanged(String value) = _$_OnUsernameChanged;
+
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$OnUsernameChangedCopyWith<_OnUsernameChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$OnPasswordChangedCopyWith<$Res> {
+  factory _$OnPasswordChangedCopyWith(
+          _OnPasswordChanged value, $Res Function(_OnPasswordChanged) then) =
+      __$OnPasswordChangedCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$OnPasswordChangedCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$OnPasswordChangedCopyWith<$Res> {
+  __$OnPasswordChangedCopyWithImpl(
+      _OnPasswordChanged _value, $Res Function(_OnPasswordChanged) _then)
+      : super(_value, (v) => _then(v as _OnPasswordChanged));
+
+  @override
+  _OnPasswordChanged get _value => super._value as _OnPasswordChanged;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_OnPasswordChanged(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_OnPasswordChanged implements _OnPasswordChanged {
+  const _$_OnPasswordChanged(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.onPasswordChanged(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _OnPasswordChanged &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$OnPasswordChangedCopyWith<_OnPasswordChanged> get copyWith =>
+      __$OnPasswordChangedCopyWithImpl<_OnPasswordChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return onPasswordChanged(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (onPasswordChanged != null) {
+      return onPasswordChanged(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return onPasswordChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (onPasswordChanged != null) {
+      return onPasswordChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnPasswordChanged implements AuthenticationEvent {
+  const factory _OnPasswordChanged(String value) = _$_OnPasswordChanged;
+
+  String get value => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$OnPasswordChangedCopyWith<_OnPasswordChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$AuthCheckRequestedCopyWith<$Res> {
+  factory _$AuthCheckRequestedCopyWith(
+          _AuthCheckRequested value, $Res Function(_AuthCheckRequested) then) =
+      __$AuthCheckRequestedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$AuthCheckRequestedCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$AuthCheckRequestedCopyWith<$Res> {
+  __$AuthCheckRequestedCopyWithImpl(
+      _AuthCheckRequested _value, $Res Function(_AuthCheckRequested) _then)
+      : super(_value, (v) => _then(v as _AuthCheckRequested));
+
+  @override
+  _AuthCheckRequested get _value => super._value as _AuthCheckRequested;
+}
+
+/// @nodoc
+class _$_AuthCheckRequested implements _AuthCheckRequested {
+  const _$_AuthCheckRequested();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.authCheckRequested()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _AuthCheckRequested);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return authCheckRequested();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (authCheckRequested != null) {
+      return authCheckRequested();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return authCheckRequested(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (authCheckRequested != null) {
+      return authCheckRequested(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthCheckRequested implements AuthenticationEvent {
+  const factory _AuthCheckRequested() = _$_AuthCheckRequested;
+}
+
+/// @nodoc
+abstract class _$LoginWithEmailCopyWith<$Res> {
+  factory _$LoginWithEmailCopyWith(
+          _LoginWithEmail value, $Res Function(_LoginWithEmail) then) =
+      __$LoginWithEmailCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoginWithEmailCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$LoginWithEmailCopyWith<$Res> {
+  __$LoginWithEmailCopyWithImpl(
+      _LoginWithEmail _value, $Res Function(_LoginWithEmail) _then)
+      : super(_value, (v) => _then(v as _LoginWithEmail));
+
+  @override
+  _LoginWithEmail get _value => super._value as _LoginWithEmail;
+}
+
+/// @nodoc
+class _$_LoginWithEmail implements _LoginWithEmail {
+  const _$_LoginWithEmail();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.loginWithEmail()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoginWithEmail);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return loginWithEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithEmail != null) {
+      return loginWithEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return loginWithEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithEmail != null) {
+      return loginWithEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoginWithEmail implements AuthenticationEvent {
+  const factory _LoginWithEmail() = _$_LoginWithEmail;
+}
+
+/// @nodoc
+abstract class _$LoginWithUsernameCopyWith<$Res> {
+  factory _$LoginWithUsernameCopyWith(
+          _LoginWithUsername value, $Res Function(_LoginWithUsername) then) =
+      __$LoginWithUsernameCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoginWithUsernameCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$LoginWithUsernameCopyWith<$Res> {
+  __$LoginWithUsernameCopyWithImpl(
+      _LoginWithUsername _value, $Res Function(_LoginWithUsername) _then)
+      : super(_value, (v) => _then(v as _LoginWithUsername));
+
+  @override
+  _LoginWithUsername get _value => super._value as _LoginWithUsername;
+}
+
+/// @nodoc
+class _$_LoginWithUsername implements _LoginWithUsername {
+  const _$_LoginWithUsername();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.loginWithUsername()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoginWithUsername);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return loginWithUsername();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithUsername != null) {
+      return loginWithUsername();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return loginWithUsername(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithUsername != null) {
+      return loginWithUsername(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoginWithUsername implements AuthenticationEvent {
+  const factory _LoginWithUsername() = _$_LoginWithUsername;
+}
+
+/// @nodoc
+abstract class _$RegisterWithEmailCopyWith<$Res> {
+  factory _$RegisterWithEmailCopyWith(
+          _RegisterWithEmail value, $Res Function(_RegisterWithEmail) then) =
+      __$RegisterWithEmailCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$RegisterWithEmailCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$RegisterWithEmailCopyWith<$Res> {
+  __$RegisterWithEmailCopyWithImpl(
+      _RegisterWithEmail _value, $Res Function(_RegisterWithEmail) _then)
+      : super(_value, (v) => _then(v as _RegisterWithEmail));
+
+  @override
+  _RegisterWithEmail get _value => super._value as _RegisterWithEmail;
+}
+
+/// @nodoc
+class _$_RegisterWithEmail implements _RegisterWithEmail {
+  const _$_RegisterWithEmail();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.registerWithEmail()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _RegisterWithEmail);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return registerWithEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (registerWithEmail != null) {
+      return registerWithEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return registerWithEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (registerWithEmail != null) {
+      return registerWithEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RegisterWithEmail implements AuthenticationEvent {
+  const factory _RegisterWithEmail() = _$_RegisterWithEmail;
+}
+
+/// @nodoc
+abstract class _$LoginWithGoogleCopyWith<$Res> {
+  factory _$LoginWithGoogleCopyWith(
+          _LoginWithGoogle value, $Res Function(_LoginWithGoogle) then) =
+      __$LoginWithGoogleCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoginWithGoogleCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$LoginWithGoogleCopyWith<$Res> {
+  __$LoginWithGoogleCopyWithImpl(
+      _LoginWithGoogle _value, $Res Function(_LoginWithGoogle) _then)
+      : super(_value, (v) => _then(v as _LoginWithGoogle));
+
+  @override
+  _LoginWithGoogle get _value => super._value as _LoginWithGoogle;
+}
+
+/// @nodoc
+class _$_LoginWithGoogle implements _LoginWithGoogle {
+  const _$_LoginWithGoogle();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.loginWithGoogle()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoginWithGoogle);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return loginWithGoogle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithGoogle != null) {
+      return loginWithGoogle();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return loginWithGoogle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithGoogle != null) {
+      return loginWithGoogle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoginWithGoogle implements AuthenticationEvent {
+  const factory _LoginWithGoogle() = _$_LoginWithGoogle;
+}
+
+/// @nodoc
+abstract class _$LoginWithFacebookCopyWith<$Res> {
+  factory _$LoginWithFacebookCopyWith(
+          _LoginWithFacebook value, $Res Function(_LoginWithFacebook) then) =
+      __$LoginWithFacebookCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoginWithFacebookCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$LoginWithFacebookCopyWith<$Res> {
+  __$LoginWithFacebookCopyWithImpl(
+      _LoginWithFacebook _value, $Res Function(_LoginWithFacebook) _then)
+      : super(_value, (v) => _then(v as _LoginWithFacebook));
+
+  @override
+  _LoginWithFacebook get _value => super._value as _LoginWithFacebook;
+}
+
+/// @nodoc
+class _$_LoginWithFacebook implements _LoginWithFacebook {
+  const _$_LoginWithFacebook();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.loginWithFacebook()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoginWithFacebook);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return loginWithFacebook();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithFacebook != null) {
+      return loginWithFacebook();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return loginWithFacebook(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (loginWithFacebook != null) {
+      return loginWithFacebook(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoginWithFacebook implements AuthenticationEvent {
+  const factory _LoginWithFacebook() = _$_LoginWithFacebook;
+}
+
+/// @nodoc
+abstract class _$ResetPasswordCopyWith<$Res> {
+  factory _$ResetPasswordCopyWith(
+          _ResetPassword value, $Res Function(_ResetPassword) then) =
+      __$ResetPasswordCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ResetPasswordCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$ResetPasswordCopyWith<$Res> {
+  __$ResetPasswordCopyWithImpl(
+      _ResetPassword _value, $Res Function(_ResetPassword) _then)
+      : super(_value, (v) => _then(v as _ResetPassword));
+
+  @override
+  _ResetPassword get _value => super._value as _ResetPassword;
+}
+
+/// @nodoc
+class _$_ResetPassword implements _ResetPassword {
+  const _$_ResetPassword();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.resetPassword()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _ResetPassword);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onUsernameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() loginWithUsername,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+  }) {
+    return resetPassword();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onUsernameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? loginWithUsername,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (resetPassword != null) {
+      return resetPassword();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_LoginWithUsername value) loginWithUsername,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return resetPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_LoginWithUsername value)? loginWithUsername,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (resetPassword != null) {
+      return resetPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResetPassword implements AuthenticationEvent {
+  const factory _ResetPassword() = _$_ResetPassword;
+}
+
+/// @nodoc
+class _$AuthenticationStateTearOff {
+  const _$AuthenticationStateTearOff();
+
+  _AuthenticationState call(
+      {required AuthFormType authFormType,
+      required Name name,
+      required Username username,
+      required Email email,
+      required Password password,
+      required FormzStatus status,
+      required bool showErrorMessage,
+      required bool checkingAuthStatus,
+      required bool loadingGoogleSignIn,
+      required bool loadingFacebookSignIn,
+      required Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
+      required Option<Either<AuthFailure, Unit>>
+          resetPasswordFailureOrSuccessOption}) {
+    return _AuthenticationState(
+      authFormType: authFormType,
+      name: name,
+      username: username,
+      email: email,
+      password: password,
+      status: status,
+      showErrorMessage: showErrorMessage,
+      checkingAuthStatus: checkingAuthStatus,
+      loadingGoogleSignIn: loadingGoogleSignIn,
+      loadingFacebookSignIn: loadingFacebookSignIn,
+      authFailureOrSuccessOption: authFailureOrSuccessOption,
+      resetPasswordFailureOrSuccessOption: resetPasswordFailureOrSuccessOption,
+    );
+  }
+}
+
+/// @nodoc
+const $AuthenticationState = _$AuthenticationStateTearOff();
+
+/// @nodoc
+mixin _$AuthenticationState {
+  AuthFormType get authFormType => throw _privateConstructorUsedError;
+  Name get name => throw _privateConstructorUsedError;
+  Username get username => throw _privateConstructorUsedError;
+  Email get email => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
+  FormzStatus get status => throw _privateConstructorUsedError;
+  bool get showErrorMessage => throw _privateConstructorUsedError;
+  bool get checkingAuthStatus => throw _privateConstructorUsedError;
+  bool get loadingGoogleSignIn => throw _privateConstructorUsedError;
+  bool get loadingFacebookSignIn => throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, User>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, Unit>> get resetPasswordFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AuthenticationStateCopyWith<AuthenticationState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AuthenticationStateCopyWith<$Res> {
+  factory $AuthenticationStateCopyWith(
+          AuthenticationState value, $Res Function(AuthenticationState) then) =
+      _$AuthenticationStateCopyWithImpl<$Res>;
+  $Res call(
+      {AuthFormType authFormType,
+      Name name,
+      Username username,
+      Email email,
+      Password password,
+      FormzStatus status,
+      bool showErrorMessage,
+      bool checkingAuthStatus,
+      bool loadingGoogleSignIn,
+      bool loadingFacebookSignIn,
+      Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption});
+
+  $AuthFormTypeCopyWith<$Res> get authFormType;
+}
+
+/// @nodoc
+class _$AuthenticationStateCopyWithImpl<$Res>
+    implements $AuthenticationStateCopyWith<$Res> {
+  _$AuthenticationStateCopyWithImpl(this._value, this._then);
+
+  final AuthenticationState _value;
+  // ignore: unused_field
+  final $Res Function(AuthenticationState) _then;
+
+  @override
+  $Res call({
+    Object? authFormType = freezed,
+    Object? name = freezed,
+    Object? username = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? status = freezed,
+    Object? showErrorMessage = freezed,
+    Object? checkingAuthStatus = freezed,
+    Object? loadingGoogleSignIn = freezed,
+    Object? loadingFacebookSignIn = freezed,
+    Object? authFailureOrSuccessOption = freezed,
+    Object? resetPasswordFailureOrSuccessOption = freezed,
+  }) {
+    return _then(_value.copyWith(
+      authFormType: authFormType == freezed
+          ? _value.authFormType
+          : authFormType // ignore: cast_nullable_to_non_nullable
+              as AuthFormType,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as Name,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as Username,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as Email,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      showErrorMessage: showErrorMessage == freezed
+          ? _value.showErrorMessage
+          : showErrorMessage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      checkingAuthStatus: checkingAuthStatus == freezed
+          ? _value.checkingAuthStatus
+          : checkingAuthStatus // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadingGoogleSignIn: loadingGoogleSignIn == freezed
+          ? _value.loadingGoogleSignIn
+          : loadingGoogleSignIn // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadingFacebookSignIn: loadingFacebookSignIn == freezed
+          ? _value.loadingFacebookSignIn
+          : loadingFacebookSignIn // ignore: cast_nullable_to_non_nullable
+              as bool,
+      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+          ? _value.authFailureOrSuccessOption
+          : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, User>>,
+      resetPasswordFailureOrSuccessOption: resetPasswordFailureOrSuccessOption ==
+              freezed
+          ? _value.resetPasswordFailureOrSuccessOption
+          : resetPasswordFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
+    ));
+  }
+
+  @override
+  $AuthFormTypeCopyWith<$Res> get authFormType {
+    return $AuthFormTypeCopyWith<$Res>(_value.authFormType, (value) {
+      return _then(_value.copyWith(authFormType: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$AuthenticationStateCopyWith<$Res>
+    implements $AuthenticationStateCopyWith<$Res> {
+  factory _$AuthenticationStateCopyWith(_AuthenticationState value,
+          $Res Function(_AuthenticationState) then) =
+      __$AuthenticationStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {AuthFormType authFormType,
+      Name name,
+      Username username,
+      Email email,
+      Password password,
+      FormzStatus status,
+      bool showErrorMessage,
+      bool checkingAuthStatus,
+      bool loadingGoogleSignIn,
+      bool loadingFacebookSignIn,
+      Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption});
+
+  @override
+  $AuthFormTypeCopyWith<$Res> get authFormType;
+}
+
+/// @nodoc
+class __$AuthenticationStateCopyWithImpl<$Res>
+    extends _$AuthenticationStateCopyWithImpl<$Res>
+    implements _$AuthenticationStateCopyWith<$Res> {
+  __$AuthenticationStateCopyWithImpl(
+      _AuthenticationState _value, $Res Function(_AuthenticationState) _then)
+      : super(_value, (v) => _then(v as _AuthenticationState));
+
+  @override
+  _AuthenticationState get _value => super._value as _AuthenticationState;
+
+  @override
+  $Res call({
+    Object? authFormType = freezed,
+    Object? name = freezed,
+    Object? username = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? status = freezed,
+    Object? showErrorMessage = freezed,
+    Object? checkingAuthStatus = freezed,
+    Object? loadingGoogleSignIn = freezed,
+    Object? loadingFacebookSignIn = freezed,
+    Object? authFailureOrSuccessOption = freezed,
+    Object? resetPasswordFailureOrSuccessOption = freezed,
+  }) {
+    return _then(_AuthenticationState(
+      authFormType: authFormType == freezed
+          ? _value.authFormType
+          : authFormType // ignore: cast_nullable_to_non_nullable
+              as AuthFormType,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as Name,
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as Username,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as Email,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as FormzStatus,
+      showErrorMessage: showErrorMessage == freezed
+          ? _value.showErrorMessage
+          : showErrorMessage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      checkingAuthStatus: checkingAuthStatus == freezed
+          ? _value.checkingAuthStatus
+          : checkingAuthStatus // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadingGoogleSignIn: loadingGoogleSignIn == freezed
+          ? _value.loadingGoogleSignIn
+          : loadingGoogleSignIn // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadingFacebookSignIn: loadingFacebookSignIn == freezed
+          ? _value.loadingFacebookSignIn
+          : loadingFacebookSignIn // ignore: cast_nullable_to_non_nullable
+              as bool,
+      authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
+          ? _value.authFailureOrSuccessOption
+          : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, User>>,
+      resetPasswordFailureOrSuccessOption: resetPasswordFailureOrSuccessOption ==
+              freezed
+          ? _value.resetPasswordFailureOrSuccessOption
+          : resetPasswordFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, Unit>>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_AuthenticationState implements _AuthenticationState {
+  const _$_AuthenticationState(
+      {required this.authFormType,
+      required this.name,
+      required this.username,
+      required this.email,
+      required this.password,
+      required this.status,
+      required this.showErrorMessage,
+      required this.checkingAuthStatus,
+      required this.loadingGoogleSignIn,
+      required this.loadingFacebookSignIn,
+      required this.authFailureOrSuccessOption,
+      required this.resetPasswordFailureOrSuccessOption});
+
+  @override
+  final AuthFormType authFormType;
+  @override
+  final Name name;
+  @override
+  final Username username;
+  @override
+  final Email email;
+  @override
+  final Password password;
+  @override
+  final FormzStatus status;
+  @override
+  final bool showErrorMessage;
+  @override
+  final bool checkingAuthStatus;
+  @override
+  final bool loadingGoogleSignIn;
+  @override
+  final bool loadingFacebookSignIn;
+  @override
+  final Option<Either<AuthFailure, User>> authFailureOrSuccessOption;
+  @override
+  final Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption;
+
+  @override
+  String toString() {
+    return 'AuthenticationState(authFormType: $authFormType, name: $name, username: $username, email: $email, password: $password, status: $status, showErrorMessage: $showErrorMessage, checkingAuthStatus: $checkingAuthStatus, loadingGoogleSignIn: $loadingGoogleSignIn, loadingFacebookSignIn: $loadingFacebookSignIn, authFailureOrSuccessOption: $authFailureOrSuccessOption, resetPasswordFailureOrSuccessOption: $resetPasswordFailureOrSuccessOption)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _AuthenticationState &&
+            (identical(other.authFormType, authFormType) ||
+                const DeepCollectionEquality()
+                    .equals(other.authFormType, authFormType)) &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.username, username) ||
+                const DeepCollectionEquality()
+                    .equals(other.username, username)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
+            (identical(other.showErrorMessage, showErrorMessage) ||
+                const DeepCollectionEquality()
+                    .equals(other.showErrorMessage, showErrorMessage)) &&
+            (identical(other.checkingAuthStatus, checkingAuthStatus) ||
+                const DeepCollectionEquality()
+                    .equals(other.checkingAuthStatus, checkingAuthStatus)) &&
+            (identical(other.loadingGoogleSignIn, loadingGoogleSignIn) ||
+                const DeepCollectionEquality()
+                    .equals(other.loadingGoogleSignIn, loadingGoogleSignIn)) &&
+            (identical(other.loadingFacebookSignIn, loadingFacebookSignIn) ||
+                const DeepCollectionEquality().equals(
+                    other.loadingFacebookSignIn, loadingFacebookSignIn)) &&
+            (identical(other.authFailureOrSuccessOption,
+                    authFailureOrSuccessOption) ||
+                const DeepCollectionEquality().equals(
+                    other.authFailureOrSuccessOption,
+                    authFailureOrSuccessOption)) &&
+            (identical(other.resetPasswordFailureOrSuccessOption,
+                    resetPasswordFailureOrSuccessOption) ||
+                const DeepCollectionEquality().equals(
+                    other.resetPasswordFailureOrSuccessOption,
+                    resetPasswordFailureOrSuccessOption)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(authFormType) ^
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(status) ^
+      const DeepCollectionEquality().hash(showErrorMessage) ^
+      const DeepCollectionEquality().hash(checkingAuthStatus) ^
+      const DeepCollectionEquality().hash(loadingGoogleSignIn) ^
+      const DeepCollectionEquality().hash(loadingFacebookSignIn) ^
+      const DeepCollectionEquality().hash(authFailureOrSuccessOption) ^
+      const DeepCollectionEquality().hash(resetPasswordFailureOrSuccessOption);
+
+  @JsonKey(ignore: true)
+  @override
+  _$AuthenticationStateCopyWith<_AuthenticationState> get copyWith =>
+      __$AuthenticationStateCopyWithImpl<_AuthenticationState>(
+          this, _$identity);
+}
+
+abstract class _AuthenticationState implements AuthenticationState {
+  const factory _AuthenticationState(
+      {required AuthFormType authFormType,
+      required Name name,
+      required Username username,
+      required Email email,
+      required Password password,
+      required FormzStatus status,
+      required bool showErrorMessage,
+      required bool checkingAuthStatus,
+      required bool loadingGoogleSignIn,
+      required bool loadingFacebookSignIn,
+      required Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
+      required Option<Either<AuthFailure, Unit>>
+          resetPasswordFailureOrSuccessOption}) = _$_AuthenticationState;
+
+  @override
+  AuthFormType get authFormType => throw _privateConstructorUsedError;
+  @override
+  Name get name => throw _privateConstructorUsedError;
+  @override
+  Username get username => throw _privateConstructorUsedError;
+  @override
+  Email get email => throw _privateConstructorUsedError;
+  @override
+  Password get password => throw _privateConstructorUsedError;
+  @override
+  FormzStatus get status => throw _privateConstructorUsedError;
+  @override
+  bool get showErrorMessage => throw _privateConstructorUsedError;
+  @override
+  bool get checkingAuthStatus => throw _privateConstructorUsedError;
+  @override
+  bool get loadingGoogleSignIn => throw _privateConstructorUsedError;
+  @override
+  bool get loadingFacebookSignIn => throw _privateConstructorUsedError;
+  @override
+  Option<Either<AuthFailure, User>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  @override
+  Option<Either<AuthFailure, Unit>> get resetPasswordFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$AuthenticationStateCopyWith<_AuthenticationState> get copyWith =>
+      throw _privateConstructorUsedError;
+}

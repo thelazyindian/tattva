@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tattva/constants/dimens.dart';
-import 'package:tattva/constants/others.dart';
+import 'package:tattva/utils/dimens.dart';
+import 'package:tattva/utils/others.dart';
 
 final primaryBtnShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.circular(primaryBtnRadius),

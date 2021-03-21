@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tattva/constants/dimens.dart';
-import 'package:tattva/constants/others.dart';
+import 'package:tattva/utils/dimens.dart';
+import 'package:tattva/utils/others.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   final String title;
@@ -16,13 +16,18 @@ class CustomSliverAppBar extends StatelessWidget {
       floating: false,
       pinned: false,
       automaticallyImplyLeading: true,
-      leading: Center(
-        child: SvgPicture.asset(
-          'icons/back.svg',
-          height: authBackBtnSize,
-          width: authBackBtnSize,
-        ),
-      ),
+      leading: Navigator.canPop(context)
+          ? Center(
+              child: IconButton(
+                onPressed: () => Navigator.pop(context),
+                icon: SvgPicture.asset(
+                  'icons/back.svg',
+                  height: authBackBtnSize,
+                  width: authBackBtnSize,
+                ),
+              ),
+            )
+          : null,
       flexibleSpace: FlexibleSpaceBar(
         centerTitle: true,
         titlePadding: authAppBarPadding,
