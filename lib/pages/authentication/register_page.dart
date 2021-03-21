@@ -8,6 +8,7 @@ import 'package:tattva/pages/authentication/widgets/name_field.dart';
 import 'package:tattva/pages/authentication/widgets/primary_login_button.dart';
 import 'package:tattva/pages/authentication/widgets/username_field.dart';
 import 'package:tattva/utils/dimens.dart';
+import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
 import 'package:tattva/utils/styles.dart';
 import 'package:formz/formz.dart';
@@ -81,6 +82,23 @@ class _RegisterPageState extends State<RegisterPage> {
                     style: secondaryBtnStyle.copyWith(
                       textStyle: MaterialStateProperty.all(secondaryBtnTextStyle
                           .copyWith(fontSize: authSecondaryBtnFontSize)),
+                    ),
+                  ),
+                  state.authFailureOrSuccessOption.fold(
+                    () => Container(),
+                    (authFailureOrSuccess) => authFailureOrSuccess.fold(
+                      (failure) => Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          failure.msg!,
+                          style: TextStyle(
+                            fontSize: errorTextSize,
+                            fontWeight: FontWeight.w400,
+                            color: errorTextColor,
+                          ),
+                        ),
+                      ),
+                      (r) => Container(),
                     ),
                   ),
                   const SizedBox(height: inputFieldsSpacing),

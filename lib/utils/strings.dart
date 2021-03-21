@@ -30,4 +30,5 @@ const EMPTY_PASSWORD_ERROR = 'Password cannot be empty.';
 const PASSWORD_HELPER =
     '8 to 20 characters. At least 1 lowercase, 1 uppercase, 1 number and 1 special character.';
 const INVALID_PASSWORD_ERROR = PASSWORD_HELPER;
+const INVALID_PASSWORD_LOGIN_ERROR = 'Invalid password.';
 const RESET_PASSWORD_EMAIL_MSG = 'Check your email for password reset link.';

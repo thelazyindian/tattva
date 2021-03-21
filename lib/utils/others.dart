@@ -4,7 +4,7 @@ const primaryColor = Color(0xFFFFFFFF);
 const accentColor = Color(0xFF000000);
 const fontFamily = 'Avenir';
 
-const appNameFontWeight = FontWeight.w700;
+const appNameFontWeight = FontWeight.w900;
 const headline1FontWeight = FontWeight.w900;
 const headline1Color = accentColor;
 

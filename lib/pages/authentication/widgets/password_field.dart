@@ -34,13 +34,17 @@ class _PasswordFieldState extends State<PasswordField> {
           decoration: InputDecoration(
             hintText: HINT_TXT_PASSWORD,
             helperText: widget.inLoginView ? null : PASSWORD_HELPER,
+            helperMaxLines: 2,
             errorText: state.showErrorMessage
                 ? state.password.error == PasswordError.empty
                     ? EMPTY_PASSWORD_ERROR
                     : state.password.error == PasswordError.invalid
-                        ? INVALID_PASSWORD_ERROR
+                        ? widget.inLoginView
+                            ? INVALID_PASSWORD_LOGIN_ERROR
+                            : INVALID_PASSWORD_ERROR
                         : null
                 : null,
+            errorMaxLines: 2,
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
