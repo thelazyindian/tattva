@@ -10,17 +10,12 @@ import 'package:tattva/pages/authentication/widgets/custom_sliver_app_bar.dart';
 import 'package:tattva/pages/authentication/widgets/email_field.dart';
 import 'package:tattva/pages/authentication/widgets/password_field.dart';
 import 'package:tattva/pages/authentication/widgets/primary_login_button.dart';
-import 'package:tattva/pages/authentication/widgets/username_field.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
 import 'package:tattva/utils/styles.dart';
 
 class LoginPage extends StatefulWidget {
-  final bool withEmail;
-
-  const LoginPage({Key? key, required this.withEmail}) : super(key: key);
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -58,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    if (widget.withEmail) EmailField() else UsernameField(),
+                    EmailField(),
                     const SizedBox(height: inputFieldsSpacing),
                     PasswordField(inLoginView: true),
                     const SizedBox(height: formBtnSpacing),
@@ -68,13 +63,8 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: loadingRequest
                           ? null
                           : () {
-                              if (widget.withEmail) {
-                                getIt<AuthenticationBloc>()
-                                    .add(AuthenticationEvent.loginWithEmail());
-                              } else {
-                                getIt<AuthenticationBloc>().add(
-                                    AuthenticationEvent.loginWithUsername());
-                              }
+                              getIt<AuthenticationBloc>()
+                                  .add(AuthenticationEvent.loginWithEmail());
                             },
                     ),
                     TextButton(
@@ -109,22 +99,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     Spacer(),
-                    if (!widget.withEmail)
-                      TextButton(
-                        onPressed: loadingRequest
-                            ? null
-                            : () {
-                                Navigator.pushNamed(
-                                        context, '/login_with_email')
-                                    .then((value) => setBloc());
-                              },
-                        child: Text(BTN_LOGIN_WITH_EMAIL),
-                        style: secondaryBtnStyle.copyWith(
-                          textStyle: MaterialStateProperty.all(
-                              secondaryBtnTextStyle.copyWith(
-                                  fontSize: authSecondaryBtnFontSize)),
-                        ),
-                      ),
                     ContinueWithFacebook(),
                     const SizedBox(height: inputFieldsSpacing),
                     ContinueWithGoogle(),
@@ -138,9 +112,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  setBloc() => getIt<AuthenticationBloc>().add(AuthenticationEvent.setFormType(
-        widget.withEmail
-            ? AuthFormType.loginWithEmail()
-            : AuthFormType.loginWithUsername(),
-      ));
+  setBloc() => getIt<AuthenticationBloc>()
+      .add(AuthenticationEvent.setFormType(AuthFormType.loginWithEmail()));
 }

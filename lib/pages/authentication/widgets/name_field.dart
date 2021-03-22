@@ -8,6 +8,10 @@ import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/strings.dart';
 
 class NameField extends StatelessWidget {
+  const NameField({Key? key, this.initialValue}) : super(key: key);
+
+  final String? initialValue;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthenticationBloc, AuthenticationState>(
@@ -15,6 +19,7 @@ class NameField extends StatelessWidget {
       builder: (context, state) {
         return TextFormField(
           cursorWidth: cursorWidth,
+          initialValue: initialValue,
           enabled: !(state.loadingGoogleSignIn ||
               state.loadingFacebookSignIn ||
               state.status.isSubmissionInProgress),

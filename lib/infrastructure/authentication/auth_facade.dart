@@ -12,7 +12,6 @@ import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/domain/authentication/name.dart';
 import 'package:tattva/domain/authentication/password.dart';
 import 'package:tattva/domain/authentication/user.dart' as user;
-import 'package:tattva/domain/authentication/username.dart';
 import 'package:tattva/utils/db.dart';
 
 @LazySingleton(as: IAuthFacade)
@@ -67,7 +66,6 @@ class AuthFacade implements IAuthFacade {
   @override
   Future<Either<AuthFailure, user.User>> createUserWithEmailAndPassword(
     Name name,
-    Username username,
     Email email,
     Password password,
   ) async {
@@ -83,7 +81,6 @@ class AuthFacade implements IAuthFacade {
       final userMap = {
         'displayName': _name,
         'email': _user.email,
-        'username': username.value,
         'creationTime': Timestamp.fromDate(_user.metadata.creationTime!),
         'lastSignInTime': Timestamp.fromDate(_user.metadata.lastSignInTime!),
       };
@@ -140,7 +137,6 @@ class AuthFacade implements IAuthFacade {
       final userMap = {
         'displayName': _user.displayName,
         'email': _user.email,
-        'username': '',
         'creationTime': Timestamp.fromDate(_user.metadata.creationTime!),
         'lastSignInTime': Timestamp.fromDate(_user.metadata.lastSignInTime!),
       };
@@ -184,7 +180,6 @@ class AuthFacade implements IAuthFacade {
       final userMap = {
         'displayName': _user.displayName,
         'email': _user.email,
-        'username': '',
         'creationTime': Timestamp.fromDate(_user.metadata.creationTime!),
         'lastSignInTime': Timestamp.fromDate(_user.metadata.lastSignInTime!),
       };

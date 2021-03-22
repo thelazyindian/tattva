@@ -60,10 +60,9 @@ class MyApp extends StatelessWidget {
       home: SplashPage(),
       routes: {
         '/landing': (_) => LandingPage(),
-        '/home': (_) => HomePage(),
+        '/home': (_) => ProfilePage(),
         '/register': (_) => RegisterPage(),
-        '/login': (_) => LoginPage(withEmail: false),
-        '/login_with_email': (_) => LoginPage(withEmail: true),
+        '/login': (_) => LoginPage(),
         '/forgot_password': (_) => ForgotPassword(),
         '/edit_profile': (_) => EditProfilePage(),
       },

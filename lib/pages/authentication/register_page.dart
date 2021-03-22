@@ -6,7 +6,6 @@ import 'package:tattva/injection.dart';
 import 'package:tattva/pages/authentication/widgets/email_field.dart';
 import 'package:tattva/pages/authentication/widgets/name_field.dart';
 import 'package:tattva/pages/authentication/widgets/primary_login_button.dart';
-import 'package:tattva/pages/authentication/widgets/username_field.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
@@ -53,8 +52,6 @@ class _RegisterPageState extends State<RegisterPage> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  UsernameField(),
-                  const SizedBox(height: inputFieldsSpacing),
                   NameField(),
                   const SizedBox(height: inputFieldsSpacing),
                   EmailField(),
@@ -75,7 +72,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     onPressed: loadingRequest
                         ? null
                         : () {
-                            Navigator.pushNamed(context, '/login_with_email')
+                            Navigator.pushNamed(context, '/login')
                                 .then((value) => setBloc());
                           },
                     child: Text(BTN_LOGIN_WITH_EMAIL),

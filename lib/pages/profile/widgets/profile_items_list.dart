@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tattva/domain/authentication/i_auth_facade.dart';
+import 'package:tattva/injection.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
 
@@ -47,7 +49,16 @@ class ProfileItemsList extends StatelessWidget {
       {
         'icon': 'icons/exit.svg',
         'name': PROFILE_ITEM_LOGOUT,
-        'onTap': () {},
+        'onTap': () {
+          getIt<IAuthFacade>().signOut().then((value) => value.fold(
+                (l) => null,
+                (r) => Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  '/landing',
+                  (route) => false,
+                ),
+              ));
+        },
       },
     ];
 

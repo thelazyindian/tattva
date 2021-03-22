@@ -34,12 +34,6 @@ class _$AuthenticationEventTearOff {
     );
   }
 
-  _OnUsernameChanged onUsernameChanged(String value) {
-    return _OnUsernameChanged(
-      value,
-    );
-  }
-
   _OnPasswordChanged onPasswordChanged(String value) {
     return _OnPasswordChanged(
       value,
@@ -52,10 +46,6 @@ class _$AuthenticationEventTearOff {
 
   _LoginWithEmail loginWithEmail() {
     return const _LoginWithEmail();
-  }
-
-  _LoginWithUsername loginWithUsername() {
-    return const _LoginWithUsername();
   }
 
   _RegisterWithEmail registerWithEmail() {
@@ -85,11 +75,9 @@ mixin _$AuthenticationEvent {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -101,11 +89,9 @@ mixin _$AuthenticationEvent {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -118,11 +104,9 @@ mixin _$AuthenticationEvent {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -134,11 +118,9 @@ mixin _$AuthenticationEvent {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -242,11 +224,9 @@ class _$_SetFormType implements _SetFormType {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -261,11 +241,9 @@ class _$_SetFormType implements _SetFormType {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -284,11 +262,9 @@ class _$_SetFormType implements _SetFormType {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -303,11 +279,9 @@ class _$_SetFormType implements _SetFormType {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -397,11 +371,9 @@ class _$_OnEmailChanged implements _OnEmailChanged {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -416,11 +388,9 @@ class _$_OnEmailChanged implements _OnEmailChanged {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -439,11 +409,9 @@ class _$_OnEmailChanged implements _OnEmailChanged {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -458,11 +426,9 @@ class _$_OnEmailChanged implements _OnEmailChanged {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -552,11 +518,9 @@ class _$_OnNameChanged implements _OnNameChanged {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -571,11 +535,9 @@ class _$_OnNameChanged implements _OnNameChanged {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -594,11 +556,9 @@ class _$_OnNameChanged implements _OnNameChanged {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -613,11 +573,9 @@ class _$_OnNameChanged implements _OnNameChanged {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -637,161 +595,6 @@ abstract class _OnNameChanged implements AuthenticationEvent {
   String get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$OnNameChangedCopyWith<_OnNameChanged> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$OnUsernameChangedCopyWith<$Res> {
-  factory _$OnUsernameChangedCopyWith(
-          _OnUsernameChanged value, $Res Function(_OnUsernameChanged) then) =
-      __$OnUsernameChangedCopyWithImpl<$Res>;
-  $Res call({String value});
-}
-
-/// @nodoc
-class __$OnUsernameChangedCopyWithImpl<$Res>
-    extends _$AuthenticationEventCopyWithImpl<$Res>
-    implements _$OnUsernameChangedCopyWith<$Res> {
-  __$OnUsernameChangedCopyWithImpl(
-      _OnUsernameChanged _value, $Res Function(_OnUsernameChanged) _then)
-      : super(_value, (v) => _then(v as _OnUsernameChanged));
-
-  @override
-  _OnUsernameChanged get _value => super._value as _OnUsernameChanged;
-
-  @override
-  $Res call({
-    Object? value = freezed,
-  }) {
-    return _then(_OnUsernameChanged(
-      value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-class _$_OnUsernameChanged implements _OnUsernameChanged {
-  const _$_OnUsernameChanged(this.value);
-
-  @override
-  final String value;
-
-  @override
-  String toString() {
-    return 'AuthenticationEvent.onUsernameChanged(value: $value)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _OnUsernameChanged &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
-
-  @JsonKey(ignore: true)
-  @override
-  _$OnUsernameChangedCopyWith<_OnUsernameChanged> get copyWith =>
-      __$OnUsernameChangedCopyWithImpl<_OnUsernameChanged>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AuthFormType authFormType) setFormType,
-    required TResult Function(String value) onEmailChanged,
-    required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
-    required TResult Function(String value) onPasswordChanged,
-    required TResult Function() authCheckRequested,
-    required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
-    required TResult Function() registerWithEmail,
-    required TResult Function() loginWithGoogle,
-    required TResult Function() loginWithFacebook,
-    required TResult Function() resetPassword,
-  }) {
-    return onUsernameChanged(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthFormType authFormType)? setFormType,
-    TResult Function(String value)? onEmailChanged,
-    TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
-    TResult Function(String value)? onPasswordChanged,
-    TResult Function()? authCheckRequested,
-    TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
-    TResult Function()? registerWithEmail,
-    TResult Function()? loginWithGoogle,
-    TResult Function()? loginWithFacebook,
-    TResult Function()? resetPassword,
-    required TResult orElse(),
-  }) {
-    if (onUsernameChanged != null) {
-      return onUsernameChanged(value);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetFormType value) setFormType,
-    required TResult Function(_OnEmailChanged value) onEmailChanged,
-    required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
-    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
-    required TResult Function(_AuthCheckRequested value) authCheckRequested,
-    required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
-    required TResult Function(_RegisterWithEmail value) registerWithEmail,
-    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
-    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
-    required TResult Function(_ResetPassword value) resetPassword,
-  }) {
-    return onUsernameChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetFormType value)? setFormType,
-    TResult Function(_OnEmailChanged value)? onEmailChanged,
-    TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
-    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
-    TResult Function(_AuthCheckRequested value)? authCheckRequested,
-    TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
-    TResult Function(_RegisterWithEmail value)? registerWithEmail,
-    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
-    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
-    TResult Function(_ResetPassword value)? resetPassword,
-    required TResult orElse(),
-  }) {
-    if (onUsernameChanged != null) {
-      return onUsernameChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _OnUsernameChanged implements AuthenticationEvent {
-  const factory _OnUsernameChanged(String value) = _$_OnUsernameChanged;
-
-  String get value => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$OnUsernameChangedCopyWith<_OnUsernameChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -862,11 +665,9 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -881,11 +682,9 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -904,11 +703,9 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -923,11 +720,9 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -992,11 +787,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -1011,11 +804,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -1034,11 +825,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -1053,11 +842,9 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -1117,11 +904,9 @@ class _$_LoginWithEmail implements _LoginWithEmail {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -1136,11 +921,9 @@ class _$_LoginWithEmail implements _LoginWithEmail {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -1159,11 +942,9 @@ class _$_LoginWithEmail implements _LoginWithEmail {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -1178,11 +959,9 @@ class _$_LoginWithEmail implements _LoginWithEmail {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -1198,131 +977,6 @@ class _$_LoginWithEmail implements _LoginWithEmail {
 
 abstract class _LoginWithEmail implements AuthenticationEvent {
   const factory _LoginWithEmail() = _$_LoginWithEmail;
-}
-
-/// @nodoc
-abstract class _$LoginWithUsernameCopyWith<$Res> {
-  factory _$LoginWithUsernameCopyWith(
-          _LoginWithUsername value, $Res Function(_LoginWithUsername) then) =
-      __$LoginWithUsernameCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$LoginWithUsernameCopyWithImpl<$Res>
-    extends _$AuthenticationEventCopyWithImpl<$Res>
-    implements _$LoginWithUsernameCopyWith<$Res> {
-  __$LoginWithUsernameCopyWithImpl(
-      _LoginWithUsername _value, $Res Function(_LoginWithUsername) _then)
-      : super(_value, (v) => _then(v as _LoginWithUsername));
-
-  @override
-  _LoginWithUsername get _value => super._value as _LoginWithUsername;
-}
-
-/// @nodoc
-class _$_LoginWithUsername implements _LoginWithUsername {
-  const _$_LoginWithUsername();
-
-  @override
-  String toString() {
-    return 'AuthenticationEvent.loginWithUsername()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoginWithUsername);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AuthFormType authFormType) setFormType,
-    required TResult Function(String value) onEmailChanged,
-    required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
-    required TResult Function(String value) onPasswordChanged,
-    required TResult Function() authCheckRequested,
-    required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
-    required TResult Function() registerWithEmail,
-    required TResult Function() loginWithGoogle,
-    required TResult Function() loginWithFacebook,
-    required TResult Function() resetPassword,
-  }) {
-    return loginWithUsername();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthFormType authFormType)? setFormType,
-    TResult Function(String value)? onEmailChanged,
-    TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
-    TResult Function(String value)? onPasswordChanged,
-    TResult Function()? authCheckRequested,
-    TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
-    TResult Function()? registerWithEmail,
-    TResult Function()? loginWithGoogle,
-    TResult Function()? loginWithFacebook,
-    TResult Function()? resetPassword,
-    required TResult orElse(),
-  }) {
-    if (loginWithUsername != null) {
-      return loginWithUsername();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SetFormType value) setFormType,
-    required TResult Function(_OnEmailChanged value) onEmailChanged,
-    required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
-    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
-    required TResult Function(_AuthCheckRequested value) authCheckRequested,
-    required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
-    required TResult Function(_RegisterWithEmail value) registerWithEmail,
-    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
-    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
-    required TResult Function(_ResetPassword value) resetPassword,
-  }) {
-    return loginWithUsername(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SetFormType value)? setFormType,
-    TResult Function(_OnEmailChanged value)? onEmailChanged,
-    TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
-    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
-    TResult Function(_AuthCheckRequested value)? authCheckRequested,
-    TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
-    TResult Function(_RegisterWithEmail value)? registerWithEmail,
-    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
-    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
-    TResult Function(_ResetPassword value)? resetPassword,
-    required TResult orElse(),
-  }) {
-    if (loginWithUsername != null) {
-      return loginWithUsername(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoginWithUsername implements AuthenticationEvent {
-  const factory _LoginWithUsername() = _$_LoginWithUsername;
 }
 
 /// @nodoc
@@ -1367,11 +1021,9 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -1386,11 +1038,9 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -1409,11 +1059,9 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -1428,11 +1076,9 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -1492,11 +1138,9 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -1511,11 +1155,9 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -1534,11 +1176,9 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -1553,11 +1193,9 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -1617,11 +1255,9 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -1636,11 +1272,9 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -1659,11 +1293,9 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -1678,11 +1310,9 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -1742,11 +1372,9 @@ class _$_ResetPassword implements _ResetPassword {
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
-    required TResult Function(String value) onUsernameChanged,
     required TResult Function(String value) onPasswordChanged,
     required TResult Function() authCheckRequested,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() registerWithEmail,
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
@@ -1761,11 +1389,9 @@ class _$_ResetPassword implements _ResetPassword {
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
-    TResult Function(String value)? onUsernameChanged,
     TResult Function(String value)? onPasswordChanged,
     TResult Function()? authCheckRequested,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? registerWithEmail,
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
@@ -1784,11 +1410,9 @@ class _$_ResetPassword implements _ResetPassword {
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
-    required TResult Function(_OnUsernameChanged value) onUsernameChanged,
     required TResult Function(_OnPasswordChanged value) onPasswordChanged,
     required TResult Function(_AuthCheckRequested value) authCheckRequested,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_RegisterWithEmail value) registerWithEmail,
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
@@ -1803,11 +1427,9 @@ class _$_ResetPassword implements _ResetPassword {
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
-    TResult Function(_OnUsernameChanged value)? onUsernameChanged,
     TResult Function(_OnPasswordChanged value)? onPasswordChanged,
     TResult Function(_AuthCheckRequested value)? authCheckRequested,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_RegisterWithEmail value)? registerWithEmail,
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
@@ -1832,7 +1454,6 @@ class _$AuthenticationStateTearOff {
   _AuthenticationState call(
       {required AuthFormType authFormType,
       required Name name,
-      required Username username,
       required Email email,
       required Password password,
       required FormzStatus status,
@@ -1841,12 +1462,13 @@ class _$AuthenticationStateTearOff {
       required bool loadingGoogleSignIn,
       required bool loadingFacebookSignIn,
       required Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
+      required Option<Either<AuthFailure, User>>
+          updateProfileFailureOrSuccessOption,
       required Option<Either<AuthFailure, Unit>>
           resetPasswordFailureOrSuccessOption}) {
     return _AuthenticationState(
       authFormType: authFormType,
       name: name,
-      username: username,
       email: email,
       password: password,
       status: status,
@@ -1855,6 +1477,7 @@ class _$AuthenticationStateTearOff {
       loadingGoogleSignIn: loadingGoogleSignIn,
       loadingFacebookSignIn: loadingFacebookSignIn,
       authFailureOrSuccessOption: authFailureOrSuccessOption,
+      updateProfileFailureOrSuccessOption: updateProfileFailureOrSuccessOption,
       resetPasswordFailureOrSuccessOption: resetPasswordFailureOrSuccessOption,
     );
   }
@@ -1867,7 +1490,6 @@ const $AuthenticationState = _$AuthenticationStateTearOff();
 mixin _$AuthenticationState {
   AuthFormType get authFormType => throw _privateConstructorUsedError;
   Name get name => throw _privateConstructorUsedError;
-  Username get username => throw _privateConstructorUsedError;
   Email get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   FormzStatus get status => throw _privateConstructorUsedError;
@@ -1876,6 +1498,8 @@ mixin _$AuthenticationState {
   bool get loadingGoogleSignIn => throw _privateConstructorUsedError;
   bool get loadingFacebookSignIn => throw _privateConstructorUsedError;
   Option<Either<AuthFailure, User>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  Option<Either<AuthFailure, User>> get updateProfileFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get resetPasswordFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
@@ -1893,7 +1517,6 @@ abstract class $AuthenticationStateCopyWith<$Res> {
   $Res call(
       {AuthFormType authFormType,
       Name name,
-      Username username,
       Email email,
       Password password,
       FormzStatus status,
@@ -1902,6 +1525,7 @@ abstract class $AuthenticationStateCopyWith<$Res> {
       bool loadingGoogleSignIn,
       bool loadingFacebookSignIn,
       Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, User>> updateProfileFailureOrSuccessOption,
       Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption});
 
   $AuthFormTypeCopyWith<$Res> get authFormType;
@@ -1920,7 +1544,6 @@ class _$AuthenticationStateCopyWithImpl<$Res>
   $Res call({
     Object? authFormType = freezed,
     Object? name = freezed,
-    Object? username = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? status = freezed,
@@ -1929,6 +1552,7 @@ class _$AuthenticationStateCopyWithImpl<$Res>
     Object? loadingGoogleSignIn = freezed,
     Object? loadingFacebookSignIn = freezed,
     Object? authFailureOrSuccessOption = freezed,
+    Object? updateProfileFailureOrSuccessOption = freezed,
     Object? resetPasswordFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1940,10 +1564,6 @@ class _$AuthenticationStateCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Name,
-      username: username == freezed
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as Username,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -1975,6 +1595,11 @@ class _$AuthenticationStateCopyWithImpl<$Res>
       authFailureOrSuccessOption: authFailureOrSuccessOption == freezed
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, User>>,
+      updateProfileFailureOrSuccessOption: updateProfileFailureOrSuccessOption ==
+              freezed
+          ? _value.updateProfileFailureOrSuccessOption
+          : updateProfileFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, User>>,
       resetPasswordFailureOrSuccessOption: resetPasswordFailureOrSuccessOption ==
               freezed
@@ -2002,7 +1627,6 @@ abstract class _$AuthenticationStateCopyWith<$Res>
   $Res call(
       {AuthFormType authFormType,
       Name name,
-      Username username,
       Email email,
       Password password,
       FormzStatus status,
@@ -2011,6 +1635,7 @@ abstract class _$AuthenticationStateCopyWith<$Res>
       bool loadingGoogleSignIn,
       bool loadingFacebookSignIn,
       Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
+      Option<Either<AuthFailure, User>> updateProfileFailureOrSuccessOption,
       Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption});
 
   @override
@@ -2032,7 +1657,6 @@ class __$AuthenticationStateCopyWithImpl<$Res>
   $Res call({
     Object? authFormType = freezed,
     Object? name = freezed,
-    Object? username = freezed,
     Object? email = freezed,
     Object? password = freezed,
     Object? status = freezed,
@@ -2041,6 +1665,7 @@ class __$AuthenticationStateCopyWithImpl<$Res>
     Object? loadingGoogleSignIn = freezed,
     Object? loadingFacebookSignIn = freezed,
     Object? authFailureOrSuccessOption = freezed,
+    Object? updateProfileFailureOrSuccessOption = freezed,
     Object? resetPasswordFailureOrSuccessOption = freezed,
   }) {
     return _then(_AuthenticationState(
@@ -2052,10 +1677,6 @@ class __$AuthenticationStateCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Name,
-      username: username == freezed
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as Username,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -2088,6 +1709,11 @@ class __$AuthenticationStateCopyWithImpl<$Res>
           ? _value.authFailureOrSuccessOption
           : authFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, User>>,
+      updateProfileFailureOrSuccessOption: updateProfileFailureOrSuccessOption ==
+              freezed
+          ? _value.updateProfileFailureOrSuccessOption
+          : updateProfileFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<AuthFailure, User>>,
       resetPasswordFailureOrSuccessOption: resetPasswordFailureOrSuccessOption ==
               freezed
           ? _value.resetPasswordFailureOrSuccessOption
@@ -2102,7 +1728,6 @@ class _$_AuthenticationState implements _AuthenticationState {
   const _$_AuthenticationState(
       {required this.authFormType,
       required this.name,
-      required this.username,
       required this.email,
       required this.password,
       required this.status,
@@ -2111,14 +1736,13 @@ class _$_AuthenticationState implements _AuthenticationState {
       required this.loadingGoogleSignIn,
       required this.loadingFacebookSignIn,
       required this.authFailureOrSuccessOption,
+      required this.updateProfileFailureOrSuccessOption,
       required this.resetPasswordFailureOrSuccessOption});
 
   @override
   final AuthFormType authFormType;
   @override
   final Name name;
-  @override
-  final Username username;
   @override
   final Email email;
   @override
@@ -2136,11 +1760,13 @@ class _$_AuthenticationState implements _AuthenticationState {
   @override
   final Option<Either<AuthFailure, User>> authFailureOrSuccessOption;
   @override
+  final Option<Either<AuthFailure, User>> updateProfileFailureOrSuccessOption;
+  @override
   final Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'AuthenticationState(authFormType: $authFormType, name: $name, username: $username, email: $email, password: $password, status: $status, showErrorMessage: $showErrorMessage, checkingAuthStatus: $checkingAuthStatus, loadingGoogleSignIn: $loadingGoogleSignIn, loadingFacebookSignIn: $loadingFacebookSignIn, authFailureOrSuccessOption: $authFailureOrSuccessOption, resetPasswordFailureOrSuccessOption: $resetPasswordFailureOrSuccessOption)';
+    return 'AuthenticationState(authFormType: $authFormType, name: $name, email: $email, password: $password, status: $status, showErrorMessage: $showErrorMessage, checkingAuthStatus: $checkingAuthStatus, loadingGoogleSignIn: $loadingGoogleSignIn, loadingFacebookSignIn: $loadingFacebookSignIn, authFailureOrSuccessOption: $authFailureOrSuccessOption, updateProfileFailureOrSuccessOption: $updateProfileFailureOrSuccessOption, resetPasswordFailureOrSuccessOption: $resetPasswordFailureOrSuccessOption)';
   }
 
   @override
@@ -2152,9 +1778,6 @@ class _$_AuthenticationState implements _AuthenticationState {
                     .equals(other.authFormType, authFormType)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.username, username) ||
-                const DeepCollectionEquality()
-                    .equals(other.username, username)) &&
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)) &&
             (identical(other.password, password) ||
@@ -2179,6 +1802,11 @@ class _$_AuthenticationState implements _AuthenticationState {
                 const DeepCollectionEquality().equals(
                     other.authFailureOrSuccessOption,
                     authFailureOrSuccessOption)) &&
+            (identical(other.updateProfileFailureOrSuccessOption,
+                    updateProfileFailureOrSuccessOption) ||
+                const DeepCollectionEquality().equals(
+                    other.updateProfileFailureOrSuccessOption,
+                    updateProfileFailureOrSuccessOption)) &&
             (identical(other.resetPasswordFailureOrSuccessOption,
                     resetPasswordFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -2191,7 +1819,6 @@ class _$_AuthenticationState implements _AuthenticationState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(authFormType) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(status) ^
@@ -2200,6 +1827,7 @@ class _$_AuthenticationState implements _AuthenticationState {
       const DeepCollectionEquality().hash(loadingGoogleSignIn) ^
       const DeepCollectionEquality().hash(loadingFacebookSignIn) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption) ^
+      const DeepCollectionEquality().hash(updateProfileFailureOrSuccessOption) ^
       const DeepCollectionEquality().hash(resetPasswordFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -2213,7 +1841,6 @@ abstract class _AuthenticationState implements AuthenticationState {
   const factory _AuthenticationState(
       {required AuthFormType authFormType,
       required Name name,
-      required Username username,
       required Email email,
       required Password password,
       required FormzStatus status,
@@ -2222,6 +1849,8 @@ abstract class _AuthenticationState implements AuthenticationState {
       required bool loadingGoogleSignIn,
       required bool loadingFacebookSignIn,
       required Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
+      required Option<Either<AuthFailure, User>>
+          updateProfileFailureOrSuccessOption,
       required Option<Either<AuthFailure, Unit>>
           resetPasswordFailureOrSuccessOption}) = _$_AuthenticationState;
 
@@ -2229,8 +1858,6 @@ abstract class _AuthenticationState implements AuthenticationState {
   AuthFormType get authFormType => throw _privateConstructorUsedError;
   @override
   Name get name => throw _privateConstructorUsedError;
-  @override
-  Username get username => throw _privateConstructorUsedError;
   @override
   Email get email => throw _privateConstructorUsedError;
   @override
@@ -2247,6 +1874,9 @@ abstract class _AuthenticationState implements AuthenticationState {
   bool get loadingFacebookSignIn => throw _privateConstructorUsedError;
   @override
   Option<Either<AuthFailure, User>> get authFailureOrSuccessOption =>
+      throw _privateConstructorUsedError;
+  @override
+  Option<Either<AuthFailure, User>> get updateProfileFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
   @override
   Option<Either<AuthFailure, Unit>> get resetPasswordFailureOrSuccessOption =>

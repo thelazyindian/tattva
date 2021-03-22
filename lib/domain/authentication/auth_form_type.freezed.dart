@@ -20,12 +20,12 @@ class _$AuthFormTypeTearOff {
     return const _AuthFormType();
   }
 
-  _LoginWithEmail loginWithEmail() {
-    return const _LoginWithEmail();
+  _UpdateProfile updateProfile() {
+    return const _UpdateProfile();
   }
 
-  _LoginWithUsername loginWithUsername() {
-    return const _LoginWithUsername();
+  _LoginWithEmail loginWithEmail() {
+    return const _LoginWithEmail();
   }
 
   _Register register() {
@@ -45,8 +45,8 @@ mixin _$AuthFormType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
+    required TResult Function() updateProfile,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() register,
     required TResult Function() resetPassword,
   }) =>
@@ -54,8 +54,8 @@ mixin _$AuthFormType {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
+    TResult Function()? updateProfile,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? register,
     TResult Function()? resetPassword,
     required TResult orElse(),
@@ -64,8 +64,8 @@ mixin _$AuthFormType {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_AuthFormType value) $default, {
+    required TResult Function(_UpdateProfile value) updateProfile,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_Register value) register,
     required TResult Function(_ResetPassword value) resetPassword,
   }) =>
@@ -73,8 +73,8 @@ mixin _$AuthFormType {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_AuthFormType value)? $default, {
+    TResult Function(_UpdateProfile value)? updateProfile,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_Register value)? register,
     TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
@@ -137,8 +137,8 @@ class _$_AuthFormType implements _AuthFormType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
+    required TResult Function() updateProfile,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() register,
     required TResult Function() resetPassword,
   }) {
@@ -149,8 +149,8 @@ class _$_AuthFormType implements _AuthFormType {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
+    TResult Function()? updateProfile,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? register,
     TResult Function()? resetPassword,
     required TResult orElse(),
@@ -165,8 +165,8 @@ class _$_AuthFormType implements _AuthFormType {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_AuthFormType value) $default, {
+    required TResult Function(_UpdateProfile value) updateProfile,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_Register value) register,
     required TResult Function(_ResetPassword value) resetPassword,
   }) {
@@ -177,8 +177,8 @@ class _$_AuthFormType implements _AuthFormType {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_AuthFormType value)? $default, {
+    TResult Function(_UpdateProfile value)? updateProfile,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_Register value)? register,
     TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
@@ -192,6 +192,103 @@ class _$_AuthFormType implements _AuthFormType {
 
 abstract class _AuthFormType implements AuthFormType {
   const factory _AuthFormType() = _$_AuthFormType;
+}
+
+/// @nodoc
+abstract class _$UpdateProfileCopyWith<$Res> {
+  factory _$UpdateProfileCopyWith(
+          _UpdateProfile value, $Res Function(_UpdateProfile) then) =
+      __$UpdateProfileCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$UpdateProfileCopyWithImpl<$Res>
+    extends _$AuthFormTypeCopyWithImpl<$Res>
+    implements _$UpdateProfileCopyWith<$Res> {
+  __$UpdateProfileCopyWithImpl(
+      _UpdateProfile _value, $Res Function(_UpdateProfile) _then)
+      : super(_value, (v) => _then(v as _UpdateProfile));
+
+  @override
+  _UpdateProfile get _value => super._value as _UpdateProfile;
+}
+
+/// @nodoc
+class _$_UpdateProfile implements _UpdateProfile {
+  const _$_UpdateProfile();
+
+  @override
+  String toString() {
+    return 'AuthFormType.updateProfile()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _UpdateProfile);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() updateProfile,
+    required TResult Function() loginWithEmail,
+    required TResult Function() register,
+    required TResult Function() resetPassword,
+  }) {
+    return updateProfile();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? updateProfile,
+    TResult Function()? loginWithEmail,
+    TResult Function()? register,
+    TResult Function()? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (updateProfile != null) {
+      return updateProfile();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_AuthFormType value) $default, {
+    required TResult Function(_UpdateProfile value) updateProfile,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_Register value) register,
+    required TResult Function(_ResetPassword value) resetPassword,
+  }) {
+    return updateProfile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_AuthFormType value)? $default, {
+    TResult Function(_UpdateProfile value)? updateProfile,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_Register value)? register,
+    TResult Function(_ResetPassword value)? resetPassword,
+    required TResult orElse(),
+  }) {
+    if (updateProfile != null) {
+      return updateProfile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateProfile implements AuthFormType {
+  const factory _UpdateProfile() = _$_UpdateProfile;
 }
 
 /// @nodoc
@@ -234,8 +331,8 @@ class _$_LoginWithEmail implements _LoginWithEmail {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
+    required TResult Function() updateProfile,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() register,
     required TResult Function() resetPassword,
   }) {
@@ -246,8 +343,8 @@ class _$_LoginWithEmail implements _LoginWithEmail {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
+    TResult Function()? updateProfile,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? register,
     TResult Function()? resetPassword,
     required TResult orElse(),
@@ -262,8 +359,8 @@ class _$_LoginWithEmail implements _LoginWithEmail {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_AuthFormType value) $default, {
+    required TResult Function(_UpdateProfile value) updateProfile,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_Register value) register,
     required TResult Function(_ResetPassword value) resetPassword,
   }) {
@@ -274,8 +371,8 @@ class _$_LoginWithEmail implements _LoginWithEmail {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_AuthFormType value)? $default, {
+    TResult Function(_UpdateProfile value)? updateProfile,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_Register value)? register,
     TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
@@ -289,103 +386,6 @@ class _$_LoginWithEmail implements _LoginWithEmail {
 
 abstract class _LoginWithEmail implements AuthFormType {
   const factory _LoginWithEmail() = _$_LoginWithEmail;
-}
-
-/// @nodoc
-abstract class _$LoginWithUsernameCopyWith<$Res> {
-  factory _$LoginWithUsernameCopyWith(
-          _LoginWithUsername value, $Res Function(_LoginWithUsername) then) =
-      __$LoginWithUsernameCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$LoginWithUsernameCopyWithImpl<$Res>
-    extends _$AuthFormTypeCopyWithImpl<$Res>
-    implements _$LoginWithUsernameCopyWith<$Res> {
-  __$LoginWithUsernameCopyWithImpl(
-      _LoginWithUsername _value, $Res Function(_LoginWithUsername) _then)
-      : super(_value, (v) => _then(v as _LoginWithUsername));
-
-  @override
-  _LoginWithUsername get _value => super._value as _LoginWithUsername;
-}
-
-/// @nodoc
-class _$_LoginWithUsername implements _LoginWithUsername {
-  const _$_LoginWithUsername();
-
-  @override
-  String toString() {
-    return 'AuthFormType.loginWithUsername()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoginWithUsername);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
-    required TResult Function() register,
-    required TResult Function() resetPassword,
-  }) {
-    return loginWithUsername();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
-    TResult Function()? register,
-    TResult Function()? resetPassword,
-    required TResult orElse(),
-  }) {
-    if (loginWithUsername != null) {
-      return loginWithUsername();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_AuthFormType value) $default, {
-    required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
-    required TResult Function(_Register value) register,
-    required TResult Function(_ResetPassword value) resetPassword,
-  }) {
-    return loginWithUsername(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_AuthFormType value)? $default, {
-    TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
-    TResult Function(_Register value)? register,
-    TResult Function(_ResetPassword value)? resetPassword,
-    required TResult orElse(),
-  }) {
-    if (loginWithUsername != null) {
-      return loginWithUsername(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoginWithUsername implements AuthFormType {
-  const factory _LoginWithUsername() = _$_LoginWithUsername;
 }
 
 /// @nodoc
@@ -425,8 +425,8 @@ class _$_Register implements _Register {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
+    required TResult Function() updateProfile,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() register,
     required TResult Function() resetPassword,
   }) {
@@ -437,8 +437,8 @@ class _$_Register implements _Register {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
+    TResult Function()? updateProfile,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? register,
     TResult Function()? resetPassword,
     required TResult orElse(),
@@ -453,8 +453,8 @@ class _$_Register implements _Register {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_AuthFormType value) $default, {
+    required TResult Function(_UpdateProfile value) updateProfile,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_Register value) register,
     required TResult Function(_ResetPassword value) resetPassword,
   }) {
@@ -465,8 +465,8 @@ class _$_Register implements _Register {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_AuthFormType value)? $default, {
+    TResult Function(_UpdateProfile value)? updateProfile,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_Register value)? register,
     TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),
@@ -522,8 +522,8 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
+    required TResult Function() updateProfile,
     required TResult Function() loginWithEmail,
-    required TResult Function() loginWithUsername,
     required TResult Function() register,
     required TResult Function() resetPassword,
   }) {
@@ -534,8 +534,8 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
+    TResult Function()? updateProfile,
     TResult Function()? loginWithEmail,
-    TResult Function()? loginWithUsername,
     TResult Function()? register,
     TResult Function()? resetPassword,
     required TResult orElse(),
@@ -550,8 +550,8 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_AuthFormType value) $default, {
+    required TResult Function(_UpdateProfile value) updateProfile,
     required TResult Function(_LoginWithEmail value) loginWithEmail,
-    required TResult Function(_LoginWithUsername value) loginWithUsername,
     required TResult Function(_Register value) register,
     required TResult Function(_ResetPassword value) resetPassword,
   }) {
@@ -562,8 +562,8 @@ class _$_ResetPassword implements _ResetPassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_AuthFormType value)? $default, {
+    TResult Function(_UpdateProfile value)? updateProfile,
     TResult Function(_LoginWithEmail value)? loginWithEmail,
-    TResult Function(_LoginWithUsername value)? loginWithUsername,
     TResult Function(_Register value)? register,
     TResult Function(_ResetPassword value)? resetPassword,
     required TResult orElse(),

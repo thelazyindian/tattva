@@ -4,7 +4,6 @@ import 'package:tattva/domain/authentication/email.dart';
 import 'package:tattva/domain/authentication/name.dart';
 import 'package:tattva/domain/authentication/password.dart';
 import 'package:tattva/domain/authentication/user.dart' as user;
-import 'package:tattva/domain/authentication/username.dart';
 
 abstract class IAuthFacade {
   Future<Either<AuthFailure, user.User>> signInWithEmailAndPassword(
@@ -13,7 +12,6 @@ abstract class IAuthFacade {
   );
   Future<Either<AuthFailure, user.User>> createUserWithEmailAndPassword(
     Name name,
-    Username username,
     Email email,
     Password password,
   );

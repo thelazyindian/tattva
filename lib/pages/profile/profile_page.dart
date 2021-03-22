@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tattva/application/bloc/authentication_bloc.dart';
+import 'package:tattva/injection.dart';
 import 'package:tattva/pages/profile/widgets/profile_items_list.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
@@ -8,6 +10,14 @@ import 'package:tattva/utils/strings.dart';
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final user =
+        getIt<AuthenticationBloc>().state.authFailureOrSuccessOption.fold(
+              () => null,
+              (authFailureOrSuccess) => authFailureOrSuccess.fold(
+                (l) => null,
+                (r) => r,
+              ),
+            );
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
@@ -45,7 +55,7 @@ class ProfilePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Full Name',
+                        user!.displayName,
                         style: TextStyle(
                           fontFamily: fontFamily,
                           fontSize: profileNameFontSize,
@@ -54,7 +64,7 @@ class ProfilePage extends StatelessWidget {
                       ),
                       const SizedBox(height: 4.0),
                       Text(
-                        'Email address',
+                        user.email,
                         style: TextStyle(
                           fontFamily: fontFamily,
                           fontSize: profileEmailFontSize,
@@ -73,7 +83,7 @@ class ProfilePage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(30.0, .0, 30.0, .0),
+                  padding: const EdgeInsets.fromLTRB(30.0, .0, 30.0, 12.0),
                   child: Text(
                     'ACCOUNT',
                     style: TextStyle(fontSize: profileItemsHeaderFontSize),

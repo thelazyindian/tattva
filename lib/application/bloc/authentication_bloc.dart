@@ -13,7 +13,6 @@ import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/domain/authentication/name.dart';
 import 'package:tattva/domain/authentication/password.dart';
 import 'package:tattva/domain/authentication/user.dart';
-import 'package:tattva/domain/authentication/username.dart';
 
 part 'authentication_bloc.freezed.dart';
 part 'authentication_event.dart';
@@ -62,13 +61,6 @@ class AuthenticationBloc
           status: _validateFields(name: name),
         );
       },
-      onUsernameChanged: (e) async* {
-        final username = Username.dirty(value: e.value);
-        yield newState.copyWith(
-          username: username,
-          status: _validateFields(username: username),
-        );
-      },
       onPasswordChanged: (e) async* {
         final password = Password.dirty(value: e.value);
         yield newState.copyWith(
@@ -90,26 +82,12 @@ class AuthenticationBloc
           yield newState.copyWith(showErrorMessage: true);
         }
       },
-      loginWithUsername: (e) async* {
-        if (canSubmitForm) {
-          yield newState.copyWith(status: FormzStatus.submissionInProgress);
-          final authFailureOrSuccess = await _authFacade
-              .signInWithEmailAndPassword(newState.email, newState.password);
-          yield newState.copyWith(
-            authFailureOrSuccessOption: optionOf(authFailureOrSuccess),
-            status: FormzStatus.valid,
-          );
-        } else {
-          yield newState.copyWith(showErrorMessage: true);
-        }
-      },
       registerWithEmail: (e) async* {
         if (canSubmitForm) {
           yield newState.copyWith(status: FormzStatus.submissionInProgress);
           final authFailureOrSuccess =
               await _authFacade.createUserWithEmailAndPassword(
             newState.name,
-            newState.username,
             newState.email,
             newState.password,
           );
@@ -188,22 +166,19 @@ class AuthenticationBloc
 
   FormzStatus _validateFields({
     Name? name,
-    Username? username,
     Email? email,
     Password? password,
   }) {
     name ??= state.name;
-    username ??= state.username;
     email ??= state.email;
     password ??= state.password;
     return state.authFormType.map(
       (value) => FormzStatus.pure,
       loginWithEmail: (_) => Formz.validate([email!, password!]),
-      loginWithUsername: (_) => Formz.validate([username!, password!]),
+      updateProfile: (_) => Formz.validate([name!, email!]),
       resetPassword: (_) => Formz.validate([email!]),
       register: (_) => Formz.validate([
         name!,
-        username!,
         email!,
         password!,
       ]),
