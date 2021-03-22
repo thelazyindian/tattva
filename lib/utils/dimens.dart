@@ -35,3 +35,10 @@ const authForgotPasswordBtnFontSize = 12.0;
 const authPageAppBarHeight = 125.0;
 const errorTextSize = 14.0;
 const successTextSize = 14.0;
+
+const profileIconSize = 51.0;
+const profileNameFontSize = 21.0;
+const profileEmailFontSize = 14.0;
+const profileItemsHeaderFontSize = 14.0;
+
+const editProfileTitleFontSize = 20.0;

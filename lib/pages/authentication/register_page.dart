@@ -25,8 +25,7 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   @override
   void initState() {
-    getIt<AuthenticationBloc>()
-        .add(AuthenticationEvent.setFormType(AuthFormType.register()));
+    setBloc();
     super.initState();
   }
 
@@ -76,7 +75,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     onPressed: loadingRequest
                         ? null
                         : () {
-                            Navigator.pushNamed(context, '/login_with_email');
+                            Navigator.pushNamed(context, '/login_with_email')
+                                .then((value) => setBloc());
                           },
                     child: Text(BTN_LOGIN_WITH_EMAIL),
                     style: secondaryBtnStyle.copyWith(
@@ -113,4 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+
+  setBloc() => getIt<AuthenticationBloc>()
+      .add(AuthenticationEvent.setFormType(AuthFormType.register()));
 }

@@ -28,11 +28,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
-    getIt<AuthenticationBloc>().add(AuthenticationEvent.setFormType(
-      widget.withEmail
-          ? AuthFormType.loginWithEmail()
-          : AuthFormType.loginWithUsername(),
-    ));
+    setBloc();
     super.initState();
   }
 
@@ -85,7 +81,8 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: loadingRequest
                           ? null
                           : () {
-                              Navigator.pushNamed(context, '/forgot_password');
+                              Navigator.pushNamed(context, '/forgot_password')
+                                  .then((value) => setBloc());
                             },
                       child: Text(BTN_FORGOT_PASSWORD),
                       style: secondaryBtnStyle.copyWith(
@@ -118,7 +115,8 @@ class _LoginPageState extends State<LoginPage> {
                             ? null
                             : () {
                                 Navigator.pushNamed(
-                                    context, '/login_with_email');
+                                        context, '/login_with_email')
+                                    .then((value) => setBloc());
                               },
                         child: Text(BTN_LOGIN_WITH_EMAIL),
                         style: secondaryBtnStyle.copyWith(
@@ -139,4 +137,10 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+
+  setBloc() => getIt<AuthenticationBloc>().add(AuthenticationEvent.setFormType(
+        widget.withEmail
+            ? AuthFormType.loginWithEmail()
+            : AuthFormType.loginWithUsername(),
+      ));
 }

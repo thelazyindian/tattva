@@ -32,3 +32,15 @@ const PASSWORD_HELPER =
 const INVALID_PASSWORD_ERROR = PASSWORD_HELPER;
 const INVALID_PASSWORD_LOGIN_ERROR = 'Invalid password.';
 const RESET_PASSWORD_EMAIL_MSG = 'Check your email for password reset link.';
+
+const PROFILE_ITEMS_HEADER = 'Account';
+const PROFILE_ITEM_MY_PROFILE = 'My Profile';
+const PROFILE_ITEM_SUBSCRIPTIONS = 'Subscriptions';
+const PROFILE_ITEM_SAVED_ITEMS = 'Liked/Saved Items';
+const PROFILE_ITEM_FEEDBACK = 'Feedback';
+const PROFILE_ITEM_INVITE_FRIENDS = 'Invite Friends';
+const PROFILE_ITEM_RATE_US = 'Rate us';
+const PROFILE_ITEM_ABOUT_US = 'About us';
+const PROFILE_ITEM_LOGOUT = 'Logout';
+const EDIT_PROFILE_TITLE = 'Edit Your Profile';
+const EDIT_PROFILE_SAVE_BUTTON = 'SAVE CHANGES';

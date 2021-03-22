@@ -36,3 +36,8 @@ final nameRegex = RegExp(r'^(([a-zA-Z.]+\s)*[a-zA-Z]{2,50})$');
 
 final errorTextColor = Color(0xFFE12B1F);
 final successTextColor = Color(0xFF6CB28E);
+
+final dividerColor = Color(0xFFE1E1E1);
+final profileNameFontWeight = FontWeight.w900;
+
+final editProfileTitleFontWeight = FontWeight.w900;

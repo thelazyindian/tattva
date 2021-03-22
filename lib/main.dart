@@ -5,8 +5,10 @@ import 'package:tattva/injection.dart';
 import 'package:tattva/pages/authentication/forgot_password_page.dart';
 import 'package:tattva/pages/authentication/login_page.dart';
 import 'package:tattva/pages/authentication/register_page.dart';
+import 'package:tattva/pages/edit_profile/edit_profile_page.dart';
 import 'package:tattva/pages/home/home_page.dart';
 import 'package:tattva/pages/landing/landing_page.dart';
+import 'package:tattva/pages/profile/profile_page.dart';
 import 'package:tattva/pages/splash/splash_page.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
@@ -63,6 +65,7 @@ class MyApp extends StatelessWidget {
         '/login': (_) => LoginPage(withEmail: false),
         '/login_with_email': (_) => LoginPage(withEmail: true),
         '/forgot_password': (_) => ForgotPassword(),
+        '/edit_profile': (_) => EditProfilePage(),
       },
     );
   }
