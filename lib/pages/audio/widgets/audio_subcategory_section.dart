@@ -1,48 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tattva/domain/audio/audio_sub_category.dart';
 import 'package:tattva/pages/audio/widgets/audio_item.dart';
 
 class AudioSubcategorySection extends StatelessWidget {
-  final String topText;
+  final AudioSubCategory audioSubCategory;
 
   const AudioSubcategorySection({
     Key? key,
-    required this.topText,
+    required this.audioSubCategory,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> items = [
-      AudioItem(
-        imageUri: 'assets/feather.png',
-        heading: "Audio Name",
-        firstSubHeading: "3 min",
-        secondSubHeading: "Hindi",
-      ),
-      AudioItem(
-        imageUri: 'assets/meditation.png',
-        heading: "Audio Name",
-        firstSubHeading: "3 min",
-        secondSubHeading: "Hindi",
-      ),
-      AudioItem(
-        imageUri: 'assets/meditation.png',
-        heading: "Audio Name",
-        firstSubHeading: "3 min",
-        secondSubHeading: "Hindi",
-      ),
-      AudioItem(
-        heading: "Audio Name",
-        firstSubHeading: "3 min",
-        secondSubHeading: "Hindi",
-      ),
-      AudioItem(
-        heading: "Audio Name",
-        firstSubHeading: "3 min",
-        secondSubHeading: "Hindi",
-      ),
-    ];
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -51,7 +21,7 @@ class AudioSubcategorySection extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                topText,
+                audioSubCategory.name,
                 style: TextStyle(
                   fontSize: 17.0,
                   fontWeight: FontWeight.w800,
@@ -80,9 +50,17 @@ class AudioSubcategorySection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
-            itemBuilder: (context, idx) => items[idx],
+            itemBuilder: (context, idx) {
+              final audio = audioSubCategory.audios[idx];
+              return AudioItem(
+                heading: audio.name,
+                imageUri: audio.thumbnail.first.url,
+                firstSubHeading: '${audio.durationInMins} min',
+                secondSubHeading: audio.language,
+              );
+            },
             separatorBuilder: (context, idx) => const SizedBox(width: 10.0),
-            itemCount: items.length,
+            itemCount: audioSubCategory.audios.length,
           ),
         ),
       ],

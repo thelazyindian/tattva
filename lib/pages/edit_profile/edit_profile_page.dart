@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tattva/application/bloc/authentication_bloc.dart';
+import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/authentication/widgets/email_field.dart';
 import 'package:tattva/pages/authentication/widgets/name_field.dart';

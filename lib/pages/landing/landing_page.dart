@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tattva/application/bloc/authentication_bloc.dart';
+import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';

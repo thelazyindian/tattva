@@ -8,7 +8,7 @@ class AudioItem extends StatelessWidget {
 
   const AudioItem({
     Key? key,
-    this.imageUri = '',
+    required this.imageUri,
     required this.heading,
     required this.firstSubHeading,
     required this.secondSubHeading,
@@ -17,25 +17,30 @@ class AudioItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12.0),
-      child: SizedBox(
-        height: 120.0,
-        width: 120.0,
-        child: Stack(
-          children: [
-            InkWell(
-              borderRadius: BorderRadius.circular(12.0),
-              onTap: () {},
-              child: (imageUri.isNotEmpty)
-                  ? Ink.image(image: AssetImage(imageUri))
-                  : Container(color: Colors.grey),
+      child: Material(
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12.0),
+          onTap: () {},
+          child: SizedBox(
+            height: 120.0,
+            width: 120.0,
+            child: Stack(
+              children: [
+                Ink.image(
+                  image: NetworkImage(
+                    imageUri,
+                  ),
+                  fit: BoxFit.cover,
+                ),
+                Positioned(
+                  child: textualElements(),
+                  bottom: 13.0,
+                  left: 10.0,
+                  right: 10.0,
+                )
+              ],
             ),
-            Positioned(
-              child: textualElements(),
-              bottom: 13.0,
-              left: 10.0,
-              right: 10.0,
-            )
-          ],
+          ),
         ),
       ),
     );

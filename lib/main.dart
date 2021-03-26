@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
       home: SplashPage(),
       routes: {
         '/landing': (_) => LandingPage(),
-        '/home': (_) => HomePage(),
+        '/home': (_) => AudioPage(),
         '/register': (_) => RegisterPage(),
         '/login': (_) => LoginPage(),
         '/forgot_password': (_) => ForgotPassword(),

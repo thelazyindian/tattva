@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tattva/application/bloc/authentication_bloc.dart';
+import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/injection.dart';
 

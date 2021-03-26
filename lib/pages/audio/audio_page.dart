@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:tattva/pages/audio/widgets/audio_category_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tattva/application/audio/audio_bloc.dart';
+import 'package:tattva/injection.dart';
+import 'package:tattva/pages/audio/widgets/audio_categories_section.dart';
 import 'package:tattva/pages/audio/widgets/page_contents.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
 
@@ -20,100 +23,39 @@ class _AudioPageState extends State<AudioPage> {
 
   @override
   Widget build(BuildContext context) {
+    getIt<AudioBloc>().add(AudioEvent.started());
+
     return Scaffold(
       appBar: CustomAppBar(text: "Audio"),
       backgroundColor: Theme.of(context).primaryColor,
-      body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-        children: [
-          TopRow(
-            onItemSelected: (idx) {
-              setState(() {
-                selectedIndex = idx;
-              });
-            },
-          ),
-          const SizedBox(height: 58.0),
-          PageContents(textsList: superList[selectedIndex]),
-        ],
-      ),
-    );
-  }
-}
-
-class TopRow extends StatefulWidget {
-  final Function(int) onItemSelected;
-  TopRow({
-    Key? key,
-    required this.onItemSelected,
-  }) : super(key: key);
-
-  @override
-  _TopRowState createState() => _TopRowState();
-}
-
-class _TopRowState extends State<TopRow> {
-  int selectedItem = 0;
-  List<Map<String, dynamic>> items = [
-    {
-      'imageUri': 'assets/top_categories.png',
-      'heading': 'Tattva and Elements',
-      'subHeading': '3-10min',
-    },
-    {
-      'imageUri': 'assets/top_categories.png',
-      'heading': 'Guided Meditations',
-      'subHeading': '3-10min',
-    },
-    {
-      'imageUri': 'assets/top_categories.png',
-      'heading': 'Short Prayers',
-      'subHeading': '3-10min',
-    },
-  ];
-
-  Widget _buildRoundedCards({
-    required int index,
-    required String imageUri,
-    required String heading,
-    required String subHeading,
-  }) {
-    return Opacity(
-      opacity: selectedItem == index ? 1.0 : 0.7,
-      child: InkWell(
-        borderRadius: BorderRadius.circular(8.0),
-        onTap: () {
-          if (selectedItem != index) {
-            setState(() {
-              selectedItem = index;
-              widget.onItemSelected(selectedItem);
-            });
-          }
+      body: BlocBuilder<AudioBloc, AudioState>(
+        bloc: getIt<AudioBloc>(),
+        builder: (context, state) {
+          return state.audioCategoriesOption.fold(
+            () => const Center(child: CircularProgressIndicator()),
+            (audioCategoriesSuccessOrFailure) =>
+                audioCategoriesSuccessOrFailure.fold(
+              (l) => const Center(child: Text('ERROR')),
+              (audioCategories) => ListView(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                children: [
+                  AudioCategoriesSection(audioCategories: audioCategories),
+                  const SizedBox(height: 48.0),
+                  state.selectedAudioCategory.fold(
+                    () => const Center(child: Text('NO SUBS')),
+                    (category) => state.loadingSubCategory
+                        ? const Center(child: CircularProgressIndicator())
+                        : (category.audioSubCategories == null)
+                            ? const Center(child: Text('ERROR'))
+                            : PageContents(
+                                audioSubCategories:
+                                    category.audioSubCategories!),
+                  ),
+                ],
+              ),
+            ),
+          );
         },
-        child: AudioCategoryItem(
-          imageUri: imageUri,
-          heading: heading,
-          subHeading: subHeading,
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 150.0,
-      child: ListView.separated(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, idx) => _buildRoundedCards(
-          index: idx,
-          imageUri: items[idx]['imageUri'],
-          heading: items[idx]['heading'],
-          subHeading: items[idx]['subHeading'],
-        ),
-        separatorBuilder: (context, idx) => const SizedBox(width: 10),
-        itemCount: items.length,
       ),
     );
   }
