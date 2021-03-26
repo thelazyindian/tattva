@@ -44,3 +44,5 @@ const profileItemsHeaderFontSize = 14.0;
 const editProfileTitleFontSize = 20.0;
 const editProfileUploadPicBtnFontSize = 14.0;
 const editProfileUploadPicThumbnailSize = 154.0;
+
+const appBarPaddingHorizontal = 8.0;

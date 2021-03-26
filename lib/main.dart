@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/audio/audio_page.dart';
 import 'package:tattva/pages/authentication/forgot_password_page.dart';
 import 'package:tattva/pages/authentication/login_page.dart';
 import 'package:tattva/pages/authentication/register_page.dart';
@@ -60,11 +61,13 @@ class MyApp extends StatelessWidget {
       home: SplashPage(),
       routes: {
         '/landing': (_) => LandingPage(),
-        '/home': (_) => ProfilePage(),
+        '/home': (_) => HomePage(),
         '/register': (_) => RegisterPage(),
         '/login': (_) => LoginPage(),
         '/forgot_password': (_) => ForgotPassword(),
         '/edit_profile': (_) => EditProfilePage(),
+        '/profile': (_) => ProfilePage(),
+        '/audios': (_) => AudioPage(),
       },
     );
   }
