@@ -11,32 +11,34 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^0.21.0-nullsafety.0
-  firebase_auth: ^1.0.1
-  flutter_bloc: 7.0.0-nullsafety.5
-  formz: 0.4.0-nullsafety.0
-  dartz: 0.10.0-nullsafety.1
-  flutter_facebook_auth: ^3.1.1
-  google_sign_in: ^5.0.0
-  get_it: ^6.0.0
-  injectable: ^1.2.0
+  audio_service: ^0.17.0
   cloud_firestore: ^1.0.1
   cloud_functions: ^1.0.2
+  cupertino_icons: ^1.0.2
+  dartz: 0.10.0-nullsafety.1
+  firebase_auth: ^1.0.1
+  firebase_core: ^1.0.1
+  flutter_bloc: 7.0.0-nullsafety.5
+  flutter_facebook_auth: ^3.1.1
+  flutter_svg: ^0.21.0-nullsafety.0
+  formz: 0.4.0-nullsafety.0
   freezed_annotation: ^0.14.1
+  get_it: ^6.0.0
+  google_sign_in: ^5.0.0
+  injectable: ^1.2.0
   json_annotation: ^4.0.0
   just_audio: ^0.7.2
-  audio_service: ^0.17.0
+  provider: ^5.0.0
+  syncfusion_flutter_sliders: ^19.1.54-beta
   uuid: ^3.0.1
-  firebase_core: ^1.0.1
-  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: null
   freezed: ^0.14.1
-  injectable_generator:
+  injectable_generator: null
   json_serializable: ^4.0.0
-  build_runner:
 
 flutter:
   uses-material-design: true

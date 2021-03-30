@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/utils/dimens.dart';
@@ -14,14 +15,15 @@ class SplashPage extends StatelessWidget {
         ..add(AuthenticationEvent.authCheckRequested()),
       listener: (_, state) {
         if (!state.checkingAuthStatus) {
+          final navigatorKeyState =
+              Provider.of<GlobalKey<NavigatorState>>(context, listen: false)
+                  .currentState!;
           Future.delayed(Duration(milliseconds: 500)).then(
             (value) => state.authFailureOrSuccessOption.fold(
-              () => Navigator.pushReplacementNamed(context, '/landing'),
+              () => navigatorKeyState.pushReplacementNamed('/landing'),
               (authFailureOrSuccess) => authFailureOrSuccess.fold(
-                (failure) =>
-                    Navigator.pushReplacementNamed(context, '/landing'),
-                (success) => Navigator.pushNamedAndRemoveUntil(
-                  context,
+                (failure) => navigatorKeyState.pushReplacementNamed('/landing'),
+                (success) => navigatorKeyState.pushNamedAndRemoveUntil(
                   '/home',
                   (route) => false,
                 ),

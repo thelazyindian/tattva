@@ -36,6 +36,8 @@ class AudioPlayerCollapsed extends StatelessWidget {
                           fit: BoxFit.cover,
                           height: 64.0,
                           width: 64.0,
+                          errorBuilder: (_, __, ___) =>
+                              Container(color: Colors.grey.shade200),
                         ),
                         Expanded(
                           child: Padding(

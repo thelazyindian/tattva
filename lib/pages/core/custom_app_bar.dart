@@ -6,20 +6,22 @@ import 'package:tattva/utils/others.dart';
 enum CustomAppBarType { head, subhead, none }
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
-  final String? text;
+  final String? title;
   final double height;
   final TextAlign titleAlignment;
   final String? suffixIcon;
   final CustomAppBarType customAppBarType;
   final VoidCallback? onSuffixPressed;
+  final VoidCallback? onPrefixPressed;
 
   const CustomAppBar({
-    this.text,
+    this.title,
     this.height = kToolbarHeight,
     this.titleAlignment = TextAlign.center,
     this.suffixIcon,
     required this.customAppBarType,
     this.onSuffixPressed,
+    this.onPrefixPressed,
   });
 
   @override
@@ -39,7 +41,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             IconButton(
-              onPressed: onSuffixPressed ??
+              onPressed: onPrefixPressed ??
                   () {
                     if (Navigator.canPop(context)) {
                       Navigator.pop(context);
@@ -55,7 +57,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
             if (customAppBarType != CustomAppBarType.none)
               Expanded(
                 child: Text(
-                  text!,
+                  title!,
                   style: TextStyle(
                     fontFamily: fontFamily,
                     fontSize:
@@ -67,7 +69,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
               ),
             if (suffixIcon != null)
               IconButton(
-                onPressed: () {},
+                onPressed: onSuffixPressed,
                 splashRadius: 28.0,
                 icon: SvgPicture.asset(
                   suffixIcon!,

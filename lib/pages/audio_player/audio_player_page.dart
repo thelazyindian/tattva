@@ -16,148 +16,173 @@ class AudioPlayerPage extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
       appBar: CustomAppBar(
         customAppBarType: CustomAppBarType.none,
-        onSuffixPressed: () {
+        onPrefixPressed: () {
           getIt<AudioPlayerBloc>().add(AudioPlayerEvent.collapse());
         },
       ),
-      body: StreamBuilder<QueueState?>(
-        stream: queueStateStream,
-        builder: (context, snapshot) {
-          final queueState = snapshot.data;
-          if (queueState == null || queueState.mediaItem == null) {
-            return const Center(child: CircularProgressIndicator());
-          }
+      body: WillPopScope(
+        onWillPop: () async {
+          getIt<AudioPlayerBloc>().add(AudioPlayerEvent.collapse());
+          return false;
+        },
+        child: StreamBuilder<QueueState?>(
+          stream: queueStateStream,
+          builder: (context, snapshot) {
+            final queueState = snapshot.data;
+            if (queueState == null || queueState.mediaItem == null) {
+              return const Center(child: CircularProgressIndicator());
+            }
 
-          final mediaItem = queueState.mediaItem;
+            final mediaItem = queueState.mediaItem;
 
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(40.0, 50.0, 40.0, 30.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SvgPicture.asset(
-                      'icons/headset.svg',
-                      height: 35.0,
-                      width: 35.0,
-                    ),
-                    const SizedBox(width: 22.0),
-                    Column(
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(40.0, 16.0, 40.0, 0.0),
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          mediaItem!.title,
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            fontWeight: FontWeight.w900,
-                          ),
+                        SvgPicture.asset(
+                          'icons/headset.svg',
+                          height: 35.0,
+                          width: 35.0,
                         ),
-                        Text(
-                          mediaItem.album,
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            color: Color(0xFF908A8A),
-                            fontWeight: FontWeight.w400,
-                          ),
+                        const SizedBox(width: 22.0),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              mediaItem!.title,
+                              style: TextStyle(
+                                fontSize: 24.0,
+                                fontWeight: FontWeight.w900,
+                              ),
+                            ),
+                            Text(
+                              mediaItem.album,
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Color(0xFF908A8A),
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 60.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12.0),
-                    child: Image.network(
-                      mediaItem.artUri.toString(),
-                      fit: BoxFit.cover,
+                Expanded(
+                  flex: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 60.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12.0),
+                      child: Image.network(
+                        mediaItem.artUri.toString(),
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) =>
+                            Container(color: Colors.grey.shade200),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, .0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      splashRadius: 24.0,
-                      icon: SvgPicture.asset(
-                        'icons/share.svg',
-                        height: 16.0,
-                        width: 16.0,
-                      ),
-                    ),
-                    StreamBuilder<PlaybackState>(
-                      stream: AudioService.playbackStateStream,
-                      builder: (context, snapshot) {
-                        final playerState = snapshot.data;
-                        final processingState = playerState?.processingState;
-                        final playing = playerState?.playing;
-                        final loading = processingState ==
-                                AudioProcessingState.connecting ||
-                            processingState == AudioProcessingState.buffering;
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, .0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                              onPressed: () {},
+                              splashRadius: 24.0,
+                              icon: SvgPicture.asset(
+                                'icons/share.svg',
+                                height: 16.0,
+                                width: 16.0,
+                              ),
+                            ),
+                            StreamBuilder<PlaybackState>(
+                              stream: AudioService.playbackStateStream,
+                              builder: (context, snapshot) {
+                                final playerState = snapshot.data;
+                                final processingState =
+                                    playerState?.processingState;
+                                final playing = playerState?.playing;
+                                final loading = processingState ==
+                                        AudioProcessingState.connecting ||
+                                    processingState ==
+                                        AudioProcessingState.buffering;
 
-                        if (playing != true) {
-                          return IconButton(
-                            onPressed: AudioService.play,
-                            splashRadius: 16.0,
-                            icon: SizedBox(
-                              height: 45.0,
-                              width: 45.0,
-                              child: SvgPicture.asset('icons/play.svg'),
+                                if (playing != true) {
+                                  return IconButton(
+                                    onPressed: AudioService.play,
+                                    splashRadius: 16.0,
+                                    icon: SizedBox(
+                                      height: 45.0,
+                                      width: 45.0,
+                                      child: SvgPicture.asset('icons/play.svg'),
+                                    ),
+                                  );
+                                } else {
+                                  return IconButton(
+                                    onPressed:
+                                        loading ? null : AudioService.pause,
+                                    splashRadius: 16.0,
+                                    icon: SizedBox(
+                                      height: 45.0,
+                                      width: 45.0,
+                                      child:
+                                          SvgPicture.asset('icons/pause.svg'),
+                                    ),
+                                  );
+                                }
+                              },
                             ),
-                          );
-                        } else {
-                          return IconButton(
-                            onPressed: loading ? null : AudioService.pause,
-                            splashRadius: 16.0,
-                            icon: SizedBox(
-                              height: 45.0,
-                              width: 45.0,
-                              child: SvgPicture.asset('icons/pause.svg'),
+                            IconButton(
+                              onPressed: () {},
+                              splashRadius: 24.0,
+                              icon: SvgPicture.asset(
+                                'icons/heartOutline.svg',
+                                height: 15.0,
+                                width: 15.0,
+                              ),
                             ),
-                          );
-                        }
-                      },
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      splashRadius: 24.0,
-                      icon: SvgPicture.asset(
-                        'icons/heartOutline.svg',
-                        height: 15.0,
-                        width: 15.0,
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                      Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 0.0),
+                        child: StreamBuilder<MediaState>(
+                          stream: mediaStateStream,
+                          builder: (context, snapshot) {
+                            final mediaState = snapshot.data;
+                            return SeekBar(
+                              duration: mediaState?.mediaItem?.duration ??
+                                  Duration.zero,
+                              position: mediaState?.position ?? Duration.zero,
+                              onChangeEnd: (newPosition) {
+                                AudioService.seekTo(newPosition);
+                              },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 50.0),
-                child: StreamBuilder<MediaState>(
-                  stream: mediaStateStream,
-                  builder: (context, snapshot) {
-                    final mediaState = snapshot.data;
-                    return SeekBar(
-                      duration:
-                          mediaState?.mediaItem?.duration ?? Duration.zero,
-                      position: mediaState?.position ?? Duration.zero,
-                      onChangeEnd: (newPosition) {
-                        AudioService.seekTo(newPosition);
-                      },
-                    );
-                  },
-                ),
-              ),
-            ],
-          );
-        },
+                const SizedBox(height: 73.0),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

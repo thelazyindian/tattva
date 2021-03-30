@@ -32,6 +32,8 @@ class AudioCategoryItem extends StatelessWidget {
                   Image.network(
                     category.coverImage.first.url,
                     fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) =>
+                        Container(color: Colors.grey.shade200),
                   ),
                   Container(
                     height: double.infinity,

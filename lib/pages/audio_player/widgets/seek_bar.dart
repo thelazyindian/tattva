@@ -123,7 +123,7 @@ class HiddenThumbComponentShape extends SliderComponentShape {
   }) {}
 }
 
-class CustomTrackShape extends RoundedRectSliderTrackShape {
+class CustomTrackShape extends RectangularSliderTrackShape {
   Rect getPreferredRect({
     required RenderBox parentBox,
     Offset offset = Offset.zero,

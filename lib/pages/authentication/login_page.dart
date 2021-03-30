@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/domain/authentication/auth_form_type.dart';
 import 'package:tattva/injection.dart';
@@ -71,7 +72,14 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: loadingRequest
                           ? null
                           : () {
-                              Navigator.pushNamed(context, '/forgot_password')
+                              final navigatorKeyState =
+                                  Provider.of<GlobalKey<NavigatorState>>(
+                                          context,
+                                          listen: false)
+                                      .currentState!;
+
+                              navigatorKeyState
+                                  .pushNamed('/forgot_password')
                                   .then((value) => setBloc());
                             },
                       child: Text(BTN_FORGOT_PASSWORD),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/domain/authentication/auth_form_type.dart';
 import 'package:tattva/injection.dart';
@@ -72,7 +73,13 @@ class _RegisterPageState extends State<RegisterPage> {
                     onPressed: loadingRequest
                         ? null
                         : () {
-                            Navigator.pushNamed(context, '/login')
+                            final navigatorKeyState =
+                                Provider.of<GlobalKey<NavigatorState>>(context,
+                                        listen: false)
+                                    .currentState!;
+
+                            navigatorKeyState
+                                .pushNamed('/login')
                                 .then((value) => setBloc());
                           },
                     child: Text(BTN_LOGIN_WITH_EMAIL),

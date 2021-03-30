@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/utils/dimens.dart';
@@ -15,6 +16,9 @@ class LandingPage extends StatelessWidget {
       width - (2 * homePaddingHorizontal),
       primaryBtnHeight,
     );
+    final navigatorKeyState =
+        Provider.of<GlobalKey<NavigatorState>>(context, listen: false)
+            .currentState!;
 
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       bloc: getIt<AuthenticationBloc>(),
@@ -23,8 +27,7 @@ class LandingPage extends StatelessWidget {
           () => null,
           (authFailureOrSuccess) => authFailureOrSuccess.fold(
             (failure) => null,
-            (success) => Navigator.pushNamedAndRemoveUntil(
-              context,
+            (success) => navigatorKeyState.pushNamedAndRemoveUntil(
               '/home',
               (route) => false,
             ),
@@ -76,7 +79,7 @@ class LandingPage extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/register');
+                      navigatorKeyState.pushNamed('/register');
                     },
                     style: primaryBtnStyle.copyWith(
                       minimumSize: MaterialStateProperty.all(btnSize),
@@ -85,7 +88,7 @@ class LandingPage extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/login');
+                      navigatorKeyState.pushNamed('/login');
                     },
                     child: Text(BTN_LOGIN),
                     style: secondaryBtnStyle,

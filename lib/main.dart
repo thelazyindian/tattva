@@ -1,9 +1,14 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:provider/provider.dart';
+import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio/audio_page.dart';
+import 'package:tattva/pages/audio_player/audio_player_page.dart';
+import 'package:tattva/pages/audio_player/widgets/audio_player_collapsed.dart';
 import 'package:tattva/pages/authentication/forgot_password_page.dart';
 import 'package:tattva/pages/authentication/login_page.dart';
 import 'package:tattva/pages/authentication/register_page.dart';
@@ -24,52 +29,27 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  final _navigatorKey = GlobalKey<NavigatorState>();
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: primaryColor,
-        accentColor: accentColor,
-        fontFamily: fontFamily,
-        textTheme: TextTheme(
-          headline3: TextStyle(
-            color: headline1Color,
-            fontSize: headline1FontSize,
-            fontWeight: headline1FontWeight,
-            letterSpacing: headline1LetterSpacing,
-          ),
-        ),
-        textSelectionTheme: TextSelectionThemeData(
-          cursorColor: inputFieldHintColor,
-        ),
-        inputDecorationTheme: InputDecorationTheme(
-          fillColor: inputFieldFillColor,
-          filled: true,
-          contentPadding: inputFieldContentPadding,
-          hintStyle: TextStyle(
-            fontFamily: fontFamily,
-            color: inputFieldHintColor,
-            fontSize: inputFieldFontSize,
-            fontWeight: inputFieldFontWeight,
-            letterSpacing: inputFieldLetterSpacing,
-          ),
-          enabledBorder: inputFieldBorder,
-          disabledBorder: inputFieldBorder,
-          focusedBorder: inputFieldBorder,
-          border: inputFieldBorder,
-        ),
+    return Provider.value(
+      value: _navigatorKey,
+      child: MaterialApp(
+        navigatorKey: _navigatorKey,
+        theme: appTheme,
+        home: SplashPage(),
+        routes: {
+          '/landing': (_) => LandingPage(),
+          '/home': (_) => AudioServiceWidget(child: AudioPage()),
+          '/register': (_) => RegisterPage(),
+          '/login': (_) => LoginPage(),
+          '/forgot_password': (_) => ForgotPassword(),
+          '/edit_profile': (_) => EditProfilePage(),
+          '/profile': (_) => ProfilePage(),
+          '/audios': (_) => AudioPage(),
+        },
       ),
-      home: SplashPage(),
-      routes: {
-        '/landing': (_) => LandingPage(),
-        '/home': (_) => AudioServiceWidget(child: AudioPage()),
-        '/register': (_) => RegisterPage(),
-        '/login': (_) => LoginPage(),
-        '/forgot_password': (_) => ForgotPassword(),
-        '/edit_profile': (_) => EditProfilePage(),
-        '/profile': (_) => ProfilePage(),
-        '/audios': (_) => AudioPage(),
-      },
     );
   }
 }

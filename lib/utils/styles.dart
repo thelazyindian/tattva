@@ -2,6 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 
+final appTheme = ThemeData(
+  primaryColor: primaryColor,
+  accentColor: accentColor,
+  fontFamily: fontFamily,
+  textTheme: TextTheme(
+    headline3: TextStyle(
+      color: headline1Color,
+      fontSize: headline1FontSize,
+      fontWeight: headline1FontWeight,
+      letterSpacing: headline1LetterSpacing,
+    ),
+  ),
+  textSelectionTheme: TextSelectionThemeData(
+    cursorColor: inputFieldHintColor,
+  ),
+  inputDecorationTheme: InputDecorationTheme(
+    fillColor: inputFieldFillColor,
+    filled: true,
+    contentPadding: inputFieldContentPadding,
+    hintStyle: TextStyle(
+      fontFamily: fontFamily,
+      color: inputFieldHintColor,
+      fontSize: inputFieldFontSize,
+      fontWeight: inputFieldFontWeight,
+      letterSpacing: inputFieldLetterSpacing,
+    ),
+    enabledBorder: inputFieldBorder,
+    disabledBorder: inputFieldBorder,
+    focusedBorder: inputFieldBorder,
+    border: inputFieldBorder,
+  ),
+);
+
 final primaryBtnShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.circular(primaryBtnRadius),
 );

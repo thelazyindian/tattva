@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/utils/others.dart';
@@ -8,12 +9,16 @@ import 'package:tattva/utils/strings.dart';
 class ProfileItemsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final navigatorKeyState =
+        Provider.of<GlobalKey<NavigatorState>>(context, listen: false)
+            .currentState!;
+
     final List<Map<String, dynamic>> items = [
       {
         'icon': 'icons/person.svg',
         'name': PROFILE_ITEM_MY_PROFILE,
         'onTap': () {
-          Navigator.pushNamed(context, '/edit_profile');
+          navigatorKeyState.pushNamed('/edit_profile');
         },
       },
       {
@@ -52,8 +57,7 @@ class ProfileItemsList extends StatelessWidget {
         'onTap': () {
           getIt<IAuthFacade>().signOut().then((value) => value.fold(
                 (l) => null,
-                (r) => Navigator.pushNamedAndRemoveUntil(
-                  context,
+                (r) => navigatorKeyState.pushNamedAndRemoveUntil(
                   '/landing',
                   (route) => false,
                 ),
