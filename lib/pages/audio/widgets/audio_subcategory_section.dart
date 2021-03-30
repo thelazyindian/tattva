@@ -1,7 +1,14 @@
+import 'package:audio_service/audio_service.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/audio/audio_sub_category.dart';
+import 'package:tattva/infrastructure/audio_player/audio_player_task.dart';
+import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio/widgets/audio_item.dart';
+
+void _entrypoint() => AudioServiceBackground.run(() => AudioPlayerTask());
 
 class AudioSubcategorySection extends StatelessWidget {
   final AudioSubCategory audioSubCategory;
@@ -57,6 +64,35 @@ class AudioSubcategorySection extends StatelessWidget {
                 imageUri: audio.thumbnail.first.url,
                 firstSubHeading: '${audio.durationInMins} min',
                 secondSubHeading: audio.language,
+                onTap: () {
+                  final mediaItems = audioSubCategory.audios
+                      .map((e) => MediaItem(
+                            id: e.audioFile.first.url,
+                            artUri: Uri.parse(e.thumbnail.first.url),
+                            album: audioSubCategory.name,
+                            title: e.name,
+                          ))
+                      .toList();
+
+                  if (AudioService.running) {
+                    debugPrint('updateQueue');
+                    AudioService.customAction(
+                      audio.audioFile.first.url,
+                      mediaItems.map((e) => e.toJson()).toList(),
+                    );
+                  } else {
+                    AudioService.start(
+                      backgroundTaskEntrypoint: _entrypoint,
+                      params: {
+                        'mediaItems':
+                            mediaItems.map((e) => e.toJson()).toList(),
+                        'index': idx,
+                      },
+                    );
+                  }
+
+                  getIt<AudioPlayerBloc>().add(AudioPlayerEvent.expand());
+                },
               );
             },
             separatorBuilder: (context, idx) => const SizedBox(width: 10.0),

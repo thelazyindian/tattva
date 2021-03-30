@@ -5,6 +5,7 @@ class AudioItem extends StatelessWidget {
   final String heading;
   final String firstSubHeading;
   final String secondSubHeading;
+  final VoidCallback? onTap;
 
   const AudioItem({
     Key? key,
@@ -12,6 +13,7 @@ class AudioItem extends StatelessWidget {
     required this.heading,
     required this.firstSubHeading,
     required this.secondSubHeading,
+    this.onTap,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class AudioItem extends StatelessWidget {
       child: Material(
         child: InkWell(
           borderRadius: BorderRadius.circular(12.0),
-          onTap: () {},
+          onTap: onTap,
           child: SizedBox(
             height: 120.0,
             width: 120.0,

@@ -3,15 +3,23 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 
+enum CustomAppBarType { head, subhead, none }
+
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
-  final String text;
+  final String? text;
   final double height;
   final TextAlign titleAlignment;
+  final String? suffixIcon;
+  final CustomAppBarType customAppBarType;
+  final VoidCallback? onSuffixPressed;
 
   const CustomAppBar({
-    required this.text,
+    this.text,
     this.height = kToolbarHeight,
     this.titleAlignment = TextAlign.center,
+    this.suffixIcon,
+    required this.customAppBarType,
+    this.onSuffixPressed,
   });
 
   @override
@@ -31,7 +39,12 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: onSuffixPressed ??
+                  () {
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
+                  },
               splashRadius: 28.0,
               icon: SvgPicture.asset(
                 'icons/back.svg',
@@ -39,26 +52,29 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
                 width: 14.0,
               ),
             ),
-            Expanded(
-              child: Text(
-                text,
-                style: TextStyle(
-                  fontFamily: fontFamily,
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.w900,
+            if (customAppBarType != CustomAppBarType.none)
+              Expanded(
+                child: Text(
+                  text!,
+                  style: TextStyle(
+                    fontFamily: fontFamily,
+                    fontSize:
+                        customAppBarType == CustomAppBarType.head ? 28.0 : 20.0,
+                    fontWeight: FontWeight.w900,
+                  ),
+                  textAlign: titleAlignment,
                 ),
-                textAlign: titleAlignment,
               ),
-            ),
-            IconButton(
-              onPressed: () {},
-              splashRadius: 28.0,
-              icon: SvgPicture.asset(
-                'icons/person.svg',
-                height: 21.0,
-                width: 21.0,
+            if (suffixIcon != null)
+              IconButton(
+                onPressed: () {},
+                splashRadius: 28.0,
+                icon: SvgPicture.asset(
+                  suffixIcon!,
+                  height: 21.0,
+                  width: 21.0,
+                ),
               ),
-            ),
           ],
         ),
       ),

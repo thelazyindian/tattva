@@ -17,5 +17,5 @@ abstract class FirebaseInjectableModule {
   FacebookAuth get facebookAuth => FacebookAuth.instance;
   @lazySingleton
   FirebaseFunctions get firebaseFunctions => FirebaseFunctions.instance
-    ..useFunctionsEmulator(origin: 'http://localhost:5001');
+    ..useFunctionsEmulator(origin: 'http://192.168.29.227:5001');
 }

@@ -1,3 +1,4 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
       home: SplashPage(),
       routes: {
         '/landing': (_) => LandingPage(),
-        '/home': (_) => AudioPage(),
+        '/home': (_) => AudioServiceWidget(child: AudioPage()),
         '/register': (_) => RegisterPage(),
         '/login': (_) => LoginPage(),
         '/forgot_password': (_) => ForgotPassword(),
