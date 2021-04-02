@@ -6,7 +6,7 @@ import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/audio_player/media_state.dart';
 import 'package:tattva/domain/audio_player/queue_state.dart';
 import 'package:tattva/injection.dart';
-import 'package:tattva/pages/audio_player/audio_player_page.dart';
+import 'package:tattva/pages/audio_player/widgets/audio_player_expanded.dart';
 import 'package:tattva/pages/audio_player/widgets/play_pause_button.dart';
 import 'package:tattva/pages/audio_player/widgets/seek_bar.dart';
 import 'package:tattva/pages/core/audio_like_button.dart';
