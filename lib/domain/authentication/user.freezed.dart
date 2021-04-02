@@ -26,7 +26,6 @@ class _$UserTearOff {
       required String email,
       @TimestampConverter() required DateTime creationTime,
       @TimestampConverter() required DateTime lastSignInTime,
-      required String username,
       String? photoURL}) {
     return _User(
       uid: uid,
@@ -34,7 +33,6 @@ class _$UserTearOff {
       email: email,
       creationTime: creationTime,
       lastSignInTime: lastSignInTime,
-      username: username,
       photoURL: photoURL,
     );
   }
@@ -56,7 +54,6 @@ mixin _$User {
   DateTime get creationTime => throw _privateConstructorUsedError;
   @TimestampConverter()
   DateTime get lastSignInTime => throw _privateConstructorUsedError;
-  String get username => throw _privateConstructorUsedError;
   String? get photoURL => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -74,7 +71,6 @@ abstract class $UserCopyWith<$Res> {
       String email,
       @TimestampConverter() DateTime creationTime,
       @TimestampConverter() DateTime lastSignInTime,
-      String username,
       String? photoURL});
 }
 
@@ -93,7 +89,6 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? email = freezed,
     Object? creationTime = freezed,
     Object? lastSignInTime = freezed,
-    Object? username = freezed,
     Object? photoURL = freezed,
   }) {
     return _then(_value.copyWith(
@@ -117,10 +112,6 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.lastSignInTime
           : lastSignInTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      username: username == freezed
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
       photoURL: photoURL == freezed
           ? _value.photoURL
           : photoURL // ignore: cast_nullable_to_non_nullable
@@ -140,7 +131,6 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String email,
       @TimestampConverter() DateTime creationTime,
       @TimestampConverter() DateTime lastSignInTime,
-      String username,
       String? photoURL});
 }
 
@@ -160,7 +150,6 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? email = freezed,
     Object? creationTime = freezed,
     Object? lastSignInTime = freezed,
-    Object? username = freezed,
     Object? photoURL = freezed,
   }) {
     return _then(_User(
@@ -184,10 +173,6 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.lastSignInTime
           : lastSignInTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      username: username == freezed
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String,
       photoURL: photoURL == freezed
           ? _value.photoURL
           : photoURL // ignore: cast_nullable_to_non_nullable
@@ -206,7 +191,6 @@ class _$_User implements _User {
       required this.email,
       @TimestampConverter() required this.creationTime,
       @TimestampConverter() required this.lastSignInTime,
-      required this.username,
       this.photoURL});
 
   factory _$_User.fromJson(Map<String, dynamic> json) =>
@@ -225,13 +209,11 @@ class _$_User implements _User {
   @TimestampConverter()
   final DateTime lastSignInTime;
   @override
-  final String username;
-  @override
   final String? photoURL;
 
   @override
   String toString() {
-    return 'User(uid: $uid, displayName: $displayName, email: $email, creationTime: $creationTime, lastSignInTime: $lastSignInTime, username: $username, photoURL: $photoURL)';
+    return 'User(uid: $uid, displayName: $displayName, email: $email, creationTime: $creationTime, lastSignInTime: $lastSignInTime, photoURL: $photoURL)';
   }
 
   @override
@@ -251,9 +233,6 @@ class _$_User implements _User {
             (identical(other.lastSignInTime, lastSignInTime) ||
                 const DeepCollectionEquality()
                     .equals(other.lastSignInTime, lastSignInTime)) &&
-            (identical(other.username, username) ||
-                const DeepCollectionEquality()
-                    .equals(other.username, username)) &&
             (identical(other.photoURL, photoURL) ||
                 const DeepCollectionEquality()
                     .equals(other.photoURL, photoURL)));
@@ -267,7 +246,6 @@ class _$_User implements _User {
       const DeepCollectionEquality().hash(email) ^
       const DeepCollectionEquality().hash(creationTime) ^
       const DeepCollectionEquality().hash(lastSignInTime) ^
-      const DeepCollectionEquality().hash(username) ^
       const DeepCollectionEquality().hash(photoURL);
 
   @JsonKey(ignore: true)
@@ -288,7 +266,6 @@ abstract class _User implements User {
       required String email,
       @TimestampConverter() required DateTime creationTime,
       @TimestampConverter() required DateTime lastSignInTime,
-      required String username,
       String? photoURL}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
@@ -305,8 +282,6 @@ abstract class _User implements User {
   @override
   @TimestampConverter()
   DateTime get lastSignInTime => throw _privateConstructorUsedError;
-  @override
-  String get username => throw _privateConstructorUsedError;
   @override
   String? get photoURL => throw _privateConstructorUsedError;
   @override

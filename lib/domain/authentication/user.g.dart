@@ -15,7 +15,6 @@ _$_User _$_$_UserFromJson(Map<String, dynamic> json) {
         const TimestampConverter().fromJson(json['creationTime'] as Timestamp),
     lastSignInTime: const TimestampConverter()
         .fromJson(json['lastSignInTime'] as Timestamp),
-    username: json['username'] as String,
     photoURL: json['photoURL'] as String?,
   );
 }
@@ -27,6 +26,5 @@ Map<String, dynamic> _$_$_UserToJson(_$_User instance) => <String, dynamic>{
       'creationTime': const TimestampConverter().toJson(instance.creationTime),
       'lastSignInTime':
           const TimestampConverter().toJson(instance.lastSignInTime),
-      'username': instance.username,
       'photoURL': instance.photoURL,
     };

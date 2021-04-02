@@ -13,7 +13,6 @@ class User with _$User {
     required String email,
     @TimestampConverter() required DateTime creationTime,
     @TimestampConverter() required DateTime lastSignInTime,
-    required String username,
     String? photoURL,
   }) = _User;
 

@@ -42,10 +42,11 @@ class ProfilePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Row(
               children: [
-                Image.asset(
-                  'images/profile.png',
-                  height: profileIconSize,
-                  width: profileIconSize,
+                CircleAvatar(
+                  radius: profileIconSize / 2,
+                  backgroundImage: (user!.photoURL != null)
+                      ? NetworkImage(user.photoURL!)
+                      : Image.asset('images/profile.png').image,
                 ),
                 const SizedBox(width: 24.0),
                 Expanded(
@@ -55,7 +56,7 @@ class ProfilePage extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        user!.displayName,
+                        user.displayName,
                         style: TextStyle(
                           fontFamily: fontFamily,
                           fontSize: profileNameFontSize,
