@@ -6,6 +6,7 @@ import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/audio_player/media_state.dart';
 import 'package:tattva/domain/audio_player/queue_state.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/audio_player/widgets/media_controls_bar.dart';
 import 'package:tattva/pages/audio_player/widgets/seek_bar.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
 
@@ -40,7 +41,7 @@ class AudioPlayerPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(40.0, 16.0, 40.0, 0.0),
+                    padding: const EdgeInsets.fromLTRB(40.0, 16.0, 40.0, 16.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -57,7 +58,7 @@ class AudioPlayerPage extends StatelessWidget {
                               mediaItem!.title,
                               style: TextStyle(
                                 fontSize: 24.0,
-                                fontWeight: FontWeight.w900,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                             Text(
@@ -75,7 +76,7 @@ class AudioPlayerPage extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  flex: 5,
+                  flex: 4,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 60.0),
                     child: ClipRRect(
@@ -96,70 +97,11 @@ class AudioPlayerPage extends StatelessWidget {
                       Padding(
                         padding:
                             const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, .0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            IconButton(
-                              onPressed: () {},
-                              splashRadius: 24.0,
-                              icon: SvgPicture.asset(
-                                'icons/share.svg',
-                                height: 16.0,
-                                width: 16.0,
-                              ),
-                            ),
-                            StreamBuilder<PlaybackState>(
-                              stream: AudioService.playbackStateStream,
-                              builder: (context, snapshot) {
-                                final playerState = snapshot.data;
-                                final processingState =
-                                    playerState?.processingState;
-                                final playing = playerState?.playing;
-                                final loading = processingState ==
-                                        AudioProcessingState.connecting ||
-                                    processingState ==
-                                        AudioProcessingState.buffering;
-
-                                if (playing != true) {
-                                  return IconButton(
-                                    onPressed: AudioService.play,
-                                    splashRadius: 16.0,
-                                    icon: SizedBox(
-                                      height: 45.0,
-                                      width: 45.0,
-                                      child: SvgPicture.asset('icons/play.svg'),
-                                    ),
-                                  );
-                                } else {
-                                  return IconButton(
-                                    onPressed:
-                                        loading ? null : AudioService.pause,
-                                    splashRadius: 16.0,
-                                    icon: SizedBox(
-                                      height: 45.0,
-                                      width: 45.0,
-                                      child:
-                                          SvgPicture.asset('icons/pause.svg'),
-                                    ),
-                                  );
-                                }
-                              },
-                            ),
-                            IconButton(
-                              onPressed: () {},
-                              splashRadius: 24.0,
-                              icon: SvgPicture.asset(
-                                'icons/heartOutline.svg',
-                                height: 15.0,
-                                width: 15.0,
-                              ),
-                            ),
-                          ],
-                        ),
+                        child: MediaControlsBar(mediaItem: mediaItem),
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 0.0),
+                            const EdgeInsets.fromLTRB(21.0, 0.0, 21.0, 16.0),
                         child: StreamBuilder<MediaState>(
                           stream: mediaStateStream,
                           builder: (context, snapshot) {

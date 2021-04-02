@@ -8,9 +8,9 @@ import 'package:tattva/domain/audio/audio_category.dart';
 import 'package:tattva/domain/audio/i_audio_facade.dart';
 import 'package:tattva/domain/failure.dart';
 
+part 'audio_bloc.freezed.dart';
 part 'audio_event.dart';
 part 'audio_state.dart';
-part 'audio_bloc.freezed.dart';
 
 @lazySingleton
 class AudioBloc extends Bloc<AudioEvent, AudioState> {
@@ -27,12 +27,26 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
         yield AudioState.initial();
         final audioCategoriesSuccessOrFailure =
             await _audioFacade.getAudioCategories();
-        yield state.copyWith(
-          audioCategoriesOption: optionOf(audioCategoriesSuccessOrFailure),
-          selectedAudioCategory: audioCategoriesSuccessOrFailure.fold(
-            (failure) => none(),
-            (success) => success.isEmpty ? none() : optionOf(success.first),
-          ),
+        yield* audioCategoriesSuccessOrFailure.fold(
+          (failure) async* {
+            yield state.copyWith(
+              audioCategoriesOption: optionOf(left(failure)),
+              selectedAudioCategory: none(),
+              likedAudios: [],
+            );
+          },
+          (success) async* {
+            yield state.copyWith(
+              audioCategoriesOption: optionOf(right(success.categories)),
+              selectedAudioCategory: audioCategoriesSuccessOrFailure.fold(
+                (failure) => none(),
+                (success) => success.categories.isEmpty
+                    ? none()
+                    : optionOf(success.categories.first),
+              ),
+              likedAudios: success.likedAudios,
+            );
+          },
         );
       },
       selectedAudioCategory: (e) async* {
@@ -70,6 +84,36 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
                 selectedAudioCategory: optionOf(e.audioCategory));
           }
         }
+      },
+      likedAudio: (e) async* {
+        _audioFacade
+            .likeDislikeAudio(e.id, true)
+            .then((value) => value.fold((l) {
+                  final likedAudios = List<String>.from(state.likedAudios);
+                  likedAudios.removeWhere((element) => element == e.id);
+                  add(AudioEvent.updateLikedAudios(audioIds: likedAudios));
+                }, (r) => null));
+        final likedAudios = List<String>.from(state.likedAudios);
+        likedAudios.add(e.id);
+        add(AudioEvent.updateLikedAudios(audioIds: likedAudios));
+      },
+      dislikedAudio: (e) async* {
+        _audioFacade
+            .likeDislikeAudio(
+              e.id,
+              false,
+            )
+            .then((value) => value.fold((l) {
+                  final likedAudios = List<String>.from(state.likedAudios);
+                  likedAudios.add(e.id);
+                  add(AudioEvent.updateLikedAudios(audioIds: likedAudios));
+                }, (r) => null));
+        final likedAudios = List<String>.from(state.likedAudios);
+        likedAudios.remove(e.id);
+        add(AudioEvent.updateLikedAudios(audioIds: likedAudios));
+      },
+      updateLikedAudios: (e) async* {
+        yield state.copyWith(likedAudios: e.audioIds);
       },
     );
   }

@@ -1,12 +1,15 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tattva/application/audio/audio_bloc.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/audio_player/media_state.dart';
 import 'package:tattva/domain/audio_player/queue_state.dart';
 import 'package:tattva/injection.dart';
-import 'package:tattva/pages/audio_player/widgets/seek_bar.dart';
 import 'package:tattva/pages/audio_player/audio_player_page.dart';
+import 'package:tattva/pages/audio_player/widgets/play_pause_button.dart';
+import 'package:tattva/pages/audio_player/widgets/seek_bar.dart';
+import 'package:tattva/pages/core/audio_like_button.dart';
 
 class AudioPlayerCollapsed extends StatelessWidget {
   @override
@@ -43,75 +46,38 @@ class AudioPlayerCollapsed extends StatelessWidget {
                           child: Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  mediaItem.title,
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                                ),
-                                Text(
-                                  mediaItem.album,
-                                  style: TextStyle(
-                                    fontSize: 14.0,
-                                    color: Color(0xFF908A8A),
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ],
-                            ),
+                            child: _audioTitleSubtitle(mediaItem),
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
-                IconButton(
-                  onPressed: () {},
-                  splashRadius: 24.0,
-                  icon: SvgPicture.asset(
-                    'icons/heartOutline.svg',
-                    height: 15.0,
-                    width: 15.0,
-                  ),
-                ),
-                StreamBuilder<PlaybackState>(
-                  stream: AudioService.playbackStateStream,
-                  builder: (context, snapshot) {
-                    final playerState = snapshot.data;
-                    final processingState = playerState?.processingState;
-                    final playing = playerState?.playing;
-                    final loading =
-                        processingState == AudioProcessingState.connecting ||
-                            processingState == AudioProcessingState.buffering;
+                BlocBuilder<AudioBloc, AudioState>(
+                  bloc: getIt<AudioBloc>(),
+                  builder: (context, state) {
+                    final uid = mediaItem.extras!['uid'];
+                    final bool liked = state.likedAudios.contains(uid);
 
-                    if (playing != true) {
-                      return IconButton(
-                        onPressed: AudioService.play,
-                        splashRadius: 16.0,
-                        icon: SizedBox(
-                          height: 45.0,
-                          width: 45.0,
-                          child: SvgPicture.asset('icons/play.svg'),
-                        ),
-                      );
-                    } else {
-                      return IconButton(
-                        onPressed: loading ? null : AudioService.pause,
-                        splashRadius: 16.0,
-                        icon: SizedBox(
-                          height: 45.0,
-                          width: 45.0,
-                          child: SvgPicture.asset('icons/pause.svg'),
-                        ),
-                      );
-                    }
+                    return AudioLikeButton(
+                      liked: liked,
+                      onTap: () {
+                        getIt<AudioBloc>().add(
+                          liked
+                              ? AudioEvent.dislikedAudio(id: uid)
+                              : AudioEvent.likedAudio(id: uid),
+                        );
+                      },
+                    );
                   },
                 ),
+                SizedBox(
+                  width: 60.0,
+                  child: PlayPauseButton(
+                    playPauseButtonType: PlayPauseButtonType.collapsed,
+                  ),
+                ),
+                const SizedBox(width: 8.0),
               ],
             ),
             Positioned(
@@ -140,4 +106,26 @@ class AudioPlayerCollapsed extends StatelessWidget {
 
   void onCollapsedItemClicked() =>
       getIt<AudioPlayerBloc>().add(AudioPlayerEvent.expand());
+
+  Widget _audioTitleSubtitle(MediaItem mediaItem) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            mediaItem.title,
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          Text(
+            mediaItem.album,
+            style: TextStyle(
+              fontSize: 14.0,
+              color: Color(0xFF908A8A),
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ],
+      );
 }

@@ -57,7 +57,7 @@ class AudioCategoryItem extends StatelessWidget {
                           category.name,
                           style: TextStyle(
                             fontSize: 14.0,
-                            fontWeight: FontWeight.w900,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         const SizedBox(height: 4.0),

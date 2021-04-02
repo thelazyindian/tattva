@@ -30,10 +30,11 @@ class AudioSubcategorySection extends StatelessWidget {
           child: Row(
             children: [
               Text(
-                audioSubCategory.name,
+                audioSubCategory.name.toUpperCase(),
                 style: TextStyle(
                   fontSize: 17.0,
-                  fontWeight: FontWeight.w800,
+                  letterSpacing: 0.8,
+                  fontWeight: FontWeight.w900,
                 ),
               ),
               Spacer(),
@@ -103,6 +104,7 @@ onAudioItemClicked({
             artUri: Uri.parse(e.thumbnail.first.url),
             album: audioSubCategory.name,
             title: e.name,
+            extras: {'uid': e.id},
           ))
       .toList();
 

@@ -24,7 +24,7 @@ dependencies:
   formz: 0.4.0-nullsafety.0
   freezed_annotation: ^0.14.1
   get_it: ^6.0.0
-  google_sign_in: ^5.0.0
+  google_sign_in: ^5.0.1
   injectable: ^1.2.0
   json_annotation: ^4.0.0
   just_audio: ^0.7.2
@@ -50,4 +50,9 @@ flutter:
   fonts:
     - family: Avenir
       fonts:
-        - asset: fonts/Avenir-Next.ttf
+        - asset: fonts/AvenirNext-Regular.ttf
+          weight: 400
+        - asset: fonts/AvenirNext-Medium.ttf
+          weight: 500
+        - asset: fonts/AvenirNext-Demi.ttf
+          weight: 600

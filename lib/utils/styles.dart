@@ -69,3 +69,9 @@ final secondaryBtnStyle = ButtonStyle(
   foregroundColor: MaterialStateProperty.all(secondaryBtnTextColor),
   textStyle: MaterialStateProperty.all(secondaryBtnTextStyle),
 );
+
+final audioSubCategorySubTitleTextStyle = TextStyle(
+  fontSize: 12.0,
+  fontWeight: FontWeight.w600,
+  color: Color(0xFF908A8A),
+);

@@ -4,8 +4,8 @@ const primaryColor = Color(0xFFFFFFFF);
 const accentColor = Color(0xFF000000);
 const fontFamily = 'Avenir';
 
-const appNameFontWeight = FontWeight.w900;
-const headline1FontWeight = FontWeight.w900;
+const appNameFontWeight = FontWeight.w600;
+const headline1FontWeight = FontWeight.w600;
 const headline1Color = accentColor;
 
 const homeTitleFontWeight = FontWeight.w700;
@@ -15,7 +15,7 @@ const primaryBtnTextColor = primaryColor;
 const secondaryBtnTextColor = accentColor;
 
 const primaryBtnFontWeight = FontWeight.w700;
-const secondaryBtnFontWeight = FontWeight.w600;
+const secondaryBtnFontWeight = FontWeight.w500;
 
 const inputFieldContentPadding =
     EdgeInsets.symmetric(horizontal: 20.0, vertical: 24.0);
@@ -38,6 +38,6 @@ final errorTextColor = Color(0xFFE12B1F);
 final successTextColor = Color(0xFF6CB28E);
 
 final dividerColor = Color(0xFFE1E1E1);
-final profileNameFontWeight = FontWeight.w900;
+final profileNameFontWeight = FontWeight.w600;
 
-final editProfileTitleFontWeight = FontWeight.w900;
+final editProfileTitleFontWeight = FontWeight.w600;

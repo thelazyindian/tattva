@@ -25,6 +25,24 @@ class _$AudioEventTearOff {
       audioCategory,
     );
   }
+
+  _LikedAudio likedAudio({required String id}) {
+    return _LikedAudio(
+      id: id,
+    );
+  }
+
+  _DislikedAudio dislikedAudio({required String id}) {
+    return _DislikedAudio(
+      id: id,
+    );
+  }
+
+  _UpdateLikedAudios updateLikedAudios({required List<String> audioIds}) {
+    return _UpdateLikedAudios(
+      audioIds: audioIds,
+    );
+  }
 }
 
 /// @nodoc
@@ -37,12 +55,18 @@ mixin _$AudioEvent {
     required TResult Function() started,
     required TResult Function(AudioCategory audioCategory)
         selectedAudioCategory,
+    required TResult Function(String id) likedAudio,
+    required TResult Function(String id) dislikedAudio,
+    required TResult Function(List<String> audioIds) updateLikedAudios,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
+    TResult Function(String id)? likedAudio,
+    TResult Function(String id)? dislikedAudio,
+    TResult Function(List<String> audioIds)? updateLikedAudios,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,12 +75,18 @@ mixin _$AudioEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedAudioCategory value)
         selectedAudioCategory,
+    required TResult Function(_LikedAudio value) likedAudio,
+    required TResult Function(_DislikedAudio value) dislikedAudio,
+    required TResult Function(_UpdateLikedAudios value) updateLikedAudios,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
+    TResult Function(_LikedAudio value)? likedAudio,
+    TResult Function(_DislikedAudio value)? dislikedAudio,
+    TResult Function(_UpdateLikedAudios value)? updateLikedAudios,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -117,6 +147,9 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(AudioCategory audioCategory)
         selectedAudioCategory,
+    required TResult Function(String id) likedAudio,
+    required TResult Function(String id) dislikedAudio,
+    required TResult Function(List<String> audioIds) updateLikedAudios,
   }) {
     return started();
   }
@@ -126,6 +159,9 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
+    TResult Function(String id)? likedAudio,
+    TResult Function(String id)? dislikedAudio,
+    TResult Function(List<String> audioIds)? updateLikedAudios,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -140,6 +176,9 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedAudioCategory value)
         selectedAudioCategory,
+    required TResult Function(_LikedAudio value) likedAudio,
+    required TResult Function(_DislikedAudio value) dislikedAudio,
+    required TResult Function(_UpdateLikedAudios value) updateLikedAudios,
   }) {
     return started(this);
   }
@@ -149,6 +188,9 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
+    TResult Function(_LikedAudio value)? likedAudio,
+    TResult Function(_DislikedAudio value)? dislikedAudio,
+    TResult Function(_UpdateLikedAudios value)? updateLikedAudios,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -240,6 +282,9 @@ class _$_SelectedAudioCategory implements _SelectedAudioCategory {
     required TResult Function() started,
     required TResult Function(AudioCategory audioCategory)
         selectedAudioCategory,
+    required TResult Function(String id) likedAudio,
+    required TResult Function(String id) dislikedAudio,
+    required TResult Function(List<String> audioIds) updateLikedAudios,
   }) {
     return selectedAudioCategory(audioCategory);
   }
@@ -249,6 +294,9 @@ class _$_SelectedAudioCategory implements _SelectedAudioCategory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
+    TResult Function(String id)? likedAudio,
+    TResult Function(String id)? dislikedAudio,
+    TResult Function(List<String> audioIds)? updateLikedAudios,
     required TResult orElse(),
   }) {
     if (selectedAudioCategory != null) {
@@ -263,6 +311,9 @@ class _$_SelectedAudioCategory implements _SelectedAudioCategory {
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedAudioCategory value)
         selectedAudioCategory,
+    required TResult Function(_LikedAudio value) likedAudio,
+    required TResult Function(_DislikedAudio value) dislikedAudio,
+    required TResult Function(_UpdateLikedAudios value) updateLikedAudios,
   }) {
     return selectedAudioCategory(this);
   }
@@ -272,6 +323,9 @@ class _$_SelectedAudioCategory implements _SelectedAudioCategory {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
+    TResult Function(_LikedAudio value)? likedAudio,
+    TResult Function(_DislikedAudio value)? dislikedAudio,
+    TResult Function(_UpdateLikedAudios value)? updateLikedAudios,
     required TResult orElse(),
   }) {
     if (selectedAudioCategory != null) {
@@ -292,16 +346,405 @@ abstract class _SelectedAudioCategory implements AudioEvent {
 }
 
 /// @nodoc
+abstract class _$LikedAudioCopyWith<$Res> {
+  factory _$LikedAudioCopyWith(
+          _LikedAudio value, $Res Function(_LikedAudio) then) =
+      __$LikedAudioCopyWithImpl<$Res>;
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$LikedAudioCopyWithImpl<$Res> extends _$AudioEventCopyWithImpl<$Res>
+    implements _$LikedAudioCopyWith<$Res> {
+  __$LikedAudioCopyWithImpl(
+      _LikedAudio _value, $Res Function(_LikedAudio) _then)
+      : super(_value, (v) => _then(v as _LikedAudio));
+
+  @override
+  _LikedAudio get _value => super._value as _LikedAudio;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_LikedAudio(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_LikedAudio implements _LikedAudio {
+  const _$_LikedAudio({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'AudioEvent.likedAudio(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _LikedAudio &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+
+  @JsonKey(ignore: true)
+  @override
+  _$LikedAudioCopyWith<_LikedAudio> get copyWith =>
+      __$LikedAudioCopyWithImpl<_LikedAudio>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(AudioCategory audioCategory)
+        selectedAudioCategory,
+    required TResult Function(String id) likedAudio,
+    required TResult Function(String id) dislikedAudio,
+    required TResult Function(List<String> audioIds) updateLikedAudios,
+  }) {
+    return likedAudio(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
+    TResult Function(String id)? likedAudio,
+    TResult Function(String id)? dislikedAudio,
+    TResult Function(List<String> audioIds)? updateLikedAudios,
+    required TResult orElse(),
+  }) {
+    if (likedAudio != null) {
+      return likedAudio(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectedAudioCategory value)
+        selectedAudioCategory,
+    required TResult Function(_LikedAudio value) likedAudio,
+    required TResult Function(_DislikedAudio value) dislikedAudio,
+    required TResult Function(_UpdateLikedAudios value) updateLikedAudios,
+  }) {
+    return likedAudio(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
+    TResult Function(_LikedAudio value)? likedAudio,
+    TResult Function(_DislikedAudio value)? dislikedAudio,
+    TResult Function(_UpdateLikedAudios value)? updateLikedAudios,
+    required TResult orElse(),
+  }) {
+    if (likedAudio != null) {
+      return likedAudio(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LikedAudio implements AudioEvent {
+  const factory _LikedAudio({required String id}) = _$_LikedAudio;
+
+  String get id => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$LikedAudioCopyWith<_LikedAudio> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$DislikedAudioCopyWith<$Res> {
+  factory _$DislikedAudioCopyWith(
+          _DislikedAudio value, $Res Function(_DislikedAudio) then) =
+      __$DislikedAudioCopyWithImpl<$Res>;
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$DislikedAudioCopyWithImpl<$Res> extends _$AudioEventCopyWithImpl<$Res>
+    implements _$DislikedAudioCopyWith<$Res> {
+  __$DislikedAudioCopyWithImpl(
+      _DislikedAudio _value, $Res Function(_DislikedAudio) _then)
+      : super(_value, (v) => _then(v as _DislikedAudio));
+
+  @override
+  _DislikedAudio get _value => super._value as _DislikedAudio;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_DislikedAudio(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_DislikedAudio implements _DislikedAudio {
+  const _$_DislikedAudio({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'AudioEvent.dislikedAudio(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DislikedAudio &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DislikedAudioCopyWith<_DislikedAudio> get copyWith =>
+      __$DislikedAudioCopyWithImpl<_DislikedAudio>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(AudioCategory audioCategory)
+        selectedAudioCategory,
+    required TResult Function(String id) likedAudio,
+    required TResult Function(String id) dislikedAudio,
+    required TResult Function(List<String> audioIds) updateLikedAudios,
+  }) {
+    return dislikedAudio(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
+    TResult Function(String id)? likedAudio,
+    TResult Function(String id)? dislikedAudio,
+    TResult Function(List<String> audioIds)? updateLikedAudios,
+    required TResult orElse(),
+  }) {
+    if (dislikedAudio != null) {
+      return dislikedAudio(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectedAudioCategory value)
+        selectedAudioCategory,
+    required TResult Function(_LikedAudio value) likedAudio,
+    required TResult Function(_DislikedAudio value) dislikedAudio,
+    required TResult Function(_UpdateLikedAudios value) updateLikedAudios,
+  }) {
+    return dislikedAudio(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
+    TResult Function(_LikedAudio value)? likedAudio,
+    TResult Function(_DislikedAudio value)? dislikedAudio,
+    TResult Function(_UpdateLikedAudios value)? updateLikedAudios,
+    required TResult orElse(),
+  }) {
+    if (dislikedAudio != null) {
+      return dislikedAudio(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DislikedAudio implements AudioEvent {
+  const factory _DislikedAudio({required String id}) = _$_DislikedAudio;
+
+  String get id => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$DislikedAudioCopyWith<_DislikedAudio> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$UpdateLikedAudiosCopyWith<$Res> {
+  factory _$UpdateLikedAudiosCopyWith(
+          _UpdateLikedAudios value, $Res Function(_UpdateLikedAudios) then) =
+      __$UpdateLikedAudiosCopyWithImpl<$Res>;
+  $Res call({List<String> audioIds});
+}
+
+/// @nodoc
+class __$UpdateLikedAudiosCopyWithImpl<$Res>
+    extends _$AudioEventCopyWithImpl<$Res>
+    implements _$UpdateLikedAudiosCopyWith<$Res> {
+  __$UpdateLikedAudiosCopyWithImpl(
+      _UpdateLikedAudios _value, $Res Function(_UpdateLikedAudios) _then)
+      : super(_value, (v) => _then(v as _UpdateLikedAudios));
+
+  @override
+  _UpdateLikedAudios get _value => super._value as _UpdateLikedAudios;
+
+  @override
+  $Res call({
+    Object? audioIds = freezed,
+  }) {
+    return _then(_UpdateLikedAudios(
+      audioIds: audioIds == freezed
+          ? _value.audioIds
+          : audioIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UpdateLikedAudios implements _UpdateLikedAudios {
+  const _$_UpdateLikedAudios({required this.audioIds});
+
+  @override
+  final List<String> audioIds;
+
+  @override
+  String toString() {
+    return 'AudioEvent.updateLikedAudios(audioIds: $audioIds)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateLikedAudios &&
+            (identical(other.audioIds, audioIds) ||
+                const DeepCollectionEquality()
+                    .equals(other.audioIds, audioIds)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(audioIds);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdateLikedAudiosCopyWith<_UpdateLikedAudios> get copyWith =>
+      __$UpdateLikedAudiosCopyWithImpl<_UpdateLikedAudios>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(AudioCategory audioCategory)
+        selectedAudioCategory,
+    required TResult Function(String id) likedAudio,
+    required TResult Function(String id) dislikedAudio,
+    required TResult Function(List<String> audioIds) updateLikedAudios,
+  }) {
+    return updateLikedAudios(audioIds);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
+    TResult Function(String id)? likedAudio,
+    TResult Function(String id)? dislikedAudio,
+    TResult Function(List<String> audioIds)? updateLikedAudios,
+    required TResult orElse(),
+  }) {
+    if (updateLikedAudios != null) {
+      return updateLikedAudios(audioIds);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectedAudioCategory value)
+        selectedAudioCategory,
+    required TResult Function(_LikedAudio value) likedAudio,
+    required TResult Function(_DislikedAudio value) dislikedAudio,
+    required TResult Function(_UpdateLikedAudios value) updateLikedAudios,
+  }) {
+    return updateLikedAudios(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
+    TResult Function(_LikedAudio value)? likedAudio,
+    TResult Function(_DislikedAudio value)? dislikedAudio,
+    TResult Function(_UpdateLikedAudios value)? updateLikedAudios,
+    required TResult orElse(),
+  }) {
+    if (updateLikedAudios != null) {
+      return updateLikedAudios(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateLikedAudios implements AudioEvent {
+  const factory _UpdateLikedAudios({required List<String> audioIds}) =
+      _$_UpdateLikedAudios;
+
+  List<String> get audioIds => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UpdateLikedAudiosCopyWith<_UpdateLikedAudios> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$AudioStateTearOff {
   const _$AudioStateTearOff();
 
   _AudioState call(
       {required Option<Either<Failure, List<AudioCategory>>>
           audioCategoriesOption,
+      required List<String> likedAudios,
       required bool loadingSubCategory,
       required Option<AudioCategory> selectedAudioCategory}) {
     return _AudioState(
       audioCategoriesOption: audioCategoriesOption,
+      likedAudios: likedAudios,
       loadingSubCategory: loadingSubCategory,
       selectedAudioCategory: selectedAudioCategory,
     );
@@ -315,6 +758,7 @@ const $AudioState = _$AudioStateTearOff();
 mixin _$AudioState {
   Option<Either<Failure, List<AudioCategory>>> get audioCategoriesOption =>
       throw _privateConstructorUsedError;
+  List<String> get likedAudios => throw _privateConstructorUsedError;
   bool get loadingSubCategory => throw _privateConstructorUsedError;
   Option<AudioCategory> get selectedAudioCategory =>
       throw _privateConstructorUsedError;
@@ -331,6 +775,7 @@ abstract class $AudioStateCopyWith<$Res> {
       _$AudioStateCopyWithImpl<$Res>;
   $Res call(
       {Option<Either<Failure, List<AudioCategory>>> audioCategoriesOption,
+      List<String> likedAudios,
       bool loadingSubCategory,
       Option<AudioCategory> selectedAudioCategory});
 }
@@ -346,6 +791,7 @@ class _$AudioStateCopyWithImpl<$Res> implements $AudioStateCopyWith<$Res> {
   @override
   $Res call({
     Object? audioCategoriesOption = freezed,
+    Object? likedAudios = freezed,
     Object? loadingSubCategory = freezed,
     Object? selectedAudioCategory = freezed,
   }) {
@@ -354,6 +800,10 @@ class _$AudioStateCopyWithImpl<$Res> implements $AudioStateCopyWith<$Res> {
           ? _value.audioCategoriesOption
           : audioCategoriesOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<Failure, List<AudioCategory>>>,
+      likedAudios: likedAudios == freezed
+          ? _value.likedAudios
+          : likedAudios // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       loadingSubCategory: loadingSubCategory == freezed
           ? _value.loadingSubCategory
           : loadingSubCategory // ignore: cast_nullable_to_non_nullable
@@ -374,6 +824,7 @@ abstract class _$AudioStateCopyWith<$Res> implements $AudioStateCopyWith<$Res> {
   @override
   $Res call(
       {Option<Either<Failure, List<AudioCategory>>> audioCategoriesOption,
+      List<String> likedAudios,
       bool loadingSubCategory,
       Option<AudioCategory> selectedAudioCategory});
 }
@@ -391,6 +842,7 @@ class __$AudioStateCopyWithImpl<$Res> extends _$AudioStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? audioCategoriesOption = freezed,
+    Object? likedAudios = freezed,
     Object? loadingSubCategory = freezed,
     Object? selectedAudioCategory = freezed,
   }) {
@@ -399,6 +851,10 @@ class __$AudioStateCopyWithImpl<$Res> extends _$AudioStateCopyWithImpl<$Res>
           ? _value.audioCategoriesOption
           : audioCategoriesOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<Failure, List<AudioCategory>>>,
+      likedAudios: likedAudios == freezed
+          ? _value.likedAudios
+          : likedAudios // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       loadingSubCategory: loadingSubCategory == freezed
           ? _value.loadingSubCategory
           : loadingSubCategory // ignore: cast_nullable_to_non_nullable
@@ -415,11 +871,14 @@ class __$AudioStateCopyWithImpl<$Res> extends _$AudioStateCopyWithImpl<$Res>
 class _$_AudioState implements _AudioState {
   const _$_AudioState(
       {required this.audioCategoriesOption,
+      required this.likedAudios,
       required this.loadingSubCategory,
       required this.selectedAudioCategory});
 
   @override
   final Option<Either<Failure, List<AudioCategory>>> audioCategoriesOption;
+  @override
+  final List<String> likedAudios;
   @override
   final bool loadingSubCategory;
   @override
@@ -427,7 +886,7 @@ class _$_AudioState implements _AudioState {
 
   @override
   String toString() {
-    return 'AudioState(audioCategoriesOption: $audioCategoriesOption, loadingSubCategory: $loadingSubCategory, selectedAudioCategory: $selectedAudioCategory)';
+    return 'AudioState(audioCategoriesOption: $audioCategoriesOption, likedAudios: $likedAudios, loadingSubCategory: $loadingSubCategory, selectedAudioCategory: $selectedAudioCategory)';
   }
 
   @override
@@ -437,6 +896,9 @@ class _$_AudioState implements _AudioState {
             (identical(other.audioCategoriesOption, audioCategoriesOption) ||
                 const DeepCollectionEquality().equals(
                     other.audioCategoriesOption, audioCategoriesOption)) &&
+            (identical(other.likedAudios, likedAudios) ||
+                const DeepCollectionEquality()
+                    .equals(other.likedAudios, likedAudios)) &&
             (identical(other.loadingSubCategory, loadingSubCategory) ||
                 const DeepCollectionEquality()
                     .equals(other.loadingSubCategory, loadingSubCategory)) &&
@@ -449,6 +911,7 @@ class _$_AudioState implements _AudioState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(audioCategoriesOption) ^
+      const DeepCollectionEquality().hash(likedAudios) ^
       const DeepCollectionEquality().hash(loadingSubCategory) ^
       const DeepCollectionEquality().hash(selectedAudioCategory);
 
@@ -462,12 +925,15 @@ abstract class _AudioState implements AudioState {
   const factory _AudioState(
       {required Option<Either<Failure, List<AudioCategory>>>
           audioCategoriesOption,
+      required List<String> likedAudios,
       required bool loadingSubCategory,
       required Option<AudioCategory> selectedAudioCategory}) = _$_AudioState;
 
   @override
   Option<Either<Failure, List<AudioCategory>>> get audioCategoriesOption =>
       throw _privateConstructorUsedError;
+  @override
+  List<String> get likedAudios => throw _privateConstructorUsedError;
   @override
   bool get loadingSubCategory => throw _privateConstructorUsedError;
   @override

@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final VoidCallback? onSuffixPressed;
   final VoidCallback? onPrefixPressed;
 
-  const CustomAppBar({
+  CustomAppBar({
     this.title,
     this.height = kToolbarHeight,
     this.titleAlignment = TextAlign.center,
@@ -40,20 +40,21 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: [
-            IconButton(
-              onPressed: onPrefixPressed ??
-                  () {
-                    if (Navigator.canPop(context)) {
+            if (onPrefixPressed != null || Navigator.canPop(context))
+              IconButton(
+                onPressed: onPrefixPressed ??
+                    () {
                       Navigator.pop(context);
-                    }
-                  },
-              splashRadius: 28.0,
-              icon: SvgPicture.asset(
-                'icons/back.svg',
-                height: 14.0,
-                width: 14.0,
-              ),
-            ),
+                    },
+                splashRadius: 28.0,
+                icon: SvgPicture.asset(
+                  'icons/back.svg',
+                  height: 14.0,
+                  width: 14.0,
+                ),
+              )
+            else
+              const SizedBox(width: 48.0),
             if (customAppBarType != CustomAppBarType.none)
               Expanded(
                 child: Text(
@@ -62,7 +63,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
                     fontFamily: fontFamily,
                     fontSize:
                         customAppBarType == CustomAppBarType.head ? 28.0 : 20.0,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w600,
                   ),
                   textAlign: titleAlignment,
                 ),

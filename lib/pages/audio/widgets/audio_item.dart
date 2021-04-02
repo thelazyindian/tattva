@@ -56,7 +56,7 @@ class AudioItem extends StatelessWidget {
         Text(
           heading,
           style: TextStyle(
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
         ),

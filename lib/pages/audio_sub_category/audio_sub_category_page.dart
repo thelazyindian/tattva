@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tattva/application/audio/audio_bloc.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/audio/audio_sub_category.dart';
 import 'package:tattva/injection.dart';
@@ -45,18 +46,25 @@ class AudioSubCategoryPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24.0),
-            ListView.separated(
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              separatorBuilder: (_, __) => const SizedBox(height: 15.0),
-              itemCount: audioSubCategory.audios.length,
-              itemBuilder: (context, idx) {
-                return AudioSubCategoryItem(
-                  tattvaAudio: audioSubCategory.audios[idx],
-                  onTap: () => onAudioItemClicked(
-                    audioSubCategory: audioSubCategory,
-                    idx: idx,
-                  ),
+            BlocBuilder<AudioBloc, AudioState>(
+              bloc: getIt<AudioBloc>(),
+              builder: (context, state) {
+                return ListView.separated(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  separatorBuilder: (_, __) => const SizedBox(height: 15.0),
+                  itemCount: audioSubCategory.audios.length,
+                  itemBuilder: (context, idx) {
+                    return AudioSubCategoryItem(
+                      tattvaAudio: audioSubCategory.audios[idx],
+                      liked: state.likedAudios
+                          .contains(audioSubCategory.audios[idx].id),
+                      onTap: () => onAudioItemClicked(
+                        audioSubCategory: audioSubCategory,
+                        idx: idx,
+                      ),
+                    );
+                  },
                 );
               },
             ),

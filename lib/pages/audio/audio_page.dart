@@ -1,3 +1,4 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,13 +19,11 @@ class AudioPage extends StatefulWidget {
   _AudioPageState createState() => _AudioPageState();
 }
 
-class _AudioPageState extends State<AudioPage> {
+class _AudioPageState extends State<AudioPage> with WidgetsBindingObserver {
   final _navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
-    getIt<AudioBloc>().add(AudioEvent.started());
-
     return Scaffold(
       body: Stack(
         children: [
@@ -49,36 +48,43 @@ class _AudioPageState extends State<AudioPage> {
                   },
                 ),
                 backgroundColor: Theme.of(context).primaryColor,
-                body: BlocBuilder<AudioBloc, AudioState>(
-                  bloc: getIt<AudioBloc>(),
-                  builder: (context, state) {
-                    return state.audioCategoriesOption.fold(
-                      () => const Center(child: CircularProgressIndicator()),
-                      (audioCategoriesSuccessOrFailure) =>
-                          audioCategoriesSuccessOrFailure.fold(
-                        (l) => const Center(child: Text('ERROR')),
-                        (audioCategories) => ListView(
-                          padding: const EdgeInsets.symmetric(vertical: 16.0),
-                          children: [
-                            AudioCategoriesSection(
-                                audioCategories: audioCategories),
-                            const SizedBox(height: 48.0),
-                            state.selectedAudioCategory.fold(
-                              () => const Center(child: Text('NO SUBS')),
-                              (category) => state.loadingSubCategory
-                                  ? const Center(
-                                      child: CircularProgressIndicator())
-                                  : (category.audioSubCategories == null)
-                                      ? const Center(child: Text('ERROR'))
-                                      : PageContents(
-                                          audioSubCategories:
-                                              category.audioSubCategories!),
-                            ),
-                          ],
+                body: RefreshIndicator(
+                  onRefresh: () async =>
+                      getIt<AudioBloc>().add(AudioEvent.started()),
+                  child: BlocBuilder<AudioBloc, AudioState>(
+                    bloc: getIt<AudioBloc>()..add(AudioEvent.started()),
+                    builder: (context, state) {
+                      return state.audioCategoriesOption.fold(
+                        () => const Center(child: CircularProgressIndicator()),
+                        (audioCategoriesSuccessOrFailure) =>
+                            audioCategoriesSuccessOrFailure.fold(
+                          (l) => ListView(
+                            children: [const Center(child: Text('ERROR'))],
+                          ),
+                          (audioCategories) => ListView(
+                            padding: const EdgeInsets.symmetric(vertical: 16.0),
+                            children: [
+                              AudioCategoriesSection(
+                                  audioCategories: audioCategories),
+                              const SizedBox(height: 48.0),
+                              state.selectedAudioCategory.fold(
+                                () => const Center(child: Text('NO SUBS')),
+                                (category) => state.loadingSubCategory
+                                    ? const Center(
+                                        child: CircularProgressIndicator())
+                                    : (category.audioSubCategories == null)
+                                        ? const Center(child: Text('ERROR'))
+                                        : PageContents(
+                                            audioSubCategories:
+                                                category.audioSubCategories!,
+                                          ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
@@ -129,5 +135,39 @@ class _AudioPageState extends State<AudioPage> {
         ],
       ),
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addObserver(this);
+    AudioService.connect();
+  }
+
+  @override
+  void dispose() {
+    AudioService.disconnect();
+    WidgetsBinding.instance!.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        AudioService.connect();
+        break;
+      case AppLifecycleState.paused:
+        AudioService.disconnect();
+        break;
+      default:
+        break;
+    }
+  }
+
+  @override
+  Future<bool> didPopRoute() async {
+    AudioService.disconnect();
+    return false;
   }
 }

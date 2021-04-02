@@ -152,10 +152,10 @@ class AuthFacade implements IAuthFacade {
         debugPrint('GOOGLE_FB_AUTH: ${e.code}');
         return optionOf(left(AuthFailure.serverError()));
       }
-    } on PlatformException catch (e) {
+    } on PlatformException catch (e, trace) {
       debugPrint(
           'GOOGLE_FB_AUTH: ${e.code}\nMSG: ${e.message}\DETA: ${e.details}\TRACE: ${e.stacktrace}');
-
+      debugPrint('GOOGLE_FB_AUTH: $trace');
       return optionOf(left(AuthFailure.serverError()));
     }
   }

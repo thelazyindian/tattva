@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tattva/application/audio/audio_bloc.dart';
 import 'package:tattva/domain/audio/audio_category.dart';
-import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio/widgets/audio_category_item.dart';
 
 class AudioCategoriesSection extends StatelessWidget {

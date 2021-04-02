@@ -20,6 +20,10 @@ class _$AudioPlayerEventTearOff {
     return const _Started();
   }
 
+  _NoneE none() {
+    return const _NoneE();
+  }
+
   _Collapse collapse() {
     return const _Collapse();
   }
@@ -37,6 +41,7 @@ mixin _$AudioPlayerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
   }) =>
@@ -44,6 +49,7 @@ mixin _$AudioPlayerEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
     required TResult orElse(),
@@ -52,6 +58,7 @@ mixin _$AudioPlayerEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NoneE value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
   }) =>
@@ -59,6 +66,7 @@ mixin _$AudioPlayerEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NoneE value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
     required TResult orElse(),
@@ -120,6 +128,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
   }) {
@@ -130,6 +139,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
     required TResult orElse(),
@@ -144,6 +154,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NoneE value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
   }) {
@@ -154,6 +165,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NoneE value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
     required TResult orElse(),
@@ -167,6 +179,96 @@ class _$_Started implements _Started {
 
 abstract class _Started implements AudioPlayerEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$NoneECopyWith<$Res> {
+  factory _$NoneECopyWith(_NoneE value, $Res Function(_NoneE) then) =
+      __$NoneECopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NoneECopyWithImpl<$Res> extends _$AudioPlayerEventCopyWithImpl<$Res>
+    implements _$NoneECopyWith<$Res> {
+  __$NoneECopyWithImpl(_NoneE _value, $Res Function(_NoneE) _then)
+      : super(_value, (v) => _then(v as _NoneE));
+
+  @override
+  _NoneE get _value => super._value as _NoneE;
+}
+
+/// @nodoc
+class _$_NoneE implements _NoneE {
+  const _$_NoneE();
+
+  @override
+  String toString() {
+    return 'AudioPlayerEvent.none()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _NoneE);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() none,
+    required TResult Function() collapse,
+    required TResult Function() expand,
+  }) {
+    return none();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? none,
+    TResult Function()? collapse,
+    TResult Function()? expand,
+    required TResult orElse(),
+  }) {
+    if (none != null) {
+      return none();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_NoneE value) none,
+    required TResult Function(_Collapse value) collapse,
+    required TResult Function(_Expand value) expand,
+  }) {
+    return none(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_NoneE value)? none,
+    TResult Function(_Collapse value)? collapse,
+    TResult Function(_Expand value)? expand,
+    required TResult orElse(),
+  }) {
+    if (none != null) {
+      return none(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoneE implements AudioPlayerEvent {
+  const factory _NoneE() = _$_NoneE;
 }
 
 /// @nodoc
@@ -206,6 +308,7 @@ class _$_Collapse implements _Collapse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
   }) {
@@ -216,6 +319,7 @@ class _$_Collapse implements _Collapse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
     required TResult orElse(),
@@ -230,6 +334,7 @@ class _$_Collapse implements _Collapse {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NoneE value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
   }) {
@@ -240,6 +345,7 @@ class _$_Collapse implements _Collapse {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NoneE value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
     required TResult orElse(),
@@ -292,6 +398,7 @@ class _$_Expand implements _Expand {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
   }) {
@@ -302,6 +409,7 @@ class _$_Expand implements _Expand {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
     required TResult orElse(),
@@ -316,6 +424,7 @@ class _$_Expand implements _Expand {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_NoneE value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
   }) {
@@ -326,6 +435,7 @@ class _$_Expand implements _Expand {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_NoneE value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
     required TResult orElse(),
