@@ -137,6 +137,7 @@ class AuthFacade implements IAuthFacade {
       final userMap = {
         'displayName': _user.displayName,
         'email': _user.email,
+        'photoURL': _user.photoURL,
         'creationTime': Timestamp.fromDate(_user.metadata.creationTime!),
         'lastSignInTime': Timestamp.fromDate(_user.metadata.lastSignInTime!),
       };
@@ -185,6 +186,7 @@ class AuthFacade implements IAuthFacade {
       final userMap = {
         'displayName': _user.displayName,
         'email': _user.email,
+        'photoURL': _user.photoURL,
         'creationTime': Timestamp.fromDate(_user.metadata.creationTime!),
         'lastSignInTime': Timestamp.fromDate(_user.metadata.lastSignInTime!),
       };

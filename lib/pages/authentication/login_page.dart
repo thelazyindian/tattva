@@ -56,17 +56,15 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     EmailField(),
                     const SizedBox(height: inputFieldsSpacing),
-                    PasswordField(inLoginView: true),
+                    PasswordField(
+                      inLoginView: true,
+                      onFieldSubmitted: (_) => onLoginPressed(),
+                    ),
                     const SizedBox(height: formBtnSpacing),
                     PrimaryLoginButton(
                       label: BTN_LOG_IN,
                       loading: state.status.isSubmissionInProgress,
-                      onPressed: loadingRequest
-                          ? null
-                          : () {
-                              getIt<AuthenticationBloc>()
-                                  .add(AuthenticationEvent.loginWithEmail());
-                            },
+                      onPressed: loadingRequest ? null : onLoginPressed,
                     ),
                     TextButton(
                       onPressed: loadingRequest
@@ -122,4 +120,7 @@ class _LoginPageState extends State<LoginPage> {
 
   setBloc() => getIt<AuthenticationBloc>()
       .add(AuthenticationEvent.setFormType(AuthFormType.loginWithEmail()));
+
+  onLoginPressed() =>
+      getIt<AuthenticationBloc>().add(AuthenticationEvent.loginWithEmail());
 }

@@ -33,6 +33,7 @@ class NameField extends StatelessWidget {
                         : null
                 : null,
           ),
+          textInputAction: TextInputAction.next,
           onChanged: (value) => getIt<AuthenticationBloc>()
               .add(AuthenticationEvent.onNameChanged(value)),
         );

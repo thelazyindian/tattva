@@ -9,9 +9,12 @@ import 'package:tattva/utils/dimens.dart';
 import 'package:formz/formz.dart';
 
 class PasswordField extends StatefulWidget {
-  const PasswordField({Key? key, this.inLoginView = false}) : super(key: key);
+  const PasswordField(
+      {Key? key, this.inLoginView = false, this.onFieldSubmitted})
+      : super(key: key);
 
   final bool inLoginView;
+  final Function(String)? onFieldSubmitted;
 
   @override
   _PasswordFieldState createState() => _PasswordFieldState();
@@ -61,6 +64,7 @@ class _PasswordFieldState extends State<PasswordField> {
           ),
           onChanged: (value) => getIt<AuthenticationBloc>()
               .add(AuthenticationEvent.onPasswordChanged(value)),
+          onFieldSubmitted: widget.onFieldSubmitted,
         );
       },
     );

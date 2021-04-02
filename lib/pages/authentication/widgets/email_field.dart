@@ -33,6 +33,7 @@ class EmailField extends StatelessWidget {
                         : null
                 : null,
           ),
+          textInputAction: TextInputAction.next,
           onChanged: (value) => getIt<AuthenticationBloc>()
               .add(AuthenticationEvent.onEmailChanged(value)),
         );

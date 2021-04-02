@@ -57,17 +57,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: inputFieldsSpacing),
                   EmailField(),
                   const SizedBox(height: inputFieldsSpacing),
-                  PasswordField(),
+                  PasswordField(
+                    onFieldSubmitted: (_) => onRegisterPressed(),
+                  ),
                   const SizedBox(height: formBtnSpacing),
                   PrimaryLoginButton(
                     label: BTN_REGISTER,
                     loading: state.status.isSubmissionInProgress,
-                    onPressed: loadingRequest
-                        ? null
-                        : () {
-                            getIt<AuthenticationBloc>()
-                                .add(AuthenticationEvent.registerWithEmail());
-                          },
+                    onPressed: loadingRequest ? null : onRegisterPressed,
                   ),
                   TextButton(
                     onPressed: loadingRequest
@@ -120,4 +117,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   setBloc() => getIt<AuthenticationBloc>()
       .add(AuthenticationEvent.setFormType(AuthFormType.register()));
+
+  onRegisterPressed() =>
+      getIt<AuthenticationBloc>().add(AuthenticationEvent.registerWithEmail());
 }
