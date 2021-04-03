@@ -6,6 +6,7 @@ import 'package:tattva/pages/profile/widgets/profile_items_list.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
+import 'package:auto_route/auto_route.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -22,18 +23,16 @@ class ProfilePage extends StatelessWidget {
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         elevation: .0,
-        leading: Navigator.canPop(context)
-            ? Center(
-                child: IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: SvgPicture.asset(
-                    'icons/back.svg',
-                    height: authBackBtnSize,
-                    width: authBackBtnSize,
-                  ),
-                ),
-              )
-            : null,
+        leading: Center(
+          child: IconButton(
+            onPressed: () => context.router.pop(),
+            icon: SvgPicture.asset(
+              'icons/back.svg',
+              height: authBackBtnSize,
+              width: authBackBtnSize,
+            ),
+          ),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

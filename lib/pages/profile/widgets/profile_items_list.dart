@@ -1,24 +1,23 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
 
 class ProfileItemsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final navigatorKeyState =
-        Provider.of<GlobalKey<NavigatorState>>(context, listen: false)
-            .currentState!;
+    final router = context.router;
 
     final List<Map<String, dynamic>> items = [
       {
         'icon': 'icons/person.svg',
         'name': PROFILE_ITEM_MY_PROFILE,
         'onTap': () {
-          navigatorKeyState.pushNamed('/edit_profile');
+          router.push(EditProfileRoute());
         },
       },
       {
@@ -57,9 +56,9 @@ class ProfileItemsList extends StatelessWidget {
         'onTap': () {
           getIt<IAuthFacade>().signOut().then((value) => value.fold(
                 (l) => null,
-                (r) => navigatorKeyState.pushNamedAndRemoveUntil(
-                  '/landing',
-                  (route) => false,
+                (r) => router.pushAndRemoveUntil(
+                  LandingWrapperRoute(),
+                  predicate: (_) => false,
                 ),
               ));
         },

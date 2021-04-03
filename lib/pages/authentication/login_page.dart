@@ -1,16 +1,17 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
+import 'package:formz/formz.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/domain/authentication/auth_form_type.dart';
 import 'package:tattva/injection.dart';
-import 'package:formz/formz.dart';
 import 'package:tattva/pages/authentication/widgets/continue_with_facebook.dart';
 import 'package:tattva/pages/authentication/widgets/continue_with_google.dart';
 import 'package:tattva/pages/authentication/widgets/custom_sliver_app_bar.dart';
 import 'package:tattva/pages/authentication/widgets/email_field.dart';
 import 'package:tattva/pages/authentication/widgets/password_field.dart';
 import 'package:tattva/pages/authentication/widgets/primary_login_button.dart';
+import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
@@ -24,8 +25,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   void initState() {
-    setBloc();
     super.initState();
+    setBloc();
   }
 
   @override
@@ -70,14 +71,17 @@ class _LoginPageState extends State<LoginPage> {
                       onPressed: loadingRequest
                           ? null
                           : () {
-                              final navigatorKeyState =
-                                  Provider.of<GlobalKey<NavigatorState>>(
-                                          context,
-                                          listen: false)
-                                      .currentState!;
+                              // final navigatorKeyState =
+                              //     Provider.of<GlobalKey<NavigatorState>>(
+                              //             context,
+                              //             listen: false)
+                              //         .currentState!;
 
-                              navigatorKeyState
-                                  .pushNamed('/forgot_password')
+                              // navigatorKeyState
+                              //     .pushNamed('/forgot_password')
+                              //     .then((value) => setBloc());
+                              context.router
+                                  .push(ForgotPasswordRoute())
                                   .then((value) => setBloc());
                             },
                       child: Text(BTN_FORGOT_PASSWORD),

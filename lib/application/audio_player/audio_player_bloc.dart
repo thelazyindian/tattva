@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:audio_service/audio_service.dart';
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -20,6 +21,7 @@ class AudioPlayerBloc extends Bloc<AudioPlayerEvent, AudioPlayerState> {
     AudioPlayerEvent event,
   ) async* {
     yield* event.map(started: (_) async* {
+      debugPrint('AudioPlayerBloc started');
       _streamSubscription = AudioService.currentMediaItemStream.listen((event) {
         if (event != null) {
           state.maybeMap(

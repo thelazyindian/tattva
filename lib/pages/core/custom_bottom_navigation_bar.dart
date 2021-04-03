@@ -1,35 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tattva/router/router.gr.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
-  final _navigationItems = [
-    {
-      'default': 'music.svg',
-      'active': 'music.svg',
-      'tooltip': 'Audio',
-    },
-    {
-      'default': 'imageOutline.svg',
-      'active': 'image.svg',
-      'tooltip': 'Wallpapers',
-    },
-    {
-      'default': 'homeOutline.svg',
-      'active': 'home.svg',
-      'tooltip': 'Home',
-    },
-    {
-      'default': 'readerOutline.svg',
-      'active': 'reader.svg',
-      'tooltip': 'Blogs',
-    },
-    {
-      'default': 'createOutline.svg',
-      'active': 'create.svg',
-      'tooltip': 'Tip of the day',
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -50,16 +24,54 @@ class CustomBottomNavigationBar extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: _navigationItems
-            .map(
-              (e) => IconButton(
-                onPressed: () {},
-                icon: SvgPicture.asset('icons/${e['default']!}'),
-                tooltip: e['tooltip']!,
+        children: _navigationItems.map(
+          (e) {
+            final enabled = context.tabsRouter.activeIndex == e['index'];
+            return IconButton(
+              onPressed: enabled
+                  ? null
+                  : () => context.tabsRouter.setActiveIndex(e['index'] as int),
+              icon: SvgPicture.asset(
+                enabled ? 'icons/${e['active']}' : 'icons/${e['default']}',
               ),
-            )
-            .toList(),
+              tooltip: e['tooltip']! as String,
+            );
+          },
+        ).toList(),
       ),
     );
   }
 }
+
+final _navigationItems = [
+  {
+    'default': 'musicOutline.svg',
+    'active': 'music.svg',
+    'tooltip': 'Audio',
+    'index': 0,
+  },
+  {
+    'default': 'imageOutline.svg',
+    'active': 'image.svg',
+    'tooltip': 'Wallpapers',
+    'index': 1,
+  },
+  {
+    'default': 'homeOutline.svg',
+    'active': 'home.svg',
+    'tooltip': 'Home',
+    'index': 2,
+  },
+  {
+    'default': 'readerOutline.svg',
+    'active': 'reader.svg',
+    'tooltip': 'Blogs',
+    'index': 3,
+  },
+  {
+    'default': 'createOutline.svg',
+    'active': 'create.svg',
+    'tooltip': 'Tip of the day',
+    'index': 4,
+  },
+];

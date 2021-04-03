@@ -108,12 +108,18 @@ class __$StartedCopyWithImpl<$Res> extends _$AudioPlayerEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_Started implements _Started {
+class _$_Started with DiagnosticableTreeMixin implements _Started {
   const _$_Started();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioPlayerEvent.started()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AudioPlayerEvent.started'));
   }
 
   @override
@@ -198,12 +204,18 @@ class __$NoneECopyWithImpl<$Res> extends _$AudioPlayerEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_NoneE implements _NoneE {
+class _$_NoneE with DiagnosticableTreeMixin implements _NoneE {
   const _$_NoneE();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioPlayerEvent.none()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AudioPlayerEvent.none'));
   }
 
   @override
@@ -288,12 +300,18 @@ class __$CollapseCopyWithImpl<$Res> extends _$AudioPlayerEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_Collapse implements _Collapse {
+class _$_Collapse with DiagnosticableTreeMixin implements _Collapse {
   const _$_Collapse();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioPlayerEvent.collapse()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AudioPlayerEvent.collapse'));
   }
 
   @override
@@ -378,12 +396,18 @@ class __$ExpandCopyWithImpl<$Res> extends _$AudioPlayerEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_Expand implements _Expand {
+class _$_Expand with DiagnosticableTreeMixin implements _Expand {
   const _$_Expand();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioPlayerEvent.expand()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AudioPlayerEvent.expand'));
   }
 
   @override
@@ -539,12 +563,18 @@ class __$ExpandedCopyWithImpl<$Res> extends _$AudioPlayerStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_Expanded implements _Expanded {
+class _$_Expanded with DiagnosticableTreeMixin implements _Expanded {
   const _$_Expanded();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioPlayerState.expanded()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AudioPlayerState.expanded'));
   }
 
   @override
@@ -627,12 +657,18 @@ class __$CollapsedCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_Collapsed implements _Collapsed {
+class _$_Collapsed with DiagnosticableTreeMixin implements _Collapsed {
   const _$_Collapsed();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioPlayerState.collapsed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AudioPlayerState.collapsed'));
   }
 
   @override
@@ -713,12 +749,18 @@ class __$NoneCopyWithImpl<$Res> extends _$AudioPlayerStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_None implements _None {
+class _$_None with DiagnosticableTreeMixin implements _None {
   const _$_None();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioPlayerState.none()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AudioPlayerState.none'));
   }
 
   @override

@@ -1,42 +1,70 @@
+import 'package:audio_service/audio_service.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:tattva/application/authentication/authentication_bloc.dart';
-import 'package:tattva/domain/authentication/i_auth_facade.dart';
-import 'package:tattva/injection.dart';
+import 'package:tattva/pages/audio_player/audio_player_page.dart';
+import 'package:tattva/pages/core/custom_bottom_navigation_bar.dart';
+import 'package:tattva/router/router.gr.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
-    final user =
-        getIt<AuthenticationBloc>().state.authFailureOrSuccessOption.fold(
-              () => null,
-              (authFailureOrSuccess) => authFailureOrSuccess.fold(
-                (l) => null,
-                (success) => success,
+    return AutoTabsRouter(
+      routes: [AudioWrapperRoute(), WallpaperRoute()],
+      duration: Duration(milliseconds: 400),
+      builder: (context, child, animation) {
+        return Scaffold(
+          body: Stack(
+            children: [
+              FadeTransition(child: child, opacity: animation),
+              AudioPlayerPage(),
+              Positioned(
+                bottom: .0,
+                width: MediaQuery.of(context).size.width,
+                child: CustomBottomNavigationBar(),
               ),
-            );
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('$user'),
-            TextButton(
-              onPressed: () {
-                getIt<IAuthFacade>().signOut().then((value) => value.fold(
-                      (l) => null,
-                      (r) => Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        '/landing',
-                        (route) => false,
-                      ),
-                    ));
-              },
-              child: Text('SIGN OUT'),
-            ),
-          ],
-        ),
-      ),
+            ],
+          ),
+        );
+      },
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addObserver(this);
+    AudioService.connect();
+  }
+
+  @override
+  void dispose() {
+    AudioService.disconnect();
+    WidgetsBinding.instance!.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        AudioService.connect();
+        break;
+      case AppLifecycleState.paused:
+        AudioService.disconnect();
+        break;
+      default:
+        break;
+    }
+  }
+
+  @override
+  Future<bool> didPopRoute() async {
+    AudioService.disconnect();
+    return false;
   }
 }

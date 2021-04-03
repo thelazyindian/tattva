@@ -1,3 +1,4 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -254,6 +255,7 @@ class AuthFacade implements IAuthFacade {
         _firebaseAuth.signOut(),
         _googleSignIn.signOut(),
         _facebookAuth.logOut(),
+        AudioService.stop(),
       ]);
       return right(unit);
     } on FirebaseException {

@@ -1,8 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
@@ -16,9 +17,6 @@ class LandingPage extends StatelessWidget {
       width - (2 * homePaddingHorizontal),
       primaryBtnHeight,
     );
-    final navigatorKeyState =
-        Provider.of<GlobalKey<NavigatorState>>(context, listen: false)
-            .currentState!;
 
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       bloc: getIt<AuthenticationBloc>(),
@@ -27,9 +25,9 @@ class LandingPage extends StatelessWidget {
           () => null,
           (authFailureOrSuccess) => authFailureOrSuccess.fold(
             (failure) => null,
-            (success) => navigatorKeyState.pushNamedAndRemoveUntil(
-              '/home',
-              (route) => false,
+            (success) => context.router.root.pushAndRemoveUntil(
+              HomeWrapperRoute(),
+              predicate: (_) => false,
             ),
           ),
         );
@@ -79,7 +77,7 @@ class LandingPage extends StatelessWidget {
                 children: [
                   TextButton(
                     onPressed: () {
-                      navigatorKeyState.pushNamed('/register');
+                      context.router.push(RegisterRoute());
                     },
                     style: primaryBtnStyle.copyWith(
                       minimumSize: MaterialStateProperty.all(btnSize),
@@ -88,7 +86,7 @@ class LandingPage extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      navigatorKeyState.pushNamed('/login');
+                      context.router.push(LoginRoute());
                     },
                     child: Text(BTN_LOGIN),
                     style: secondaryBtnStyle,

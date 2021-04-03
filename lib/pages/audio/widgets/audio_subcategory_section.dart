@@ -1,14 +1,14 @@
 import 'package:audio_service/audio_service.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/audio/audio_sub_category.dart';
 import 'package:tattva/infrastructure/audio_player/audio_player_task.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio/widgets/audio_item.dart';
-import 'package:tattva/pages/audio_sub_category/audio_sub_category_page.dart';
+import 'package:tattva/router/router.gr.dart';
 
 void _entrypoint() => AudioServiceBackground.run(() => AudioPlayerTask());
 
@@ -40,15 +40,8 @@ class AudioSubcategorySection extends StatelessWidget {
               Spacer(),
               InkWell(
                 onTap: () {
-                  Provider.of<GlobalKey<NavigatorState>>(context, listen: false)
-                      .currentState
-                      ?.push(
-                        MaterialPageRoute(
-                          builder: (_) => AudioSubCategoryPage(
-                            audioSubCategory: audioSubCategory,
-                          ),
-                        ),
-                      );
+                  context.router.navigate(AudioSubCategoryRoute(
+                      audioSubCategory: audioSubCategory));
                 },
                 customBorder: CircleBorder(),
                 child: Padding(

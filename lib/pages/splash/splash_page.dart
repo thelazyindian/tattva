@@ -1,8 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
@@ -15,17 +16,21 @@ class SplashPage extends StatelessWidget {
         ..add(AuthenticationEvent.authCheckRequested()),
       listener: (_, state) {
         if (!state.checkingAuthStatus) {
-          final navigatorKeyState =
-              Provider.of<GlobalKey<NavigatorState>>(context, listen: false)
-                  .currentState!;
+          final router = context.router;
           Future.delayed(Duration(milliseconds: 500)).then(
             (value) => state.authFailureOrSuccessOption.fold(
-              () => navigatorKeyState.pushReplacementNamed('/landing'),
+              () => router.pushAndRemoveUntil(
+                LandingWrapperRoute(),
+                predicate: (_) => false,
+              ),
               (authFailureOrSuccess) => authFailureOrSuccess.fold(
-                (failure) => navigatorKeyState.pushReplacementNamed('/landing'),
-                (success) => navigatorKeyState.pushNamedAndRemoveUntil(
-                  '/home',
-                  (route) => false,
+                (failure) => router.pushAndRemoveUntil(
+                  LandingWrapperRoute(),
+                  predicate: (_) => false,
+                ),
+                (success) => router.root.pushAndRemoveUntil(
+                  HomeWrapperRoute(),
+                  predicate: (_) => false,
                 ),
               ),
             ),

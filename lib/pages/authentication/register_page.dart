@@ -1,21 +1,22 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:provider/provider.dart';
+import 'package:formz/formz.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/domain/authentication/auth_form_type.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/authentication/widgets/continue_with_facebook.dart';
+import 'package:tattva/pages/authentication/widgets/continue_with_google.dart';
+import 'package:tattva/pages/authentication/widgets/custom_sliver_app_bar.dart';
 import 'package:tattva/pages/authentication/widgets/email_field.dart';
 import 'package:tattva/pages/authentication/widgets/name_field.dart';
+import 'package:tattva/pages/authentication/widgets/password_field.dart';
 import 'package:tattva/pages/authentication/widgets/primary_login_button.dart';
+import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
 import 'package:tattva/utils/styles.dart';
-import 'package:formz/formz.dart';
-import 'package:tattva/pages/authentication/widgets/continue_with_facebook.dart';
-import 'package:tattva/pages/authentication/widgets/continue_with_google.dart';
-import 'package:tattva/pages/authentication/widgets/custom_sliver_app_bar.dart';
-import 'package:tattva/pages/authentication/widgets/password_field.dart';
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -25,8 +26,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   @override
   void initState() {
-    setBloc();
     super.initState();
+    setBloc();
   }
 
   @override
@@ -70,13 +71,16 @@ class _RegisterPageState extends State<RegisterPage> {
                     onPressed: loadingRequest
                         ? null
                         : () {
-                            final navigatorKeyState =
-                                Provider.of<GlobalKey<NavigatorState>>(context,
-                                        listen: false)
-                                    .currentState!;
+                            // final navigatorKeyState =
+                            //     Provider.of<GlobalKey<NavigatorState>>(context,
+                            //             listen: false)
+                            //         .currentState!;
 
-                            navigatorKeyState
-                                .pushNamed('/login')
+                            // navigatorKeyState
+                            //     .pushNamed('/login')
+                            //     .then((value) => setBloc());
+                            context.router
+                                .push(LoginRoute())
                                 .then((value) => setBloc());
                           },
                     child: Text(BTN_LOGIN_WITH_EMAIL),
