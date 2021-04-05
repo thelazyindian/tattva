@@ -10,6 +10,7 @@ import 'package:tattva/pages/landing/landing_page.dart';
 import 'package:tattva/pages/profile/profile_page.dart';
 import 'package:tattva/pages/splash/splash_page.dart';
 import 'package:tattva/pages/wallpaper/wallpaper_page.dart';
+import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
@@ -45,7 +46,14 @@ import 'package:tattva/pages/wallpaper/wallpaper_page.dart';
                 AutoRoute(page: AudioSubCategoryPage),
               ],
             ),
-            AutoRoute(page: WallpaperPage),
+            AutoRoute(
+              name: 'WallpaperWrapperRoute',
+              page: EmptyRouterPage,
+              children: [
+                AutoRoute(page: WallpaperPage, initial: true),
+                AutoRoute(page: WallpaperExpandedPage),
+              ],
+            ),
           ],
         ),
         AutoRoute(

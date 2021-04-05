@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
-      routes: [AudioWrapperRoute(), WallpaperRoute()],
+      routes: [AudioWrapperRoute(), WallpaperWrapperRoute()],
       duration: Duration(milliseconds: 400),
       builder: (context, child, animation) {
         return Scaffold(

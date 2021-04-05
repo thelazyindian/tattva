@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CategoriesBar extends StatefulWidget {
+class CategoriesBar extends StatelessWidget {
   final Function(int)? onItemSelected;
   final List<String> categoriesList;
   final int selectedCategoryIdx;
@@ -13,18 +13,11 @@ class CategoriesBar extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CategoriesBarState createState() => _CategoriesBarState();
-}
-
-class _CategoriesBarState extends State<CategoriesBar> {
-  int selectedItem = 0;
-
-  @override
   Widget build(BuildContext context) {
     return ListView.separated(
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
-      itemCount: widget.categoriesList.length,
+      itemCount: categoriesList.length,
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       separatorBuilder: (_, __) => const SizedBox(width: 8.0),
       itemBuilder: (_, idx) => _buildTopRow(idx),
@@ -32,22 +25,13 @@ class _CategoriesBarState extends State<CategoriesBar> {
   }
 
   Widget _buildTopRow(int idx) {
-    final title = widget.categoriesList[idx];
-    final selected = selectedItem == idx;
+    final title = categoriesList[idx];
+    final selected = selectedCategoryIdx == idx;
     final bgColor = Color(0xFFE5E2E2);
 
     return InkWell(
       onTap: () {
-        setState(() {
-          if (selected) {
-            selectedItem = -1;
-          } else {
-            selectedItem = idx;
-            if (widget.onItemSelected != null) {
-              widget.onItemSelected!(selectedItem);
-            }
-          }
-        });
+        onItemSelected!(idx);
       },
       borderRadius: BorderRadius.circular(20.0),
       child: Chip(

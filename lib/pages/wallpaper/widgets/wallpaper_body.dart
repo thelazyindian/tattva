@@ -1,28 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
+import 'package:tattva/domain/wallpaper/wallpaper_category.dart';
+import 'package:tattva/injection.dart';
 import 'package:tattva/pages/core/categories_bar.dart';
-
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
 
-class WallpaperBody extends StatefulWidget {
-  @override
-  _WallpaperBodyState createState() => _WallpaperBodyState();
-}
+class WallpaperBody extends StatelessWidget {
+  final List<WallpaperCategory> wallpaperCategories;
 
-class _WallpaperBodyState extends State<WallpaperBody> {
-  List<String> categoriesList = ["AIR", "WATER", "FIRE", "EARTH", "SPACE"];
-  List<String> assetsList = [
-    'images/pexels-calm-1.jpg',
-    'images/pexels-calm-2.jpg',
-    'images/pexels-calm-1.jpg',
-    'images/pexels-calm-2.jpg',
-    'images/pexels-calm-1.jpg',
-    'images/pexels-calm-2.jpg',
-    'images/pexels-calm-1.jpg',
-    'images/pexels-calm-2.jpg',
-  ];
-
-  int selectedIndex = 0;
+  const WallpaperBody({
+    Key? key,
+    required this.wallpaperCategories,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,16 +39,46 @@ class _WallpaperBodyState extends State<WallpaperBody> {
         Container(
           margin: const EdgeInsets.symmetric(vertical: 12.0),
           height: 30.0,
-          child: CategoriesBar(
-            categoriesList: categoriesList,
-            selectedCategoryIdx: 0,
-            onItemSelected: (idx) {
-              selectedIndex = idx;
+          child: BlocBuilder<WallpaperBloc, WallpaperState>(
+            bloc: getIt<WallpaperBloc>(),
+            builder: (context, state) {
+              final selectedCategoryIdx = state.selectedCategory.fold(
+                () => -1,
+                (selectedCategory) => wallpaperCategories
+                    .indexWhere((element) => element.id == selectedCategory.id),
+              );
+
+              return CategoriesBar(
+                categoriesList: wallpaperCategories.map((e) => e.name).toList(),
+                selectedCategoryIdx: selectedCategoryIdx,
+                onItemSelected: (idx) {
+                  getIt<WallpaperBloc>().add(
+                    WallpaperEvent.selectedCategory(
+                      id: wallpaperCategories[idx].id,
+                    ),
+                  );
+                },
+              );
             },
           ),
         ),
         Expanded(
-          child: WallpapersGridView(uriList: assetsList),
+          child: BlocBuilder<WallpaperBloc, WallpaperState>(
+            bloc: getIt<WallpaperBloc>(),
+            builder: (context, state) {
+              return state.categoryError.fold(
+                () => state.categoryLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : state.selectedCategory.fold(
+                        () => Container(),
+                        (selectedCategory) => WallpapersGridView(
+                          wallpapers: selectedCategory.wallpapers,
+                        ),
+                      ),
+                (error) => const Center(child: Text('ERROR')),
+              );
+            },
+          ),
         ),
         const SizedBox(height: 73.0),
       ],

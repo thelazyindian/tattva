@@ -5,20 +5,21 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:flutter/material.dart' as _i13;
+import 'package:flutter/material.dart' as _i14;
 
-import '../domain/audio/audio_sub_category.dart' as _i14;
-import '../pages/audio/audio_page.dart' as _i9;
-import '../pages/audio_sub_category/audio_sub_category_page.dart' as _i10;
+import '../domain/audio/audio_sub_category.dart' as _i15;
+import '../pages/audio/audio_page.dart' as _i8;
+import '../pages/audio_sub_category/audio_sub_category_page.dart' as _i9;
 import '../pages/authentication/forgot_password_page.dart' as _i6;
 import '../pages/authentication/login_page.dart' as _i5;
 import '../pages/authentication/register_page.dart' as _i4;
-import '../pages/edit_profile/edit_profile_page.dart' as _i12;
+import '../pages/edit_profile/edit_profile_page.dart' as _i13;
 import '../pages/home/home_page.dart' as _i7;
 import '../pages/landing/landing_page.dart' as _i3;
-import '../pages/profile/profile_page.dart' as _i11;
+import '../pages/profile/profile_page.dart' as _i12;
 import '../pages/splash/splash_page.dart' as _i2;
-import '../pages/wallpaper/wallpaper_page.dart' as _i8;
+import '../pages/wallpaper/wallpaper_page.dart' as _i10;
+import '../pages/wallpaper_expanded/wallpaper_expanded_page.dart' as _i11;
 
 class AppRouter extends _i1.RootStackRouter {
   AppRouter();
@@ -59,24 +60,35 @@ class AppRouter extends _i1.RootStackRouter {
       return _i1.MaterialPageX(
           entry: entry, child: const _i1.EmptyRouterPage());
     },
-    WallpaperRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i8.WallpaperPage());
+    WallpaperWrapperRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry, child: const _i1.EmptyRouterPage());
     },
     AudioRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i9.AudioPage());
+      return _i1.MaterialPageX(entry: entry, child: _i8.AudioPage());
     },
     AudioSubCategoryRoute.name: (entry) {
       var args = entry.routeData.argsAs<AudioSubCategoryRouteArgs>();
       return _i1.MaterialPageX(
           entry: entry,
-          child: _i10.AudioSubCategoryPage(
+          child: _i9.AudioSubCategoryPage(
               key: args.key, audioSubCategory: args.audioSubCategory));
     },
+    WallpaperRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i10.WallpaperPage());
+    },
+    WallpaperExpandedRoute.name: (entry) {
+      var args = entry.routeData.argsAs<WallpaperExpandedRouteArgs>();
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: _i11.WallpaperExpandedPage(
+              key: args.key, wallpaperIdx: args.wallpaperIdx));
+    },
     ProfileRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i11.ProfilePage());
+      return _i1.MaterialPageX(entry: entry, child: _i12.ProfilePage());
     },
     EditProfileRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i12.EditProfilePage());
+      return _i1.MaterialPageX(entry: entry, child: _i13.EditProfilePage());
     }
   };
 
@@ -106,7 +118,13 @@ class AppRouter extends _i1.RootStackRouter {
                           _i1.RouteConfig(AudioSubCategoryRoute.name,
                               path: 'audio-sub-category-page')
                         ]),
-                    _i1.RouteConfig(WallpaperRoute.name, path: 'wallpaper-page')
+                    _i1.RouteConfig(WallpaperWrapperRoute.name,
+                        path: 'empty-router-page',
+                        children: [
+                          _i1.RouteConfig(WallpaperRoute.name, path: ''),
+                          _i1.RouteConfig(WallpaperExpandedRoute.name,
+                              path: 'wallpaper-expanded-page')
+                        ])
                   ]),
               _i1.RouteConfig(ProfileWrapperRoute.name,
                   path: 'empty-router-page',
@@ -184,10 +202,11 @@ class AudioWrapperRoute extends _i1.PageRouteInfo {
   static const String name = 'AudioWrapperRoute';
 }
 
-class WallpaperRoute extends _i1.PageRouteInfo {
-  const WallpaperRoute() : super(name, path: 'wallpaper-page');
+class WallpaperWrapperRoute extends _i1.PageRouteInfo {
+  const WallpaperWrapperRoute({List<_i1.PageRouteInfo>? children})
+      : super(name, path: 'empty-router-page', initialChildren: children);
 
-  static const String name = 'WallpaperRoute';
+  static const String name = 'WallpaperWrapperRoute';
 }
 
 class AudioRoute extends _i1.PageRouteInfo {
@@ -199,7 +218,7 @@ class AudioRoute extends _i1.PageRouteInfo {
 class AudioSubCategoryRoute
     extends _i1.PageRouteInfo<AudioSubCategoryRouteArgs> {
   AudioSubCategoryRoute(
-      {_i13.Key? key, required _i14.AudioSubCategory audioSubCategory})
+      {_i14.Key? key, required _i15.AudioSubCategory audioSubCategory})
       : super(name,
             path: 'audio-sub-category-page',
             args: AudioSubCategoryRouteArgs(
@@ -211,9 +230,34 @@ class AudioSubCategoryRoute
 class AudioSubCategoryRouteArgs {
   const AudioSubCategoryRouteArgs({this.key, required this.audioSubCategory});
 
-  final _i13.Key? key;
+  final _i14.Key? key;
 
-  final _i14.AudioSubCategory audioSubCategory;
+  final _i15.AudioSubCategory audioSubCategory;
+}
+
+class WallpaperRoute extends _i1.PageRouteInfo {
+  const WallpaperRoute() : super(name, path: '');
+
+  static const String name = 'WallpaperRoute';
+}
+
+class WallpaperExpandedRoute
+    extends _i1.PageRouteInfo<WallpaperExpandedRouteArgs> {
+  WallpaperExpandedRoute({_i14.Key? key, required int wallpaperIdx})
+      : super(name,
+            path: 'wallpaper-expanded-page',
+            args: WallpaperExpandedRouteArgs(
+                key: key, wallpaperIdx: wallpaperIdx));
+
+  static const String name = 'WallpaperExpandedRoute';
+}
+
+class WallpaperExpandedRouteArgs {
+  const WallpaperExpandedRouteArgs({this.key, required this.wallpaperIdx});
+
+  final _i14.Key? key;
+
+  final int wallpaperIdx;
 }
 
 class ProfileRoute extends _i1.PageRouteInfo {

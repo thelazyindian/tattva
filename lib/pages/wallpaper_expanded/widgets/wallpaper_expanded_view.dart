@@ -1,35 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:tattva/pages/core/custom_app_bar.dart';
+import 'package:tattva/domain/wallpaper/wallpaper.dart';
 import 'package:tattva/pages/wallpaper_expanded/widgets/wallpaper_expanded_image_card.dart';
 
 class WallPageView extends StatefulWidget {
-  final List<String> assetsList;
+  final int wallpaperIdx;
+  final List<Wallpaper> wallpapers;
 
-  const WallPageView({Key? key, required this.assetsList});
+  const WallPageView({
+    Key? key,
+    required this.wallpaperIdx,
+    required this.wallpapers,
+  });
 
   @override
   _WallPageViewState createState() => _WallPageViewState();
 }
 
 class _WallPageViewState extends State<WallPageView> {
-  late PageController controller;
   int currentPage = 0;
+  final PageController controller = PageController(
+    viewportFraction: 0.8,
+    initialPage: 0,
+  );
 
   @override
   void initState() {
     super.initState();
-    controller = PageController(
-      viewportFraction: 0.8,
-      initialPage: currentPage,
-    );
-    Future.delayed(Duration.zero).then(
-      (_) => controller.animateToPage(
-        0,
-        duration: Duration(milliseconds: 300),
-        curve: Curves.bounceIn,
-      ),
-    );
+    currentPage = widget.wallpaperIdx;
+    // controller = PageController(
+    //   viewportFraction: 0.8,
+    //   initialPage: currentPage,
+    // );
+    SchedulerBinding.instance?.addPostFrameCallback((timeStamp) {
+      controller.animateToPage(
+        currentPage,
+        duration: Duration(milliseconds: 1),
+        curve: Curves.easeOut,
+      );
+    });
   }
 
   @override
@@ -41,7 +50,7 @@ class _WallPageViewState extends State<WallPageView> {
         });
       },
       scrollDirection: Axis.horizontal,
-      itemCount: widget.assetsList.length,
+      itemCount: widget.wallpapers.length,
       controller: controller,
       itemBuilder: (context, index) {
         return AnimatedBuilder(
@@ -65,7 +74,9 @@ class _WallPageViewState extends State<WallPageView> {
               child: child,
             );
           },
-          child: WallpaperExpandedImageCard(uri: widget.assetsList[index]),
+          child: WallpaperExpandedImageCard(
+            uri: widget.wallpapers[index].image.first.url,
+          ),
         );
       },
     );
