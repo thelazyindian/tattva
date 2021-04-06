@@ -24,6 +24,7 @@ class AuthenticationBloc
   AuthenticationBloc(this._authFacade) : super(AuthenticationState.initial());
 
   final IAuthFacade _authFacade;
+  late StreamSubscription _idTokenStreamSubscription;
 
   @override
   Stream<AuthenticationState> mapEventToState(
@@ -120,6 +121,13 @@ class AuthenticationBloc
         }
       },
       authCheckRequested: (e) async* {
+        _idTokenStreamSubscription =
+            _authFacade.idTokenChanges().listen((event) {
+          event
+              ?.getIdToken()
+              .then((value) => add(AuthenticationEvent.updateUserToken(value)));
+        });
+
         yield newState.copyWith(checkingAuthStatus: true);
         final checkAuthOption = await _authFacade.getUser();
 
@@ -161,6 +169,9 @@ class AuthenticationBloc
           yield newState.copyWith(showErrorMessage: true);
         }
       },
+      updateUserToken: (e) async* {
+        yield state.copyWith(userToken: e.token);
+      },
     );
   }
 
@@ -183,5 +194,11 @@ class AuthenticationBloc
         password!,
       ]),
     );
+  }
+
+  @override
+  Future<void> close() {
+    _idTokenStreamSubscription.cancel();
+    return super.close();
   }
 }

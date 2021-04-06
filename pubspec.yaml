@@ -34,6 +34,11 @@ dependencies:
   auto_route: ^1.0.2
   flutter_staggered_grid_view: ^0.4.0-nullsafety.3
   dio: ^4.0.0
+  path_provider: ^2.0.1
+  dio_cache_interceptor: ^2.0.0
+  sqlite3_flutter_libs: ^0.4.1
+  flutter_downloader: ^1.6.0-nullsafety.0
+  permission_handler: ^6.1.1
 
 dev_dependencies:
   flutter_test:

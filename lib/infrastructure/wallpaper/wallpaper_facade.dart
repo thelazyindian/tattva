@@ -1,10 +1,14 @@
 import 'dart:convert';
+import 'dart:io';
 
-import 'package:cloud_functions/cloud_functions.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:injectable/injectable.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:tattva/domain/core/tattva_image.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/wallpaper/i_wallpaper_facade.dart';
 import 'package:tattva/domain/wallpaper/wallpaper.dart';
@@ -17,10 +21,15 @@ class WallpaperFacade implements IWallpaperFacade {
   WallpaperFacade(this._dio);
 
   @override
-  Future<Either<Failure, WallpaperDataModel>> getWallpaperCategories() async {
+  Future<Either<Failure, WallpaperDataModel>> getWallpaperCategories(
+      String token) async {
     try {
-      final response =
-          await _dio.get('/tattva-app/us-central1/getWallpaperCategories');
+      final response = await _dio.get(
+        '/tattva-app/us-central1/getWallpaperCategories',
+        queryParameters: {
+          'token': token,
+        },
+      );
       final data = Map<String, dynamic>.from(jsonDecode(response.data));
 
       return right(WallpaperDataModel.fromJson(data));
@@ -34,11 +43,16 @@ class WallpaperFacade implements IWallpaperFacade {
 
   @override
   Future<Either<Failure, List<Wallpaper>>> getWallpapersFromCategory(
-      String categoryId) async {
+    String token,
+    String categoryId,
+  ) async {
     try {
       final response = await _dio.get(
         '/tattva-app/us-central1/getWallpapersFromCategory',
-        queryParameters: {'id': categoryId},
+        queryParameters: {
+          'token': token,
+          'id': categoryId,
+        },
       );
       final data = Map<String, dynamic>.from(jsonDecode(response.data));
       debugPrint('wallpapers data $data');
@@ -52,6 +66,29 @@ class WallpaperFacade implements IWallpaperFacade {
       debugPrint(e.message);
 
       return left(Failure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> downloadImageFile(TattvaImage image) async {
+    try {
+      final storageDir = Platform.isAndroid
+          ? '/sdcard/Download'
+          : (await getApplicationDocumentsDirectory()).path;
+
+      if (await Permission.storage.request().isGranted) {
+        await FlutterDownloader.enqueue(
+          url: image.url,
+          fileName: image.file,
+          savedDir: storageDir,
+          showNotification: true,
+          openFileFromNotification: true,
+        );
+      }
+
+      return right(unit);
+    } on DioError {
+      return left(const Failure.serverError());
     }
   }
 }

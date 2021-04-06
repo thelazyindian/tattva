@@ -9,6 +9,7 @@ class Wallpaper with _$Wallpaper {
   const factory Wallpaper({
     required String id,
     required String name,
+    required List<TattvaImage> thumbnail,
     required List<TattvaImage> image,
   }) = _Wallpaper;
 

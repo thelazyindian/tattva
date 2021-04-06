@@ -17,6 +17,7 @@ class AuthenticationState with _$AuthenticationState {
         updateProfileFailureOrSuccessOption,
     required Option<Either<AuthFailure, Unit>>
         resetPasswordFailureOrSuccessOption,
+    String? userToken,
   }) = _AuthenticationState;
 
   factory AuthenticationState.initial() => _AuthenticationState(

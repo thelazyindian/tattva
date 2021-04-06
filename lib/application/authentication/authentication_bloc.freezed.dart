@@ -63,6 +63,12 @@ class _$AuthenticationEventTearOff {
   _ResetPassword resetPassword() {
     return const _ResetPassword();
   }
+
+  _UpdateUserToken updateUserToken(String? token) {
+    return _UpdateUserToken(
+      token,
+    );
+  }
 }
 
 /// @nodoc
@@ -82,6 +88,7 @@ mixin _$AuthenticationEvent {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,6 +103,7 @@ mixin _$AuthenticationEvent {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -111,6 +119,7 @@ mixin _$AuthenticationEvent {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -125,6 +134,7 @@ mixin _$AuthenticationEvent {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -231,6 +241,7 @@ class _$_SetFormType implements _SetFormType {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return setFormType(authFormType);
   }
@@ -248,6 +259,7 @@ class _$_SetFormType implements _SetFormType {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (setFormType != null) {
@@ -269,6 +281,7 @@ class _$_SetFormType implements _SetFormType {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return setFormType(this);
   }
@@ -286,6 +299,7 @@ class _$_SetFormType implements _SetFormType {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (setFormType != null) {
@@ -378,6 +392,7 @@ class _$_OnEmailChanged implements _OnEmailChanged {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return onEmailChanged(value);
   }
@@ -395,6 +410,7 @@ class _$_OnEmailChanged implements _OnEmailChanged {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (onEmailChanged != null) {
@@ -416,6 +432,7 @@ class _$_OnEmailChanged implements _OnEmailChanged {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return onEmailChanged(this);
   }
@@ -433,6 +450,7 @@ class _$_OnEmailChanged implements _OnEmailChanged {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (onEmailChanged != null) {
@@ -525,6 +543,7 @@ class _$_OnNameChanged implements _OnNameChanged {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return onNameChanged(value);
   }
@@ -542,6 +561,7 @@ class _$_OnNameChanged implements _OnNameChanged {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (onNameChanged != null) {
@@ -563,6 +583,7 @@ class _$_OnNameChanged implements _OnNameChanged {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return onNameChanged(this);
   }
@@ -580,6 +601,7 @@ class _$_OnNameChanged implements _OnNameChanged {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (onNameChanged != null) {
@@ -672,6 +694,7 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return onPasswordChanged(value);
   }
@@ -689,6 +712,7 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (onPasswordChanged != null) {
@@ -710,6 +734,7 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return onPasswordChanged(this);
   }
@@ -727,6 +752,7 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (onPasswordChanged != null) {
@@ -794,6 +820,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return authCheckRequested();
   }
@@ -811,6 +838,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (authCheckRequested != null) {
@@ -832,6 +860,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return authCheckRequested(this);
   }
@@ -849,6 +878,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (authCheckRequested != null) {
@@ -911,6 +941,7 @@ class _$_LoginWithEmail implements _LoginWithEmail {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return loginWithEmail();
   }
@@ -928,6 +959,7 @@ class _$_LoginWithEmail implements _LoginWithEmail {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (loginWithEmail != null) {
@@ -949,6 +981,7 @@ class _$_LoginWithEmail implements _LoginWithEmail {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return loginWithEmail(this);
   }
@@ -966,6 +999,7 @@ class _$_LoginWithEmail implements _LoginWithEmail {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (loginWithEmail != null) {
@@ -1028,6 +1062,7 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return registerWithEmail();
   }
@@ -1045,6 +1080,7 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (registerWithEmail != null) {
@@ -1066,6 +1102,7 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return registerWithEmail(this);
   }
@@ -1083,6 +1120,7 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (registerWithEmail != null) {
@@ -1145,6 +1183,7 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return loginWithGoogle();
   }
@@ -1162,6 +1201,7 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (loginWithGoogle != null) {
@@ -1183,6 +1223,7 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return loginWithGoogle(this);
   }
@@ -1200,6 +1241,7 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (loginWithGoogle != null) {
@@ -1262,6 +1304,7 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return loginWithFacebook();
   }
@@ -1279,6 +1322,7 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (loginWithFacebook != null) {
@@ -1300,6 +1344,7 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return loginWithFacebook(this);
   }
@@ -1317,6 +1362,7 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (loginWithFacebook != null) {
@@ -1379,6 +1425,7 @@ class _$_ResetPassword implements _ResetPassword {
     required TResult Function() loginWithGoogle,
     required TResult Function() loginWithFacebook,
     required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
   }) {
     return resetPassword();
   }
@@ -1396,6 +1443,7 @@ class _$_ResetPassword implements _ResetPassword {
     TResult Function()? loginWithGoogle,
     TResult Function()? loginWithFacebook,
     TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
     required TResult orElse(),
   }) {
     if (resetPassword != null) {
@@ -1417,6 +1465,7 @@ class _$_ResetPassword implements _ResetPassword {
     required TResult Function(_LoginWithGoogle value) loginWithGoogle,
     required TResult Function(_LoginWithFacebook value) loginWithFacebook,
     required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
   }) {
     return resetPassword(this);
   }
@@ -1434,6 +1483,7 @@ class _$_ResetPassword implements _ResetPassword {
     TResult Function(_LoginWithGoogle value)? loginWithGoogle,
     TResult Function(_LoginWithFacebook value)? loginWithFacebook,
     TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
     required TResult orElse(),
   }) {
     if (resetPassword != null) {
@@ -1445,6 +1495,157 @@ class _$_ResetPassword implements _ResetPassword {
 
 abstract class _ResetPassword implements AuthenticationEvent {
   const factory _ResetPassword() = _$_ResetPassword;
+}
+
+/// @nodoc
+abstract class _$UpdateUserTokenCopyWith<$Res> {
+  factory _$UpdateUserTokenCopyWith(
+          _UpdateUserToken value, $Res Function(_UpdateUserToken) then) =
+      __$UpdateUserTokenCopyWithImpl<$Res>;
+  $Res call({String? token});
+}
+
+/// @nodoc
+class __$UpdateUserTokenCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$UpdateUserTokenCopyWith<$Res> {
+  __$UpdateUserTokenCopyWithImpl(
+      _UpdateUserToken _value, $Res Function(_UpdateUserToken) _then)
+      : super(_value, (v) => _then(v as _UpdateUserToken));
+
+  @override
+  _UpdateUserToken get _value => super._value as _UpdateUserToken;
+
+  @override
+  $Res call({
+    Object? token = freezed,
+  }) {
+    return _then(_UpdateUserToken(
+      token == freezed
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UpdateUserToken implements _UpdateUserToken {
+  const _$_UpdateUserToken(this.token);
+
+  @override
+  final String? token;
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.updateUserToken(token: $token)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateUserToken &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(token);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdateUserTokenCopyWith<_UpdateUserToken> get copyWith =>
+      __$UpdateUserTokenCopyWithImpl<_UpdateUserToken>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function() loginWithEmail,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
+  }) {
+    return updateUserToken(token);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function()? loginWithEmail,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
+    required TResult orElse(),
+  }) {
+    if (updateUserToken != null) {
+      return updateUserToken(token);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
+  }) {
+    return updateUserToken(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
+    required TResult orElse(),
+  }) {
+    if (updateUserToken != null) {
+      return updateUserToken(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateUserToken implements AuthenticationEvent {
+  const factory _UpdateUserToken(String? token) = _$_UpdateUserToken;
+
+  String? get token => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UpdateUserTokenCopyWith<_UpdateUserToken> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1465,7 +1666,8 @@ class _$AuthenticationStateTearOff {
       required Option<Either<AuthFailure, User>>
           updateProfileFailureOrSuccessOption,
       required Option<Either<AuthFailure, Unit>>
-          resetPasswordFailureOrSuccessOption}) {
+          resetPasswordFailureOrSuccessOption,
+      String? userToken}) {
     return _AuthenticationState(
       authFormType: authFormType,
       name: name,
@@ -1479,6 +1681,7 @@ class _$AuthenticationStateTearOff {
       authFailureOrSuccessOption: authFailureOrSuccessOption,
       updateProfileFailureOrSuccessOption: updateProfileFailureOrSuccessOption,
       resetPasswordFailureOrSuccessOption: resetPasswordFailureOrSuccessOption,
+      userToken: userToken,
     );
   }
 }
@@ -1503,6 +1706,7 @@ mixin _$AuthenticationState {
       throw _privateConstructorUsedError;
   Option<Either<AuthFailure, Unit>> get resetPasswordFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
+  String? get userToken => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthenticationStateCopyWith<AuthenticationState> get copyWith =>
@@ -1526,7 +1730,8 @@ abstract class $AuthenticationStateCopyWith<$Res> {
       bool loadingFacebookSignIn,
       Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
       Option<Either<AuthFailure, User>> updateProfileFailureOrSuccessOption,
-      Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption});
+      Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption,
+      String? userToken});
 
   $AuthFormTypeCopyWith<$Res> get authFormType;
 }
@@ -1554,6 +1759,7 @@ class _$AuthenticationStateCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
     Object? updateProfileFailureOrSuccessOption = freezed,
     Object? resetPasswordFailureOrSuccessOption = freezed,
+    Object? userToken = freezed,
   }) {
     return _then(_value.copyWith(
       authFormType: authFormType == freezed
@@ -1606,6 +1812,10 @@ class _$AuthenticationStateCopyWithImpl<$Res>
           ? _value.resetPasswordFailureOrSuccessOption
           : resetPasswordFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      userToken: userToken == freezed
+          ? _value.userToken
+          : userToken // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -1636,7 +1846,8 @@ abstract class _$AuthenticationStateCopyWith<$Res>
       bool loadingFacebookSignIn,
       Option<Either<AuthFailure, User>> authFailureOrSuccessOption,
       Option<Either<AuthFailure, User>> updateProfileFailureOrSuccessOption,
-      Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption});
+      Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption,
+      String? userToken});
 
   @override
   $AuthFormTypeCopyWith<$Res> get authFormType;
@@ -1667,6 +1878,7 @@ class __$AuthenticationStateCopyWithImpl<$Res>
     Object? authFailureOrSuccessOption = freezed,
     Object? updateProfileFailureOrSuccessOption = freezed,
     Object? resetPasswordFailureOrSuccessOption = freezed,
+    Object? userToken = freezed,
   }) {
     return _then(_AuthenticationState(
       authFormType: authFormType == freezed
@@ -1719,6 +1931,10 @@ class __$AuthenticationStateCopyWithImpl<$Res>
           ? _value.resetPasswordFailureOrSuccessOption
           : resetPasswordFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<AuthFailure, Unit>>,
+      userToken: userToken == freezed
+          ? _value.userToken
+          : userToken // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1737,7 +1953,8 @@ class _$_AuthenticationState implements _AuthenticationState {
       required this.loadingFacebookSignIn,
       required this.authFailureOrSuccessOption,
       required this.updateProfileFailureOrSuccessOption,
-      required this.resetPasswordFailureOrSuccessOption});
+      required this.resetPasswordFailureOrSuccessOption,
+      this.userToken});
 
   @override
   final AuthFormType authFormType;
@@ -1763,10 +1980,12 @@ class _$_AuthenticationState implements _AuthenticationState {
   final Option<Either<AuthFailure, User>> updateProfileFailureOrSuccessOption;
   @override
   final Option<Either<AuthFailure, Unit>> resetPasswordFailureOrSuccessOption;
+  @override
+  final String? userToken;
 
   @override
   String toString() {
-    return 'AuthenticationState(authFormType: $authFormType, name: $name, email: $email, password: $password, status: $status, showErrorMessage: $showErrorMessage, checkingAuthStatus: $checkingAuthStatus, loadingGoogleSignIn: $loadingGoogleSignIn, loadingFacebookSignIn: $loadingFacebookSignIn, authFailureOrSuccessOption: $authFailureOrSuccessOption, updateProfileFailureOrSuccessOption: $updateProfileFailureOrSuccessOption, resetPasswordFailureOrSuccessOption: $resetPasswordFailureOrSuccessOption)';
+    return 'AuthenticationState(authFormType: $authFormType, name: $name, email: $email, password: $password, status: $status, showErrorMessage: $showErrorMessage, checkingAuthStatus: $checkingAuthStatus, loadingGoogleSignIn: $loadingGoogleSignIn, loadingFacebookSignIn: $loadingFacebookSignIn, authFailureOrSuccessOption: $authFailureOrSuccessOption, updateProfileFailureOrSuccessOption: $updateProfileFailureOrSuccessOption, resetPasswordFailureOrSuccessOption: $resetPasswordFailureOrSuccessOption, userToken: $userToken)';
   }
 
   @override
@@ -1811,7 +2030,10 @@ class _$_AuthenticationState implements _AuthenticationState {
                     resetPasswordFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
                     other.resetPasswordFailureOrSuccessOption,
-                    resetPasswordFailureOrSuccessOption)));
+                    resetPasswordFailureOrSuccessOption)) &&
+            (identical(other.userToken, userToken) ||
+                const DeepCollectionEquality()
+                    .equals(other.userToken, userToken)));
   }
 
   @override
@@ -1828,7 +2050,8 @@ class _$_AuthenticationState implements _AuthenticationState {
       const DeepCollectionEquality().hash(loadingFacebookSignIn) ^
       const DeepCollectionEquality().hash(authFailureOrSuccessOption) ^
       const DeepCollectionEquality().hash(updateProfileFailureOrSuccessOption) ^
-      const DeepCollectionEquality().hash(resetPasswordFailureOrSuccessOption);
+      const DeepCollectionEquality().hash(resetPasswordFailureOrSuccessOption) ^
+      const DeepCollectionEquality().hash(userToken);
 
   @JsonKey(ignore: true)
   @override
@@ -1852,7 +2075,8 @@ abstract class _AuthenticationState implements AuthenticationState {
       required Option<Either<AuthFailure, User>>
           updateProfileFailureOrSuccessOption,
       required Option<Either<AuthFailure, Unit>>
-          resetPasswordFailureOrSuccessOption}) = _$_AuthenticationState;
+          resetPasswordFailureOrSuccessOption,
+      String? userToken}) = _$_AuthenticationState;
 
   @override
   AuthFormType get authFormType => throw _privateConstructorUsedError;
@@ -1881,6 +2105,8 @@ abstract class _AuthenticationState implements AuthenticationState {
   @override
   Option<Either<AuthFailure, Unit>> get resetPasswordFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
+  @override
+  String? get userToken => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AuthenticationStateCopyWith<_AuthenticationState> get copyWith =>

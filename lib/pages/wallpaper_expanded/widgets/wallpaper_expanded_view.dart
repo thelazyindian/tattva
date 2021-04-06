@@ -20,7 +20,7 @@ class WallPageView extends StatefulWidget {
 class _WallPageViewState extends State<WallPageView> {
   int currentPage = 0;
   final PageController controller = PageController(
-    viewportFraction: 0.8,
+    viewportFraction: 0.65,
     initialPage: 0,
   );
 
@@ -75,7 +75,8 @@ class _WallPageViewState extends State<WallPageView> {
             );
           },
           child: WallpaperExpandedImageCard(
-            uri: widget.wallpapers[index].image.first.url,
+            tattvaImage: widget.wallpapers[index].image.first,
+            enableButtons: index == currentPage,
           ),
         );
       },

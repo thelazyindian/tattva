@@ -16,4 +16,6 @@ class AuthenticationEvent with _$AuthenticationEvent {
   const factory AuthenticationEvent.loginWithGoogle() = _LoginWithGoogle;
   const factory AuthenticationEvent.loginWithFacebook() = _LoginWithFacebook;
   const factory AuthenticationEvent.resetPassword() = _ResetPassword;
+  const factory AuthenticationEvent.updateUserToken(String? token) =
+      _UpdateUserToken;
 }

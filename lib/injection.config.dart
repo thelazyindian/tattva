@@ -31,19 +31,16 @@ import 'infrastructure/wallpaper/wallpaper_facade.dart'
 _i1.GetIt $initGetIt(_i1.GetIt get,
     {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
   final gh = _i2.GetItHelper(get, environment, environmentFilter);
-  final firebaseInjectableModule = _$FirebaseInjectableModule();
+  final injectableModule = _$InjectableModule();
   gh.lazySingleton<_i3.AudioPlayerBloc>(() => _i3.AudioPlayerBloc());
-  gh.lazySingleton<_i4.Dio>(() => firebaseInjectableModule.dio);
-  gh.lazySingleton<_i5.FacebookAuth>(
-      () => firebaseInjectableModule.facebookAuth);
-  gh.lazySingleton<_i6.FirebaseAuth>(
-      () => firebaseInjectableModule.firebaseAuth);
+  gh.lazySingleton<_i4.Dio>(() => injectableModule.dio);
+  gh.lazySingleton<_i5.FacebookAuth>(() => injectableModule.facebookAuth);
+  gh.lazySingleton<_i6.FirebaseAuth>(() => injectableModule.firebaseAuth);
   gh.lazySingleton<_i7.FirebaseFirestore>(
-      () => firebaseInjectableModule.firebaseFirestore);
+      () => injectableModule.firebaseFirestore);
   gh.lazySingleton<_i8.FirebaseFunctions>(
-      () => firebaseInjectableModule.firebaseFunctions);
-  gh.lazySingleton<_i9.GoogleSignIn>(
-      () => firebaseInjectableModule.googleSignIn);
+      () => injectableModule.firebaseFunctions);
+  gh.lazySingleton<_i9.GoogleSignIn>(() => injectableModule.googleSignIn);
   gh.lazySingleton<_i10.IAudioFacade>(
       () => _i11.AudioFacade(get<_i8.FirebaseFunctions>()));
   gh.lazySingleton<_i12.IAuthFacade>(() => _i13.AuthFacade(
@@ -62,4 +59,4 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i19.FirebaseInjectableModule {}
+class _$InjectableModule extends _i19.InjectableModule {}

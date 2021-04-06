@@ -30,8 +30,10 @@ class WallpapersGridView extends StatelessWidget {
         onTap: () {
           context.router.push(WallpaperExpandedRoute(wallpaperIdx: index));
         },
-        child:
-            Image.network(wallpapers[index].image.first.url, fit: BoxFit.cover),
+        child: Image.network(
+          wallpapers[index].thumbnail.first.url,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }

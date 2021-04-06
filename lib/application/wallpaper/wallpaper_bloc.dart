@@ -4,13 +4,15 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/wallpaper/i_wallpaper_facade.dart';
 import 'package:tattva/domain/wallpaper/wallpaper_category.dart';
+import 'package:tattva/injection.dart';
 
+part 'wallpaper_bloc.freezed.dart';
 part 'wallpaper_event.dart';
 part 'wallpaper_state.dart';
-part 'wallpaper_bloc.freezed.dart';
 
 @lazySingleton
 class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
@@ -25,8 +27,8 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
     yield* event.map(
       started: (e) async* {
         yield WallpaperState.initial();
-
-        final response = await _wallpaperFacade.getWallpaperCategories();
+        final token = getIt<AuthenticationBloc>().state.userToken!;
+        final response = await _wallpaperFacade.getWallpaperCategories(token);
 
         yield* response.fold(
           (failure) async* {
@@ -66,8 +68,9 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
               selectedCategory: optionOf(currentCategory),
             );
 
+            final token = getIt<AuthenticationBloc>().state.userToken!;
             final response =
-                await _wallpaperFacade.getWallpapersFromCategory(e.id);
+                await _wallpaperFacade.getWallpapersFromCategory(token, e.id);
             yield* response.fold(
               (failure) async* {
                 yield state.copyWith(

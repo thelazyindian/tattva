@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:tattva/domain/authentication/auth_failure.dart';
 import 'package:tattva/domain/authentication/email.dart';
 import 'package:tattva/domain/authentication/name.dart';
@@ -15,6 +16,7 @@ abstract class IAuthFacade {
     Email email,
     Password password,
   );
+  Stream<User?> idTokenChanges();
   Future<Option<Either<AuthFailure, user.User>>> signInWithGoogle();
   Future<Option<Either<AuthFailure, user.User>>> signInWithFacebook();
   Future<Option<Either<AuthFailure, user.User>>> getUser();

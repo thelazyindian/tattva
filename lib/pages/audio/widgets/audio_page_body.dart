@@ -11,7 +11,7 @@ class AudioPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: () async => getIt<AudioBloc>().add(AudioEvent.started()),
+      onRefresh: () async => getIt<AudioBloc>().add(AudioEvent.refreshed()),
       child: BlocBuilder<AudioBloc, AudioState>(
         bloc: getIt<AudioBloc>()..add(AudioEvent.started()),
         builder: (context, state) {
