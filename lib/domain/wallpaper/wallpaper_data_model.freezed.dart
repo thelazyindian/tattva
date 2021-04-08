@@ -21,11 +21,13 @@ class _$WallpaperDataModelTearOff {
   const _$WallpaperDataModelTearOff();
 
   _WallpaperDataModel call(
-      {required List<WallpaperCategory> categories,
-      required List<Wallpaper> wallpapers}) {
+      {List<WallpaperCategory>? categories,
+      required List<Wallpaper> wallpapers,
+      required List<String> likedWallpapers}) {
     return _WallpaperDataModel(
       categories: categories,
       wallpapers: wallpapers,
+      likedWallpapers: likedWallpapers,
     );
   }
 
@@ -39,8 +41,9 @@ const $WallpaperDataModel = _$WallpaperDataModelTearOff();
 
 /// @nodoc
 mixin _$WallpaperDataModel {
-  List<WallpaperCategory> get categories => throw _privateConstructorUsedError;
+  List<WallpaperCategory>? get categories => throw _privateConstructorUsedError;
   List<Wallpaper> get wallpapers => throw _privateConstructorUsedError;
+  List<String> get likedWallpapers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +56,10 @@ abstract class $WallpaperDataModelCopyWith<$Res> {
   factory $WallpaperDataModelCopyWith(
           WallpaperDataModel value, $Res Function(WallpaperDataModel) then) =
       _$WallpaperDataModelCopyWithImpl<$Res>;
-  $Res call({List<WallpaperCategory> categories, List<Wallpaper> wallpapers});
+  $Res call(
+      {List<WallpaperCategory>? categories,
+      List<Wallpaper> wallpapers,
+      List<String> likedWallpapers});
 }
 
 /// @nodoc
@@ -69,16 +75,21 @@ class _$WallpaperDataModelCopyWithImpl<$Res>
   $Res call({
     Object? categories = freezed,
     Object? wallpapers = freezed,
+    Object? likedWallpapers = freezed,
   }) {
     return _then(_value.copyWith(
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<WallpaperCategory>,
+              as List<WallpaperCategory>?,
       wallpapers: wallpapers == freezed
           ? _value.wallpapers
           : wallpapers // ignore: cast_nullable_to_non_nullable
               as List<Wallpaper>,
+      likedWallpapers: likedWallpapers == freezed
+          ? _value.likedWallpapers
+          : likedWallpapers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -90,7 +101,10 @@ abstract class _$WallpaperDataModelCopyWith<$Res>
           _WallpaperDataModel value, $Res Function(_WallpaperDataModel) then) =
       __$WallpaperDataModelCopyWithImpl<$Res>;
   @override
-  $Res call({List<WallpaperCategory> categories, List<Wallpaper> wallpapers});
+  $Res call(
+      {List<WallpaperCategory>? categories,
+      List<Wallpaper> wallpapers,
+      List<String> likedWallpapers});
 }
 
 /// @nodoc
@@ -108,16 +122,21 @@ class __$WallpaperDataModelCopyWithImpl<$Res>
   $Res call({
     Object? categories = freezed,
     Object? wallpapers = freezed,
+    Object? likedWallpapers = freezed,
   }) {
     return _then(_WallpaperDataModel(
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<WallpaperCategory>,
+              as List<WallpaperCategory>?,
       wallpapers: wallpapers == freezed
           ? _value.wallpapers
           : wallpapers // ignore: cast_nullable_to_non_nullable
               as List<Wallpaper>,
+      likedWallpapers: likedWallpapers == freezed
+          ? _value.likedWallpapers
+          : likedWallpapers // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -127,19 +146,23 @@ class __$WallpaperDataModelCopyWithImpl<$Res>
 /// @nodoc
 class _$_WallpaperDataModel implements _WallpaperDataModel {
   const _$_WallpaperDataModel(
-      {required this.categories, required this.wallpapers});
+      {this.categories,
+      required this.wallpapers,
+      required this.likedWallpapers});
 
   factory _$_WallpaperDataModel.fromJson(Map<String, dynamic> json) =>
       _$_$_WallpaperDataModelFromJson(json);
 
   @override
-  final List<WallpaperCategory> categories;
+  final List<WallpaperCategory>? categories;
   @override
   final List<Wallpaper> wallpapers;
+  @override
+  final List<String> likedWallpapers;
 
   @override
   String toString() {
-    return 'WallpaperDataModel(categories: $categories, wallpapers: $wallpapers)';
+    return 'WallpaperDataModel(categories: $categories, wallpapers: $wallpapers, likedWallpapers: $likedWallpapers)';
   }
 
   @override
@@ -151,14 +174,18 @@ class _$_WallpaperDataModel implements _WallpaperDataModel {
                     .equals(other.categories, categories)) &&
             (identical(other.wallpapers, wallpapers) ||
                 const DeepCollectionEquality()
-                    .equals(other.wallpapers, wallpapers)));
+                    .equals(other.wallpapers, wallpapers)) &&
+            (identical(other.likedWallpapers, likedWallpapers) ||
+                const DeepCollectionEquality()
+                    .equals(other.likedWallpapers, likedWallpapers)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(categories) ^
-      const DeepCollectionEquality().hash(wallpapers);
+      const DeepCollectionEquality().hash(wallpapers) ^
+      const DeepCollectionEquality().hash(likedWallpapers);
 
   @JsonKey(ignore: true)
   @override
@@ -173,16 +200,19 @@ class _$_WallpaperDataModel implements _WallpaperDataModel {
 
 abstract class _WallpaperDataModel implements WallpaperDataModel {
   const factory _WallpaperDataModel(
-      {required List<WallpaperCategory> categories,
-      required List<Wallpaper> wallpapers}) = _$_WallpaperDataModel;
+      {List<WallpaperCategory>? categories,
+      required List<Wallpaper> wallpapers,
+      required List<String> likedWallpapers}) = _$_WallpaperDataModel;
 
   factory _WallpaperDataModel.fromJson(Map<String, dynamic> json) =
       _$_WallpaperDataModel.fromJson;
 
   @override
-  List<WallpaperCategory> get categories => throw _privateConstructorUsedError;
+  List<WallpaperCategory>? get categories => throw _privateConstructorUsedError;
   @override
   List<Wallpaper> get wallpapers => throw _privateConstructorUsedError;
+  @override
+  List<String> get likedWallpapers => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$WallpaperDataModelCopyWith<_WallpaperDataModel> get copyWith =>

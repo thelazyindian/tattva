@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cloud_functions/cloud_functions.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -17,8 +16,7 @@ abstract class InjectableModule {
   @lazySingleton
   FacebookAuth get facebookAuth => FacebookAuth.instance;
   @lazySingleton
-  FirebaseFunctions get firebaseFunctions => FirebaseFunctions.instance
-    ..useFunctionsEmulator(origin: 'http://100.77.81.92:5001');
-  @lazySingleton
-  Dio get dio => Dio(BaseOptions(baseUrl: 'http://100.77.81.92:5001'));
+  Dio get dio => Dio(
+        BaseOptions(baseUrl: 'http://100.77.81.92:5001/tattva-app/us-central1'),
+      );
 }

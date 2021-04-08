@@ -68,6 +68,9 @@ class AuthFacade implements IAuthFacade {
   Stream<User?> idTokenChanges() => _firebaseAuth.idTokenChanges();
 
   @override
+  User? get currentUser => _firebaseAuth.currentUser;
+
+  @override
   Future<Either<AuthFailure, user.User>> createUserWithEmailAndPassword(
     Name name,
     Email email,

@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:tattva/application/authentication/authentication_bloc.dart';
+import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/wallpaper/i_wallpaper_facade.dart';
 import 'package:tattva/domain/wallpaper/wallpaper_category.dart';
@@ -27,7 +27,7 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
     yield* event.map(
       started: (e) async* {
         yield WallpaperState.initial();
-        final token = getIt<AuthenticationBloc>().state.userToken!;
+        final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         final response = await _wallpaperFacade.getWallpaperCategories(token);
 
         yield* response.fold(
@@ -43,12 +43,13 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
                 wallpapers: success.wallpapers,
               ),
             ];
-            allwallpaperCategories.addAll(success.categories);
+            allwallpaperCategories.addAll(success.categories!);
 
             yield state.copyWith(
               wallpaperCategoriesOption:
                   optionOf(right(allwallpaperCategories)),
               selectedCategory: optionOf(allwallpaperCategories.first),
+              likedWallpapers: success.likedWallpapers,
             );
           },
         );
@@ -68,9 +69,11 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
               selectedCategory: optionOf(currentCategory),
             );
 
-            final token = getIt<AuthenticationBloc>().state.userToken!;
-            final response =
-                await _wallpaperFacade.getWallpapersFromCategory(token, e.id);
+            final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+            final response = await _wallpaperFacade.getWallpapersFromCategory(
+              token: token,
+              categoryId: e.id,
+            );
             yield* response.fold(
               (failure) async* {
                 yield state.copyWith(
@@ -80,11 +83,16 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
               },
               (success) async* {
                 categories[categoryIdx] =
-                    currentCategory.copyWith(wallpapers: success);
+                    currentCategory.copyWith(wallpapers: success.wallpapers);
+                final likedWallpapers =
+                    List<String>.from(state.likedWallpapers);
+                likedWallpapers.addAll(success.likedWallpapers);
+
                 yield state.copyWith(
                   categoryLoading: false,
                   wallpaperCategoriesOption: optionOf(right(categories)),
                   selectedCategory: optionOf(categories[categoryIdx]),
+                  likedWallpapers: likedWallpapers,
                 );
               },
             );
@@ -92,6 +100,41 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
             yield state.copyWith(selectedCategory: optionOf(currentCategory));
           }
         }
+      },
+      likedWallpaper: (e) async* {
+        final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+        _wallpaperFacade
+            .likeDislikeWallpaper(token, e.id, true)
+            .then((value) => value.fold((l) {
+                  final likedWallpapers =
+                      List<String>.from(state.likedWallpapers);
+                  likedWallpapers.removeWhere((element) => element == e.id);
+                  add(WallpaperEvent.updateLikedWallpapers(
+                      wallpaperIds: likedWallpapers));
+                }, (r) => null));
+        final likedWallpapers = List<String>.from(state.likedWallpapers);
+        likedWallpapers.add(e.id);
+        add(WallpaperEvent.updateLikedWallpapers(
+            wallpaperIds: likedWallpapers));
+      },
+      dislikedWallpaper: (e) async* {
+        final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+        _wallpaperFacade
+            .likeDislikeWallpaper(token, e.id, false)
+            .then((value) => value.fold((l) {
+                  final likedWallpapers =
+                      List<String>.from(state.likedWallpapers);
+                  likedWallpapers.add(e.id);
+                  add(WallpaperEvent.updateLikedWallpapers(
+                      wallpaperIds: likedWallpapers));
+                }, (r) => null));
+        final likedWallpapers = List<String>.from(state.likedWallpapers);
+        likedWallpapers.remove(e.id);
+        add(WallpaperEvent.updateLikedWallpapers(
+            wallpaperIds: likedWallpapers));
+      },
+      updateLikedWallpapers: (e) async* {
+        yield state.copyWith(likedWallpapers: e.wallpaperIds);
       },
     );
   }

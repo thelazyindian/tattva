@@ -17,6 +17,7 @@ abstract class IAuthFacade {
     Password password,
   );
   Stream<User?> idTokenChanges();
+  User? get currentUser;
   Future<Option<Either<AuthFailure, user.User>>> signInWithGoogle();
   Future<Option<Either<AuthFailure, user.User>>> signInWithFacebook();
   Future<Option<Either<AuthFailure, user.User>>> getUser();

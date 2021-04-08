@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:tattva/domain/core/tattva_image.dart';
+import 'package:tattva/domain/wallpaper/wallpaper.dart';
 import 'package:tattva/pages/wallpaper_expanded/widgets/wallpaper_buttons.dart';
 
 class WallpaperExpandedImageCard extends StatelessWidget {
-  final TattvaImage tattvaImage;
+  final Wallpaper wallpaper;
   final bool enableButtons;
 
   const WallpaperExpandedImageCard({
     Key? key,
-    required this.tattvaImage,
+    required this.wallpaper,
     this.enableButtons = false,
   }) : super(key: key);
 
@@ -21,14 +21,14 @@ class WallpaperExpandedImageCard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.network(
-              tattvaImage.url,
+              wallpaper.image.first.url,
               fit: BoxFit.fitHeight,
             ),
           ),
         ),
         const SizedBox(height: 24.0),
         enableButtons
-            ? WallpaperButtons(tattvaImage: tattvaImage)
+            ? WallpaperButtons(wallpaper: wallpaper)
             : const SizedBox(height: 24.0),
         const SizedBox(height: 24.0),
       ],

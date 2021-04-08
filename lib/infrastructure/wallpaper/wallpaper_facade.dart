@@ -11,7 +11,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:tattva/domain/core/tattva_image.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/wallpaper/i_wallpaper_facade.dart';
-import 'package:tattva/domain/wallpaper/wallpaper.dart';
 import 'package:tattva/domain/wallpaper/wallpaper_data_model.dart';
 
 @LazySingleton(as: IWallpaperFacade)
@@ -25,7 +24,7 @@ class WallpaperFacade implements IWallpaperFacade {
       String token) async {
     try {
       final response = await _dio.get(
-        '/tattva-app/us-central1/getWallpaperCategories',
+        '/getWallpaperCategories',
         queryParameters: {
           'token': token,
         },
@@ -42,25 +41,49 @@ class WallpaperFacade implements IWallpaperFacade {
   }
 
   @override
-  Future<Either<Failure, List<Wallpaper>>> getWallpapersFromCategory(
-    String token,
-    String categoryId,
-  ) async {
+  Future<Either<Failure, WallpaperDataModel>> getWallpapersFromCategory({
+    required String token,
+    required String categoryId,
+    String? startAfter,
+  }) async {
     try {
       final response = await _dio.get(
-        '/tattva-app/us-central1/getWallpapersFromCategory',
+        '/getWallpapersFromCategory',
         queryParameters: {
           'token': token,
           'id': categoryId,
+          if (startAfter != null) 'startAfter': startAfter,
         },
       );
       final data = Map<String, dynamic>.from(jsonDecode(response.data));
       debugPrint('wallpapers data $data');
 
-      List<Wallpaper> wallpapers = (data['wallpapers'] as List)
-          .map((e) => Wallpaper.fromJson(e))
-          .toList();
-      return right(wallpapers);
+      return right(WallpaperDataModel.fromJson(data));
+    } on DioError catch (e) {
+      debugPrint('ERR_CODE ${e.error}');
+      debugPrint(e.message);
+
+      return left(Failure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, WallpaperDataModel>> getAllWallpapers({
+    required String token,
+    String? startAfter,
+  }) async {
+    try {
+      final response = await _dio.get(
+        '/getAllWallpapers',
+        queryParameters: {
+          'token': token,
+          if (startAfter != null) 'startAfter': startAfter,
+        },
+      );
+      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      debugPrint('wallpapers data $data');
+
+      return right(WallpaperDataModel.fromJson(data));
     } on DioError catch (e) {
       debugPrint('ERR_CODE ${e.error}');
       debugPrint(e.message);
@@ -89,6 +112,36 @@ class WallpaperFacade implements IWallpaperFacade {
       return right(unit);
     } on DioError {
       return left(const Failure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> likeDislikeWallpaper(
+    String token,
+    String wallpaperId,
+    bool liked,
+  ) async {
+    try {
+      final response = await _dio.get(
+        '/likeDislikeWallpaper',
+        queryParameters: {
+          'token': token,
+          'itemId': wallpaperId,
+          'liked': liked,
+        },
+      );
+      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      debugPrint('likeDislikeWallpaper $data');
+      if (data.containsKey('success') && (data['success'] as bool)) {
+        return right(unit);
+      } else {
+        return left(Failure.serverError());
+      }
+    } on DioError catch (e) {
+      debugPrint('likeDislikeWallpaper ERR_CODE ${e.response}');
+      debugPrint(e.message);
+
+      return left(Failure.serverError());
     }
   }
 }

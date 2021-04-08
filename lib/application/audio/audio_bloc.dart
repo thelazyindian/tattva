@@ -10,6 +10,7 @@ import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tattva/domain/audio/audio_category.dart';
 import 'package:tattva/domain/audio/i_audio_facade.dart';
+import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/injection.dart';
 
@@ -47,11 +48,10 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
           getIt<Dio>().interceptors.add(DioCacheInterceptor(options: options));
         }
 
-        add(AudioEvent.refreshed());
-      },
-      refreshed: (e) async* {
+        final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+
         final audioCategoriesSuccessOrFailure =
-            await _audioFacade.getAudioCategories();
+            await _audioFacade.getAudioCategories(token);
         yield* audioCategoriesSuccessOrFailure.fold(
           (failure) async* {
             yield state.copyWith(
@@ -81,12 +81,14 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
               loadingSubCategory: true,
               selectedAudioCategory: optionOf(e.audioCategory),
             );
-            final audioSubCategoriesSuccessOrFailure =
-                await _audioFacade.getAudioSubCategories(e.audioCategory.id);
+            final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+            final audioSubCategoriesSuccessOrFailure = await _audioFacade
+                .getAudioSubCategories(token, e.audioCategory.id);
+
             final audioCategoryFetched = e.audioCategory.copyWith(
               audioSubCategories: audioSubCategoriesSuccessOrFailure.fold(
                 (l) => null,
-                (audioSubCategories) => audioSubCategories,
+                (audioSubDataModel) => audioSubDataModel.categories,
               ),
             );
             final audioCategories =
@@ -99,10 +101,18 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
                 .indexWhere((element) => element.id == audioCategoryFetched.id);
             audioCategories[audioCategoryIdx] = audioCategoryFetched;
 
+            final likedAudiosResp = audioSubCategoriesSuccessOrFailure.fold(
+              (l) => <String>[],
+              (audioSubDataModel) => audioSubDataModel.likedAudios,
+            );
+            final likedAudios = List<String>.from(state.likedAudios);
+            likedAudios.addAll(likedAudiosResp);
+
             yield state.copyWith(
               loadingSubCategory: false,
               selectedAudioCategory: optionOf(audioCategoryFetched),
               audioCategoriesOption: optionOf(right(audioCategories)),
+              likedAudios: likedAudios,
             );
           } else {
             yield state.copyWith(
@@ -111,8 +121,9 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
         }
       },
       likedAudio: (e) async* {
+        final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         _audioFacade
-            .likeDislikeAudio(e.id, true)
+            .likeDislikeAudio(token, e.id, true)
             .then((value) => value.fold((l) {
                   final likedAudios = List<String>.from(state.likedAudios);
                   likedAudios.removeWhere((element) => element == e.id);
@@ -123,8 +134,10 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
         add(AudioEvent.updateLikedAudios(audioIds: likedAudios));
       },
       dislikedAudio: (e) async* {
+        final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         _audioFacade
             .likeDislikeAudio(
+              token,
               e.id,
               false,
             )

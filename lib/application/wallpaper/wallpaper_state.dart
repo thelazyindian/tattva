@@ -8,6 +8,7 @@ class WallpaperState with _$WallpaperState {
     required Option<WallpaperCategory> selectedCategory,
     required bool categoryLoading,
     required Option<Failure> categoryError,
+    required List<String> likedWallpapers,
   }) = _WallpaperState;
 
   factory WallpaperState.initial() => _WallpaperState(
@@ -15,5 +16,6 @@ class WallpaperState with _$WallpaperState {
         selectedCategory: none(),
         categoryLoading: false,
         categoryError: none(),
+        likedWallpapers: [],
       );
 }

@@ -6,12 +6,13 @@ import 'package:tattva/domain/audio/audio_sub_category.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio/widgets/audio_categories_section.dart';
 import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
+import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 
 class AudioPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: () async => getIt<AudioBloc>().add(AudioEvent.refreshed()),
+      onRefresh: () async => getIt<AudioBloc>().add(AudioEvent.started()),
       child: BlocBuilder<AudioBloc, AudioState>(
         bloc: getIt<AudioBloc>()..add(AudioEvent.started()),
         builder: (context, state) {
@@ -19,9 +20,7 @@ class AudioPageBody extends StatelessWidget {
             () => const Center(child: CircularProgressIndicator()),
             (audioCategoriesSuccessOrFailure) =>
                 audioCategoriesSuccessOrFailure.fold(
-              (l) => ListView(
-                children: [const Center(child: Text('ERROR'))],
-              ),
+              (l) => ErrorLoadingListItemView(),
               (audioCategories) => ListView(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 children: [
@@ -32,7 +31,7 @@ class AudioPageBody extends StatelessWidget {
                     (category) => state.loadingSubCategory
                         ? const Center(child: CircularProgressIndicator())
                         : (category.audioSubCategories == null)
-                            ? const Center(child: Text('ERROR'))
+                            ? ErrorLoadingListItemView()
                             : _subCategories(category.audioSubCategories!),
                   ),
                 ],

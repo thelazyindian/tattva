@@ -20,10 +20,6 @@ class _$AudioEventTearOff {
     return const _Started();
   }
 
-  _Refreshed refreshed() {
-    return const _Refreshed();
-  }
-
   _SelectedAudioCategory selectedAudioCategory(AudioCategory audioCategory) {
     return _SelectedAudioCategory(
       audioCategory,
@@ -57,7 +53,6 @@ mixin _$AudioEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() refreshed,
     required TResult Function(AudioCategory audioCategory)
         selectedAudioCategory,
     required TResult Function(String id) likedAudio,
@@ -68,7 +63,6 @@ mixin _$AudioEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? refreshed,
     TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
     TResult Function(String id)? likedAudio,
     TResult Function(String id)? dislikedAudio,
@@ -79,7 +73,6 @@ mixin _$AudioEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Refreshed value) refreshed,
     required TResult Function(_SelectedAudioCategory value)
         selectedAudioCategory,
     required TResult Function(_LikedAudio value) likedAudio,
@@ -90,7 +83,6 @@ mixin _$AudioEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
     TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
     TResult Function(_LikedAudio value)? likedAudio,
     TResult Function(_DislikedAudio value)? dislikedAudio,
@@ -153,7 +145,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() refreshed,
     required TResult Function(AudioCategory audioCategory)
         selectedAudioCategory,
     required TResult Function(String id) likedAudio,
@@ -167,7 +158,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? refreshed,
     TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
     TResult Function(String id)? likedAudio,
     TResult Function(String id)? dislikedAudio,
@@ -184,7 +174,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Refreshed value) refreshed,
     required TResult Function(_SelectedAudioCategory value)
         selectedAudioCategory,
     required TResult Function(_LikedAudio value) likedAudio,
@@ -198,7 +187,6 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
     TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
     TResult Function(_LikedAudio value)? likedAudio,
     TResult Function(_DislikedAudio value)? dislikedAudio,
@@ -214,107 +202,6 @@ class _$_Started implements _Started {
 
 abstract class _Started implements AudioEvent {
   const factory _Started() = _$_Started;
-}
-
-/// @nodoc
-abstract class _$RefreshedCopyWith<$Res> {
-  factory _$RefreshedCopyWith(
-          _Refreshed value, $Res Function(_Refreshed) then) =
-      __$RefreshedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$RefreshedCopyWithImpl<$Res> extends _$AudioEventCopyWithImpl<$Res>
-    implements _$RefreshedCopyWith<$Res> {
-  __$RefreshedCopyWithImpl(_Refreshed _value, $Res Function(_Refreshed) _then)
-      : super(_value, (v) => _then(v as _Refreshed));
-
-  @override
-  _Refreshed get _value => super._value as _Refreshed;
-}
-
-/// @nodoc
-class _$_Refreshed implements _Refreshed {
-  const _$_Refreshed();
-
-  @override
-  String toString() {
-    return 'AudioEvent.refreshed()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Refreshed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() refreshed,
-    required TResult Function(AudioCategory audioCategory)
-        selectedAudioCategory,
-    required TResult Function(String id) likedAudio,
-    required TResult Function(String id) dislikedAudio,
-    required TResult Function(List<String> audioIds) updateLikedAudios,
-  }) {
-    return refreshed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? refreshed,
-    TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
-    TResult Function(String id)? likedAudio,
-    TResult Function(String id)? dislikedAudio,
-    TResult Function(List<String> audioIds)? updateLikedAudios,
-    required TResult orElse(),
-  }) {
-    if (refreshed != null) {
-      return refreshed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_Refreshed value) refreshed,
-    required TResult Function(_SelectedAudioCategory value)
-        selectedAudioCategory,
-    required TResult Function(_LikedAudio value) likedAudio,
-    required TResult Function(_DislikedAudio value) dislikedAudio,
-    required TResult Function(_UpdateLikedAudios value) updateLikedAudios,
-  }) {
-    return refreshed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
-    TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
-    TResult Function(_LikedAudio value)? likedAudio,
-    TResult Function(_DislikedAudio value)? dislikedAudio,
-    TResult Function(_UpdateLikedAudios value)? updateLikedAudios,
-    required TResult orElse(),
-  }) {
-    if (refreshed != null) {
-      return refreshed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Refreshed implements AudioEvent {
-  const factory _Refreshed() = _$_Refreshed;
 }
 
 /// @nodoc
@@ -393,7 +280,6 @@ class _$_SelectedAudioCategory implements _SelectedAudioCategory {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() refreshed,
     required TResult Function(AudioCategory audioCategory)
         selectedAudioCategory,
     required TResult Function(String id) likedAudio,
@@ -407,7 +293,6 @@ class _$_SelectedAudioCategory implements _SelectedAudioCategory {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? refreshed,
     TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
     TResult Function(String id)? likedAudio,
     TResult Function(String id)? dislikedAudio,
@@ -424,7 +309,6 @@ class _$_SelectedAudioCategory implements _SelectedAudioCategory {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Refreshed value) refreshed,
     required TResult Function(_SelectedAudioCategory value)
         selectedAudioCategory,
     required TResult Function(_LikedAudio value) likedAudio,
@@ -438,7 +322,6 @@ class _$_SelectedAudioCategory implements _SelectedAudioCategory {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
     TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
     TResult Function(_LikedAudio value)? likedAudio,
     TResult Function(_DislikedAudio value)? dislikedAudio,
@@ -526,7 +409,6 @@ class _$_LikedAudio implements _LikedAudio {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() refreshed,
     required TResult Function(AudioCategory audioCategory)
         selectedAudioCategory,
     required TResult Function(String id) likedAudio,
@@ -540,7 +422,6 @@ class _$_LikedAudio implements _LikedAudio {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? refreshed,
     TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
     TResult Function(String id)? likedAudio,
     TResult Function(String id)? dislikedAudio,
@@ -557,7 +438,6 @@ class _$_LikedAudio implements _LikedAudio {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Refreshed value) refreshed,
     required TResult Function(_SelectedAudioCategory value)
         selectedAudioCategory,
     required TResult Function(_LikedAudio value) likedAudio,
@@ -571,7 +451,6 @@ class _$_LikedAudio implements _LikedAudio {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
     TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
     TResult Function(_LikedAudio value)? likedAudio,
     TResult Function(_DislikedAudio value)? dislikedAudio,
@@ -658,7 +537,6 @@ class _$_DislikedAudio implements _DislikedAudio {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() refreshed,
     required TResult Function(AudioCategory audioCategory)
         selectedAudioCategory,
     required TResult Function(String id) likedAudio,
@@ -672,7 +550,6 @@ class _$_DislikedAudio implements _DislikedAudio {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? refreshed,
     TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
     TResult Function(String id)? likedAudio,
     TResult Function(String id)? dislikedAudio,
@@ -689,7 +566,6 @@ class _$_DislikedAudio implements _DislikedAudio {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Refreshed value) refreshed,
     required TResult Function(_SelectedAudioCategory value)
         selectedAudioCategory,
     required TResult Function(_LikedAudio value) likedAudio,
@@ -703,7 +579,6 @@ class _$_DislikedAudio implements _DislikedAudio {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
     TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
     TResult Function(_LikedAudio value)? likedAudio,
     TResult Function(_DislikedAudio value)? dislikedAudio,
@@ -792,7 +667,6 @@ class _$_UpdateLikedAudios implements _UpdateLikedAudios {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() refreshed,
     required TResult Function(AudioCategory audioCategory)
         selectedAudioCategory,
     required TResult Function(String id) likedAudio,
@@ -806,7 +680,6 @@ class _$_UpdateLikedAudios implements _UpdateLikedAudios {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? refreshed,
     TResult Function(AudioCategory audioCategory)? selectedAudioCategory,
     TResult Function(String id)? likedAudio,
     TResult Function(String id)? dislikedAudio,
@@ -823,7 +696,6 @@ class _$_UpdateLikedAudios implements _UpdateLikedAudios {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Refreshed value) refreshed,
     required TResult Function(_SelectedAudioCategory value)
         selectedAudioCategory,
     required TResult Function(_LikedAudio value) likedAudio,
@@ -837,7 +709,6 @@ class _$_UpdateLikedAudios implements _UpdateLikedAudios {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
     TResult Function(_SelectedAudioCategory value)? selectedAudioCategory,
     TResult Function(_LikedAudio value)? likedAudio,
     TResult Function(_DislikedAudio value)? dislikedAudio,

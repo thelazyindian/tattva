@@ -8,8 +8,9 @@ part 'wallpaper_data_model.g.dart';
 @freezed
 class WallpaperDataModel with _$WallpaperDataModel {
   const factory WallpaperDataModel({
-    required List<WallpaperCategory> categories,
+    List<WallpaperCategory>? categories,
     required List<Wallpaper> wallpapers,
+    required List<String> likedWallpapers,
   }) = _WallpaperDataModel;
 
   factory WallpaperDataModel.fromJson(Map<String, dynamic> json) =>
