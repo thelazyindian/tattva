@@ -21,11 +21,15 @@ class _$BlogCategoryTearOff {
   const _$BlogCategoryTearOff();
 
   _BlogCategory call(
-      {required String id, required String name, List<Blog> blogs = const []}) {
+      {required String id,
+      required String name,
+      List<Blog> blogs = const [],
+      bool completelyFetched = false}) {
     return _BlogCategory(
       id: id,
       name: name,
       blogs: blogs,
+      completelyFetched: completelyFetched,
     );
   }
 
@@ -42,6 +46,7 @@ mixin _$BlogCategory {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<Blog> get blogs => throw _privateConstructorUsedError;
+  bool get completelyFetched => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +59,7 @@ abstract class $BlogCategoryCopyWith<$Res> {
   factory $BlogCategoryCopyWith(
           BlogCategory value, $Res Function(BlogCategory) then) =
       _$BlogCategoryCopyWithImpl<$Res>;
-  $Res call({String id, String name, List<Blog> blogs});
+  $Res call({String id, String name, List<Blog> blogs, bool completelyFetched});
 }
 
 /// @nodoc
@@ -70,6 +75,7 @@ class _$BlogCategoryCopyWithImpl<$Res> implements $BlogCategoryCopyWith<$Res> {
     Object? id = freezed,
     Object? name = freezed,
     Object? blogs = freezed,
+    Object? completelyFetched = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -84,6 +90,10 @@ class _$BlogCategoryCopyWithImpl<$Res> implements $BlogCategoryCopyWith<$Res> {
           ? _value.blogs
           : blogs // ignore: cast_nullable_to_non_nullable
               as List<Blog>,
+      completelyFetched: completelyFetched == freezed
+          ? _value.completelyFetched
+          : completelyFetched // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -95,7 +105,7 @@ abstract class _$BlogCategoryCopyWith<$Res>
           _BlogCategory value, $Res Function(_BlogCategory) then) =
       __$BlogCategoryCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name, List<Blog> blogs});
+  $Res call({String id, String name, List<Blog> blogs, bool completelyFetched});
 }
 
 /// @nodoc
@@ -113,6 +123,7 @@ class __$BlogCategoryCopyWithImpl<$Res> extends _$BlogCategoryCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? blogs = freezed,
+    Object? completelyFetched = freezed,
   }) {
     return _then(_BlogCategory(
       id: id == freezed
@@ -127,6 +138,10 @@ class __$BlogCategoryCopyWithImpl<$Res> extends _$BlogCategoryCopyWithImpl<$Res>
           ? _value.blogs
           : blogs // ignore: cast_nullable_to_non_nullable
               as List<Blog>,
+      completelyFetched: completelyFetched == freezed
+          ? _value.completelyFetched
+          : completelyFetched // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -136,7 +151,10 @@ class __$BlogCategoryCopyWithImpl<$Res> extends _$BlogCategoryCopyWithImpl<$Res>
 /// @nodoc
 class _$_BlogCategory implements _BlogCategory {
   const _$_BlogCategory(
-      {required this.id, required this.name, this.blogs = const []});
+      {required this.id,
+      required this.name,
+      this.blogs = const [],
+      this.completelyFetched = false});
 
   factory _$_BlogCategory.fromJson(Map<String, dynamic> json) =>
       _$_$_BlogCategoryFromJson(json);
@@ -148,10 +166,13 @@ class _$_BlogCategory implements _BlogCategory {
   @JsonKey(defaultValue: const [])
   @override
   final List<Blog> blogs;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool completelyFetched;
 
   @override
   String toString() {
-    return 'BlogCategory(id: $id, name: $name, blogs: $blogs)';
+    return 'BlogCategory(id: $id, name: $name, blogs: $blogs, completelyFetched: $completelyFetched)';
   }
 
   @override
@@ -163,7 +184,10 @@ class _$_BlogCategory implements _BlogCategory {
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.blogs, blogs) ||
-                const DeepCollectionEquality().equals(other.blogs, blogs)));
+                const DeepCollectionEquality().equals(other.blogs, blogs)) &&
+            (identical(other.completelyFetched, completelyFetched) ||
+                const DeepCollectionEquality()
+                    .equals(other.completelyFetched, completelyFetched)));
   }
 
   @override
@@ -171,7 +195,8 @@ class _$_BlogCategory implements _BlogCategory {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(blogs);
+      const DeepCollectionEquality().hash(blogs) ^
+      const DeepCollectionEquality().hash(completelyFetched);
 
   @JsonKey(ignore: true)
   @override
@@ -188,7 +213,8 @@ abstract class _BlogCategory implements BlogCategory {
   const factory _BlogCategory(
       {required String id,
       required String name,
-      List<Blog> blogs}) = _$_BlogCategory;
+      List<Blog> blogs,
+      bool completelyFetched}) = _$_BlogCategory;
 
   factory _BlogCategory.fromJson(Map<String, dynamic> json) =
       _$_BlogCategory.fromJson;
@@ -199,6 +225,8 @@ abstract class _BlogCategory implements BlogCategory {
   String get name => throw _privateConstructorUsedError;
   @override
   List<Blog> get blogs => throw _privateConstructorUsedError;
+  @override
+  bool get completelyFetched => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$BlogCategoryCopyWith<_BlogCategory> get copyWith =>

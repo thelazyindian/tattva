@@ -10,6 +10,7 @@ class BlogCategory with _$BlogCategory {
     required String id,
     required String name,
     @Default([]) List<Blog> blogs,
+    @Default(false) bool completelyFetched,
   }) = _BlogCategory;
 
   factory BlogCategory.fromJson(Map<String, dynamic> json) =>

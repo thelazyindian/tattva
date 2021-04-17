@@ -26,6 +26,12 @@ class _$BlogEventTearOff {
     );
   }
 
+  _SelectedCategoryLoadMore selectedCategoryLoadMore({required String id}) {
+    return _SelectedCategoryLoadMore(
+      id: id,
+    );
+  }
+
   _LikedBlog likedBlog({required String id}) {
     return _LikedBlog(
       id: id,
@@ -54,6 +60,7 @@ mixin _$BlogEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -63,6 +70,7 @@ mixin _$BlogEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
@@ -73,6 +81,8 @@ mixin _$BlogEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedBlog value) likedBlog,
     required TResult Function(_DislikedBlog value) dislikedBlog,
     required TResult Function(_UpdateLikedBlogs value) updateLikedBlogs,
@@ -82,6 +92,7 @@ mixin _$BlogEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
     TResult Function(_DislikedBlog value)? dislikedBlog,
     TResult Function(_UpdateLikedBlogs value)? updateLikedBlogs,
@@ -143,6 +154,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -155,6 +167,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
@@ -171,6 +184,8 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedBlog value) likedBlog,
     required TResult Function(_DislikedBlog value) dislikedBlog,
     required TResult Function(_UpdateLikedBlogs value) updateLikedBlogs,
@@ -183,6 +198,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
     TResult Function(_DislikedBlog value)? dislikedBlog,
     TResult Function(_UpdateLikedBlogs value)? updateLikedBlogs,
@@ -265,6 +281,7 @@ class _$_SelectedCategory implements _SelectedCategory {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -277,6 +294,7 @@ class _$_SelectedCategory implements _SelectedCategory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
@@ -293,6 +311,8 @@ class _$_SelectedCategory implements _SelectedCategory {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedBlog value) likedBlog,
     required TResult Function(_DislikedBlog value) dislikedBlog,
     required TResult Function(_UpdateLikedBlogs value) updateLikedBlogs,
@@ -305,6 +325,7 @@ class _$_SelectedCategory implements _SelectedCategory {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
     TResult Function(_DislikedBlog value)? dislikedBlog,
     TResult Function(_UpdateLikedBlogs value)? updateLikedBlogs,
@@ -323,6 +344,141 @@ abstract class _SelectedCategory implements BlogEvent {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SelectedCategoryCopyWith<_SelectedCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SelectedCategoryLoadMoreCopyWith<$Res> {
+  factory _$SelectedCategoryLoadMoreCopyWith(_SelectedCategoryLoadMore value,
+          $Res Function(_SelectedCategoryLoadMore) then) =
+      __$SelectedCategoryLoadMoreCopyWithImpl<$Res>;
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$SelectedCategoryLoadMoreCopyWithImpl<$Res>
+    extends _$BlogEventCopyWithImpl<$Res>
+    implements _$SelectedCategoryLoadMoreCopyWith<$Res> {
+  __$SelectedCategoryLoadMoreCopyWithImpl(_SelectedCategoryLoadMore _value,
+      $Res Function(_SelectedCategoryLoadMore) _then)
+      : super(_value, (v) => _then(v as _SelectedCategoryLoadMore));
+
+  @override
+  _SelectedCategoryLoadMore get _value =>
+      super._value as _SelectedCategoryLoadMore;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_SelectedCategoryLoadMore(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SelectedCategoryLoadMore implements _SelectedCategoryLoadMore {
+  const _$_SelectedCategoryLoadMore({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'BlogEvent.selectedCategoryLoadMore(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SelectedCategoryLoadMore &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SelectedCategoryLoadMoreCopyWith<_SelectedCategoryLoadMore> get copyWith =>
+      __$SelectedCategoryLoadMoreCopyWithImpl<_SelectedCategoryLoadMore>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
+    required TResult Function(String id) likedBlog,
+    required TResult Function(String id) dislikedBlog,
+    required TResult Function(List<String> blogIds) updateLikedBlogs,
+  }) {
+    return selectedCategoryLoadMore(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
+    TResult Function(String id)? likedBlog,
+    TResult Function(String id)? dislikedBlog,
+    TResult Function(List<String> blogIds)? updateLikedBlogs,
+    required TResult orElse(),
+  }) {
+    if (selectedCategoryLoadMore != null) {
+      return selectedCategoryLoadMore(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
+    required TResult Function(_LikedBlog value) likedBlog,
+    required TResult Function(_DislikedBlog value) dislikedBlog,
+    required TResult Function(_UpdateLikedBlogs value) updateLikedBlogs,
+  }) {
+    return selectedCategoryLoadMore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
+    TResult Function(_LikedBlog value)? likedBlog,
+    TResult Function(_DislikedBlog value)? dislikedBlog,
+    TResult Function(_UpdateLikedBlogs value)? updateLikedBlogs,
+    required TResult orElse(),
+  }) {
+    if (selectedCategoryLoadMore != null) {
+      return selectedCategoryLoadMore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedCategoryLoadMore implements BlogEvent {
+  const factory _SelectedCategoryLoadMore({required String id}) =
+      _$_SelectedCategoryLoadMore;
+
+  String get id => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SelectedCategoryLoadMoreCopyWith<_SelectedCategoryLoadMore> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -390,6 +546,7 @@ class _$_LikedBlog implements _LikedBlog {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -402,6 +559,7 @@ class _$_LikedBlog implements _LikedBlog {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
@@ -418,6 +576,8 @@ class _$_LikedBlog implements _LikedBlog {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedBlog value) likedBlog,
     required TResult Function(_DislikedBlog value) dislikedBlog,
     required TResult Function(_UpdateLikedBlogs value) updateLikedBlogs,
@@ -430,6 +590,7 @@ class _$_LikedBlog implements _LikedBlog {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
     TResult Function(_DislikedBlog value)? dislikedBlog,
     TResult Function(_UpdateLikedBlogs value)? updateLikedBlogs,
@@ -516,6 +677,7 @@ class _$_DislikedBlog implements _DislikedBlog {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -528,6 +690,7 @@ class _$_DislikedBlog implements _DislikedBlog {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
@@ -544,6 +707,8 @@ class _$_DislikedBlog implements _DislikedBlog {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedBlog value) likedBlog,
     required TResult Function(_DislikedBlog value) dislikedBlog,
     required TResult Function(_UpdateLikedBlogs value) updateLikedBlogs,
@@ -556,6 +721,7 @@ class _$_DislikedBlog implements _DislikedBlog {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
     TResult Function(_DislikedBlog value)? dislikedBlog,
     TResult Function(_UpdateLikedBlogs value)? updateLikedBlogs,
@@ -643,6 +809,7 @@ class _$_UpdateLikedBlogs implements _UpdateLikedBlogs {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -655,6 +822,7 @@ class _$_UpdateLikedBlogs implements _UpdateLikedBlogs {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
@@ -671,6 +839,8 @@ class _$_UpdateLikedBlogs implements _UpdateLikedBlogs {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedBlog value) likedBlog,
     required TResult Function(_DislikedBlog value) dislikedBlog,
     required TResult Function(_UpdateLikedBlogs value) updateLikedBlogs,
@@ -683,6 +853,7 @@ class _$_UpdateLikedBlogs implements _UpdateLikedBlogs {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
     TResult Function(_DislikedBlog value)? dislikedBlog,
     TResult Function(_UpdateLikedBlogs value)? updateLikedBlogs,
@@ -714,12 +885,14 @@ class _$BlogStateTearOff {
           blogCategoriesOption,
       required Option<BlogCategory> selectedCategory,
       required bool categoryLoading,
+      required bool loadingMore,
       required Option<Failure> categoryError,
       required List<String> likedBlogs}) {
     return _BlogState(
       blogCategoriesOption: blogCategoriesOption,
       selectedCategory: selectedCategory,
       categoryLoading: categoryLoading,
+      loadingMore: loadingMore,
       categoryError: categoryError,
       likedBlogs: likedBlogs,
     );
@@ -736,6 +909,7 @@ mixin _$BlogState {
   Option<BlogCategory> get selectedCategory =>
       throw _privateConstructorUsedError;
   bool get categoryLoading => throw _privateConstructorUsedError;
+  bool get loadingMore => throw _privateConstructorUsedError;
   Option<Failure> get categoryError => throw _privateConstructorUsedError;
   List<String> get likedBlogs => throw _privateConstructorUsedError;
 
@@ -752,6 +926,7 @@ abstract class $BlogStateCopyWith<$Res> {
       {Option<Either<Failure, List<BlogCategory>>> blogCategoriesOption,
       Option<BlogCategory> selectedCategory,
       bool categoryLoading,
+      bool loadingMore,
       Option<Failure> categoryError,
       List<String> likedBlogs});
 }
@@ -769,6 +944,7 @@ class _$BlogStateCopyWithImpl<$Res> implements $BlogStateCopyWith<$Res> {
     Object? blogCategoriesOption = freezed,
     Object? selectedCategory = freezed,
     Object? categoryLoading = freezed,
+    Object? loadingMore = freezed,
     Object? categoryError = freezed,
     Object? likedBlogs = freezed,
   }) {
@@ -784,6 +960,10 @@ class _$BlogStateCopyWithImpl<$Res> implements $BlogStateCopyWith<$Res> {
       categoryLoading: categoryLoading == freezed
           ? _value.categoryLoading
           : categoryLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadingMore: loadingMore == freezed
+          ? _value.loadingMore
+          : loadingMore // ignore: cast_nullable_to_non_nullable
               as bool,
       categoryError: categoryError == freezed
           ? _value.categoryError
@@ -807,6 +987,7 @@ abstract class _$BlogStateCopyWith<$Res> implements $BlogStateCopyWith<$Res> {
       {Option<Either<Failure, List<BlogCategory>>> blogCategoriesOption,
       Option<BlogCategory> selectedCategory,
       bool categoryLoading,
+      bool loadingMore,
       Option<Failure> categoryError,
       List<String> likedBlogs});
 }
@@ -825,6 +1006,7 @@ class __$BlogStateCopyWithImpl<$Res> extends _$BlogStateCopyWithImpl<$Res>
     Object? blogCategoriesOption = freezed,
     Object? selectedCategory = freezed,
     Object? categoryLoading = freezed,
+    Object? loadingMore = freezed,
     Object? categoryError = freezed,
     Object? likedBlogs = freezed,
   }) {
@@ -840,6 +1022,10 @@ class __$BlogStateCopyWithImpl<$Res> extends _$BlogStateCopyWithImpl<$Res>
       categoryLoading: categoryLoading == freezed
           ? _value.categoryLoading
           : categoryLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadingMore: loadingMore == freezed
+          ? _value.loadingMore
+          : loadingMore // ignore: cast_nullable_to_non_nullable
               as bool,
       categoryError: categoryError == freezed
           ? _value.categoryError
@@ -859,6 +1045,7 @@ class _$_BlogState implements _BlogState {
       {required this.blogCategoriesOption,
       required this.selectedCategory,
       required this.categoryLoading,
+      required this.loadingMore,
       required this.categoryError,
       required this.likedBlogs});
 
@@ -869,13 +1056,15 @@ class _$_BlogState implements _BlogState {
   @override
   final bool categoryLoading;
   @override
+  final bool loadingMore;
+  @override
   final Option<Failure> categoryError;
   @override
   final List<String> likedBlogs;
 
   @override
   String toString() {
-    return 'BlogState(blogCategoriesOption: $blogCategoriesOption, selectedCategory: $selectedCategory, categoryLoading: $categoryLoading, categoryError: $categoryError, likedBlogs: $likedBlogs)';
+    return 'BlogState(blogCategoriesOption: $blogCategoriesOption, selectedCategory: $selectedCategory, categoryLoading: $categoryLoading, loadingMore: $loadingMore, categoryError: $categoryError, likedBlogs: $likedBlogs)';
   }
 
   @override
@@ -891,6 +1080,9 @@ class _$_BlogState implements _BlogState {
             (identical(other.categoryLoading, categoryLoading) ||
                 const DeepCollectionEquality()
                     .equals(other.categoryLoading, categoryLoading)) &&
+            (identical(other.loadingMore, loadingMore) ||
+                const DeepCollectionEquality()
+                    .equals(other.loadingMore, loadingMore)) &&
             (identical(other.categoryError, categoryError) ||
                 const DeepCollectionEquality()
                     .equals(other.categoryError, categoryError)) &&
@@ -905,6 +1097,7 @@ class _$_BlogState implements _BlogState {
       const DeepCollectionEquality().hash(blogCategoriesOption) ^
       const DeepCollectionEquality().hash(selectedCategory) ^
       const DeepCollectionEquality().hash(categoryLoading) ^
+      const DeepCollectionEquality().hash(loadingMore) ^
       const DeepCollectionEquality().hash(categoryError) ^
       const DeepCollectionEquality().hash(likedBlogs);
 
@@ -920,6 +1113,7 @@ abstract class _BlogState implements BlogState {
           blogCategoriesOption,
       required Option<BlogCategory> selectedCategory,
       required bool categoryLoading,
+      required bool loadingMore,
       required Option<Failure> categoryError,
       required List<String> likedBlogs}) = _$_BlogState;
 
@@ -931,6 +1125,8 @@ abstract class _BlogState implements BlogState {
       throw _privateConstructorUsedError;
   @override
   bool get categoryLoading => throw _privateConstructorUsedError;
+  @override
+  bool get loadingMore => throw _privateConstructorUsedError;
   @override
   Option<Failure> get categoryError => throw _privateConstructorUsedError;
   @override

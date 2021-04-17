@@ -14,6 +14,7 @@ _$_BlogCategory _$_$_BlogCategoryFromJson(Map<String, dynamic> json) {
             ?.map((e) => Blog.fromJson(e as Map<String, dynamic>))
             .toList() ??
         [],
+    completelyFetched: json['completelyFetched'] as bool? ?? false,
   );
 }
 
@@ -22,4 +23,5 @@ Map<String, dynamic> _$_$_BlogCategoryToJson(_$_BlogCategory instance) =>
       'id': instance.id,
       'name': instance.name,
       'blogs': instance.blogs,
+      'completelyFetched': instance.completelyFetched,
     };
