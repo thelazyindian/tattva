@@ -23,11 +23,13 @@ class _$WallpaperCategoryTearOff {
   _WallpaperCategory call(
       {required String id,
       required String name,
-      List<Wallpaper> wallpapers = const []}) {
+      List<Wallpaper> wallpapers = const [],
+      bool completelyFetched = false}) {
     return _WallpaperCategory(
       id: id,
       name: name,
       wallpapers: wallpapers,
+      completelyFetched: completelyFetched,
     );
   }
 
@@ -44,6 +46,7 @@ mixin _$WallpaperCategory {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<Wallpaper> get wallpapers => throw _privateConstructorUsedError;
+  bool get completelyFetched => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,7 +59,11 @@ abstract class $WallpaperCategoryCopyWith<$Res> {
   factory $WallpaperCategoryCopyWith(
           WallpaperCategory value, $Res Function(WallpaperCategory) then) =
       _$WallpaperCategoryCopyWithImpl<$Res>;
-  $Res call({String id, String name, List<Wallpaper> wallpapers});
+  $Res call(
+      {String id,
+      String name,
+      List<Wallpaper> wallpapers,
+      bool completelyFetched});
 }
 
 /// @nodoc
@@ -73,6 +80,7 @@ class _$WallpaperCategoryCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? wallpapers = freezed,
+    Object? completelyFetched = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -87,6 +95,10 @@ class _$WallpaperCategoryCopyWithImpl<$Res>
           ? _value.wallpapers
           : wallpapers // ignore: cast_nullable_to_non_nullable
               as List<Wallpaper>,
+      completelyFetched: completelyFetched == freezed
+          ? _value.completelyFetched
+          : completelyFetched // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -98,7 +110,11 @@ abstract class _$WallpaperCategoryCopyWith<$Res>
           _WallpaperCategory value, $Res Function(_WallpaperCategory) then) =
       __$WallpaperCategoryCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name, List<Wallpaper> wallpapers});
+  $Res call(
+      {String id,
+      String name,
+      List<Wallpaper> wallpapers,
+      bool completelyFetched});
 }
 
 /// @nodoc
@@ -117,6 +133,7 @@ class __$WallpaperCategoryCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? wallpapers = freezed,
+    Object? completelyFetched = freezed,
   }) {
     return _then(_WallpaperCategory(
       id: id == freezed
@@ -131,6 +148,10 @@ class __$WallpaperCategoryCopyWithImpl<$Res>
           ? _value.wallpapers
           : wallpapers // ignore: cast_nullable_to_non_nullable
               as List<Wallpaper>,
+      completelyFetched: completelyFetched == freezed
+          ? _value.completelyFetched
+          : completelyFetched // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -140,7 +161,10 @@ class __$WallpaperCategoryCopyWithImpl<$Res>
 /// @nodoc
 class _$_WallpaperCategory implements _WallpaperCategory {
   const _$_WallpaperCategory(
-      {required this.id, required this.name, this.wallpapers = const []});
+      {required this.id,
+      required this.name,
+      this.wallpapers = const [],
+      this.completelyFetched = false});
 
   factory _$_WallpaperCategory.fromJson(Map<String, dynamic> json) =>
       _$_$_WallpaperCategoryFromJson(json);
@@ -152,10 +176,13 @@ class _$_WallpaperCategory implements _WallpaperCategory {
   @JsonKey(defaultValue: const [])
   @override
   final List<Wallpaper> wallpapers;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool completelyFetched;
 
   @override
   String toString() {
-    return 'WallpaperCategory(id: $id, name: $name, wallpapers: $wallpapers)';
+    return 'WallpaperCategory(id: $id, name: $name, wallpapers: $wallpapers, completelyFetched: $completelyFetched)';
   }
 
   @override
@@ -168,7 +195,10 @@ class _$_WallpaperCategory implements _WallpaperCategory {
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.wallpapers, wallpapers) ||
                 const DeepCollectionEquality()
-                    .equals(other.wallpapers, wallpapers)));
+                    .equals(other.wallpapers, wallpapers)) &&
+            (identical(other.completelyFetched, completelyFetched) ||
+                const DeepCollectionEquality()
+                    .equals(other.completelyFetched, completelyFetched)));
   }
 
   @override
@@ -176,7 +206,8 @@ class _$_WallpaperCategory implements _WallpaperCategory {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(wallpapers);
+      const DeepCollectionEquality().hash(wallpapers) ^
+      const DeepCollectionEquality().hash(completelyFetched);
 
   @JsonKey(ignore: true)
   @override
@@ -193,7 +224,8 @@ abstract class _WallpaperCategory implements WallpaperCategory {
   const factory _WallpaperCategory(
       {required String id,
       required String name,
-      List<Wallpaper> wallpapers}) = _$_WallpaperCategory;
+      List<Wallpaper> wallpapers,
+      bool completelyFetched}) = _$_WallpaperCategory;
 
   factory _WallpaperCategory.fromJson(Map<String, dynamic> json) =
       _$_WallpaperCategory.fromJson;
@@ -204,6 +236,8 @@ abstract class _WallpaperCategory implements WallpaperCategory {
   String get name => throw _privateConstructorUsedError;
   @override
   List<Wallpaper> get wallpapers => throw _privateConstructorUsedError;
+  @override
+  bool get completelyFetched => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$WallpaperCategoryCopyWith<_WallpaperCategory> get copyWith =>

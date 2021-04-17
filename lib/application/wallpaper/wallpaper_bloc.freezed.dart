@@ -26,6 +26,12 @@ class _$WallpaperEventTearOff {
     );
   }
 
+  _SelectedCategoryLoadMore selectedCategoryLoadMore({required String id}) {
+    return _SelectedCategoryLoadMore(
+      id: id,
+    );
+  }
+
   _LikedWallpaper likedWallpaper({required String id}) {
     return _LikedWallpaper(
       id: id,
@@ -55,6 +61,7 @@ mixin _$WallpaperEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedWallpaper,
     required TResult Function(String id) dislikedWallpaper,
     required TResult Function(List<String> wallpaperIds) updateLikedWallpapers,
@@ -64,6 +71,7 @@ mixin _$WallpaperEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedWallpaper,
     TResult Function(String id)? dislikedWallpaper,
     TResult Function(List<String> wallpaperIds)? updateLikedWallpapers,
@@ -74,6 +82,8 @@ mixin _$WallpaperEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedWallpaper value) likedWallpaper,
     required TResult Function(_DislikedWallpaper value) dislikedWallpaper,
     required TResult Function(_UpdateLikedWallpapers value)
@@ -84,6 +94,7 @@ mixin _$WallpaperEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedWallpaper value)? likedWallpaper,
     TResult Function(_DislikedWallpaper value)? dislikedWallpaper,
     TResult Function(_UpdateLikedWallpapers value)? updateLikedWallpapers,
@@ -147,6 +158,7 @@ class _$_Started implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedWallpaper,
     required TResult Function(String id) dislikedWallpaper,
     required TResult Function(List<String> wallpaperIds) updateLikedWallpapers,
@@ -159,6 +171,7 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedWallpaper,
     TResult Function(String id)? dislikedWallpaper,
     TResult Function(List<String> wallpaperIds)? updateLikedWallpapers,
@@ -175,6 +188,8 @@ class _$_Started implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedWallpaper value) likedWallpaper,
     required TResult Function(_DislikedWallpaper value) dislikedWallpaper,
     required TResult Function(_UpdateLikedWallpapers value)
@@ -188,6 +203,7 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedWallpaper value)? likedWallpaper,
     TResult Function(_DislikedWallpaper value)? dislikedWallpaper,
     TResult Function(_UpdateLikedWallpapers value)? updateLikedWallpapers,
@@ -270,6 +286,7 @@ class _$_SelectedCategory implements _SelectedCategory {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedWallpaper,
     required TResult Function(String id) dislikedWallpaper,
     required TResult Function(List<String> wallpaperIds) updateLikedWallpapers,
@@ -282,6 +299,7 @@ class _$_SelectedCategory implements _SelectedCategory {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedWallpaper,
     TResult Function(String id)? dislikedWallpaper,
     TResult Function(List<String> wallpaperIds)? updateLikedWallpapers,
@@ -298,6 +316,8 @@ class _$_SelectedCategory implements _SelectedCategory {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedWallpaper value) likedWallpaper,
     required TResult Function(_DislikedWallpaper value) dislikedWallpaper,
     required TResult Function(_UpdateLikedWallpapers value)
@@ -311,6 +331,7 @@ class _$_SelectedCategory implements _SelectedCategory {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedWallpaper value)? likedWallpaper,
     TResult Function(_DislikedWallpaper value)? dislikedWallpaper,
     TResult Function(_UpdateLikedWallpapers value)? updateLikedWallpapers,
@@ -329,6 +350,142 @@ abstract class _SelectedCategory implements WallpaperEvent {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SelectedCategoryCopyWith<_SelectedCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SelectedCategoryLoadMoreCopyWith<$Res> {
+  factory _$SelectedCategoryLoadMoreCopyWith(_SelectedCategoryLoadMore value,
+          $Res Function(_SelectedCategoryLoadMore) then) =
+      __$SelectedCategoryLoadMoreCopyWithImpl<$Res>;
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$SelectedCategoryLoadMoreCopyWithImpl<$Res>
+    extends _$WallpaperEventCopyWithImpl<$Res>
+    implements _$SelectedCategoryLoadMoreCopyWith<$Res> {
+  __$SelectedCategoryLoadMoreCopyWithImpl(_SelectedCategoryLoadMore _value,
+      $Res Function(_SelectedCategoryLoadMore) _then)
+      : super(_value, (v) => _then(v as _SelectedCategoryLoadMore));
+
+  @override
+  _SelectedCategoryLoadMore get _value =>
+      super._value as _SelectedCategoryLoadMore;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_SelectedCategoryLoadMore(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SelectedCategoryLoadMore implements _SelectedCategoryLoadMore {
+  const _$_SelectedCategoryLoadMore({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'WallpaperEvent.selectedCategoryLoadMore(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SelectedCategoryLoadMore &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SelectedCategoryLoadMoreCopyWith<_SelectedCategoryLoadMore> get copyWith =>
+      __$SelectedCategoryLoadMoreCopyWithImpl<_SelectedCategoryLoadMore>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
+    required TResult Function(String id) likedWallpaper,
+    required TResult Function(String id) dislikedWallpaper,
+    required TResult Function(List<String> wallpaperIds) updateLikedWallpapers,
+  }) {
+    return selectedCategoryLoadMore(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
+    TResult Function(String id)? likedWallpaper,
+    TResult Function(String id)? dislikedWallpaper,
+    TResult Function(List<String> wallpaperIds)? updateLikedWallpapers,
+    required TResult orElse(),
+  }) {
+    if (selectedCategoryLoadMore != null) {
+      return selectedCategoryLoadMore(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
+    required TResult Function(_LikedWallpaper value) likedWallpaper,
+    required TResult Function(_DislikedWallpaper value) dislikedWallpaper,
+    required TResult Function(_UpdateLikedWallpapers value)
+        updateLikedWallpapers,
+  }) {
+    return selectedCategoryLoadMore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
+    TResult Function(_LikedWallpaper value)? likedWallpaper,
+    TResult Function(_DislikedWallpaper value)? dislikedWallpaper,
+    TResult Function(_UpdateLikedWallpapers value)? updateLikedWallpapers,
+    required TResult orElse(),
+  }) {
+    if (selectedCategoryLoadMore != null) {
+      return selectedCategoryLoadMore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedCategoryLoadMore implements WallpaperEvent {
+  const factory _SelectedCategoryLoadMore({required String id}) =
+      _$_SelectedCategoryLoadMore;
+
+  String get id => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SelectedCategoryLoadMoreCopyWith<_SelectedCategoryLoadMore> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -398,6 +555,7 @@ class _$_LikedWallpaper implements _LikedWallpaper {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedWallpaper,
     required TResult Function(String id) dislikedWallpaper,
     required TResult Function(List<String> wallpaperIds) updateLikedWallpapers,
@@ -410,6 +568,7 @@ class _$_LikedWallpaper implements _LikedWallpaper {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedWallpaper,
     TResult Function(String id)? dislikedWallpaper,
     TResult Function(List<String> wallpaperIds)? updateLikedWallpapers,
@@ -426,6 +585,8 @@ class _$_LikedWallpaper implements _LikedWallpaper {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedWallpaper value) likedWallpaper,
     required TResult Function(_DislikedWallpaper value) dislikedWallpaper,
     required TResult Function(_UpdateLikedWallpapers value)
@@ -439,6 +600,7 @@ class _$_LikedWallpaper implements _LikedWallpaper {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedWallpaper value)? likedWallpaper,
     TResult Function(_DislikedWallpaper value)? dislikedWallpaper,
     TResult Function(_UpdateLikedWallpapers value)? updateLikedWallpapers,
@@ -526,6 +688,7 @@ class _$_DislikedWallpaper implements _DislikedWallpaper {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedWallpaper,
     required TResult Function(String id) dislikedWallpaper,
     required TResult Function(List<String> wallpaperIds) updateLikedWallpapers,
@@ -538,6 +701,7 @@ class _$_DislikedWallpaper implements _DislikedWallpaper {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedWallpaper,
     TResult Function(String id)? dislikedWallpaper,
     TResult Function(List<String> wallpaperIds)? updateLikedWallpapers,
@@ -554,6 +718,8 @@ class _$_DislikedWallpaper implements _DislikedWallpaper {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedWallpaper value) likedWallpaper,
     required TResult Function(_DislikedWallpaper value) dislikedWallpaper,
     required TResult Function(_UpdateLikedWallpapers value)
@@ -567,6 +733,7 @@ class _$_DislikedWallpaper implements _DislikedWallpaper {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedWallpaper value)? likedWallpaper,
     TResult Function(_DislikedWallpaper value)? dislikedWallpaper,
     TResult Function(_UpdateLikedWallpapers value)? updateLikedWallpapers,
@@ -656,6 +823,7 @@ class _$_UpdateLikedWallpapers implements _UpdateLikedWallpapers {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedWallpaper,
     required TResult Function(String id) dislikedWallpaper,
     required TResult Function(List<String> wallpaperIds) updateLikedWallpapers,
@@ -668,6 +836,7 @@ class _$_UpdateLikedWallpapers implements _UpdateLikedWallpapers {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedWallpaper,
     TResult Function(String id)? dislikedWallpaper,
     TResult Function(List<String> wallpaperIds)? updateLikedWallpapers,
@@ -684,6 +853,8 @@ class _$_UpdateLikedWallpapers implements _UpdateLikedWallpapers {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
     required TResult Function(_LikedWallpaper value) likedWallpaper,
     required TResult Function(_DislikedWallpaper value) dislikedWallpaper,
     required TResult Function(_UpdateLikedWallpapers value)
@@ -697,6 +868,7 @@ class _$_UpdateLikedWallpapers implements _UpdateLikedWallpapers {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedWallpaper value)? likedWallpaper,
     TResult Function(_DislikedWallpaper value)? dislikedWallpaper,
     TResult Function(_UpdateLikedWallpapers value)? updateLikedWallpapers,
@@ -728,12 +900,14 @@ class _$WallpaperStateTearOff {
           wallpaperCategoriesOption,
       required Option<WallpaperCategory> selectedCategory,
       required bool categoryLoading,
+      required bool loadingMore,
       required Option<Failure> categoryError,
       required List<String> likedWallpapers}) {
     return _WallpaperState(
       wallpaperCategoriesOption: wallpaperCategoriesOption,
       selectedCategory: selectedCategory,
       categoryLoading: categoryLoading,
+      loadingMore: loadingMore,
       categoryError: categoryError,
       likedWallpapers: likedWallpapers,
     );
@@ -750,6 +924,7 @@ mixin _$WallpaperState {
   Option<WallpaperCategory> get selectedCategory =>
       throw _privateConstructorUsedError;
   bool get categoryLoading => throw _privateConstructorUsedError;
+  bool get loadingMore => throw _privateConstructorUsedError;
   Option<Failure> get categoryError => throw _privateConstructorUsedError;
   List<String> get likedWallpapers => throw _privateConstructorUsedError;
 
@@ -768,6 +943,7 @@ abstract class $WallpaperStateCopyWith<$Res> {
           wallpaperCategoriesOption,
       Option<WallpaperCategory> selectedCategory,
       bool categoryLoading,
+      bool loadingMore,
       Option<Failure> categoryError,
       List<String> likedWallpapers});
 }
@@ -786,6 +962,7 @@ class _$WallpaperStateCopyWithImpl<$Res>
     Object? wallpaperCategoriesOption = freezed,
     Object? selectedCategory = freezed,
     Object? categoryLoading = freezed,
+    Object? loadingMore = freezed,
     Object? categoryError = freezed,
     Object? likedWallpapers = freezed,
   }) {
@@ -801,6 +978,10 @@ class _$WallpaperStateCopyWithImpl<$Res>
       categoryLoading: categoryLoading == freezed
           ? _value.categoryLoading
           : categoryLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadingMore: loadingMore == freezed
+          ? _value.loadingMore
+          : loadingMore // ignore: cast_nullable_to_non_nullable
               as bool,
       categoryError: categoryError == freezed
           ? _value.categoryError
@@ -826,6 +1007,7 @@ abstract class _$WallpaperStateCopyWith<$Res>
           wallpaperCategoriesOption,
       Option<WallpaperCategory> selectedCategory,
       bool categoryLoading,
+      bool loadingMore,
       Option<Failure> categoryError,
       List<String> likedWallpapers});
 }
@@ -846,6 +1028,7 @@ class __$WallpaperStateCopyWithImpl<$Res>
     Object? wallpaperCategoriesOption = freezed,
     Object? selectedCategory = freezed,
     Object? categoryLoading = freezed,
+    Object? loadingMore = freezed,
     Object? categoryError = freezed,
     Object? likedWallpapers = freezed,
   }) {
@@ -861,6 +1044,10 @@ class __$WallpaperStateCopyWithImpl<$Res>
       categoryLoading: categoryLoading == freezed
           ? _value.categoryLoading
           : categoryLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadingMore: loadingMore == freezed
+          ? _value.loadingMore
+          : loadingMore // ignore: cast_nullable_to_non_nullable
               as bool,
       categoryError: categoryError == freezed
           ? _value.categoryError
@@ -880,6 +1067,7 @@ class _$_WallpaperState implements _WallpaperState {
       {required this.wallpaperCategoriesOption,
       required this.selectedCategory,
       required this.categoryLoading,
+      required this.loadingMore,
       required this.categoryError,
       required this.likedWallpapers});
 
@@ -891,13 +1079,15 @@ class _$_WallpaperState implements _WallpaperState {
   @override
   final bool categoryLoading;
   @override
+  final bool loadingMore;
+  @override
   final Option<Failure> categoryError;
   @override
   final List<String> likedWallpapers;
 
   @override
   String toString() {
-    return 'WallpaperState(wallpaperCategoriesOption: $wallpaperCategoriesOption, selectedCategory: $selectedCategory, categoryLoading: $categoryLoading, categoryError: $categoryError, likedWallpapers: $likedWallpapers)';
+    return 'WallpaperState(wallpaperCategoriesOption: $wallpaperCategoriesOption, selectedCategory: $selectedCategory, categoryLoading: $categoryLoading, loadingMore: $loadingMore, categoryError: $categoryError, likedWallpapers: $likedWallpapers)';
   }
 
   @override
@@ -915,6 +1105,9 @@ class _$_WallpaperState implements _WallpaperState {
             (identical(other.categoryLoading, categoryLoading) ||
                 const DeepCollectionEquality()
                     .equals(other.categoryLoading, categoryLoading)) &&
+            (identical(other.loadingMore, loadingMore) ||
+                const DeepCollectionEquality()
+                    .equals(other.loadingMore, loadingMore)) &&
             (identical(other.categoryError, categoryError) ||
                 const DeepCollectionEquality()
                     .equals(other.categoryError, categoryError)) &&
@@ -929,6 +1122,7 @@ class _$_WallpaperState implements _WallpaperState {
       const DeepCollectionEquality().hash(wallpaperCategoriesOption) ^
       const DeepCollectionEquality().hash(selectedCategory) ^
       const DeepCollectionEquality().hash(categoryLoading) ^
+      const DeepCollectionEquality().hash(loadingMore) ^
       const DeepCollectionEquality().hash(categoryError) ^
       const DeepCollectionEquality().hash(likedWallpapers);
 
@@ -944,6 +1138,7 @@ abstract class _WallpaperState implements WallpaperState {
           wallpaperCategoriesOption,
       required Option<WallpaperCategory> selectedCategory,
       required bool categoryLoading,
+      required bool loadingMore,
       required Option<Failure> categoryError,
       required List<String> likedWallpapers}) = _$_WallpaperState;
 
@@ -955,6 +1150,8 @@ abstract class _WallpaperState implements WallpaperState {
       throw _privateConstructorUsedError;
   @override
   bool get categoryLoading => throw _privateConstructorUsedError;
+  @override
+  bool get loadingMore => throw _privateConstructorUsedError;
   @override
   Option<Failure> get categoryError => throw _privateConstructorUsedError;
   @override

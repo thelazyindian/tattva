@@ -7,6 +7,7 @@ class WallpaperState with _$WallpaperState {
         wallpaperCategoriesOption,
     required Option<WallpaperCategory> selectedCategory,
     required bool categoryLoading,
+    required bool loadingMore,
     required Option<Failure> categoryError,
     required List<String> likedWallpapers,
   }) = _WallpaperState;
@@ -15,6 +16,7 @@ class WallpaperState with _$WallpaperState {
         wallpaperCategoriesOption: none(),
         selectedCategory: none(),
         categoryLoading: false,
+        loadingMore: false,
         categoryError: none(),
         likedWallpapers: [],
       );

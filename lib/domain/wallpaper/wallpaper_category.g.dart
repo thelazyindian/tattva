@@ -14,6 +14,7 @@ _$_WallpaperCategory _$_$_WallpaperCategoryFromJson(Map<String, dynamic> json) {
             ?.map((e) => Wallpaper.fromJson(e as Map<String, dynamic>))
             .toList() ??
         [],
+    completelyFetched: json['completelyFetched'] as bool? ?? false,
   );
 }
 
@@ -23,4 +24,5 @@ Map<String, dynamic> _$_$_WallpaperCategoryToJson(
       'id': instance.id,
       'name': instance.name,
       'wallpapers': instance.wallpapers,
+      'completelyFetched': instance.completelyFetched,
     };

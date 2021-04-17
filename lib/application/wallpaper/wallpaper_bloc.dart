@@ -7,7 +7,9 @@ import 'package:injectable/injectable.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/wallpaper/i_wallpaper_facade.dart';
+import 'package:tattva/domain/wallpaper/wallpaper.dart';
 import 'package:tattva/domain/wallpaper/wallpaper_category.dart';
+import 'package:tattva/domain/wallpaper/wallpaper_data_model.dart';
 import 'package:tattva/injection.dart';
 
 part 'wallpaper_bloc.freezed.dart';
@@ -97,7 +99,71 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
               },
             );
           } else {
-            yield state.copyWith(selectedCategory: optionOf(currentCategory));
+            yield state.copyWith(
+              categoryError: none(),
+              selectedCategory: optionOf(currentCategory),
+            );
+          }
+        }
+      },
+      selectedCategoryLoadMore: (e) async* {
+        final categories = List<WallpaperCategory>.from(state
+            .wallpaperCategoriesOption
+            .fold(() => [], (sOrF) => sOrF.fold((l) => [], (r) => r)));
+        final categoryIdx =
+            categories.indexWhere((element) => element.id == e.id);
+        if (categoryIdx >= 0) {
+          final selectedCategory = categories[categoryIdx];
+          if (!selectedCategory.completelyFetched) {
+            yield state.copyWith(loadingMore: true);
+
+            final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+            final Either<Failure, WallpaperDataModel> response;
+            if (selectedCategory.id == 'all') {
+              response = await _wallpaperFacade.getAllWallpapers(
+                token: token,
+                startAfter: selectedCategory.wallpapers.last.id,
+              );
+            } else {
+              response = await _wallpaperFacade.getWallpapersFromCategory(
+                token: token,
+                categoryId: e.id,
+                startAfter: selectedCategory.wallpapers.last.id,
+              );
+            }
+
+            yield* response.fold(
+              (failure) async* {
+                yield state.copyWith(loadingMore: false);
+              },
+              (success) async* {
+                if (success.wallpapers.isEmpty) {
+                  categories[categoryIdx] =
+                      selectedCategory.copyWith(completelyFetched: true);
+                  yield state.copyWith(
+                    loadingMore: false,
+                    wallpaperCategoriesOption: optionOf(right(categories)),
+                    selectedCategory: optionOf(categories[categoryIdx]),
+                  );
+                } else {
+                  final wallpapers =
+                      List<Wallpaper>.from(selectedCategory.wallpapers);
+                  wallpapers.addAll(success.wallpapers);
+                  categories[categoryIdx] =
+                      selectedCategory.copyWith(wallpapers: wallpapers);
+                  final likedWallpapers =
+                      List<String>.from(state.likedWallpapers);
+                  likedWallpapers.addAll(success.likedWallpapers);
+
+                  yield state.copyWith(
+                    loadingMore: false,
+                    wallpaperCategoriesOption: optionOf(right(categories)),
+                    selectedCategory: optionOf(categories[categoryIdx]),
+                    likedWallpapers: likedWallpapers,
+                  );
+                }
+              },
+            );
           }
         }
       },

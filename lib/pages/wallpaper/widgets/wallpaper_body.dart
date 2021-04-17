@@ -73,7 +73,8 @@ class WallpaperBody extends StatelessWidget {
                     : state.selectedCategory.fold(
                         () => Container(),
                         (selectedCategory) => WallpapersGridView(
-                          wallpapers: selectedCategory.wallpapers,
+                          wallpaperCategory: selectedCategory,
+                          loadingMore: state.loadingMore,
                         ),
                       ),
                 (error) => ErrorLoadingListItemView(),

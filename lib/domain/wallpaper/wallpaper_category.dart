@@ -10,6 +10,7 @@ class WallpaperCategory with _$WallpaperCategory {
     required String id,
     required String name,
     @Default([]) List<Wallpaper> wallpapers,
+    @Default(false) bool completelyFetched,
   }) = _WallpaperCategory;
 
   factory WallpaperCategory.fromJson(Map<String, dynamic> json) =>
