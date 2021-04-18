@@ -14,7 +14,7 @@ class BlogPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: CustomAppBar(
-        title: 'Wallpaper',
+        title: 'Blog',
         suffixIcon: 'icons/person.svg',
         customAppBarType: CustomAppBarType.head,
         onSuffixPressed: () {

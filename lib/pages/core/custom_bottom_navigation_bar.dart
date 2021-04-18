@@ -29,7 +29,9 @@ class CustomBottomNavigationBar extends StatelessWidget {
             return IconButton(
               onPressed: enabled
                   ? null
-                  : () => context.tabsRouter.setActiveIndex(e['index'] as int),
+                  : () {
+                      context.tabsRouter.setActiveIndex(e['index'] as int);
+                    },
               icon: SvgPicture.asset(
                 enabled ? 'icons/${e['active']}' : 'icons/${e['default']}',
               ),

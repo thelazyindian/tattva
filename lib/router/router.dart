@@ -4,6 +4,8 @@ import 'package:tattva/pages/audio_sub_category/audio_sub_category_page.dart';
 import 'package:tattva/pages/authentication/forgot_password_page.dart';
 import 'package:tattva/pages/authentication/login_page.dart';
 import 'package:tattva/pages/authentication/register_page.dart';
+import 'package:tattva/pages/blog/blog_page.dart';
+import 'package:tattva/pages/blog_reader/blog_reader_page.dart';
 import 'package:tattva/pages/edit_profile/edit_profile_page.dart';
 import 'package:tattva/pages/home/home_page.dart';
 import 'package:tattva/pages/landing/landing_page.dart';
@@ -52,6 +54,14 @@ import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
               children: [
                 AutoRoute(page: WallpaperPage, initial: true),
                 AutoRoute(page: WallpaperExpandedPage),
+              ],
+            ),
+            AutoRoute(
+              name: 'BlogWrapperRoute',
+              page: EmptyRouterPage,
+              children: [
+                AutoRoute(page: BlogPage, initial: true),
+                AutoRoute(page: BlogReaderPage),
               ],
             ),
           ],
