@@ -15,6 +15,7 @@ class Blog with _$Blog {
     required List<TattvaImage> coverImage,
     required int durationInMins,
     required String summary,
+    String? content,
     required int likes,
   }) = _Blog;
 

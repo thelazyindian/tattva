@@ -29,8 +29,6 @@ dependencies:
   json_annotation: ^4.0.0
   just_audio: ^0.7.2
   provider: ^5.0.0
-  syncfusion_flutter_sliders: ^19.1.54-beta
-  uuid: ^3.0.1
   auto_route: ^1.0.2
   flutter_staggered_grid_view: ^0.4.0-nullsafety.3
   dio: ^4.0.0
@@ -39,6 +37,7 @@ dependencies:
   sqlite3_flutter_libs: ^0.4.1
   flutter_downloader: ^1.6.0-nullsafety.0
   permission_handler: ^6.1.1
+  flutter_widget_from_html: ^0.6.0
 
 dev_dependencies:
   flutter_test:

@@ -4,6 +4,7 @@ import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/domain/blog/blog_category.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/blog/widgets/blog_grid_view.dart';
+import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/categories_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 
@@ -78,7 +79,7 @@ class BlogBody extends StatelessWidget {
             },
           ),
         ),
-        const SizedBox(height: 73.0),
+        AudioPlayerPreviewPadding(),
       ],
     );
   }

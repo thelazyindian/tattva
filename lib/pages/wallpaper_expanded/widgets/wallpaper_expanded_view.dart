@@ -3,11 +3,9 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
-import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/wallpaper/wallpaper.dart';
-import 'package:tattva/injection.dart';
+import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/wallpaper_expanded/widgets/wallpaper_expanded_image_card.dart';
 
 class WallPageView extends StatefulWidget {
@@ -87,7 +85,7 @@ class _WallPageViewState extends State<WallPageView> {
                   double paddingTop =
                       20 + (Curves.easeOut.transform(value) * 100);
                   double paddingBottom =
-                      80 + (Curves.easeOut.transform(value) * 100);
+                      20 + (Curves.easeOut.transform(value) * 100);
 
                   return Padding(
                     padding: EdgeInsets.only(
@@ -107,18 +105,7 @@ class _WallPageViewState extends State<WallPageView> {
             },
           ),
         ),
-        BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
-          bloc: getIt<AudioPlayerBloc>(),
-          builder: (context, state) {
-            return SizedBox(
-              height: state.map(
-                expanded: (_) => .0,
-                collapsed: (_) => 64.0,
-                none: (_) => .0,
-              ),
-            );
-          },
-        ),
+        AudioPlayerPreviewPadding(),
       ],
     );
   }

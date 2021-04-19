@@ -8,6 +8,7 @@ import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i16;
 
 import '../domain/audio/audio_sub_category.dart' as _i17;
+import '../domain/blog/blog.dart' as _i18;
 import '../pages/audio/audio_page.dart' as _i8;
 import '../pages/audio_sub_category/audio_sub_category_page.dart' as _i9;
 import '../pages/authentication/forgot_password_page.dart' as _i6;
@@ -94,7 +95,10 @@ class AppRouter extends _i1.RootStackRouter {
       return _i1.MaterialPageX(entry: entry, child: _i12.BlogPage());
     },
     BlogReaderRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i13.BlogReaderPage());
+      var args = entry.routeData.argsAs<BlogReaderRouteArgs>();
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: _i13.BlogReaderPage(key: args.key, blog: args.blog));
     },
     ProfileRoute.name: (entry) {
       return _i1.MaterialPageX(entry: entry, child: _i14.ProfilePage());
@@ -292,10 +296,21 @@ class BlogRoute extends _i1.PageRouteInfo {
   static const String name = 'BlogRoute';
 }
 
-class BlogReaderRoute extends _i1.PageRouteInfo {
-  const BlogReaderRoute() : super(name, path: 'blog-reader-page');
+class BlogReaderRoute extends _i1.PageRouteInfo<BlogReaderRouteArgs> {
+  BlogReaderRoute({_i16.Key? key, required _i18.Blog blog})
+      : super(name,
+            path: 'blog-reader-page',
+            args: BlogReaderRouteArgs(key: key, blog: blog));
 
   static const String name = 'BlogReaderRoute';
+}
+
+class BlogReaderRouteArgs {
+  const BlogReaderRouteArgs({this.key, required this.blog});
+
+  final _i16.Key? key;
+
+  final _i18.Blog blog;
 }
 
 class ProfileRoute extends _i1.PageRouteInfo {

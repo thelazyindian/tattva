@@ -189,6 +189,66 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
       updateLikedBlogs: (e) async* {
         yield state.copyWith(likedBlogs: e.blogIds);
       },
+      readBlog: (e) async* {
+        yield* state.selectedCategory.fold(
+          () async* {},
+          (selectedCategory) async* {
+            yield state.copyWith(
+              readerLoading: true,
+              readerOption: none(),
+            );
+            final blogIdx = selectedCategory.blogs
+                .indexWhere((element) => element.id == e.id);
+            if (blogIdx >= 0) {
+              if (selectedCategory.blogs[blogIdx].content != null) {
+                yield state.copyWith(
+                  readerLoading: false,
+                  readerOption:
+                      optionOf(right(selectedCategory.blogs[blogIdx].content!)),
+                );
+              } else {
+                final token =
+                    await getIt<IAuthFacade>().currentUser!.getIdToken();
+
+                final responseSorF = await _blogFacade.getBlogContent(
+                  token,
+                  e.id,
+                );
+
+                yield* responseSorF.fold(
+                  (failure) async* {
+                    yield state.copyWith(
+                      readerLoading: false,
+                      readerOption: optionOf(left(failure)),
+                    );
+                  },
+                  (success) async* {
+                    final blogs = List<Blog>.from(selectedCategory.blogs);
+                    blogs[blogIdx] = blogs[blogIdx].copyWith(content: success);
+                    final updatedCategory =
+                        selectedCategory.copyWith(blogs: blogs);
+                    final blogCategories = List<BlogCategory>.from(
+                        state.blogCategoriesOption.fold(() => [],
+                            (sOrF) => sOrF.fold((l) => [], (r) => r)));
+                    final blogCategoryIdx = blogCategories.indexWhere(
+                        (element) => element.id == selectedCategory.id);
+                    if (blogCategoryIdx >= 0) {
+                      blogCategories[blogCategoryIdx] = updatedCategory;
+                    }
+
+                    yield state.copyWith(
+                      readerLoading: false,
+                      readerOption: optionOf(right(blogs[blogIdx].content!)),
+                      blogCategoriesOption: optionOf(right(blogCategories)),
+                      selectedCategory: optionOf(updatedCategory),
+                    );
+                  },
+                );
+              }
+            }
+          },
+        );
+      },
     );
   }
 }

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/wallpaper/wallpaper_category.dart';
 import 'package:tattva/injection.dart';
@@ -66,18 +65,6 @@ class _WallpapersGridViewState extends State<WallpapersGridView> {
               child: CircularProgressIndicator(strokeWidth: 2.5),
             ),
           ),
-        BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
-          bloc: getIt<AudioPlayerBloc>(),
-          builder: (context, state) {
-            return SizedBox(
-              height: state.map(
-                expanded: (_) => .0,
-                collapsed: (_) => 64.0,
-                none: (_) => .0,
-              ),
-            );
-          },
-        ),
       ],
     );
   }

@@ -20,4 +20,8 @@ abstract class IBlogFacade {
     String blogId,
     bool liked,
   );
+  Future<Either<Failure, String>> getBlogContent(
+    String token,
+    String blogId,
+  );
 }

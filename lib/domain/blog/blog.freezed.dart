@@ -29,6 +29,7 @@ class _$BlogTearOff {
       required List<TattvaImage> coverImage,
       required int durationInMins,
       required String summary,
+      String? content,
       required int likes}) {
     return _Blog(
       id: id,
@@ -39,6 +40,7 @@ class _$BlogTearOff {
       coverImage: coverImage,
       durationInMins: durationInMins,
       summary: summary,
+      content: content,
       likes: likes,
     );
   }
@@ -61,6 +63,7 @@ mixin _$Blog {
   List<TattvaImage> get coverImage => throw _privateConstructorUsedError;
   int get durationInMins => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
   int get likes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -81,6 +84,7 @@ abstract class $BlogCopyWith<$Res> {
       List<TattvaImage> coverImage,
       int durationInMins,
       String summary,
+      String? content,
       int likes});
 }
 
@@ -102,6 +106,7 @@ class _$BlogCopyWithImpl<$Res> implements $BlogCopyWith<$Res> {
     Object? coverImage = freezed,
     Object? durationInMins = freezed,
     Object? summary = freezed,
+    Object? content = freezed,
     Object? likes = freezed,
   }) {
     return _then(_value.copyWith(
@@ -137,6 +142,10 @@ class _$BlogCopyWithImpl<$Res> implements $BlogCopyWith<$Res> {
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as String,
+      content: content == freezed
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String?,
       likes: likes == freezed
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
@@ -159,6 +168,7 @@ abstract class _$BlogCopyWith<$Res> implements $BlogCopyWith<$Res> {
       List<TattvaImage> coverImage,
       int durationInMins,
       String summary,
+      String? content,
       int likes});
 }
 
@@ -181,6 +191,7 @@ class __$BlogCopyWithImpl<$Res> extends _$BlogCopyWithImpl<$Res>
     Object? coverImage = freezed,
     Object? durationInMins = freezed,
     Object? summary = freezed,
+    Object? content = freezed,
     Object? likes = freezed,
   }) {
     return _then(_Blog(
@@ -216,6 +227,10 @@ class __$BlogCopyWithImpl<$Res> extends _$BlogCopyWithImpl<$Res>
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as String,
+      content: content == freezed
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String?,
       likes: likes == freezed
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
@@ -237,6 +252,7 @@ class _$_Blog implements _Blog {
       required this.coverImage,
       required this.durationInMins,
       required this.summary,
+      this.content,
       required this.likes});
 
   factory _$_Blog.fromJson(Map<String, dynamic> json) =>
@@ -259,11 +275,13 @@ class _$_Blog implements _Blog {
   @override
   final String summary;
   @override
+  final String? content;
+  @override
   final int likes;
 
   @override
   String toString() {
-    return 'Blog(id: $id, title: $title, slug: $slug, author: $author, date: $date, coverImage: $coverImage, durationInMins: $durationInMins, summary: $summary, likes: $likes)';
+    return 'Blog(id: $id, title: $title, slug: $slug, author: $author, date: $date, coverImage: $coverImage, durationInMins: $durationInMins, summary: $summary, content: $content, likes: $likes)';
   }
 
   @override
@@ -289,6 +307,9 @@ class _$_Blog implements _Blog {
             (identical(other.summary, summary) ||
                 const DeepCollectionEquality()
                     .equals(other.summary, summary)) &&
+            (identical(other.content, content) ||
+                const DeepCollectionEquality()
+                    .equals(other.content, content)) &&
             (identical(other.likes, likes) ||
                 const DeepCollectionEquality().equals(other.likes, likes)));
   }
@@ -304,6 +325,7 @@ class _$_Blog implements _Blog {
       const DeepCollectionEquality().hash(coverImage) ^
       const DeepCollectionEquality().hash(durationInMins) ^
       const DeepCollectionEquality().hash(summary) ^
+      const DeepCollectionEquality().hash(content) ^
       const DeepCollectionEquality().hash(likes);
 
   @JsonKey(ignore: true)
@@ -327,6 +349,7 @@ abstract class _Blog implements Blog {
       required List<TattvaImage> coverImage,
       required int durationInMins,
       required String summary,
+      String? content,
       required int likes}) = _$_Blog;
 
   factory _Blog.fromJson(Map<String, dynamic> json) = _$_Blog.fromJson;
@@ -347,6 +370,8 @@ abstract class _Blog implements Blog {
   int get durationInMins => throw _privateConstructorUsedError;
   @override
   String get summary => throw _privateConstructorUsedError;
+  @override
+  String? get content => throw _privateConstructorUsedError;
   @override
   int get likes => throw _privateConstructorUsedError;
   @override

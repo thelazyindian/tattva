@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/wallpaper/wallpaper_category.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/categories_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
@@ -82,7 +83,7 @@ class WallpaperBody extends StatelessWidget {
             },
           ),
         ),
-        const SizedBox(height: 73.0),
+        AudioPlayerPreviewPadding(),
       ],
     );
   }

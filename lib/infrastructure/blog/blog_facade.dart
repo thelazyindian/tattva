@@ -15,8 +15,10 @@ class BlogFacade implements IBlogFacade {
   BlogFacade(this._dio);
 
   @override
-  Future<Either<Failure, BlogDataModel>> getAllBlogs(
-      {required String token, String? startAfter}) async {
+  Future<Either<Failure, BlogDataModel>> getAllBlogs({
+    required String token,
+    String? startAfter,
+  }) async {
     try {
       final response = await _dio.get(
         '/getAllBlogs',
@@ -58,10 +60,11 @@ class BlogFacade implements IBlogFacade {
   }
 
   @override
-  Future<Either<Failure, BlogDataModel>> getBlogsFromCategory(
-      {required String token,
-      required String categoryId,
-      String? startAfter}) async {
+  Future<Either<Failure, BlogDataModel>> getBlogsFromCategory({
+    required String token,
+    required String categoryId,
+    String? startAfter,
+  }) async {
     try {
       final response = await _dio.get(
         '/getBlogsFromCategory',
@@ -85,7 +88,10 @@ class BlogFacade implements IBlogFacade {
 
   @override
   Future<Either<Failure, Unit>> likeDislikeBlog(
-      String token, String blogId, bool liked) async {
+    String token,
+    String blogId,
+    bool liked,
+  ) async {
     try {
       final response = await _dio.get(
         '/likeDislikeBlog',
@@ -102,6 +108,30 @@ class BlogFacade implements IBlogFacade {
       } else {
         return left(Failure.serverError());
       }
+    } on DioError catch (e) {
+      debugPrint('likeDislikeBlog ERR_CODE ${e.response}');
+      debugPrint(e.message);
+
+      return left(Failure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, String>> getBlogContent(
+    String token,
+    String blogId,
+  ) async {
+    try {
+      final response = await _dio.get(
+        '/getBlogContentFromId',
+        queryParameters: {
+          'token': token,
+          'id': blogId,
+        },
+      );
+      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      debugPrint(data.toString());
+      return right(data['content']);
     } on DioError catch (e) {
       debugPrint('likeDislikeBlog ERR_CODE ${e.response}');
       debugPrint(e.message);

@@ -17,6 +17,7 @@ abstract class InjectableModule {
   FacebookAuth get facebookAuth => FacebookAuth.instance;
   @lazySingleton
   Dio get dio => Dio(
-        BaseOptions(baseUrl: 'http://100.77.81.92:5001/tattva-app/us-central1'),
+        BaseOptions(
+            baseUrl: 'http://100.77.81.92:5001/tattva-app/us-central1/app'),
       );
 }
