@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       routes: [
         AudioWrapperRoute(),
         WallpaperWrapperRoute(),
+        LikedItemsWrapperRoute(),
         BlogWrapperRoute(),
       ],
       duration: Duration(milliseconds: 400),

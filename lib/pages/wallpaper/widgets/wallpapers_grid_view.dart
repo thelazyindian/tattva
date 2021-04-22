@@ -1,21 +1,22 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
-import 'package:tattva/domain/wallpaper/wallpaper_category.dart';
-import 'package:tattva/injection.dart';
+import 'package:tattva/domain/wallpaper/wallpaper.dart';
+import 'package:tattva/pages/wallpaper/widgets/wallpaper_like_button.dart';
 import 'package:tattva/router/router.gr.dart';
 
 class WallpapersGridView extends StatefulWidget {
-  final WallpaperCategory wallpaperCategory;
+  final List<Wallpaper> wallpapers;
   final bool loadingMore;
+  final bool completelyFetched;
+  final VoidCallback? loadMore;
 
   const WallpapersGridView({
     Key? key,
-    required this.wallpaperCategory,
+    required this.wallpapers,
     this.loadingMore = false,
+    this.loadMore,
+    this.completelyFetched = false,
   }) : super(key: key);
 
   @override
@@ -31,9 +32,8 @@ class _WallpapersGridViewState extends State<WallpapersGridView> {
     _scrollController.addListener(() {
       if (_scrollController.position.atEdge) {
         if (_scrollController.position.pixels != 0 &&
-            !widget.wallpaperCategory.completelyFetched) {
-          getIt<WallpaperBloc>().add(WallpaperEvent.selectedCategoryLoadMore(
-              id: widget.wallpaperCategory.id));
+            !widget.completelyFetched) {
+          widget.loadMore?.call();
         }
       }
     });
@@ -47,7 +47,7 @@ class _WallpapersGridViewState extends State<WallpapersGridView> {
       children: [
         StaggeredGridView.countBuilder(
           crossAxisCount: 4,
-          itemCount: widget.wallpaperCategory.wallpapers.length,
+          itemCount: widget.wallpapers.length,
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
           itemBuilder: (context, index) => _imageCard(context, index),
           staggeredTileBuilder: (index) => StaggeredTile.fit(2),
@@ -79,38 +79,16 @@ class _WallpapersGridViewState extends State<WallpapersGridView> {
         child: Stack(
           children: [
             Image.network(
-              widget.wallpaperCategory.wallpapers[index].thumbnail.first.url,
+              widget.wallpapers[index].thumbnail.first.url,
               fit: BoxFit.cover,
             ),
-            BlocBuilder<WallpaperBloc, WallpaperState>(
-              bloc: getIt<WallpaperBloc>(),
-              builder: (context, state) {
-                final liked = state.likedWallpapers
-                    .contains(widget.wallpaperCategory.wallpapers[index].id);
-                return Positioned(
-                  bottom: .0,
-                  right: .0,
-                  child: IconButton(
-                    onPressed: () {
-                      getIt<WallpaperBloc>().add(
-                        liked
-                            ? WallpaperEvent.dislikedWallpaper(
-                                id: widget
-                                    .wallpaperCategory.wallpapers[index].id)
-                            : WallpaperEvent.likedWallpaper(
-                                id: widget
-                                    .wallpaperCategory.wallpapers[index].id),
-                      );
-                    },
-                    icon: SvgPicture.asset(
-                      liked ? 'icons/heart.svg' : 'icons/heartOutline.svg',
-                      color: Colors.white,
-                      height: 18.0,
-                      width: 18.0,
-                    ),
-                  ),
-                );
-              },
+            Positioned(
+              bottom: .0,
+              right: .0,
+              child: WallpaperLikeButton(
+                wallpaperId: widget.wallpapers[index].id,
+                iconColor: Colors.white,
+              ),
             ),
           ],
         ),

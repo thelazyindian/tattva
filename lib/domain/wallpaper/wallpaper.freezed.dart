@@ -24,12 +24,14 @@ class _$WallpaperTearOff {
       {required String id,
       required String name,
       required List<TattvaImage> thumbnail,
-      required List<TattvaImage> image}) {
+      required List<TattvaImage> image,
+      DateTime? createdAt}) {
     return _Wallpaper(
       id: id,
       name: name,
       thumbnail: thumbnail,
       image: image,
+      createdAt: createdAt,
     );
   }
 
@@ -47,6 +49,7 @@ mixin _$Wallpaper {
   String get name => throw _privateConstructorUsedError;
   List<TattvaImage> get thumbnail => throw _privateConstructorUsedError;
   List<TattvaImage> get image => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +65,8 @@ abstract class $WallpaperCopyWith<$Res> {
       {String id,
       String name,
       List<TattvaImage> thumbnail,
-      List<TattvaImage> image});
+      List<TattvaImage> image,
+      DateTime? createdAt});
 }
 
 /// @nodoc
@@ -79,6 +83,7 @@ class _$WallpaperCopyWithImpl<$Res> implements $WallpaperCopyWith<$Res> {
     Object? name = freezed,
     Object? thumbnail = freezed,
     Object? image = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -97,6 +102,10 @@ class _$WallpaperCopyWithImpl<$Res> implements $WallpaperCopyWith<$Res> {
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -111,7 +120,8 @@ abstract class _$WallpaperCopyWith<$Res> implements $WallpaperCopyWith<$Res> {
       {String id,
       String name,
       List<TattvaImage> thumbnail,
-      List<TattvaImage> image});
+      List<TattvaImage> image,
+      DateTime? createdAt});
 }
 
 /// @nodoc
@@ -129,6 +139,7 @@ class __$WallpaperCopyWithImpl<$Res> extends _$WallpaperCopyWithImpl<$Res>
     Object? name = freezed,
     Object? thumbnail = freezed,
     Object? image = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_Wallpaper(
       id: id == freezed
@@ -147,6 +158,10 @@ class __$WallpaperCopyWithImpl<$Res> extends _$WallpaperCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -159,7 +174,8 @@ class _$_Wallpaper implements _Wallpaper {
       {required this.id,
       required this.name,
       required this.thumbnail,
-      required this.image});
+      required this.image,
+      this.createdAt});
 
   factory _$_Wallpaper.fromJson(Map<String, dynamic> json) =>
       _$_$_WallpaperFromJson(json);
@@ -172,10 +188,12 @@ class _$_Wallpaper implements _Wallpaper {
   final List<TattvaImage> thumbnail;
   @override
   final List<TattvaImage> image;
+  @override
+  final DateTime? createdAt;
 
   @override
   String toString() {
-    return 'Wallpaper(id: $id, name: $name, thumbnail: $thumbnail, image: $image)';
+    return 'Wallpaper(id: $id, name: $name, thumbnail: $thumbnail, image: $image, createdAt: $createdAt)';
   }
 
   @override
@@ -190,7 +208,10 @@ class _$_Wallpaper implements _Wallpaper {
                 const DeepCollectionEquality()
                     .equals(other.thumbnail, thumbnail)) &&
             (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)));
+                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.createdAt, createdAt) ||
+                const DeepCollectionEquality()
+                    .equals(other.createdAt, createdAt)));
   }
 
   @override
@@ -199,7 +220,8 @@ class _$_Wallpaper implements _Wallpaper {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(thumbnail) ^
-      const DeepCollectionEquality().hash(image);
+      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -217,7 +239,8 @@ abstract class _Wallpaper implements Wallpaper {
       {required String id,
       required String name,
       required List<TattvaImage> thumbnail,
-      required List<TattvaImage> image}) = _$_Wallpaper;
+      required List<TattvaImage> image,
+      DateTime? createdAt}) = _$_Wallpaper;
 
   factory _Wallpaper.fromJson(Map<String, dynamic> json) =
       _$_Wallpaper.fromJson;
@@ -230,6 +253,8 @@ abstract class _Wallpaper implements Wallpaper {
   List<TattvaImage> get thumbnail => throw _privateConstructorUsedError;
   @override
   List<TattvaImage> get image => throw _privateConstructorUsedError;
+  @override
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$WallpaperCopyWith<_Wallpaper> get copyWith =>

@@ -16,6 +16,7 @@ class Blog with _$Blog {
     required int durationInMins,
     required String summary,
     String? content,
+    DateTime? createdAt,
     required int likes,
   }) = _Blog;
 

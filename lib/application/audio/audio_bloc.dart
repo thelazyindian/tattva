@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:tattva/application/liked_items/liked_items_bloc.dart';
 import 'package:tattva/domain/audio/audio_category.dart';
 import 'package:tattva/domain/audio/i_audio_facade.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
@@ -145,10 +146,13 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
                   final likedAudios = List<String>.from(state.likedAudios);
                   likedAudios.add(e.id);
                   add(AudioEvent.updateLikedAudios(audioIds: likedAudios));
+                  getIt<LikedItemsBloc>()
+                      .add(LikedItemsEvent.restoredAudios(id: e.id));
                 }, (r) => null));
         final likedAudios = List<String>.from(state.likedAudios);
         likedAudios.remove(e.id);
         add(AudioEvent.updateLikedAudios(audioIds: likedAudios));
+        getIt<LikedItemsBloc>().add(LikedItemsEvent.dislikedAudios(id: e.id));
       },
       updateLikedAudios: (e) async* {
         yield state.copyWith(likedAudios: e.audioIds);

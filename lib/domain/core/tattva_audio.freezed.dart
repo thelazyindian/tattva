@@ -26,7 +26,8 @@ class _$TattvaAudioTearOff {
       required String language,
       required int durationInMins,
       required List<TattvaImage> thumbnail,
-      required List<TattvaAudioFile> audioFile}) {
+      required List<TattvaAudioFile> audioFile,
+      DateTime? createdAt}) {
     return _TattvaAudio(
       id: id,
       name: name,
@@ -34,6 +35,7 @@ class _$TattvaAudioTearOff {
       durationInMins: durationInMins,
       thumbnail: thumbnail,
       audioFile: audioFile,
+      createdAt: createdAt,
     );
   }
 
@@ -53,6 +55,7 @@ mixin _$TattvaAudio {
   int get durationInMins => throw _privateConstructorUsedError;
   List<TattvaImage> get thumbnail => throw _privateConstructorUsedError;
   List<TattvaAudioFile> get audioFile => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,7 +74,8 @@ abstract class $TattvaAudioCopyWith<$Res> {
       String language,
       int durationInMins,
       List<TattvaImage> thumbnail,
-      List<TattvaAudioFile> audioFile});
+      List<TattvaAudioFile> audioFile,
+      DateTime? createdAt});
 }
 
 /// @nodoc
@@ -90,6 +94,7 @@ class _$TattvaAudioCopyWithImpl<$Res> implements $TattvaAudioCopyWith<$Res> {
     Object? durationInMins = freezed,
     Object? thumbnail = freezed,
     Object? audioFile = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -116,6 +121,10 @@ class _$TattvaAudioCopyWithImpl<$Res> implements $TattvaAudioCopyWith<$Res> {
           ? _value.audioFile
           : audioFile // ignore: cast_nullable_to_non_nullable
               as List<TattvaAudioFile>,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -133,7 +142,8 @@ abstract class _$TattvaAudioCopyWith<$Res>
       String language,
       int durationInMins,
       List<TattvaImage> thumbnail,
-      List<TattvaAudioFile> audioFile});
+      List<TattvaAudioFile> audioFile,
+      DateTime? createdAt});
 }
 
 /// @nodoc
@@ -154,6 +164,7 @@ class __$TattvaAudioCopyWithImpl<$Res> extends _$TattvaAudioCopyWithImpl<$Res>
     Object? durationInMins = freezed,
     Object? thumbnail = freezed,
     Object? audioFile = freezed,
+    Object? createdAt = freezed,
   }) {
     return _then(_TattvaAudio(
       id: id == freezed
@@ -180,6 +191,10 @@ class __$TattvaAudioCopyWithImpl<$Res> extends _$TattvaAudioCopyWithImpl<$Res>
           ? _value.audioFile
           : audioFile // ignore: cast_nullable_to_non_nullable
               as List<TattvaAudioFile>,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -194,7 +209,8 @@ class _$_TattvaAudio implements _TattvaAudio {
       required this.language,
       required this.durationInMins,
       required this.thumbnail,
-      required this.audioFile});
+      required this.audioFile,
+      this.createdAt});
 
   factory _$_TattvaAudio.fromJson(Map<String, dynamic> json) =>
       _$_$_TattvaAudioFromJson(json);
@@ -211,10 +227,12 @@ class _$_TattvaAudio implements _TattvaAudio {
   final List<TattvaImage> thumbnail;
   @override
   final List<TattvaAudioFile> audioFile;
+  @override
+  final DateTime? createdAt;
 
   @override
   String toString() {
-    return 'TattvaAudio(id: $id, name: $name, language: $language, durationInMins: $durationInMins, thumbnail: $thumbnail, audioFile: $audioFile)';
+    return 'TattvaAudio(id: $id, name: $name, language: $language, durationInMins: $durationInMins, thumbnail: $thumbnail, audioFile: $audioFile, createdAt: $createdAt)';
   }
 
   @override
@@ -236,7 +254,10 @@ class _$_TattvaAudio implements _TattvaAudio {
                     .equals(other.thumbnail, thumbnail)) &&
             (identical(other.audioFile, audioFile) ||
                 const DeepCollectionEquality()
-                    .equals(other.audioFile, audioFile)));
+                    .equals(other.audioFile, audioFile)) &&
+            (identical(other.createdAt, createdAt) ||
+                const DeepCollectionEquality()
+                    .equals(other.createdAt, createdAt)));
   }
 
   @override
@@ -247,7 +268,8 @@ class _$_TattvaAudio implements _TattvaAudio {
       const DeepCollectionEquality().hash(language) ^
       const DeepCollectionEquality().hash(durationInMins) ^
       const DeepCollectionEquality().hash(thumbnail) ^
-      const DeepCollectionEquality().hash(audioFile);
+      const DeepCollectionEquality().hash(audioFile) ^
+      const DeepCollectionEquality().hash(createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -267,7 +289,8 @@ abstract class _TattvaAudio implements TattvaAudio {
       required String language,
       required int durationInMins,
       required List<TattvaImage> thumbnail,
-      required List<TattvaAudioFile> audioFile}) = _$_TattvaAudio;
+      required List<TattvaAudioFile> audioFile,
+      DateTime? createdAt}) = _$_TattvaAudio;
 
   factory _TattvaAudio.fromJson(Map<String, dynamic> json) =
       _$_TattvaAudio.fromJson;
@@ -284,6 +307,8 @@ abstract class _TattvaAudio implements TattvaAudio {
   List<TattvaImage> get thumbnail => throw _privateConstructorUsedError;
   @override
   List<TattvaAudioFile> get audioFile => throw _privateConstructorUsedError;
+  @override
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$TattvaAudioCopyWith<_TattvaAudio> get copyWith =>

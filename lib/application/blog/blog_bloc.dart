@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:tattva/application/liked_items/liked_items_bloc.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/domain/blog/blog_category.dart';
@@ -181,10 +182,13 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
                   final likedBlogs = List<String>.from(state.likedBlogs);
                   likedBlogs.add(e.id);
                   add(BlogEvent.updateLikedBlogs(blogIds: likedBlogs));
+                  getIt<LikedItemsBloc>()
+                      .add(LikedItemsEvent.restoredBlogs(id: e.id));
                 }, (r) => null));
         final likedBlogs = List<String>.from(state.likedBlogs);
         likedBlogs.remove(e.id);
         add(BlogEvent.updateLikedBlogs(blogIds: likedBlogs));
+        getIt<LikedItemsBloc>().add(LikedItemsEvent.dislikedBlogs(id: e.id));
       },
       updateLikedBlogs: (e) async* {
         yield state.copyWith(likedBlogs: e.blogIds);

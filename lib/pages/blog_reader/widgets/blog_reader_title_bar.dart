@@ -53,7 +53,7 @@ class BlogReaderTitleBar extends StatelessWidget {
             ),
           ),
           BlogLikeButton(
-            blog: blog,
+            blogId: blog.id,
             btnSize: 20.0,
             zeroPadding: true,
           ),

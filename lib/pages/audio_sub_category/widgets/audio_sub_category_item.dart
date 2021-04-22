@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:tattva/application/audio/audio_bloc.dart';
 import 'package:tattva/domain/core/tattva_audio.dart';
-import 'package:tattva/injection.dart';
 import 'package:tattva/pages/core/audio_like_button.dart';
 import 'package:tattva/utils/styles.dart';
 
 class AudioSubCategoryItem extends StatelessWidget {
   final TattvaAudio tattvaAudio;
-  final bool liked;
   final VoidCallback? onTap;
 
   const AudioSubCategoryItem({
     Key? key,
     required this.tattvaAudio,
     this.onTap,
-    required this.liked,
   }) : super(key: key);
 
   @override
@@ -38,16 +34,7 @@ class AudioSubCategoryItem extends StatelessWidget {
               _thumbnail(),
               const SizedBox(width: 16.0),
               Expanded(child: _audioTitleSubtitle()),
-              AudioLikeButton(
-                liked: liked,
-                onTap: () {
-                  getIt<AudioBloc>().add(
-                    liked
-                        ? AudioEvent.dislikedAudio(id: tattvaAudio.id)
-                        : AudioEvent.likedAudio(id: tattvaAudio.id),
-                  );
-                },
-              ),
+              AudioLikeButton(audioId: tattvaAudio.id),
             ],
           ),
         ),

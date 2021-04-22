@@ -7,6 +7,8 @@ import 'package:tattva/pages/audio/widgets/audio_categories_section.dart';
 import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:tattva/router/router.gr.dart';
 
 class AudioPageBody extends StatelessWidget {
   @override
@@ -32,7 +34,8 @@ class AudioPageBody extends StatelessWidget {
                         ? const Center(child: CircularProgressIndicator())
                         : (category.audioSubCategories == null)
                             ? ErrorLoadingListItemView()
-                            : _subCategories(category.audioSubCategories!),
+                            : _subCategories(
+                                context, category.audioSubCategories!),
                   ),
                 ],
               ),
@@ -43,17 +46,35 @@ class AudioPageBody extends StatelessWidget {
     );
   }
 
-  Widget _generateItems(audioSubCategory) => Column(
+  Widget _generateItems(
+    BuildContext context,
+    AudioSubCategory audioSubCategory,
+  ) =>
+      Column(
         children: [
-          AudioSubcategorySection(audioSubCategory: audioSubCategory),
+          AudioSubcategorySection(
+            categoryName: audioSubCategory.name,
+            audios: audioSubCategory.audios,
+            bannerImage: audioSubCategory.banner.first.url,
+            onTapNext: () => context.router.navigate(AudioSubCategoryRoute(
+              title: audioSubCategory.name,
+              audios: audioSubCategory.audios,
+              bannerImage: audioSubCategory.banner.first.url,
+            )),
+          ),
           const SizedBox(height: 20.0),
         ],
       );
 
-  Widget _subCategories(List<AudioSubCategory> audioSubCategories) => Column(
+  Widget _subCategories(
+    BuildContext context,
+    List<AudioSubCategory> audioSubCategories,
+  ) =>
+      Column(
         children: [
           ...audioSubCategories
-              .map((audioSubCategory) => _generateItems(audioSubCategory))
+              .map((audioSubCategory) =>
+                  _generateItems(context, audioSubCategory))
               .toList(),
           AudioPlayerPreviewPadding(),
         ],

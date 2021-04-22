@@ -19,6 +19,9 @@ _$_Blog _$_$_BlogFromJson(Map<String, dynamic> json) {
     durationInMins: json['durationInMins'] as int,
     summary: json['summary'] as String,
     content: json['content'] as String?,
+    createdAt: json['createdAt'] == null
+        ? null
+        : DateTime.parse(json['createdAt'] as String),
     likes: json['likes'] as int,
   );
 }
@@ -33,5 +36,6 @@ Map<String, dynamic> _$_$_BlogToJson(_$_Blog instance) => <String, dynamic>{
       'durationInMins': instance.durationInMins,
       'summary': instance.summary,
       'content': instance.content,
+      'createdAt': instance.createdAt?.toIso8601String(),
       'likes': instance.likes,
     };

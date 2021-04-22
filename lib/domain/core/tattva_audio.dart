@@ -14,6 +14,7 @@ class TattvaAudio with _$TattvaAudio {
     required int durationInMins,
     required List<TattvaImage> thumbnail,
     required List<TattvaAudioFile> audioFile,
+    DateTime? createdAt,
   }) = _TattvaAudio;
 
   factory TattvaAudio.fromJson(Map<String, dynamic> json) =>

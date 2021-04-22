@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/pages/blog/widgets/blog_like_button.dart';
+import 'package:tattva/pages/core/blog_title_bar.dart';
 import 'package:tattva/router/router.gr.dart';
 
 class BlogItem extends StatelessWidget {
@@ -47,44 +48,7 @@ class BlogItem extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            blog.title,
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          const SizedBox(height: 4.0),
-                          Row(
-                            children: [
-                              Text(
-                                blog.author,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12.0,
-                                  color: Color(0xff908A8A),
-                                ),
-                              ),
-                              Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
-                                height: 5.0,
-                                width: 5.0,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Color(0xff908A8A),
-                                ),
-                              ),
-                              Text(
-                                '${blog.durationInMins} mins',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12.0,
-                                  color: Color(0xff908A8A),
-                                ),
-                              ),
-                            ],
-                          ),
+                          BlogTitleBar(blog: blog),
                           const SizedBox(height: 16.0),
                           Text(
                             blog.summary,
@@ -100,7 +64,7 @@ class BlogItem extends StatelessWidget {
                       bottom: .0,
                       right: .0,
                       child: BlogLikeButton(
-                        blog: blog,
+                        blogId: blog.id,
                         btnSize: 16.0,
                       ),
                     ),

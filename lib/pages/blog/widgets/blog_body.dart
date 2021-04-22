@@ -70,8 +70,12 @@ class BlogBody extends StatelessWidget {
                     : state.selectedCategory.fold(
                         () => Container(),
                         (selectedCategory) => BlogGridView(
-                          blogCategory: selectedCategory,
                           loadingMore: state.loadingMore,
+                          blogs: selectedCategory.blogs,
+                          completelyFetched: selectedCategory.completelyFetched,
+                          loadMore: () => getIt<BlogBloc>().add(
+                              BlogEvent.selectedCategoryLoadMore(
+                                  id: selectedCategory.id)),
                         ),
                       ),
                 (error) => ErrorLoadingListItemView(),

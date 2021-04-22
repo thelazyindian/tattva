@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/wallpaper/i_wallpaper_facade.dart';
 import 'package:tattva/domain/wallpaper/wallpaper.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/wallpaper/widgets/wallpaper_like_button.dart';
 
 class WallpaperButtons extends StatelessWidget {
   final Wallpaper wallpaper;
@@ -28,25 +27,9 @@ class WallpaperButtons extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 24.0),
-        BlocBuilder<WallpaperBloc, WallpaperState>(
-          bloc: getIt<WallpaperBloc>(),
-          builder: (context, state) {
-            final liked = state.likedWallpapers.contains(wallpaper.id);
-            return IconButton(
-              onPressed: () {
-                getIt<WallpaperBloc>().add(
-                  liked
-                      ? WallpaperEvent.dislikedWallpaper(id: wallpaper.id)
-                      : WallpaperEvent.likedWallpaper(id: wallpaper.id),
-                );
-              },
-              icon: SvgPicture.asset(
-                liked ? 'icons/heart.svg' : 'icons/heartOutline.svg',
-                height: 24.0,
-                width: 24.0,
-              ),
-            );
-          },
+        WallpaperLikeButton(
+          wallpaperId: wallpaper.id,
+          btnSize: 24.0,
         ),
         const SizedBox(width: 24.0),
         IconButton(

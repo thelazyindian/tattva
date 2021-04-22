@@ -1,7 +1,5 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tattva/application/audio/audio_bloc.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/audio_player/media_state.dart';
 import 'package:tattva/domain/audio_player/queue_state.dart';
@@ -53,23 +51,8 @@ class AudioPlayerCollapsed extends StatelessWidget {
                     ),
                   ),
                 ),
-                BlocBuilder<AudioBloc, AudioState>(
-                  bloc: getIt<AudioBloc>(),
-                  builder: (context, state) {
-                    final uid = mediaItem.extras!['uid'];
-                    final bool liked = state.likedAudios.contains(uid);
-
-                    return AudioLikeButton(
-                      liked: liked,
-                      onTap: () {
-                        getIt<AudioBloc>().add(
-                          liked
-                              ? AudioEvent.dislikedAudio(id: uid)
-                              : AudioEvent.likedAudio(id: uid),
-                        );
-                      },
-                    );
-                  },
+                AudioLikeButton(
+                  audioId: mediaItem.extras!['uid'],
                 ),
                 SizedBox(
                   width: 60.0,

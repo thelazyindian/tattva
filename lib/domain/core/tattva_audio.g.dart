@@ -18,6 +18,9 @@ _$_TattvaAudio _$_$_TattvaAudioFromJson(Map<String, dynamic> json) {
     audioFile: (json['audioFile'] as List<dynamic>)
         .map((e) => TattvaAudioFile.fromJson(e as Map<String, dynamic>))
         .toList(),
+    createdAt: json['createdAt'] == null
+        ? null
+        : DateTime.parse(json['createdAt'] as String),
   );
 }
 
@@ -29,4 +32,5 @@ Map<String, dynamic> _$_$_TattvaAudioToJson(_$_TattvaAudio instance) =>
       'durationInMins': instance.durationInMins,
       'thumbnail': instance.thumbnail,
       'audioFile': instance.audioFile,
+      'createdAt': instance.createdAt?.toIso8601String(),
     };

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:tattva/application/blog/blog_bloc.dart';
-import 'package:tattva/domain/blog/blog_category.dart';
-import 'package:tattva/injection.dart';
+import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/pages/blog/widgets/blog_item.dart';
 
 class BlogGridView extends StatefulWidget {
-  final BlogCategory blogCategory;
+  final List<Blog> blogs;
   final bool loadingMore;
+  final bool completelyFetched;
+  final VoidCallback? loadMore;
 
   const BlogGridView({
     Key? key,
-    required this.blogCategory,
+    required this.blogs,
     this.loadingMore = false,
+    this.completelyFetched = false,
+    this.loadMore,
   }) : super(key: key);
 
   @override
@@ -27,9 +29,8 @@ class _BlogGridViewState extends State<BlogGridView> {
     _scrollController.addListener(() {
       if (_scrollController.position.atEdge) {
         if (_scrollController.position.pixels != 0 &&
-            !widget.blogCategory.completelyFetched) {
-          getIt<BlogBloc>().add(
-              BlogEvent.selectedCategoryLoadMore(id: widget.blogCategory.id));
+            !widget.completelyFetched) {
+          widget.loadMore?.call();
         }
       }
     });
@@ -38,7 +39,7 @@ class _BlogGridViewState extends State<BlogGridView> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.blogCategory.blogs.isEmpty
+    return widget.blogs.isEmpty
         ? Center(child: Text('No Items Found.'))
         : ListView(
             physics: AlwaysScrollableScrollPhysics(),
@@ -49,10 +50,10 @@ class _BlogGridViewState extends State<BlogGridView> {
                   horizontal: 24.0,
                   vertical: 16.0,
                 ),
-                itemCount: widget.blogCategory.blogs.length,
+                itemCount: widget.blogs.length,
                 separatorBuilder: (_, __) => const SizedBox(height: 16.0),
                 itemBuilder: (context, index) => BlogItem(
-                  blog: widget.blogCategory.blogs[index],
+                  blog: widget.blogs[index],
                 ),
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),

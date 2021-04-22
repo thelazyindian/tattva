@@ -17,7 +17,6 @@ class MediaControlsBar extends StatelessWidget {
       bloc: getIt<AudioBloc>(),
       builder: (context, state) {
         final uid = mediaItem.extras!['uid'];
-        final bool liked = state.likedAudios.contains(uid);
 
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,16 +49,7 @@ class MediaControlsBar extends StatelessWidget {
               iconSize: 32.0,
               icon: Icon(Icons.skip_next_rounded),
             ),
-            AudioLikeButton(
-              liked: liked,
-              onTap: () {
-                getIt<AudioBloc>().add(
-                  liked
-                      ? AudioEvent.dislikedAudio(id: uid)
-                      : AudioEvent.likedAudio(id: uid),
-                );
-              },
-            ),
+            AudioLikeButton(audioId: uid),
           ],
         );
       },

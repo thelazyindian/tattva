@@ -11,6 +11,7 @@ class Wallpaper with _$Wallpaper {
     required String name,
     required List<TattvaImage> thumbnail,
     required List<TattvaImage> image,
+    DateTime? createdAt,
   }) = _Wallpaper;
 
   factory Wallpaper.fromJson(Map<String, dynamic> json) =>

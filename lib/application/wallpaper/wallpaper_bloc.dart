@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:tattva/application/liked_items/liked_items_bloc.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/wallpaper/i_wallpaper_facade.dart';
@@ -193,11 +194,15 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
                   likedWallpapers.add(e.id);
                   add(WallpaperEvent.updateLikedWallpapers(
                       wallpaperIds: likedWallpapers));
+                  getIt<LikedItemsBloc>()
+                      .add(LikedItemsEvent.restoredWallpapers(id: e.id));
                 }, (r) => null));
         final likedWallpapers = List<String>.from(state.likedWallpapers);
         likedWallpapers.remove(e.id);
         add(WallpaperEvent.updateLikedWallpapers(
             wallpaperIds: likedWallpapers));
+        getIt<LikedItemsBloc>()
+            .add(LikedItemsEvent.dislikedWallpapers(id: e.id));
       },
       updateLikedWallpapers: (e) async* {
         yield state.copyWith(likedWallpapers: e.wallpaperIds);
