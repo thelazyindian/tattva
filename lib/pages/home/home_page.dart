@@ -44,6 +44,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     super.initState();
     WidgetsBinding.instance!.addObserver(this);
     AudioService.connect();
+    debugPrint('AudioService.connect');
   }
 
   @override

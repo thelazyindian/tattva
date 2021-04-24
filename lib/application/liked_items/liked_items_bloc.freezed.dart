@@ -73,6 +73,13 @@ class _$LikedItemsEventTearOff {
       id: id,
     );
   }
+
+  _UpdatedLikedItemsList updatedLikedItemsList(
+      {required LikedItemsDataModel data}) {
+    return _UpdatedLikedItemsList(
+      data: data,
+    );
+  }
 }
 
 /// @nodoc
@@ -92,6 +99,7 @@ mixin _$LikedItemsEvent {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,6 +114,7 @@ mixin _$LikedItemsEvent {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +130,8 @@ mixin _$LikedItemsEvent {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -135,6 +146,7 @@ mixin _$LikedItemsEvent {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -203,6 +215,7 @@ class _$_Started implements _Started {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return started();
   }
@@ -220,6 +233,7 @@ class _$_Started implements _Started {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -241,6 +255,8 @@ class _$_Started implements _Started {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return started(this);
   }
@@ -258,6 +274,7 @@ class _$_Started implements _Started {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -345,6 +362,7 @@ class _$_LoadMoreAudios implements _LoadMoreAudios {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return loadMoreAudios(id);
   }
@@ -362,6 +380,7 @@ class _$_LoadMoreAudios implements _LoadMoreAudios {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (loadMoreAudios != null) {
@@ -383,6 +402,8 @@ class _$_LoadMoreAudios implements _LoadMoreAudios {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return loadMoreAudios(this);
   }
@@ -400,6 +421,7 @@ class _$_LoadMoreAudios implements _LoadMoreAudios {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (loadMoreAudios != null) {
@@ -492,6 +514,7 @@ class _$_LoadMoreBlogs implements _LoadMoreBlogs {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return loadMoreBlogs(id);
   }
@@ -509,6 +532,7 @@ class _$_LoadMoreBlogs implements _LoadMoreBlogs {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (loadMoreBlogs != null) {
@@ -530,6 +554,8 @@ class _$_LoadMoreBlogs implements _LoadMoreBlogs {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return loadMoreBlogs(this);
   }
@@ -547,6 +573,7 @@ class _$_LoadMoreBlogs implements _LoadMoreBlogs {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (loadMoreBlogs != null) {
@@ -639,6 +666,7 @@ class _$_LoadMoreWallpapers implements _LoadMoreWallpapers {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return loadMoreWallpapers(id);
   }
@@ -656,6 +684,7 @@ class _$_LoadMoreWallpapers implements _LoadMoreWallpapers {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (loadMoreWallpapers != null) {
@@ -677,6 +706,8 @@ class _$_LoadMoreWallpapers implements _LoadMoreWallpapers {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return loadMoreWallpapers(this);
   }
@@ -694,6 +725,7 @@ class _$_LoadMoreWallpapers implements _LoadMoreWallpapers {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (loadMoreWallpapers != null) {
@@ -787,6 +819,7 @@ class _$_DislikedAudios implements _DislikedAudios {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return dislikedAudios(id);
   }
@@ -804,6 +837,7 @@ class _$_DislikedAudios implements _DislikedAudios {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (dislikedAudios != null) {
@@ -825,6 +859,8 @@ class _$_DislikedAudios implements _DislikedAudios {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return dislikedAudios(this);
   }
@@ -842,6 +878,7 @@ class _$_DislikedAudios implements _DislikedAudios {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (dislikedAudios != null) {
@@ -934,6 +971,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return dislikedBlogs(id);
   }
@@ -951,6 +989,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (dislikedBlogs != null) {
@@ -972,6 +1011,8 @@ class _$_DislikedBlogs implements _DislikedBlogs {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return dislikedBlogs(this);
   }
@@ -989,6 +1030,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (dislikedBlogs != null) {
@@ -1081,6 +1123,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return dislikedWallpapers(id);
   }
@@ -1098,6 +1141,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (dislikedWallpapers != null) {
@@ -1119,6 +1163,8 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return dislikedWallpapers(this);
   }
@@ -1136,6 +1182,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (dislikedWallpapers != null) {
@@ -1229,6 +1276,7 @@ class _$_RestoredAudios implements _RestoredAudios {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return restoredAudios(id);
   }
@@ -1246,6 +1294,7 @@ class _$_RestoredAudios implements _RestoredAudios {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (restoredAudios != null) {
@@ -1267,6 +1316,8 @@ class _$_RestoredAudios implements _RestoredAudios {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return restoredAudios(this);
   }
@@ -1284,6 +1335,7 @@ class _$_RestoredAudios implements _RestoredAudios {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (restoredAudios != null) {
@@ -1376,6 +1428,7 @@ class _$_RestoredBlogs implements _RestoredBlogs {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return restoredBlogs(id);
   }
@@ -1393,6 +1446,7 @@ class _$_RestoredBlogs implements _RestoredBlogs {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (restoredBlogs != null) {
@@ -1414,6 +1468,8 @@ class _$_RestoredBlogs implements _RestoredBlogs {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return restoredBlogs(this);
   }
@@ -1431,6 +1487,7 @@ class _$_RestoredBlogs implements _RestoredBlogs {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (restoredBlogs != null) {
@@ -1523,6 +1580,7 @@ class _$_RestoredWallpapers implements _RestoredWallpapers {
     required TResult Function(String id) restoredAudios,
     required TResult Function(String id) restoredBlogs,
     required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
   }) {
     return restoredWallpapers(id);
   }
@@ -1540,6 +1598,7 @@ class _$_RestoredWallpapers implements _RestoredWallpapers {
     TResult Function(String id)? restoredAudios,
     TResult Function(String id)? restoredBlogs,
     TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (restoredWallpapers != null) {
@@ -1561,6 +1620,8 @@ class _$_RestoredWallpapers implements _RestoredWallpapers {
     required TResult Function(_RestoredAudios value) restoredAudios,
     required TResult Function(_RestoredBlogs value) restoredBlogs,
     required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
   }) {
     return restoredWallpapers(this);
   }
@@ -1578,6 +1639,7 @@ class _$_RestoredWallpapers implements _RestoredWallpapers {
     TResult Function(_RestoredAudios value)? restoredAudios,
     TResult Function(_RestoredBlogs value)? restoredBlogs,
     TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
     required TResult orElse(),
   }) {
     if (restoredWallpapers != null) {
@@ -1594,6 +1656,169 @@ abstract class _RestoredWallpapers implements LikedItemsEvent {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$RestoredWallpapersCopyWith<_RestoredWallpapers> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$UpdatedLikedItemsListCopyWith<$Res> {
+  factory _$UpdatedLikedItemsListCopyWith(_UpdatedLikedItemsList value,
+          $Res Function(_UpdatedLikedItemsList) then) =
+      __$UpdatedLikedItemsListCopyWithImpl<$Res>;
+  $Res call({LikedItemsDataModel data});
+
+  $LikedItemsDataModelCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$UpdatedLikedItemsListCopyWithImpl<$Res>
+    extends _$LikedItemsEventCopyWithImpl<$Res>
+    implements _$UpdatedLikedItemsListCopyWith<$Res> {
+  __$UpdatedLikedItemsListCopyWithImpl(_UpdatedLikedItemsList _value,
+      $Res Function(_UpdatedLikedItemsList) _then)
+      : super(_value, (v) => _then(v as _UpdatedLikedItemsList));
+
+  @override
+  _UpdatedLikedItemsList get _value => super._value as _UpdatedLikedItemsList;
+
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_UpdatedLikedItemsList(
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as LikedItemsDataModel,
+    ));
+  }
+
+  @override
+  $LikedItemsDataModelCopyWith<$Res> get data {
+    return $LikedItemsDataModelCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_UpdatedLikedItemsList implements _UpdatedLikedItemsList {
+  const _$_UpdatedLikedItemsList({required this.data});
+
+  @override
+  final LikedItemsDataModel data;
+
+  @override
+  String toString() {
+    return 'LikedItemsEvent.updatedLikedItemsList(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdatedLikedItemsList &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdatedLikedItemsListCopyWith<_UpdatedLikedItemsList> get copyWith =>
+      __$UpdatedLikedItemsListCopyWithImpl<_UpdatedLikedItemsList>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String id) loadMoreAudios,
+    required TResult Function(String id) loadMoreBlogs,
+    required TResult Function(String id) loadMoreWallpapers,
+    required TResult Function(String id) dislikedAudios,
+    required TResult Function(String id) dislikedBlogs,
+    required TResult Function(String id) dislikedWallpapers,
+    required TResult Function(String id) restoredAudios,
+    required TResult Function(String id) restoredBlogs,
+    required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
+  }) {
+    return updatedLikedItemsList(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String id)? loadMoreAudios,
+    TResult Function(String id)? loadMoreBlogs,
+    TResult Function(String id)? loadMoreWallpapers,
+    TResult Function(String id)? dislikedAudios,
+    TResult Function(String id)? dislikedBlogs,
+    TResult Function(String id)? dislikedWallpapers,
+    TResult Function(String id)? restoredAudios,
+    TResult Function(String id)? restoredBlogs,
+    TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
+    required TResult orElse(),
+  }) {
+    if (updatedLikedItemsList != null) {
+      return updatedLikedItemsList(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_LoadMoreAudios value) loadMoreAudios,
+    required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
+    required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
+    required TResult Function(_DislikedAudios value) dislikedAudios,
+    required TResult Function(_DislikedBlogs value) dislikedBlogs,
+    required TResult Function(_DislikedWallpapers value) dislikedWallpapers,
+    required TResult Function(_RestoredAudios value) restoredAudios,
+    required TResult Function(_RestoredBlogs value) restoredBlogs,
+    required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
+  }) {
+    return updatedLikedItemsList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_LoadMoreAudios value)? loadMoreAudios,
+    TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
+    TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
+    TResult Function(_DislikedAudios value)? dislikedAudios,
+    TResult Function(_DislikedBlogs value)? dislikedBlogs,
+    TResult Function(_DislikedWallpapers value)? dislikedWallpapers,
+    TResult Function(_RestoredAudios value)? restoredAudios,
+    TResult Function(_RestoredBlogs value)? restoredBlogs,
+    TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
+    required TResult orElse(),
+  }) {
+    if (updatedLikedItemsList != null) {
+      return updatedLikedItemsList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatedLikedItemsList implements LikedItemsEvent {
+  const factory _UpdatedLikedItemsList({required LikedItemsDataModel data}) =
+      _$_UpdatedLikedItemsList;
+
+  LikedItemsDataModel get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UpdatedLikedItemsListCopyWith<_UpdatedLikedItemsList> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

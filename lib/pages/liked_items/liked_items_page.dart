@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/liked_items/liked_items_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
+import 'package:tattva/pages/core/empty_results_view.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/liked_items/widgets/liked_items_body.dart';
 import 'package:tattva/router/router.gr.dart';
@@ -33,9 +34,15 @@ class LikedItemsPage extends StatelessWidget {
               () => const Center(child: CircularProgressIndicator()),
               (likedItemsSorF) => likedItemsSorF.fold(
                 (failure) => ErrorLoadingListItemView(),
-                (likedItems) => LikedItemsBody(
-                  likedItemsDataModel: likedItems,
-                ),
+                (likedItems) => likedItems.likedAudios.isEmpty &&
+                        likedItems.likedBlogs.isEmpty &&
+                        likedItems.likedWallpapers.isEmpty
+                    ? EmptyResultsView(
+                        message: 'NO SAVED ITEMS FOUND!',
+                      )
+                    : LikedItemsBody(
+                        likedItemsDataModel: likedItems,
+                      ),
               ),
             );
           },

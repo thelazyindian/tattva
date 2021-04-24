@@ -1,5 +1,7 @@
 part of 'blog_bloc.dart';
 
+enum BlogReaderTabType { blogs, likedItems }
+
 @freezed
 class BlogEvent with _$BlogEvent {
   const factory BlogEvent.started() = _Started;
@@ -9,7 +11,10 @@ class BlogEvent with _$BlogEvent {
       _SelectedCategoryLoadMore;
   const factory BlogEvent.likedBlog({required String id}) = _LikedBlog;
 
-  const factory BlogEvent.readBlog({required String id}) = _ReadBlog;
+  const factory BlogEvent.readBlog({
+    required BlogReaderTabType blogReaderTabType,
+    required String id,
+  }) = _ReadBlog;
   const factory BlogEvent.dislikedBlog({required String id}) = _DislikedBlog;
   const factory BlogEvent.updateLikedBlogs({required List<String> blogIds}) =
       _UpdateLikedBlogs;

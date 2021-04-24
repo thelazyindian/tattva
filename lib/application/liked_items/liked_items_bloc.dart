@@ -395,6 +395,9 @@ class LikedItemsBloc extends Bloc<LikedItemsEvent, LikedItemsState> {
           },
         );
       },
+      updatedLikedItemsList: (e) async* {
+        yield state.copyWith(likedItemsOption: optionOf(right(e.data)));
+      },
     );
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/pages/core/blog_title_bar.dart';
 import 'package:tattva/pages/core/category_title_bar.dart';
+import 'package:tattva/router/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
 class BlogCategorySection extends StatelessWidget {
   final String categoryName;
@@ -33,39 +36,52 @@ class BlogCategorySection extends StatelessWidget {
           separatorBuilder: (context, idx) => const SizedBox(height: 12.0),
           itemBuilder: (context, idx) {
             final blog = blogs[idx];
-            return Container(
-              height: 80.0,
-              padding: const EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical: 18.0,
-              ),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.circular(10.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0x40BFBABA),
-                    offset: Offset(4.0, 4.0),
-                    blurRadius: 4.0,
-                  ),
-                  BoxShadow(
-                    color: Color(0x40BFBABA),
-                    offset: Offset(-4.0, -4.0),
-                    blurRadius: 4.0,
-                  ),
-                ],
-              ),
-              child: Row(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.network(blog.coverImage.first.url),
-                  ),
-                  const SizedBox(width: 16.0),
-                  Expanded(
-                    child: BlogTitleBar(blog: blog),
-                  ),
-                ],
+            return InkWell(
+              borderRadius: BorderRadius.circular(10.0),
+              onTap: () => context.router.push(LikedItemsBlogReaderRoute(
+                blog: blog,
+                blogReaderTabType: BlogReaderTabType.likedItems,
+              )),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20.0,
+                  vertical: 18.0,
+                ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x40BFBABA),
+                      offset: Offset(4.0, 4.0),
+                      blurRadius: 4.0,
+                    ),
+                    BoxShadow(
+                      color: Color(0x40BFBABA),
+                      offset: Offset(-4.0, -4.0),
+                      blurRadius: 4.0,
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(
+                      height: 48.0,
+                      width: 48.0,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.network(
+                          blog.coverImage.first.url,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16.0),
+                    Expanded(
+                      child: BlogTitleBar(blog: blog),
+                    ),
+                  ],
+                ),
               ),
             );
           },

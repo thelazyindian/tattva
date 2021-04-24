@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tattva/domain/liked_items/liked_items_data_model.dart';
@@ -6,7 +7,6 @@ import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/liked_items/widgets/blog_category_section.dart';
 import 'package:tattva/pages/liked_items/widgets/wallpaper_category_section.dart';
 import 'package:tattva/router/router.gr.dart';
-import 'package:auto_route/auto_route.dart';
 
 class LikedItemsBody extends StatelessWidget {
   final LikedItemsDataModel likedItemsDataModel;
@@ -50,11 +50,17 @@ class LikedItemsBody extends StatelessWidget {
                   'Search',
                   style: TextStyle(
                     fontSize: 16.0,
-                    color: Color(0xFF052D4D),
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 0.02,
+                    color: Color(0xFF000000),
                   ),
                 ),
               ),
-              SvgPicture.asset('icons/search.svg'),
+              SvgPicture.asset(
+                'icons/search.svg',
+                height: 20.0,
+                width: 20.0,
+              ),
             ],
           ),
         ),

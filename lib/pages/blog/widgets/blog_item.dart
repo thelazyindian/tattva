@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/pages/blog/widgets/blog_like_button.dart';
 import 'package:tattva/pages/core/blog_title_bar.dart';
@@ -7,13 +8,26 @@ import 'package:tattva/router/router.gr.dart';
 
 class BlogItem extends StatelessWidget {
   final Blog blog;
+  final BlogReaderTabType blogReaderTabType;
 
-  const BlogItem({Key? key, required this.blog}) : super(key: key);
+  const BlogItem({
+    Key? key,
+    required this.blog,
+    required this.blogReaderTabType,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => context.router.push(BlogReaderRoute(blog: blog)),
+      onTap: () => (blogReaderTabType == BlogReaderTabType.likedItems)
+          ? context.router.push(LikedItemsBlogReaderRoute(
+              blog: blog,
+              blogReaderTabType: blogReaderTabType,
+            ))
+          : context.router.push(BlogReaderRoute(
+              blog: blog,
+              blogReaderTabType: blogReaderTabType,
+            )),
       child: Material(
         color: Colors.white,
         elevation: 4.0,

@@ -10,6 +10,7 @@ class WallpapersGridView extends StatefulWidget {
   final bool loadingMore;
   final bool completelyFetched;
   final VoidCallback? loadMore;
+  final bool likedItemsView;
 
   const WallpapersGridView({
     Key? key,
@@ -17,6 +18,7 @@ class WallpapersGridView extends StatefulWidget {
     this.loadingMore = false,
     this.loadMore,
     this.completelyFetched = false,
+    this.likedItemsView = false,
   }) : super(key: key);
 
   @override
@@ -73,9 +75,15 @@ class _WallpapersGridViewState extends State<WallpapersGridView> {
     return ClipRRect(
       borderRadius: BorderRadius.circular(16.0),
       child: InkWell(
-        onTap: () {
-          context.router.push(WallpaperExpandedRoute(wallpaperIdx: index));
-        },
+        onTap: () => widget.likedItemsView
+            ? context.router.push(LikedItemsWallpaperExpandedRoute(
+                wallpapers: widget.wallpapers,
+                wallpaperIdx: index,
+              ))
+            : context.router.push(WallpaperExpandedRoute(
+                wallpapers: widget.wallpapers,
+                wallpaperIdx: index,
+              )),
         child: Stack(
           children: [
             Image.network(

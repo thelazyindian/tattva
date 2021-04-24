@@ -10,8 +10,13 @@ import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 
 class BlogReaderPage extends StatefulWidget {
   final Blog blog;
+  final BlogReaderTabType blogReaderTabType;
 
-  const BlogReaderPage({Key? key, required this.blog}) : super(key: key);
+  const BlogReaderPage({
+    Key? key,
+    required this.blog,
+    required this.blogReaderTabType,
+  }) : super(key: key);
 
   @override
   _BlogReaderPageState createState() => _BlogReaderPageState();
@@ -60,7 +65,10 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
             Expanded(
               child: BlocBuilder<BlogBloc, BlogState>(
                 bloc: getIt<BlogBloc>()
-                  ..add(BlogEvent.readBlog(id: widget.blog.id)),
+                  ..add(BlogEvent.readBlog(
+                    blogReaderTabType: widget.blogReaderTabType,
+                    id: widget.blog.id,
+                  )),
                 builder: (context, state) {
                   if (state.readerLoading) {
                     return Center(child: CircularProgressIndicator());
@@ -69,10 +77,10 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
                       () => Center(child: Text('ERROR')),
                       (sOrF) => sOrF.fold(
                         (l) => Center(child: Text('ERROR')),
-                        (r) => SingleChildScrollView(
+                        (content) => SingleChildScrollView(
                           padding: const EdgeInsets.all(24.0),
                           child: HtmlWidget(
-                            r,
+                            content,
                             textStyle: TextStyle(fontWeight: FontWeight.w400),
                           ),
                         ),

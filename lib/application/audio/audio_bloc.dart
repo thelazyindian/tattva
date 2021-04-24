@@ -2,12 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:tattva/application/liked_items/liked_items_bloc.dart';
 import 'package:tattva/domain/audio/audio_category.dart';
 import 'package:tattva/domain/audio/i_audio_facade.dart';
@@ -32,22 +29,6 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
     yield* event.map(
       started: (e) async* {
         yield AudioState.initial();
-
-        // TODO: Move to HomeBLOC
-        final dioCacheIdx = getIt<Dio>()
-            .interceptors
-            .indexWhere((element) => element is DioCacheInterceptor);
-        if (dioCacheIdx == -1) {
-          final cacheDir = await getApplicationDocumentsDirectory();
-          final options = CacheOptions(
-            store: DbCacheStore(databasePath: '${cacheDir.path}/tattva'),
-            policy: CachePolicy.request,
-            hitCacheOnErrorExcept: [401, 403],
-            priority: CachePriority.normal,
-            maxStale: const Duration(days: 7),
-          );
-          getIt<Dio>().interceptors.add(DioCacheInterceptor(options: options));
-        }
 
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
 

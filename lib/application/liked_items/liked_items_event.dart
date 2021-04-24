@@ -21,4 +21,6 @@ class LikedItemsEvent with _$LikedItemsEvent {
       _RestoredBlogs;
   const factory LikedItemsEvent.restoredWallpapers({required String id}) =
       _RestoredWallpapers;
+  const factory LikedItemsEvent.updatedLikedItemsList(
+      {required LikedItemsDataModel data}) = _UpdatedLikedItemsList;
 }

@@ -62,6 +62,7 @@ import 'package:tattva/pages/wallpaper_sub_category/wallpaper_sub_category_page.
             AutoRoute(
               name: 'LikedItemsWrapperRoute',
               page: EmptyRouterPage,
+              initial: true,
               children: [
                 AutoRoute(page: LikedItemsPage, initial: true),
                 AutoRoute(
@@ -75,6 +76,14 @@ import 'package:tattva/pages/wallpaper_sub_category/wallpaper_sub_category_page.
                 AutoRoute(
                   name: 'LikedItemsBlogSubCategoryRoute',
                   page: BlogSubCategoryPage,
+                ),
+                AutoRoute(
+                  name: 'LikedItemsBlogReaderRoute',
+                  page: BlogReaderPage,
+                ),
+                AutoRoute(
+                  name: 'LikedItemsWallpaperExpandedRoute',
+                  page: WallpaperExpandedPage,
                 ),
               ],
             ),

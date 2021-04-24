@@ -7,15 +7,17 @@
 import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i19;
 
-import '../domain/blog/blog.dart' as _i21;
+import '../application/blog/blog_bloc.dart' as _i23;
+import '../domain/blog/blog.dart' as _i22;
 import '../domain/core/tattva_audio.dart' as _i20;
+import '../domain/wallpaper/wallpaper.dart' as _i21;
 import '../pages/audio/audio_page.dart' as _i8;
 import '../pages/audio_sub_category/audio_sub_category_page.dart' as _i9;
 import '../pages/authentication/forgot_password_page.dart' as _i6;
 import '../pages/authentication/login_page.dart' as _i5;
 import '../pages/authentication/register_page.dart' as _i4;
-import '../pages/blog/blog_page.dart' as _i15;
-import '../pages/blog_reader/blog_reader_page.dart' as _i16;
+import '../pages/blog/blog_page.dart' as _i16;
+import '../pages/blog_reader/blog_reader_page.dart' as _i15;
 import '../pages/blog_sub_category/blog_sub_category_page.dart' as _i14;
 import '../pages/edit_profile/edit_profile_page.dart' as _i18;
 import '../pages/home/home_page.dart' as _i7;
@@ -100,7 +102,9 @@ class AppRouter extends _i1.RootStackRouter {
       return _i1.MaterialPageX(
           entry: entry,
           child: _i11.WallpaperExpandedPage(
-              key: args.key, wallpaperIdx: args.wallpaperIdx));
+              key: args.key,
+              wallpapers: args.wallpapers,
+              wallpaperIdx: args.wallpaperIdx));
     },
     LikedItemsRoute.name: (entry) {
       return _i1.MaterialPageX(entry: entry, child: _i12.LikedItemsPage());
@@ -129,14 +133,35 @@ class AppRouter extends _i1.RootStackRouter {
           entry: entry,
           child: _i14.BlogSubCategoryPage(key: args.key, title: args.title));
     },
+    LikedItemsBlogReaderRoute.name: (entry) {
+      var args = entry.routeData.argsAs<LikedItemsBlogReaderRouteArgs>();
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: _i15.BlogReaderPage(
+              key: args.key,
+              blog: args.blog,
+              blogReaderTabType: args.blogReaderTabType));
+    },
+    LikedItemsWallpaperExpandedRoute.name: (entry) {
+      var args = entry.routeData.argsAs<LikedItemsWallpaperExpandedRouteArgs>();
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: _i11.WallpaperExpandedPage(
+              key: args.key,
+              wallpapers: args.wallpapers,
+              wallpaperIdx: args.wallpaperIdx));
+    },
     BlogRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i15.BlogPage());
+      return _i1.MaterialPageX(entry: entry, child: _i16.BlogPage());
     },
     BlogReaderRoute.name: (entry) {
       var args = entry.routeData.argsAs<BlogReaderRouteArgs>();
       return _i1.MaterialPageX(
           entry: entry,
-          child: _i16.BlogReaderPage(key: args.key, blog: args.blog));
+          child: _i15.BlogReaderPage(
+              key: args.key,
+              blog: args.blog,
+              blogReaderTabType: args.blogReaderTabType));
     },
     ProfileRoute.name: (entry) {
       return _i1.MaterialPageX(entry: entry, child: _i17.ProfilePage());
@@ -180,7 +205,7 @@ class AppRouter extends _i1.RootStackRouter {
                               path: 'wallpaper-expanded-page')
                         ]),
                     _i1.RouteConfig(LikedItemsWrapperRoute.name,
-                        path: 'empty-router-page',
+                        path: '',
                         children: [
                           _i1.RouteConfig(LikedItemsRoute.name, path: ''),
                           _i1.RouteConfig(LikedItemsAudioSubCategoryRoute.name,
@@ -189,7 +214,11 @@ class AppRouter extends _i1.RootStackRouter {
                               LikedItemsWallpaperSubCategoryRoute.name,
                               path: 'wallpaper-sub-category-page'),
                           _i1.RouteConfig(LikedItemsBlogSubCategoryRoute.name,
-                              path: 'blog-sub-category-page')
+                              path: 'blog-sub-category-page'),
+                          _i1.RouteConfig(LikedItemsBlogReaderRoute.name,
+                              path: 'blog-reader-page'),
+                          _i1.RouteConfig(LikedItemsWallpaperExpandedRoute.name,
+                              path: 'wallpaper-expanded-page')
                         ]),
                     _i1.RouteConfig(BlogWrapperRoute.name,
                         path: 'empty-router-page',
@@ -284,7 +313,7 @@ class WallpaperWrapperRoute extends _i1.PageRouteInfo {
 
 class LikedItemsWrapperRoute extends _i1.PageRouteInfo {
   const LikedItemsWrapperRoute({List<_i1.PageRouteInfo>? children})
-      : super(name, path: 'empty-router-page', initialChildren: children);
+      : super(name, path: '', initialChildren: children);
 
   static const String name = 'LikedItemsWrapperRoute';
 }
@@ -341,19 +370,25 @@ class WallpaperRoute extends _i1.PageRouteInfo {
 
 class WallpaperExpandedRoute
     extends _i1.PageRouteInfo<WallpaperExpandedRouteArgs> {
-  WallpaperExpandedRoute({_i19.Key? key, required int wallpaperIdx})
+  WallpaperExpandedRoute(
+      {_i19.Key? key,
+      required List<_i21.Wallpaper> wallpapers,
+      required int wallpaperIdx})
       : super(name,
             path: 'wallpaper-expanded-page',
             args: WallpaperExpandedRouteArgs(
-                key: key, wallpaperIdx: wallpaperIdx));
+                key: key, wallpapers: wallpapers, wallpaperIdx: wallpaperIdx));
 
   static const String name = 'WallpaperExpandedRoute';
 }
 
 class WallpaperExpandedRouteArgs {
-  const WallpaperExpandedRouteArgs({this.key, required this.wallpaperIdx});
+  const WallpaperExpandedRouteArgs(
+      {this.key, required this.wallpapers, required this.wallpaperIdx});
 
   final _i19.Key? key;
+
+  final List<_i21.Wallpaper> wallpapers;
 
   final int wallpaperIdx;
 }
@@ -433,6 +468,56 @@ class LikedItemsBlogSubCategoryRouteArgs {
   final String title;
 }
 
+class LikedItemsBlogReaderRoute
+    extends _i1.PageRouteInfo<LikedItemsBlogReaderRouteArgs> {
+  LikedItemsBlogReaderRoute(
+      {_i19.Key? key,
+      required _i22.Blog blog,
+      required _i23.BlogReaderTabType blogReaderTabType})
+      : super(name,
+            path: 'blog-reader-page',
+            args: LikedItemsBlogReaderRouteArgs(
+                key: key, blog: blog, blogReaderTabType: blogReaderTabType));
+
+  static const String name = 'LikedItemsBlogReaderRoute';
+}
+
+class LikedItemsBlogReaderRouteArgs {
+  const LikedItemsBlogReaderRouteArgs(
+      {this.key, required this.blog, required this.blogReaderTabType});
+
+  final _i19.Key? key;
+
+  final _i22.Blog blog;
+
+  final _i23.BlogReaderTabType blogReaderTabType;
+}
+
+class LikedItemsWallpaperExpandedRoute
+    extends _i1.PageRouteInfo<LikedItemsWallpaperExpandedRouteArgs> {
+  LikedItemsWallpaperExpandedRoute(
+      {_i19.Key? key,
+      required List<_i21.Wallpaper> wallpapers,
+      required int wallpaperIdx})
+      : super(name,
+            path: 'wallpaper-expanded-page',
+            args: LikedItemsWallpaperExpandedRouteArgs(
+                key: key, wallpapers: wallpapers, wallpaperIdx: wallpaperIdx));
+
+  static const String name = 'LikedItemsWallpaperExpandedRoute';
+}
+
+class LikedItemsWallpaperExpandedRouteArgs {
+  const LikedItemsWallpaperExpandedRouteArgs(
+      {this.key, required this.wallpapers, required this.wallpaperIdx});
+
+  final _i19.Key? key;
+
+  final List<_i21.Wallpaper> wallpapers;
+
+  final int wallpaperIdx;
+}
+
 class BlogRoute extends _i1.PageRouteInfo {
   const BlogRoute() : super(name, path: '');
 
@@ -440,20 +525,27 @@ class BlogRoute extends _i1.PageRouteInfo {
 }
 
 class BlogReaderRoute extends _i1.PageRouteInfo<BlogReaderRouteArgs> {
-  BlogReaderRoute({_i19.Key? key, required _i21.Blog blog})
+  BlogReaderRoute(
+      {_i19.Key? key,
+      required _i22.Blog blog,
+      required _i23.BlogReaderTabType blogReaderTabType})
       : super(name,
             path: 'blog-reader-page',
-            args: BlogReaderRouteArgs(key: key, blog: blog));
+            args: BlogReaderRouteArgs(
+                key: key, blog: blog, blogReaderTabType: blogReaderTabType));
 
   static const String name = 'BlogReaderRoute';
 }
 
 class BlogReaderRouteArgs {
-  const BlogReaderRouteArgs({this.key, required this.blog});
+  const BlogReaderRouteArgs(
+      {this.key, required this.blog, required this.blogReaderTabType});
 
   final _i19.Key? key;
 
-  final _i21.Blog blog;
+  final _i22.Blog blog;
+
+  final _i23.BlogReaderTabType blogReaderTabType;
 }
 
 class ProfileRoute extends _i1.PageRouteInfo {

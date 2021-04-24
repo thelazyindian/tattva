@@ -37,6 +37,7 @@ class WallpaperSubCategoryPage extends StatelessWidget {
                       loadingMore: state.loadingMore,
                       wallpapers: likedItems.likedWallpapers,
                       completelyFetched: state.completelyFetchedWallpapers,
+                      likedItemsView: true,
                       loadMore: () => getIt<LikedItemsBloc>().add(
                         LikedItemsEvent.loadMoreWallpapers(
                             id: likedItems.likedWallpapers.last.id),

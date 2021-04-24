@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/pages/blog/widgets/blog_item.dart';
 
@@ -7,6 +8,7 @@ class BlogGridView extends StatefulWidget {
   final bool loadingMore;
   final bool completelyFetched;
   final VoidCallback? loadMore;
+  final BlogReaderTabType blogReaderTabType;
 
   const BlogGridView({
     Key? key,
@@ -14,6 +16,7 @@ class BlogGridView extends StatefulWidget {
     this.loadingMore = false,
     this.completelyFetched = false,
     this.loadMore,
+    this.blogReaderTabType = BlogReaderTabType.blogs,
   }) : super(key: key);
 
   @override
@@ -54,6 +57,7 @@ class _BlogGridViewState extends State<BlogGridView> {
                 separatorBuilder: (_, __) => const SizedBox(height: 16.0),
                 itemBuilder: (context, index) => BlogItem(
                   blog: widget.blogs[index],
+                  blogReaderTabType: widget.blogReaderTabType,
                 ),
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),

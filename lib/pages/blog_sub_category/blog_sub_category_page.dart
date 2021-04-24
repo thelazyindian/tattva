@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/application/liked_items/liked_items_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/blog/widgets/blog_grid_view.dart';
@@ -36,6 +37,7 @@ class BlogSubCategoryPage extends StatelessWidget {
                       loadingMore: state.loadingMore,
                       blogs: likedItems.likedBlogs,
                       completelyFetched: state.completelyFetchedBlogs,
+                      blogReaderTabType: BlogReaderTabType.likedItems,
                       loadMore: () => getIt<LikedItemsBloc>().add(
                         LikedItemsEvent.loadMoreBlogs(
                             id: likedItems.likedBlogs.last.id),

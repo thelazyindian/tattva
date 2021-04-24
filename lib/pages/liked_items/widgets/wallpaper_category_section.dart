@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tattva/domain/wallpaper/wallpaper.dart';
 import 'package:tattva/pages/core/category_title_bar.dart';
+import 'package:tattva/router/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
 class WallpaperCategorySection extends StatelessWidget {
   final String categoryName;
@@ -35,9 +37,20 @@ class WallpaperCategorySection extends StatelessWidget {
               final wallpaper = wallpapers[idx];
               return ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
-                child: Image.network(
-                  wallpaper.image.first.url,
-                  fit: BoxFit.cover,
+                child: InkWell(
+                  onTap: () {
+                    context.router.push(LikedItemsWallpaperExpandedRoute(
+                      wallpapers: wallpapers,
+                      wallpaperIdx: idx,
+                    ));
+                  },
+                  child: Image.network(
+                    wallpaper.image.first.url,
+                    fit: BoxFit.cover,
+                    loadingBuilder: (_, __, ___) => Container(
+                      color: Colors.grey.shade200,
+                    ),
+                  ),
                 ),
               );
             },

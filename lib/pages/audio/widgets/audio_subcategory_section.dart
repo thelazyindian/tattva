@@ -80,22 +80,23 @@ onAudioItemClicked({
             extras: {'uid': e.id},
           ))
       .toList();
+  if (AudioService.connected) {
+    if (AudioService.running) {
+      debugPrint('updateQueue');
+      AudioService.customAction(
+        audio.audioFile.first.url,
+        mediaItems.map((e) => e.toJson()).toList(),
+      );
+    } else {
+      AudioService.start(
+        backgroundTaskEntrypoint: _entrypoint,
+        params: {
+          'mediaItems': mediaItems.map((e) => e.toJson()).toList(),
+          'index': idx,
+        },
+      );
+    }
 
-  if (AudioService.running) {
-    debugPrint('updateQueue');
-    AudioService.customAction(
-      audio.audioFile.first.url,
-      mediaItems.map((e) => e.toJson()).toList(),
-    );
-  } else {
-    AudioService.start(
-      backgroundTaskEntrypoint: _entrypoint,
-      params: {
-        'mediaItems': mediaItems.map((e) => e.toJson()).toList(),
-        'index': idx,
-      },
-    );
+    getIt<AudioPlayerBloc>().add(AudioPlayerEvent.expand());
   }
-
-  getIt<AudioPlayerBloc>().add(AudioPlayerEvent.expand());
 }
