@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tattva/application/search/search_bloc.dart';
+import 'package:tattva/injection.dart';
+import 'package:tattva/pages/core/error_loading_list_item_view.dart';
+import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
+
+class WallpaperResultsView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<SearchBloc, SearchState>(
+      bloc: getIt<SearchBloc>(),
+      builder: (context, state) {
+        if (state.loading) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        } else {
+          return state.maybeMap(
+            orElse: () => Container(),
+            wallpapers: (_) => state.searchItems.fold(
+              () => Container(),
+              (sOrF) => sOrF.fold(
+                (l) => ErrorLoadingListItemView(),
+                (searchItems) => WallpapersGridView(
+                  wallpapers: searchItems.wallpapers,
+                  loadingMore: state.loadingMore,
+                  completelyFetched: searchItems.page == searchItems.nbPages,
+                  loadMore: () =>
+                      getIt<SearchBloc>().add(SearchEvent.loadMore()),
+                  onTap: (int index) {},
+                ),
+              ),
+            ),
+          );
+        }
+      },
+    );
+  }
+}

@@ -66,6 +66,7 @@ class BlogFacade implements IBlogFacade {
     String? startAfter,
   }) async {
     try {
+      debugPrint('getBlogsFromCategory: $categoryId');
       final response = await _dio.get(
         '/getBlogsFromCategory',
         queryParameters: {

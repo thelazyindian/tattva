@@ -8,6 +8,8 @@ import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/categories_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
+import 'package:tattva/router/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
 class WallpaperBody extends StatelessWidget {
   final List<WallpaperCategory> wallpaperCategories;
@@ -81,6 +83,11 @@ class WallpaperBody extends StatelessWidget {
                             WallpaperEvent.selectedCategoryLoadMore(
                                 id: selectedCategory.id),
                           ),
+                          onTap: (index) =>
+                              context.router.push(WallpaperExpandedRoute(
+                            wallpapers: selectedCategory.wallpapers,
+                            wallpaperIdx: index,
+                          )),
                         ),
                       ),
                 (error) => ErrorLoadingListItemView(),

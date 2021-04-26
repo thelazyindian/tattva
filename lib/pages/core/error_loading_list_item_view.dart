@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class ErrorLoadingListItemView extends StatelessWidget {
   @override
@@ -15,9 +16,10 @@ class ErrorLoadingListItemView extends StatelessWidget {
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height -
                   state.map(
-                    expanded: (_) => 80.0,
-                    collapsed: (_) => 80.0 + 64.0,
-                    none: (_) => 80.0,
+                    expanded: (_) => kToolbarHeight + bottomNavbarHeight,
+                    collapsed: (_) =>
+                        kToolbarHeight + bottomNavbarHeight + audioCollapsedBar,
+                    none: (_) => kToolbarHeight + bottomNavbarHeight,
                   ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

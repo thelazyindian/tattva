@@ -45,10 +45,21 @@ class WallpaperCategorySection extends StatelessWidget {
                     ));
                   },
                   child: Image.network(
-                    wallpaper.image.first.url,
+                    wallpaper.thumbnail.first.url,
                     fit: BoxFit.cover,
-                    loadingBuilder: (_, __, ___) => Container(
+                    loadingBuilder: (_, child, ___) => Container(
+                      width: 120.0,
                       color: Colors.grey.shade200,
+                      child: child,
+                    ),
+                    errorBuilder: (_, __, ___) => Container(
+                      width: 120.0,
+                      color: Colors.grey.shade200,
+                      child: Icon(
+                        Icons.warning_rounded,
+                        color: Colors.red,
+                        size: 40.0,
+                      ),
                     ),
                   ),
                 ),

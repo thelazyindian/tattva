@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:tattva/domain/wallpaper/wallpaper.dart';
-import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid.dart';
 
-class WallpapersGridView extends StatefulWidget {
-  final List<Wallpaper> wallpapers;
+class PaginationHandler extends StatefulWidget {
+  final Widget child;
   final bool loadingMore;
   final bool completelyFetched;
   final VoidCallback? loadMore;
-  final Function(int index) onTap;
+  final bool likedItemsView;
 
-  const WallpapersGridView({
+  const PaginationHandler({
     Key? key,
-    required this.wallpapers,
+    required this.child,
     this.loadingMore = false,
     this.loadMore,
     this.completelyFetched = false,
-    required this.onTap,
+    this.likedItemsView = false,
   }) : super(key: key);
 
   @override
-  _WallpapersGridViewState createState() => _WallpapersGridViewState();
+  _PaginationHandlerState createState() => _PaginationHandlerState();
 }
 
-class _WallpapersGridViewState extends State<WallpapersGridView> {
+class _PaginationHandlerState extends State<PaginationHandler> {
   late ScrollController _scrollController;
   @override
   void initState() {
@@ -41,7 +39,7 @@ class _WallpapersGridViewState extends State<WallpapersGridView> {
   }
 
   @override
-  void didUpdateWidget(covariant WallpapersGridView oldWidget) {
+  void didUpdateWidget(covariant PaginationHandler oldWidget) {
     if (oldWidget.loadingMore != widget.loadingMore && widget.loadingMore) {
       debugPrint(' _scrollController.animateTo');
       _scrollController.animateTo(
@@ -58,10 +56,7 @@ class _WallpapersGridViewState extends State<WallpapersGridView> {
     return ListView(
       controller: _scrollController,
       children: [
-        WallpapersGrid(
-          wallpapers: widget.wallpapers,
-          onTap: widget.onTap,
-        ),
+        widget.child,
         if (widget.loadingMore)
           Center(
             child: Container(

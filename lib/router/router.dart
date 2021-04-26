@@ -12,6 +12,7 @@ import 'package:tattva/pages/home/home_page.dart';
 import 'package:tattva/pages/landing/landing_page.dart';
 import 'package:tattva/pages/liked_items/liked_items_page.dart';
 import 'package:tattva/pages/profile/profile_page.dart';
+import 'package:tattva/pages/search/search_page.dart';
 import 'package:tattva/pages/splash/splash_page.dart';
 import 'package:tattva/pages/wallpaper/wallpaper_page.dart';
 import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
@@ -93,6 +94,13 @@ import 'package:tattva/pages/wallpaper_sub_category/wallpaper_sub_category_page.
               children: [
                 AutoRoute(page: BlogPage, initial: true),
                 AutoRoute(page: BlogReaderPage),
+              ],
+            ),
+            AutoRoute(
+              name: 'SearchWrapperRoute',
+              page: EmptyRouterPage,
+              children: [
+                AutoRoute(page: SearchPage, initial: true),
               ],
             ),
           ],

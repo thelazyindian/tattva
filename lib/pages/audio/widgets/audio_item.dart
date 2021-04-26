@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tattva/pages/audio/widgets/audio_title_bar.dart';
 
 class AudioItem extends StatelessWidget {
   final String imageUri;
@@ -35,7 +36,11 @@ class AudioItem extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
                 Positioned(
-                  child: textualElements(),
+                  child: AudioTitleBar(
+                    heading: heading,
+                    firstSubHeading: firstSubHeading,
+                    secondSubHeading: secondSubHeading,
+                  ),
                   bottom: 13.0,
                   left: 10.0,
                   right: 10.0,
@@ -45,50 +50,6 @@ class AudioItem extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  Widget textualElements() {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          heading,
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
-        ),
-        SizedBox(height: .0),
-        Row(
-          children: [
-            Text(
-              firstSubHeading,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 12.0,
-                color: Colors.white,
-              ),
-            ),
-            Container(
-              width: 4.0,
-              height: 4.0,
-              margin: const EdgeInsets.symmetric(horizontal: 4.0),
-              decoration:
-                  BoxDecoration(shape: BoxShape.circle, color: Colors.white),
-            ),
-            Text(
-              secondSubHeading,
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 12.0,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        )
-      ],
     );
   }
 }

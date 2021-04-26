@@ -6,6 +6,8 @@ import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
+import 'package:tattva/router/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
 class WallpaperSubCategoryPage extends StatelessWidget {
   final String title;
@@ -37,11 +39,15 @@ class WallpaperSubCategoryPage extends StatelessWidget {
                       loadingMore: state.loadingMore,
                       wallpapers: likedItems.likedWallpapers,
                       completelyFetched: state.completelyFetchedWallpapers,
-                      likedItemsView: true,
                       loadMore: () => getIt<LikedItemsBloc>().add(
                         LikedItemsEvent.loadMoreWallpapers(
                             id: likedItems.likedWallpapers.last.id),
                       ),
+                      onTap: (index) =>
+                          context.router.push(LikedItemsWallpaperExpandedRoute(
+                        wallpapers: likedItems.likedWallpapers,
+                        wallpaperIdx: index,
+                      )),
                     ),
                   ),
                 );

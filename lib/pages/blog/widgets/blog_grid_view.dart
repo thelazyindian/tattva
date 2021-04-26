@@ -27,6 +27,7 @@ class _BlogGridViewState extends State<BlogGridView> {
   late ScrollController _scrollController;
   @override
   void initState() {
+    debugPrint('BlogGridView initState');
     _scrollController = ScrollController();
 
     _scrollController.addListener(() {
@@ -41,7 +42,22 @@ class _BlogGridViewState extends State<BlogGridView> {
   }
 
   @override
+  void didUpdateWidget(covariant BlogGridView oldWidget) {
+    if (oldWidget.loadingMore != widget.loadingMore && widget.loadingMore) {
+      debugPrint(' _scrollController.animateTo');
+      _scrollController.animateTo(
+        _scrollController.offset + 36.0,
+        duration: Duration(milliseconds: 200),
+        curve: Curves.ease,
+      );
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
+    debugPrint('BlogGridView build');
+
     return widget.blogs.isEmpty
         ? Center(child: Text('No Items Found.'))
         : ListView(

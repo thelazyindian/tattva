@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
         WallpaperWrapperRoute(),
         LikedItemsWrapperRoute(),
         BlogWrapperRoute(),
+        SearchWrapperRoute(),
       ],
       duration: Duration(milliseconds: 400),
       builder: (context, child, animation) {

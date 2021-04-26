@@ -5,12 +5,12 @@
 // **************************************************************************
 
 import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:flutter/material.dart' as _i19;
+import 'package:flutter/material.dart' as _i20;
 
-import '../application/blog/blog_bloc.dart' as _i23;
-import '../domain/blog/blog.dart' as _i22;
-import '../domain/core/tattva_audio.dart' as _i20;
-import '../domain/wallpaper/wallpaper.dart' as _i21;
+import '../application/blog/blog_bloc.dart' as _i24;
+import '../domain/blog/blog.dart' as _i23;
+import '../domain/core/tattva_audio.dart' as _i21;
+import '../domain/wallpaper/wallpaper.dart' as _i22;
 import '../pages/audio/audio_page.dart' as _i8;
 import '../pages/audio_sub_category/audio_sub_category_page.dart' as _i9;
 import '../pages/authentication/forgot_password_page.dart' as _i6;
@@ -19,11 +19,12 @@ import '../pages/authentication/register_page.dart' as _i4;
 import '../pages/blog/blog_page.dart' as _i16;
 import '../pages/blog_reader/blog_reader_page.dart' as _i15;
 import '../pages/blog_sub_category/blog_sub_category_page.dart' as _i14;
-import '../pages/edit_profile/edit_profile_page.dart' as _i18;
+import '../pages/edit_profile/edit_profile_page.dart' as _i19;
 import '../pages/home/home_page.dart' as _i7;
 import '../pages/landing/landing_page.dart' as _i3;
 import '../pages/liked_items/liked_items_page.dart' as _i12;
-import '../pages/profile/profile_page.dart' as _i17;
+import '../pages/profile/profile_page.dart' as _i18;
+import '../pages/search/search_page.dart' as _i17;
 import '../pages/splash/splash_page.dart' as _i2;
 import '../pages/wallpaper/wallpaper_page.dart' as _i10;
 import '../pages/wallpaper_expanded/wallpaper_expanded_page.dart' as _i11;
@@ -78,6 +79,10 @@ class AppRouter extends _i1.RootStackRouter {
           entry: entry, child: const _i1.EmptyRouterPage());
     },
     BlogWrapperRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry, child: const _i1.EmptyRouterPage());
+    },
+    SearchWrapperRoute.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry, child: const _i1.EmptyRouterPage());
     },
@@ -163,11 +168,14 @@ class AppRouter extends _i1.RootStackRouter {
               blog: args.blog,
               blogReaderTabType: args.blogReaderTabType));
     },
+    SearchRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i17.SearchPage());
+    },
     ProfileRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i17.ProfilePage());
+      return _i1.MaterialPageX(entry: entry, child: _i18.ProfilePage());
     },
     EditProfileRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i18.EditProfilePage());
+      return _i1.MaterialPageX(entry: entry, child: _i19.EditProfilePage());
     }
   };
 
@@ -226,7 +234,10 @@ class AppRouter extends _i1.RootStackRouter {
                           _i1.RouteConfig(BlogRoute.name, path: ''),
                           _i1.RouteConfig(BlogReaderRoute.name,
                               path: 'blog-reader-page')
-                        ])
+                        ]),
+                    _i1.RouteConfig(SearchWrapperRoute.name,
+                        path: 'empty-router-page',
+                        children: [_i1.RouteConfig(SearchRoute.name, path: '')])
                   ]),
               _i1.RouteConfig(ProfileWrapperRoute.name,
                   path: 'empty-router-page',
@@ -325,6 +336,13 @@ class BlogWrapperRoute extends _i1.PageRouteInfo {
   static const String name = 'BlogWrapperRoute';
 }
 
+class SearchWrapperRoute extends _i1.PageRouteInfo {
+  const SearchWrapperRoute({List<_i1.PageRouteInfo>? children})
+      : super(name, path: 'empty-router-page', initialChildren: children);
+
+  static const String name = 'SearchWrapperRoute';
+}
+
 class AudioRoute extends _i1.PageRouteInfo {
   const AudioRoute() : super(name, path: '');
 
@@ -334,9 +352,9 @@ class AudioRoute extends _i1.PageRouteInfo {
 class AudioSubCategoryRoute
     extends _i1.PageRouteInfo<AudioSubCategoryRouteArgs> {
   AudioSubCategoryRoute(
-      {_i19.Key? key,
+      {_i20.Key? key,
       required String title,
-      required List<_i20.TattvaAudio> audios,
+      required List<_i21.TattvaAudio> audios,
       String? bannerImage})
       : super(name,
             path: 'audio-sub-category-page',
@@ -353,11 +371,11 @@ class AudioSubCategoryRouteArgs {
   const AudioSubCategoryRouteArgs(
       {this.key, required this.title, required this.audios, this.bannerImage});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
   final String title;
 
-  final List<_i20.TattvaAudio> audios;
+  final List<_i21.TattvaAudio> audios;
 
   final String? bannerImage;
 }
@@ -371,8 +389,8 @@ class WallpaperRoute extends _i1.PageRouteInfo {
 class WallpaperExpandedRoute
     extends _i1.PageRouteInfo<WallpaperExpandedRouteArgs> {
   WallpaperExpandedRoute(
-      {_i19.Key? key,
-      required List<_i21.Wallpaper> wallpapers,
+      {_i20.Key? key,
+      required List<_i22.Wallpaper> wallpapers,
       required int wallpaperIdx})
       : super(name,
             path: 'wallpaper-expanded-page',
@@ -386,9 +404,9 @@ class WallpaperExpandedRouteArgs {
   const WallpaperExpandedRouteArgs(
       {this.key, required this.wallpapers, required this.wallpaperIdx});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
-  final List<_i21.Wallpaper> wallpapers;
+  final List<_i22.Wallpaper> wallpapers;
 
   final int wallpaperIdx;
 }
@@ -402,9 +420,9 @@ class LikedItemsRoute extends _i1.PageRouteInfo {
 class LikedItemsAudioSubCategoryRoute
     extends _i1.PageRouteInfo<LikedItemsAudioSubCategoryRouteArgs> {
   LikedItemsAudioSubCategoryRoute(
-      {_i19.Key? key,
+      {_i20.Key? key,
       required String title,
-      required List<_i20.TattvaAudio> audios,
+      required List<_i21.TattvaAudio> audios,
       String? bannerImage})
       : super(name,
             path: 'audio-sub-category-page',
@@ -421,18 +439,18 @@ class LikedItemsAudioSubCategoryRouteArgs {
   const LikedItemsAudioSubCategoryRouteArgs(
       {this.key, required this.title, required this.audios, this.bannerImage});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
   final String title;
 
-  final List<_i20.TattvaAudio> audios;
+  final List<_i21.TattvaAudio> audios;
 
   final String? bannerImage;
 }
 
 class LikedItemsWallpaperSubCategoryRoute
     extends _i1.PageRouteInfo<LikedItemsWallpaperSubCategoryRouteArgs> {
-  LikedItemsWallpaperSubCategoryRoute({_i19.Key? key, required String title})
+  LikedItemsWallpaperSubCategoryRoute({_i20.Key? key, required String title})
       : super(name,
             path: 'wallpaper-sub-category-page',
             args: LikedItemsWallpaperSubCategoryRouteArgs(
@@ -445,14 +463,14 @@ class LikedItemsWallpaperSubCategoryRouteArgs {
   const LikedItemsWallpaperSubCategoryRouteArgs(
       {this.key, required this.title});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
   final String title;
 }
 
 class LikedItemsBlogSubCategoryRoute
     extends _i1.PageRouteInfo<LikedItemsBlogSubCategoryRouteArgs> {
-  LikedItemsBlogSubCategoryRoute({_i19.Key? key, required String title})
+  LikedItemsBlogSubCategoryRoute({_i20.Key? key, required String title})
       : super(name,
             path: 'blog-sub-category-page',
             args: LikedItemsBlogSubCategoryRouteArgs(key: key, title: title));
@@ -463,7 +481,7 @@ class LikedItemsBlogSubCategoryRoute
 class LikedItemsBlogSubCategoryRouteArgs {
   const LikedItemsBlogSubCategoryRouteArgs({this.key, required this.title});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
   final String title;
 }
@@ -471,9 +489,9 @@ class LikedItemsBlogSubCategoryRouteArgs {
 class LikedItemsBlogReaderRoute
     extends _i1.PageRouteInfo<LikedItemsBlogReaderRouteArgs> {
   LikedItemsBlogReaderRoute(
-      {_i19.Key? key,
-      required _i22.Blog blog,
-      required _i23.BlogReaderTabType blogReaderTabType})
+      {_i20.Key? key,
+      required _i23.Blog blog,
+      required _i24.BlogReaderTabType blogReaderTabType})
       : super(name,
             path: 'blog-reader-page',
             args: LikedItemsBlogReaderRouteArgs(
@@ -486,18 +504,18 @@ class LikedItemsBlogReaderRouteArgs {
   const LikedItemsBlogReaderRouteArgs(
       {this.key, required this.blog, required this.blogReaderTabType});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
-  final _i22.Blog blog;
+  final _i23.Blog blog;
 
-  final _i23.BlogReaderTabType blogReaderTabType;
+  final _i24.BlogReaderTabType blogReaderTabType;
 }
 
 class LikedItemsWallpaperExpandedRoute
     extends _i1.PageRouteInfo<LikedItemsWallpaperExpandedRouteArgs> {
   LikedItemsWallpaperExpandedRoute(
-      {_i19.Key? key,
-      required List<_i21.Wallpaper> wallpapers,
+      {_i20.Key? key,
+      required List<_i22.Wallpaper> wallpapers,
       required int wallpaperIdx})
       : super(name,
             path: 'wallpaper-expanded-page',
@@ -511,9 +529,9 @@ class LikedItemsWallpaperExpandedRouteArgs {
   const LikedItemsWallpaperExpandedRouteArgs(
       {this.key, required this.wallpapers, required this.wallpaperIdx});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
-  final List<_i21.Wallpaper> wallpapers;
+  final List<_i22.Wallpaper> wallpapers;
 
   final int wallpaperIdx;
 }
@@ -526,9 +544,9 @@ class BlogRoute extends _i1.PageRouteInfo {
 
 class BlogReaderRoute extends _i1.PageRouteInfo<BlogReaderRouteArgs> {
   BlogReaderRoute(
-      {_i19.Key? key,
-      required _i22.Blog blog,
-      required _i23.BlogReaderTabType blogReaderTabType})
+      {_i20.Key? key,
+      required _i23.Blog blog,
+      required _i24.BlogReaderTabType blogReaderTabType})
       : super(name,
             path: 'blog-reader-page',
             args: BlogReaderRouteArgs(
@@ -541,11 +559,17 @@ class BlogReaderRouteArgs {
   const BlogReaderRouteArgs(
       {this.key, required this.blog, required this.blogReaderTabType});
 
-  final _i19.Key? key;
+  final _i20.Key? key;
 
-  final _i22.Blog blog;
+  final _i23.Blog blog;
 
-  final _i23.BlogReaderTabType blogReaderTabType;
+  final _i24.BlogReaderTabType blogReaderTabType;
+}
+
+class SearchRoute extends _i1.PageRouteInfo {
+  const SearchRoute() : super(name, path: '');
+
+  static const String name = 'SearchRoute';
 }
 
 class ProfileRoute extends _i1.PageRouteInfo {
