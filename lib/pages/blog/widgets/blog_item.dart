@@ -24,10 +24,15 @@ class BlogItem extends StatelessWidget {
               blog: blog,
               blogReaderTabType: blogReaderTabType,
             ))
-          : context.router.push(BlogReaderRoute(
-              blog: blog,
-              blogReaderTabType: blogReaderTabType,
-            )),
+          : (blogReaderTabType == BlogReaderTabType.homeItems)
+              ? context.router.push(HomeItemsBlogReaderRoute(
+                  blog: blog,
+                  blogReaderTabType: blogReaderTabType,
+                ))
+              : context.router.push(BlogReaderRoute(
+                  blog: blog,
+                  blogReaderTabType: blogReaderTabType,
+                )),
       child: Material(
         color: Colors.white,
         elevation: 4.0,

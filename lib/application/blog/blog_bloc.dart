@@ -253,6 +253,32 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
                   },
                 ),
               );
+        } else if (e.blogReaderTabType == BlogReaderTabType.homeItems) {
+          yield state.copyWith(
+            readerLoading: true,
+            readerOption: none(),
+          );
+
+          final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+          final responseSorF = await _blogFacade.getBlogContent(
+            token,
+            e.id,
+          );
+
+          yield* responseSorF.fold(
+            (failure) async* {
+              yield state.copyWith(
+                readerLoading: false,
+                readerOption: optionOf(left(failure)),
+              );
+            },
+            (success) async* {
+              yield state.copyWith(
+                readerLoading: false,
+                readerOption: optionOf(right(success)),
+              );
+            },
+          );
         } else {
           yield* state.selectedCategory.fold(
             () async* {},
@@ -261,6 +287,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
                 readerLoading: true,
                 readerOption: none(),
               );
+
               final blogIdx = selectedCategory.blogs
                   .indexWhere((element) => element.id == e.id);
               if (blogIdx >= 0) {

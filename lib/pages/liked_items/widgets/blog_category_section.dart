@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/pages/core/blog_title_bar.dart';
 import 'package:tattva/pages/core/category_title_bar.dart';
-import 'package:tattva/router/router.gr.dart';
-import 'package:auto_route/auto_route.dart';
 
 class BlogCategorySection extends StatelessWidget {
   final String categoryName;
   final List<Blog> blogs;
   final VoidCallback? onTapNext;
+  final Function(int) onTapItem;
 
   const BlogCategorySection({
     Key? key,
     required this.categoryName,
     required this.blogs,
     this.onTapNext,
+    required this.onTapItem,
   }) : super(key: key);
 
   @override
@@ -38,10 +37,7 @@ class BlogCategorySection extends StatelessWidget {
             final blog = blogs[idx];
             return InkWell(
               borderRadius: BorderRadius.circular(10.0),
-              onTap: () => context.router.push(LikedItemsBlogReaderRoute(
-                blog: blog,
-                blogReaderTabType: BlogReaderTabType.likedItems,
-              )),
+              onTap: () => onTapItem(idx),
               child: Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20.0,

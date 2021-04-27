@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tattva/domain/wallpaper/wallpaper.dart';
 import 'package:tattva/pages/core/category_title_bar.dart';
-import 'package:tattva/router/router.gr.dart';
-import 'package:auto_route/auto_route.dart';
 
 class WallpaperCategorySection extends StatelessWidget {
   final String categoryName;
   final List<Wallpaper> wallpapers;
   final VoidCallback? onTapNext;
+  final Function(int) onTapItem;
 
   const WallpaperCategorySection({
     Key? key,
     required this.categoryName,
     required this.wallpapers,
     this.onTapNext,
+    required this.onTapItem,
   }) : super(key: key);
 
   @override
@@ -38,12 +38,7 @@ class WallpaperCategorySection extends StatelessWidget {
               return ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
                 child: InkWell(
-                  onTap: () {
-                    context.router.push(LikedItemsWallpaperExpandedRoute(
-                      wallpapers: wallpapers,
-                      wallpaperIdx: idx,
-                    ));
-                  },
+                  onTap: () => onTapItem(idx),
                   child: Image.network(
                     wallpaper.thumbnail.first.url,
                     fit: BoxFit.cover,

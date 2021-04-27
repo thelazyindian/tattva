@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:tattva/application/blog/blog_bloc.dart';
-import 'package:tattva/domain/liked_items/liked_items_data_model.dart';
+import 'package:tattva/domain/core/tattva_items_model.dart';
 import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/liked_items/widgets/blog_category_section.dart';
@@ -9,15 +9,15 @@ import 'package:tattva/pages/liked_items/widgets/search_bar_dummy.dart';
 import 'package:tattva/pages/liked_items/widgets/wallpaper_category_section.dart';
 import 'package:tattva/router/router.gr.dart';
 
-class LikedItemsBody extends StatelessWidget {
-  final LikedItemsDataModel likedItemsDataModel;
+class HomeItemsBody extends StatelessWidget {
+  final TattvaItemsModel tattvaItemsModel;
 
-  const LikedItemsBody({Key? key, required this.likedItemsDataModel})
+  const HomeItemsBody({Key? key, required this.tattvaItemsModel})
       : super(key: key);
 
-  final audioCategoryName = 'Your Audios';
-  final wallpaperCategoryName = 'Wallpapers you liked';
-  final blogCategoryName = 'Blogs Saved';
+  final audioCategoryName = 'Most Popular';
+  final wallpaperCategoryName = 'Most Downloaded Wallpapers';
+  final blogCategoryName = 'Must Read';
 
   @override
   Widget build(BuildContext context) {
@@ -35,49 +35,49 @@ class LikedItemsBody extends StatelessWidget {
           ),
         ),
         SearchBarDummy(),
-        if (likedItemsDataModel.likedAudios.isNotEmpty)
+        if (tattvaItemsModel.audios.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: 20.0),
             child: AudioSubcategorySection(
               categoryName: audioCategoryName,
               uppercaseTitle: false,
-              audios: likedItemsDataModel.likedAudios,
+              audios: tattvaItemsModel.audios,
               onTapNext: () =>
-                  context.router.navigate(LikedItemsAudioSubCategoryRoute(
+                  context.router.navigate(HomeItemsAudioSubCategoryRoute(
                 title: audioCategoryName,
-                audios: likedItemsDataModel.likedAudios,
+                audios: tattvaItemsModel.audios,
               )),
             ),
           ),
-        if (likedItemsDataModel.likedBlogs.isNotEmpty)
+        if (tattvaItemsModel.blog.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: 20.0),
             child: BlogCategorySection(
               categoryName: blogCategoryName,
-              blogs: likedItemsDataModel.likedBlogs,
+              blogs: tattvaItemsModel.blog,
               onTapNext: () =>
-                  context.router.navigate(LikedItemsBlogSubCategoryRoute(
+                  context.router.navigate(HomeItemsBlogSubCategoryRoute(
                 title: blogCategoryName,
               )),
-              onTapItem: (idx) => context.router.push(LikedItemsBlogReaderRoute(
-                blog: likedItemsDataModel.likedBlogs[idx],
-                blogReaderTabType: BlogReaderTabType.likedItems,
+              onTapItem: (idx) => context.router.push(HomeItemsBlogReaderRoute(
+                blog: tattvaItemsModel.blog[idx],
+                blogReaderTabType: BlogReaderTabType.homeItems,
               )),
             ),
           ),
-        if (likedItemsDataModel.likedWallpapers.isNotEmpty)
+        if (tattvaItemsModel.wallpaper.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: 20.0),
             child: WallpaperCategorySection(
               categoryName: wallpaperCategoryName,
-              wallpapers: likedItemsDataModel.likedWallpapers,
+              wallpapers: tattvaItemsModel.wallpaper,
               onTapNext: () =>
-                  context.router.navigate(LikedItemsWallpaperSubCategoryRoute(
+                  context.router.navigate(HomeItemsWallpaperSubCategoryRoute(
                 title: wallpaperCategoryName,
               )),
               onTapItem: (idx) {
-                context.router.push(LikedItemsWallpaperExpandedRoute(
-                  wallpapers: likedItemsDataModel.likedWallpapers,
+                context.router.push(HomeItemsWallpaperExpandedRoute(
+                  wallpapers: tattvaItemsModel.wallpaper,
                   wallpaperIdx: idx,
                 ));
               },

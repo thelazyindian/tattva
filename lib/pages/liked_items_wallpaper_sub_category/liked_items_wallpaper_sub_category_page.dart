@@ -9,10 +9,10 @@ import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
 import 'package:tattva/router/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
 
-class WallpaperSubCategoryPage extends StatelessWidget {
+class LikedItemsWallpaperSubCategoryPage extends StatelessWidget {
   final String title;
 
-  const WallpaperSubCategoryPage({Key? key, required this.title})
+  const LikedItemsWallpaperSubCategoryPage({Key? key, required this.title})
       : super(key: key);
 
   @override

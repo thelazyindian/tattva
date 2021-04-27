@@ -1,6 +1,6 @@
 part of 'blog_bloc.dart';
 
-enum BlogReaderTabType { blogs, likedItems }
+enum BlogReaderTabType { blogs, likedItems, homeItems }
 
 @freezed
 class BlogEvent with _$BlogEvent {
