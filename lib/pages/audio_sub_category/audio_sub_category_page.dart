@@ -9,12 +9,14 @@ class AudioSubCategoryPage extends StatelessWidget {
   final String title;
   final List<TattvaAudio> audios;
   final String? bannerImage;
+  final bool enableAudioPreviewPadding;
 
   const AudioSubCategoryPage({
     Key? key,
     required this.title,
     required this.audios,
     this.bannerImage,
+    this.enableAudioPreviewPadding = true,
   }) : super(key: key);
 
   @override
@@ -68,7 +70,7 @@ class AudioSubCategoryPage extends StatelessWidget {
                 );
               },
             ),
-            AudioPlayerPreviewPadding(),
+            if (enableAudioPreviewPadding) AudioPlayerPreviewPadding(),
           ],
         ),
       ),

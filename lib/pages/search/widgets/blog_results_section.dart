@@ -4,10 +4,12 @@ import 'package:tattva/pages/core/blog_title_bar.dart';
 
 class BlogResultsSection extends StatelessWidget {
   final List<Blog> blogs;
+  final Function(int) onTap;
 
   const BlogResultsSection({
     Key? key,
     required this.blogs,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -21,7 +23,7 @@ class BlogResultsSection extends StatelessWidget {
         final blog = blogs[idx];
 
         return InkWell(
-          onTap: () {},
+          onTap: () => onTap(idx),
           child: Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 20.0,

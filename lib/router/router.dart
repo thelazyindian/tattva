@@ -92,9 +92,39 @@ import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
               ],
             ),
             AutoRoute(
+              name: 'BlogWrapperRoute',
+              page: EmptyRouterPage,
+              children: [
+                AutoRoute(page: BlogPage, initial: true),
+                AutoRoute(page: BlogReaderPage),
+              ],
+            ),
+            AutoRoute(
+              name: 'SearchWrapperRoute',
+              page: EmptyRouterPage,
+              children: [
+                AutoRoute(page: SearchPage, initial: true),
+                AutoRoute(
+                  name: 'SearchItemsBlogReaderRoute',
+                  page: BlogReaderPage,
+                ),
+                AutoRoute(
+                  name: 'SearchItemsWallpaperExpandedRoute',
+                  page: WallpaperExpandedPage,
+                ),
+              ],
+            ),
+          ],
+        ),
+        AutoRoute(
+          name: 'ProfileWrapperRoute',
+          page: EmptyRouterPage,
+          children: [
+            AutoRoute(page: ProfilePage, initial: true),
+            AutoRoute(page: EditProfilePage),
+            AutoRoute(
               name: 'LikedItemsWrapperRoute',
               page: EmptyRouterPage,
-              initial: true,
               children: [
                 AutoRoute(page: LikedItemsPage, initial: true),
                 AutoRoute(
@@ -119,29 +149,6 @@ import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
                 ),
               ],
             ),
-            AutoRoute(
-              name: 'BlogWrapperRoute',
-              page: EmptyRouterPage,
-              children: [
-                AutoRoute(page: BlogPage, initial: true),
-                AutoRoute(page: BlogReaderPage),
-              ],
-            ),
-            AutoRoute(
-              name: 'SearchWrapperRoute',
-              page: EmptyRouterPage,
-              children: [
-                AutoRoute(page: SearchPage, initial: true),
-              ],
-            ),
-          ],
-        ),
-        AutoRoute(
-          name: 'ProfileWrapperRoute',
-          page: EmptyRouterPage,
-          children: [
-            AutoRoute(page: ProfilePage, initial: true),
-            AutoRoute(page: EditProfilePage),
           ],
         ),
       ],

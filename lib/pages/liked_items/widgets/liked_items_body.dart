@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/domain/liked_items/liked_items_data_model.dart';
 import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
-import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/liked_items/widgets/blog_category_section.dart';
-import 'package:tattva/pages/liked_items/widgets/search_bar_dummy.dart';
 import 'package:tattva/pages/liked_items/widgets/wallpaper_category_section.dart';
 import 'package:tattva/router/router.gr.dart';
 
@@ -25,16 +23,16 @@ class LikedItemsBody extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 16.0),
       shrinkWrap: true,
       children: [
-        Center(
-          child: Text(
-            'Balance your Life',
-            style: TextStyle(
-              fontSize: 14.0,
-              color: Color(0xFF646262),
-            ),
-          ),
-        ),
-        SearchBarDummy(),
+        // Center(
+        //   child: Text(
+        //     'Balance your Life',
+        //     style: TextStyle(
+        //       fontSize: 14.0,
+        //       color: Color(0xFF646262),
+        //     ),
+        //   ),
+        // ),
+        // SearchBarDummy(),
         if (likedItemsDataModel.likedAudios.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: 20.0),
@@ -46,6 +44,7 @@ class LikedItemsBody extends StatelessWidget {
                   context.router.navigate(LikedItemsAudioSubCategoryRoute(
                 title: audioCategoryName,
                 audios: likedItemsDataModel.likedAudios,
+                enableAudioPreviewPadding: false,
               )),
             ),
           ),
@@ -62,6 +61,7 @@ class LikedItemsBody extends StatelessWidget {
               onTapItem: (idx) => context.router.push(LikedItemsBlogReaderRoute(
                 blog: likedItemsDataModel.likedBlogs[idx],
                 blogReaderTabType: BlogReaderTabType.likedItems,
+                enableAudioPreviewPadding: false,
               )),
             ),
           ),
@@ -79,11 +79,11 @@ class LikedItemsBody extends StatelessWidget {
                 context.router.push(LikedItemsWallpaperExpandedRoute(
                   wallpapers: likedItemsDataModel.likedWallpapers,
                   wallpaperIdx: idx,
+                  enableAudioPreviewPadding: false,
                 ));
               },
             ),
           ),
-        AudioPlayerPreviewPadding(),
       ],
     );
   }

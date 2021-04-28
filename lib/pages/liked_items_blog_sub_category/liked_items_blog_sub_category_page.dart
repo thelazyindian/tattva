@@ -4,7 +4,6 @@ import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/application/liked_items/liked_items_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/blog/widgets/blog_grid_view.dart';
-import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 
@@ -24,33 +23,26 @@ class LikedItemsBlogSubCategoryPage extends StatelessWidget {
         titleAlignment: TextAlign.start,
         suffixIcon: 'icons/search.svg',
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: BlocBuilder<LikedItemsBloc, LikedItemsState>(
-              bloc: getIt<LikedItemsBloc>(),
-              builder: (context, state) {
-                return state.likedItemsOption.fold(
-                  () => const Center(child: CircularProgressIndicator()),
-                  (sOrF) => sOrF.fold(
-                    (l) => ErrorLoadingListItemView(),
-                    (likedItems) => BlogGridView(
-                      loadingMore: state.loadingMore,
-                      blogs: likedItems.likedBlogs,
-                      completelyFetched: state.completelyFetchedBlogs,
-                      blogReaderTabType: BlogReaderTabType.likedItems,
-                      loadMore: () => getIt<LikedItemsBloc>().add(
-                        LikedItemsEvent.loadMoreBlogs(
-                            id: likedItems.likedBlogs.last.id),
-                      ),
-                    ),
-                  ),
-                );
-              },
+      body: BlocBuilder<LikedItemsBloc, LikedItemsState>(
+        bloc: getIt<LikedItemsBloc>(),
+        builder: (context, state) {
+          return state.likedItemsOption.fold(
+            () => const Center(child: CircularProgressIndicator()),
+            (sOrF) => sOrF.fold(
+              (l) => ErrorLoadingListItemView(),
+              (likedItems) => BlogGridView(
+                loadingMore: state.loadingMore,
+                blogs: likedItems.likedBlogs,
+                completelyFetched: state.completelyFetchedBlogs,
+                blogReaderTabType: BlogReaderTabType.likedItems,
+                loadMore: () => getIt<LikedItemsBloc>().add(
+                  LikedItemsEvent.loadMoreBlogs(
+                      id: likedItems.likedBlogs.last.id),
+                ),
+              ),
             ),
-          ),
-          AudioPlayerPreviewPadding(),
-        ],
+          );
+        },
       ),
     );
   }

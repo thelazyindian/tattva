@@ -253,7 +253,8 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
                   },
                 ),
               );
-        } else if (e.blogReaderTabType == BlogReaderTabType.homeItems) {
+        } else if (e.blogReaderTabType == BlogReaderTabType.homeItems ||
+            e.blogReaderTabType == BlogReaderTabType.searchItems) {
           yield state.copyWith(
             readerLoading: true,
             readerOption: none(),

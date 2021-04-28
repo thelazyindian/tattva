@@ -28,7 +28,10 @@ class ProfileItemsList extends StatelessWidget {
       {
         'icon': 'icons/heart.svg',
         'name': PROFILE_ITEM_SAVED_ITEMS,
-        'onTap': () {},
+        'onTap': () => router.root
+            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
+            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
+            .push(LikedItemsWrapperRoute()),
       },
       {
         'icon': 'icons/message.svg',
@@ -56,7 +59,7 @@ class ProfileItemsList extends StatelessWidget {
         'onTap': () {
           getIt<IAuthFacade>().signOut().then((value) => value.fold(
                 (l) => null,
-                (r) => router.pushAndRemoveUntil(
+                (r) => router.root.pushAndRemoveUntil(
                   LandingWrapperRoute(),
                   predicate: (_) => false,
                 ),

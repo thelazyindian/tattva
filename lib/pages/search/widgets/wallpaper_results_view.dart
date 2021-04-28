@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/search/search_bloc.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/core/empty_results_view.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:tattva/router/router.gr.dart';
 
 class WallpaperResultsView extends StatelessWidget {
   @override
@@ -22,14 +25,22 @@ class WallpaperResultsView extends StatelessWidget {
               () => Container(),
               (sOrF) => sOrF.fold(
                 (l) => ErrorLoadingListItemView(),
-                (searchItems) => WallpapersGridView(
-                  wallpapers: searchItems.wallpapers,
-                  loadingMore: state.loadingMore,
-                  completelyFetched: searchItems.page == searchItems.nbPages,
-                  loadMore: () =>
-                      getIt<SearchBloc>().add(SearchEvent.loadMore()),
-                  onTap: (int index) {},
-                ),
+                (searchItems) => searchItems.wallpapers.isEmpty
+                    ? EmptyResultsView()
+                    : WallpapersGridView(
+                        wallpapers: searchItems.wallpapers,
+                        loadingMore: state.loadingMore,
+                        completelyFetched:
+                            searchItems.page == searchItems.nbPages,
+                        loadMore: () =>
+                            getIt<SearchBloc>().add(SearchEvent.loadMore()),
+                        onTap: (index) {
+                          context.router.push(SearchItemsWallpaperExpandedRoute(
+                            wallpapers: searchItems.wallpapers,
+                            wallpaperIdx: index,
+                          ));
+                        },
+                      ),
               ),
             ),
           );

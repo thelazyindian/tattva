@@ -11,11 +11,13 @@ import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 class BlogReaderPage extends StatefulWidget {
   final Blog blog;
   final BlogReaderTabType blogReaderTabType;
+  final bool enableAudioPreviewPadding;
 
   const BlogReaderPage({
     Key? key,
     required this.blog,
     required this.blogReaderTabType,
+    this.enableAudioPreviewPadding = true,
   }) : super(key: key);
 
   @override
@@ -90,7 +92,7 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
                 },
               ),
             ),
-            AudioPlayerPreviewPadding(),
+            if (widget.enableAudioPreviewPadding) AudioPlayerPreviewPadding(),
           ],
         ),
       ),

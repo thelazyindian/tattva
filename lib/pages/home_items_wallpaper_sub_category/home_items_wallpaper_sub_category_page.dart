@@ -1,14 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/home_items/home_items_bloc.dart';
-import 'package:tattva/application/liked_items/liked_items_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
 import 'package:tattva/router/router.gr.dart';
-import 'package:auto_route/auto_route.dart';
 
 class HomeItemsWallpaperSubCategoryPage extends StatelessWidget {
   final String title;

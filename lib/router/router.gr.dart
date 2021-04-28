@@ -16,9 +16,9 @@ import '../pages/audio_sub_category/audio_sub_category_page.dart' as _i9;
 import '../pages/authentication/forgot_password_page.dart' as _i6;
 import '../pages/authentication/login_page.dart' as _i5;
 import '../pages/authentication/register_page.dart' as _i4;
-import '../pages/blog/blog_page.dart' as _i19;
+import '../pages/blog/blog_page.dart' as _i16;
 import '../pages/blog_reader/blog_reader_page.dart' as _i15;
-import '../pages/edit_profile/edit_profile_page.dart' as _i22;
+import '../pages/edit_profile/edit_profile_page.dart' as _i19;
 import '../pages/home/home_page.dart' as _i7;
 import '../pages/home_items/home_items_page.dart' as _i12;
 import '../pages/home_items_blog_sub_category/home_items_blog_sub_category_page.dart'
@@ -26,13 +26,13 @@ import '../pages/home_items_blog_sub_category/home_items_blog_sub_category_page.
 import '../pages/home_items_wallpaper_sub_category/home_items_wallpaper_sub_category_page.dart'
     as _i13;
 import '../pages/landing/landing_page.dart' as _i3;
-import '../pages/liked_items/liked_items_page.dart' as _i16;
+import '../pages/liked_items/liked_items_page.dart' as _i20;
 import '../pages/liked_items_blog_sub_category/liked_items_blog_sub_category_page.dart'
-    as _i18;
+    as _i22;
 import '../pages/liked_items_wallpaper_sub_category/liked_items_wallpaper_sub_category_page.dart'
-    as _i17;
-import '../pages/profile/profile_page.dart' as _i21;
-import '../pages/search/search_page.dart' as _i20;
+    as _i21;
+import '../pages/profile/profile_page.dart' as _i18;
+import '../pages/search/search_page.dart' as _i17;
 import '../pages/splash/splash_page.dart' as _i2;
 import '../pages/wallpaper/wallpaper_page.dart' as _i10;
 import '../pages/wallpaper_expanded/wallpaper_expanded_page.dart' as _i11;
@@ -84,10 +84,6 @@ class AppRouter extends _i1.RootStackRouter {
       return _i1.MaterialPageX(
           entry: entry, child: const _i1.EmptyRouterPage());
     },
-    LikedItemsWrapperRoute.name: (entry) {
-      return _i1.MaterialPageX(
-          entry: entry, child: const _i1.EmptyRouterPage());
-    },
     BlogWrapperRoute.name: (entry) {
       return _i1.MaterialPageX(
           entry: entry, child: const _i1.EmptyRouterPage());
@@ -107,7 +103,8 @@ class AppRouter extends _i1.RootStackRouter {
               key: args.key,
               title: args.title,
               audios: args.audios,
-              bannerImage: args.bannerImage));
+              bannerImage: args.bannerImage,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     },
     WallpaperRoute.name: (entry) {
       return _i1.MaterialPageX(entry: entry, child: _i10.WallpaperPage());
@@ -119,7 +116,8 @@ class AppRouter extends _i1.RootStackRouter {
           child: _i11.WallpaperExpandedPage(
               key: args.key,
               wallpapers: args.wallpapers,
-              wallpaperIdx: args.wallpaperIdx));
+              wallpaperIdx: args.wallpaperIdx,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     },
     HomeItemsRoute.name: (entry) {
       return _i1.MaterialPageX(entry: entry, child: _i12.HomeItemsPage());
@@ -132,7 +130,8 @@ class AppRouter extends _i1.RootStackRouter {
               key: args.key,
               title: args.title,
               audios: args.audios,
-              bannerImage: args.bannerImage));
+              bannerImage: args.bannerImage,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     },
     HomeItemsWallpaperSubCategoryRoute.name: (entry) {
       var args =
@@ -156,7 +155,8 @@ class AppRouter extends _i1.RootStackRouter {
           child: _i15.BlogReaderPage(
               key: args.key,
               blog: args.blog,
-              blogReaderTabType: args.blogReaderTabType));
+              blogReaderTabType: args.blogReaderTabType,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     },
     HomeItemsWallpaperExpandedRoute.name: (entry) {
       var args = entry.routeData.argsAs<HomeItemsWallpaperExpandedRouteArgs>();
@@ -165,10 +165,58 @@ class AppRouter extends _i1.RootStackRouter {
           child: _i11.WallpaperExpandedPage(
               key: args.key,
               wallpapers: args.wallpapers,
-              wallpaperIdx: args.wallpaperIdx));
+              wallpaperIdx: args.wallpaperIdx,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
+    },
+    BlogRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i16.BlogPage());
+    },
+    BlogReaderRoute.name: (entry) {
+      var args = entry.routeData.argsAs<BlogReaderRouteArgs>();
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: _i15.BlogReaderPage(
+              key: args.key,
+              blog: args.blog,
+              blogReaderTabType: args.blogReaderTabType,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
+    },
+    SearchRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i17.SearchPage());
+    },
+    SearchItemsBlogReaderRoute.name: (entry) {
+      var args = entry.routeData.argsAs<SearchItemsBlogReaderRouteArgs>();
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: _i15.BlogReaderPage(
+              key: args.key,
+              blog: args.blog,
+              blogReaderTabType: args.blogReaderTabType,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
+    },
+    SearchItemsWallpaperExpandedRoute.name: (entry) {
+      var args =
+          entry.routeData.argsAs<SearchItemsWallpaperExpandedRouteArgs>();
+      return _i1.MaterialPageX(
+          entry: entry,
+          child: _i11.WallpaperExpandedPage(
+              key: args.key,
+              wallpapers: args.wallpapers,
+              wallpaperIdx: args.wallpaperIdx,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
+    },
+    ProfileRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i18.ProfilePage());
+    },
+    EditProfileRoute.name: (entry) {
+      return _i1.MaterialPageX(entry: entry, child: _i19.EditProfilePage());
+    },
+    LikedItemsWrapperRoute.name: (entry) {
+      return _i1.MaterialPageX(
+          entry: entry, child: const _i1.EmptyRouterPage());
     },
     LikedItemsRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i16.LikedItemsPage());
+      return _i1.MaterialPageX(entry: entry, child: _i20.LikedItemsPage());
     },
     LikedItemsAudioSubCategoryRoute.name: (entry) {
       var args = entry.routeData.argsAs<LikedItemsAudioSubCategoryRouteArgs>();
@@ -178,21 +226,22 @@ class AppRouter extends _i1.RootStackRouter {
               key: args.key,
               title: args.title,
               audios: args.audios,
-              bannerImage: args.bannerImage));
+              bannerImage: args.bannerImage,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     },
     LikedItemsWallpaperSubCategoryRoute.name: (entry) {
       var args =
           entry.routeData.argsAs<LikedItemsWallpaperSubCategoryRouteArgs>();
       return _i1.MaterialPageX(
           entry: entry,
-          child: _i17.LikedItemsWallpaperSubCategoryPage(
+          child: _i21.LikedItemsWallpaperSubCategoryPage(
               key: args.key, title: args.title));
     },
     LikedItemsBlogSubCategoryRoute.name: (entry) {
       var args = entry.routeData.argsAs<LikedItemsBlogSubCategoryRouteArgs>();
       return _i1.MaterialPageX(
           entry: entry,
-          child: _i18.LikedItemsBlogSubCategoryPage(
+          child: _i22.LikedItemsBlogSubCategoryPage(
               key: args.key, title: args.title));
     },
     LikedItemsBlogReaderRoute.name: (entry) {
@@ -202,7 +251,8 @@ class AppRouter extends _i1.RootStackRouter {
           child: _i15.BlogReaderPage(
               key: args.key,
               blog: args.blog,
-              blogReaderTabType: args.blogReaderTabType));
+              blogReaderTabType: args.blogReaderTabType,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     },
     LikedItemsWallpaperExpandedRoute.name: (entry) {
       var args = entry.routeData.argsAs<LikedItemsWallpaperExpandedRouteArgs>();
@@ -211,28 +261,8 @@ class AppRouter extends _i1.RootStackRouter {
           child: _i11.WallpaperExpandedPage(
               key: args.key,
               wallpapers: args.wallpapers,
-              wallpaperIdx: args.wallpaperIdx));
-    },
-    BlogRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i19.BlogPage());
-    },
-    BlogReaderRoute.name: (entry) {
-      var args = entry.routeData.argsAs<BlogReaderRouteArgs>();
-      return _i1.MaterialPageX(
-          entry: entry,
-          child: _i15.BlogReaderPage(
-              key: args.key,
-              blog: args.blog,
-              blogReaderTabType: args.blogReaderTabType));
-    },
-    SearchRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i20.SearchPage());
-    },
-    ProfileRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i21.ProfilePage());
-    },
-    EditProfileRoute.name: (entry) {
-      return _i1.MaterialPageX(entry: entry, child: _i22.EditProfilePage());
+              wallpaperIdx: args.wallpaperIdx,
+              enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     }
   };
 
@@ -285,8 +315,32 @@ class AppRouter extends _i1.RootStackRouter {
                           _i1.RouteConfig(HomeItemsWallpaperExpandedRoute.name,
                               path: 'wallpaper-expanded-page')
                         ]),
+                    _i1.RouteConfig(BlogWrapperRoute.name,
+                        path: 'empty-router-page',
+                        children: [
+                          _i1.RouteConfig(BlogRoute.name, path: ''),
+                          _i1.RouteConfig(BlogReaderRoute.name,
+                              path: 'blog-reader-page')
+                        ]),
+                    _i1.RouteConfig(SearchWrapperRoute.name,
+                        path: 'empty-router-page',
+                        children: [
+                          _i1.RouteConfig(SearchRoute.name, path: ''),
+                          _i1.RouteConfig(SearchItemsBlogReaderRoute.name,
+                              path: 'blog-reader-page'),
+                          _i1.RouteConfig(
+                              SearchItemsWallpaperExpandedRoute.name,
+                              path: 'wallpaper-expanded-page')
+                        ])
+                  ]),
+              _i1.RouteConfig(ProfileWrapperRoute.name,
+                  path: 'empty-router-page',
+                  children: [
+                    _i1.RouteConfig(ProfileRoute.name, path: ''),
+                    _i1.RouteConfig(EditProfileRoute.name,
+                        path: 'edit-profile-page'),
                     _i1.RouteConfig(LikedItemsWrapperRoute.name,
-                        path: '',
+                        path: 'empty-router-page',
                         children: [
                           _i1.RouteConfig(LikedItemsRoute.name, path: ''),
                           _i1.RouteConfig(LikedItemsAudioSubCategoryRoute.name,
@@ -300,24 +354,7 @@ class AppRouter extends _i1.RootStackRouter {
                               path: 'blog-reader-page'),
                           _i1.RouteConfig(LikedItemsWallpaperExpandedRoute.name,
                               path: 'wallpaper-expanded-page')
-                        ]),
-                    _i1.RouteConfig(BlogWrapperRoute.name,
-                        path: 'empty-router-page',
-                        children: [
-                          _i1.RouteConfig(BlogRoute.name, path: ''),
-                          _i1.RouteConfig(BlogReaderRoute.name,
-                              path: 'blog-reader-page')
-                        ]),
-                    _i1.RouteConfig(SearchWrapperRoute.name,
-                        path: 'empty-router-page',
-                        children: [_i1.RouteConfig(SearchRoute.name, path: '')])
-                  ]),
-              _i1.RouteConfig(ProfileWrapperRoute.name,
-                  path: 'empty-router-page',
-                  children: [
-                    _i1.RouteConfig(ProfileRoute.name, path: ''),
-                    _i1.RouteConfig(EditProfileRoute.name,
-                        path: 'edit-profile-page')
+                        ])
                   ])
             ])
       ];
@@ -402,13 +439,6 @@ class HomeItemsWrapperRoute extends _i1.PageRouteInfo {
   static const String name = 'HomeItemsWrapperRoute';
 }
 
-class LikedItemsWrapperRoute extends _i1.PageRouteInfo {
-  const LikedItemsWrapperRoute({List<_i1.PageRouteInfo>? children})
-      : super(name, path: '', initialChildren: children);
-
-  static const String name = 'LikedItemsWrapperRoute';
-}
-
 class BlogWrapperRoute extends _i1.PageRouteInfo {
   const BlogWrapperRoute({List<_i1.PageRouteInfo>? children})
       : super(name, path: 'empty-router-page', initialChildren: children);
@@ -435,21 +465,27 @@ class AudioSubCategoryRoute
       {_i23.Key? key,
       required String title,
       required List<_i24.TattvaAudio> audios,
-      String? bannerImage})
+      String? bannerImage,
+      bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'audio-sub-category-page',
             args: AudioSubCategoryRouteArgs(
                 key: key,
                 title: title,
                 audios: audios,
-                bannerImage: bannerImage));
+                bannerImage: bannerImage,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'AudioSubCategoryRoute';
 }
 
 class AudioSubCategoryRouteArgs {
   const AudioSubCategoryRouteArgs(
-      {this.key, required this.title, required this.audios, this.bannerImage});
+      {this.key,
+      required this.title,
+      required this.audios,
+      this.bannerImage,
+      this.enableAudioPreviewPadding = true});
 
   final _i23.Key? key;
 
@@ -458,6 +494,8 @@ class AudioSubCategoryRouteArgs {
   final List<_i24.TattvaAudio> audios;
 
   final String? bannerImage;
+
+  final bool enableAudioPreviewPadding;
 }
 
 class WallpaperRoute extends _i1.PageRouteInfo {
@@ -471,24 +509,33 @@ class WallpaperExpandedRoute
   WallpaperExpandedRoute(
       {_i23.Key? key,
       required List<_i25.Wallpaper> wallpapers,
-      required int wallpaperIdx})
+      required int wallpaperIdx,
+      bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'wallpaper-expanded-page',
             args: WallpaperExpandedRouteArgs(
-                key: key, wallpapers: wallpapers, wallpaperIdx: wallpaperIdx));
+                key: key,
+                wallpapers: wallpapers,
+                wallpaperIdx: wallpaperIdx,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'WallpaperExpandedRoute';
 }
 
 class WallpaperExpandedRouteArgs {
   const WallpaperExpandedRouteArgs(
-      {this.key, required this.wallpapers, required this.wallpaperIdx});
+      {this.key,
+      required this.wallpapers,
+      required this.wallpaperIdx,
+      this.enableAudioPreviewPadding = true});
 
   final _i23.Key? key;
 
   final List<_i25.Wallpaper> wallpapers;
 
   final int wallpaperIdx;
+
+  final bool enableAudioPreviewPadding;
 }
 
 class HomeItemsRoute extends _i1.PageRouteInfo {
@@ -503,21 +550,27 @@ class HomeItemsAudioSubCategoryRoute
       {_i23.Key? key,
       required String title,
       required List<_i24.TattvaAudio> audios,
-      String? bannerImage})
+      String? bannerImage,
+      bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'audio-sub-category-page',
             args: HomeItemsAudioSubCategoryRouteArgs(
                 key: key,
                 title: title,
                 audios: audios,
-                bannerImage: bannerImage));
+                bannerImage: bannerImage,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'HomeItemsAudioSubCategoryRoute';
 }
 
 class HomeItemsAudioSubCategoryRouteArgs {
   const HomeItemsAudioSubCategoryRouteArgs(
-      {this.key, required this.title, required this.audios, this.bannerImage});
+      {this.key,
+      required this.title,
+      required this.audios,
+      this.bannerImage,
+      this.enableAudioPreviewPadding = true});
 
   final _i23.Key? key;
 
@@ -526,6 +579,8 @@ class HomeItemsAudioSubCategoryRouteArgs {
   final List<_i24.TattvaAudio> audios;
 
   final String? bannerImage;
+
+  final bool enableAudioPreviewPadding;
 }
 
 class HomeItemsWallpaperSubCategoryRoute
@@ -570,24 +625,33 @@ class HomeItemsBlogReaderRoute
   HomeItemsBlogReaderRoute(
       {_i23.Key? key,
       required _i26.Blog blog,
-      required _i27.BlogReaderTabType blogReaderTabType})
+      required _i27.BlogReaderTabType blogReaderTabType,
+      bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'blog-reader-page',
             args: HomeItemsBlogReaderRouteArgs(
-                key: key, blog: blog, blogReaderTabType: blogReaderTabType));
+                key: key,
+                blog: blog,
+                blogReaderTabType: blogReaderTabType,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'HomeItemsBlogReaderRoute';
 }
 
 class HomeItemsBlogReaderRouteArgs {
   const HomeItemsBlogReaderRouteArgs(
-      {this.key, required this.blog, required this.blogReaderTabType});
+      {this.key,
+      required this.blog,
+      required this.blogReaderTabType,
+      this.enableAudioPreviewPadding = true});
 
   final _i23.Key? key;
 
   final _i26.Blog blog;
 
   final _i27.BlogReaderTabType blogReaderTabType;
+
+  final bool enableAudioPreviewPadding;
 }
 
 class HomeItemsWallpaperExpandedRoute
@@ -595,24 +659,165 @@ class HomeItemsWallpaperExpandedRoute
   HomeItemsWallpaperExpandedRoute(
       {_i23.Key? key,
       required List<_i25.Wallpaper> wallpapers,
-      required int wallpaperIdx})
+      required int wallpaperIdx,
+      bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'wallpaper-expanded-page',
             args: HomeItemsWallpaperExpandedRouteArgs(
-                key: key, wallpapers: wallpapers, wallpaperIdx: wallpaperIdx));
+                key: key,
+                wallpapers: wallpapers,
+                wallpaperIdx: wallpaperIdx,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'HomeItemsWallpaperExpandedRoute';
 }
 
 class HomeItemsWallpaperExpandedRouteArgs {
   const HomeItemsWallpaperExpandedRouteArgs(
-      {this.key, required this.wallpapers, required this.wallpaperIdx});
+      {this.key,
+      required this.wallpapers,
+      required this.wallpaperIdx,
+      this.enableAudioPreviewPadding = true});
 
   final _i23.Key? key;
 
   final List<_i25.Wallpaper> wallpapers;
 
   final int wallpaperIdx;
+
+  final bool enableAudioPreviewPadding;
+}
+
+class BlogRoute extends _i1.PageRouteInfo {
+  const BlogRoute() : super(name, path: '');
+
+  static const String name = 'BlogRoute';
+}
+
+class BlogReaderRoute extends _i1.PageRouteInfo<BlogReaderRouteArgs> {
+  BlogReaderRoute(
+      {_i23.Key? key,
+      required _i26.Blog blog,
+      required _i27.BlogReaderTabType blogReaderTabType,
+      bool enableAudioPreviewPadding = true})
+      : super(name,
+            path: 'blog-reader-page',
+            args: BlogReaderRouteArgs(
+                key: key,
+                blog: blog,
+                blogReaderTabType: blogReaderTabType,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
+
+  static const String name = 'BlogReaderRoute';
+}
+
+class BlogReaderRouteArgs {
+  const BlogReaderRouteArgs(
+      {this.key,
+      required this.blog,
+      required this.blogReaderTabType,
+      this.enableAudioPreviewPadding = true});
+
+  final _i23.Key? key;
+
+  final _i26.Blog blog;
+
+  final _i27.BlogReaderTabType blogReaderTabType;
+
+  final bool enableAudioPreviewPadding;
+}
+
+class SearchRoute extends _i1.PageRouteInfo {
+  const SearchRoute() : super(name, path: '');
+
+  static const String name = 'SearchRoute';
+}
+
+class SearchItemsBlogReaderRoute
+    extends _i1.PageRouteInfo<SearchItemsBlogReaderRouteArgs> {
+  SearchItemsBlogReaderRoute(
+      {_i23.Key? key,
+      required _i26.Blog blog,
+      required _i27.BlogReaderTabType blogReaderTabType,
+      bool enableAudioPreviewPadding = true})
+      : super(name,
+            path: 'blog-reader-page',
+            args: SearchItemsBlogReaderRouteArgs(
+                key: key,
+                blog: blog,
+                blogReaderTabType: blogReaderTabType,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
+
+  static const String name = 'SearchItemsBlogReaderRoute';
+}
+
+class SearchItemsBlogReaderRouteArgs {
+  const SearchItemsBlogReaderRouteArgs(
+      {this.key,
+      required this.blog,
+      required this.blogReaderTabType,
+      this.enableAudioPreviewPadding = true});
+
+  final _i23.Key? key;
+
+  final _i26.Blog blog;
+
+  final _i27.BlogReaderTabType blogReaderTabType;
+
+  final bool enableAudioPreviewPadding;
+}
+
+class SearchItemsWallpaperExpandedRoute
+    extends _i1.PageRouteInfo<SearchItemsWallpaperExpandedRouteArgs> {
+  SearchItemsWallpaperExpandedRoute(
+      {_i23.Key? key,
+      required List<_i25.Wallpaper> wallpapers,
+      required int wallpaperIdx,
+      bool enableAudioPreviewPadding = true})
+      : super(name,
+            path: 'wallpaper-expanded-page',
+            args: SearchItemsWallpaperExpandedRouteArgs(
+                key: key,
+                wallpapers: wallpapers,
+                wallpaperIdx: wallpaperIdx,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
+
+  static const String name = 'SearchItemsWallpaperExpandedRoute';
+}
+
+class SearchItemsWallpaperExpandedRouteArgs {
+  const SearchItemsWallpaperExpandedRouteArgs(
+      {this.key,
+      required this.wallpapers,
+      required this.wallpaperIdx,
+      this.enableAudioPreviewPadding = true});
+
+  final _i23.Key? key;
+
+  final List<_i25.Wallpaper> wallpapers;
+
+  final int wallpaperIdx;
+
+  final bool enableAudioPreviewPadding;
+}
+
+class ProfileRoute extends _i1.PageRouteInfo {
+  const ProfileRoute() : super(name, path: '');
+
+  static const String name = 'ProfileRoute';
+}
+
+class EditProfileRoute extends _i1.PageRouteInfo {
+  const EditProfileRoute() : super(name, path: 'edit-profile-page');
+
+  static const String name = 'EditProfileRoute';
+}
+
+class LikedItemsWrapperRoute extends _i1.PageRouteInfo {
+  const LikedItemsWrapperRoute({List<_i1.PageRouteInfo>? children})
+      : super(name, path: 'empty-router-page', initialChildren: children);
+
+  static const String name = 'LikedItemsWrapperRoute';
 }
 
 class LikedItemsRoute extends _i1.PageRouteInfo {
@@ -627,21 +832,27 @@ class LikedItemsAudioSubCategoryRoute
       {_i23.Key? key,
       required String title,
       required List<_i24.TattvaAudio> audios,
-      String? bannerImage})
+      String? bannerImage,
+      bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'audio-sub-category-page',
             args: LikedItemsAudioSubCategoryRouteArgs(
                 key: key,
                 title: title,
                 audios: audios,
-                bannerImage: bannerImage));
+                bannerImage: bannerImage,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'LikedItemsAudioSubCategoryRoute';
 }
 
 class LikedItemsAudioSubCategoryRouteArgs {
   const LikedItemsAudioSubCategoryRouteArgs(
-      {this.key, required this.title, required this.audios, this.bannerImage});
+      {this.key,
+      required this.title,
+      required this.audios,
+      this.bannerImage,
+      this.enableAudioPreviewPadding = true});
 
   final _i23.Key? key;
 
@@ -650,6 +861,8 @@ class LikedItemsAudioSubCategoryRouteArgs {
   final List<_i24.TattvaAudio> audios;
 
   final String? bannerImage;
+
+  final bool enableAudioPreviewPadding;
 }
 
 class LikedItemsWallpaperSubCategoryRoute
@@ -695,24 +908,33 @@ class LikedItemsBlogReaderRoute
   LikedItemsBlogReaderRoute(
       {_i23.Key? key,
       required _i26.Blog blog,
-      required _i27.BlogReaderTabType blogReaderTabType})
+      required _i27.BlogReaderTabType blogReaderTabType,
+      bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'blog-reader-page',
             args: LikedItemsBlogReaderRouteArgs(
-                key: key, blog: blog, blogReaderTabType: blogReaderTabType));
+                key: key,
+                blog: blog,
+                blogReaderTabType: blogReaderTabType,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'LikedItemsBlogReaderRoute';
 }
 
 class LikedItemsBlogReaderRouteArgs {
   const LikedItemsBlogReaderRouteArgs(
-      {this.key, required this.blog, required this.blogReaderTabType});
+      {this.key,
+      required this.blog,
+      required this.blogReaderTabType,
+      this.enableAudioPreviewPadding = true});
 
   final _i23.Key? key;
 
   final _i26.Blog blog;
 
   final _i27.BlogReaderTabType blogReaderTabType;
+
+  final bool enableAudioPreviewPadding;
 }
 
 class LikedItemsWallpaperExpandedRoute
@@ -720,70 +942,31 @@ class LikedItemsWallpaperExpandedRoute
   LikedItemsWallpaperExpandedRoute(
       {_i23.Key? key,
       required List<_i25.Wallpaper> wallpapers,
-      required int wallpaperIdx})
+      required int wallpaperIdx,
+      bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'wallpaper-expanded-page',
             args: LikedItemsWallpaperExpandedRouteArgs(
-                key: key, wallpapers: wallpapers, wallpaperIdx: wallpaperIdx));
+                key: key,
+                wallpapers: wallpapers,
+                wallpaperIdx: wallpaperIdx,
+                enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'LikedItemsWallpaperExpandedRoute';
 }
 
 class LikedItemsWallpaperExpandedRouteArgs {
   const LikedItemsWallpaperExpandedRouteArgs(
-      {this.key, required this.wallpapers, required this.wallpaperIdx});
+      {this.key,
+      required this.wallpapers,
+      required this.wallpaperIdx,
+      this.enableAudioPreviewPadding = true});
 
   final _i23.Key? key;
 
   final List<_i25.Wallpaper> wallpapers;
 
   final int wallpaperIdx;
-}
 
-class BlogRoute extends _i1.PageRouteInfo {
-  const BlogRoute() : super(name, path: '');
-
-  static const String name = 'BlogRoute';
-}
-
-class BlogReaderRoute extends _i1.PageRouteInfo<BlogReaderRouteArgs> {
-  BlogReaderRoute(
-      {_i23.Key? key,
-      required _i26.Blog blog,
-      required _i27.BlogReaderTabType blogReaderTabType})
-      : super(name,
-            path: 'blog-reader-page',
-            args: BlogReaderRouteArgs(
-                key: key, blog: blog, blogReaderTabType: blogReaderTabType));
-
-  static const String name = 'BlogReaderRoute';
-}
-
-class BlogReaderRouteArgs {
-  const BlogReaderRouteArgs(
-      {this.key, required this.blog, required this.blogReaderTabType});
-
-  final _i23.Key? key;
-
-  final _i26.Blog blog;
-
-  final _i27.BlogReaderTabType blogReaderTabType;
-}
-
-class SearchRoute extends _i1.PageRouteInfo {
-  const SearchRoute() : super(name, path: '');
-
-  static const String name = 'SearchRoute';
-}
-
-class ProfileRoute extends _i1.PageRouteInfo {
-  const ProfileRoute() : super(name, path: '');
-
-  static const String name = 'ProfileRoute';
-}
-
-class EditProfileRoute extends _i1.PageRouteInfo {
-  const EditProfileRoute() : super(name, path: 'edit-profile-page');
-
-  static const String name = 'EditProfileRoute';
+  final bool enableAudioPreviewPadding;
 }

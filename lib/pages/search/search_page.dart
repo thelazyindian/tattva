@@ -5,6 +5,7 @@ import 'package:tattva/injection.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/search/widgets/all_results_view.dart';
 import 'package:tattva/pages/search/widgets/audio_results_view.dart';
+import 'package:tattva/pages/search/widgets/blog_results_view.dart';
 import 'package:tattva/pages/search/widgets/search_field_app_bar.dart';
 import 'package:tattva/pages/search/widgets/wallpaper_results_view.dart';
 
@@ -46,10 +47,10 @@ class _SearchPageState extends State<SearchPage>
                 text: 'Audios',
               ),
               Tab(
-                text: 'Wallpapers',
+                text: 'Blogs',
               ),
               Tab(
-                text: 'Blogs',
+                text: 'Wallpapers',
               ),
             ],
           ),
@@ -64,8 +65,8 @@ class _SearchPageState extends State<SearchPage>
                 children: [
                   AllResultsView(),
                   AudioResultsView(),
+                  BlogResultsView(),
                   WallpaperResultsView(),
-                  Container(),
                 ],
               ),
             ),

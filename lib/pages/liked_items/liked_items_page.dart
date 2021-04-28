@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/liked_items/liked_items_bloc.dart';
@@ -7,7 +6,7 @@ import 'package:tattva/pages/core/custom_app_bar.dart';
 import 'package:tattva/pages/core/empty_results_view.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/liked_items/widgets/liked_items_body.dart';
-import 'package:tattva/router/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 
 class LikedItemsPage extends StatelessWidget {
   @override
@@ -15,13 +14,11 @@ class LikedItemsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: CustomAppBar(
-        title: "Tattva App",
-        suffixIcon: 'icons/person.svg',
-        customAppBarType: CustomAppBarType.head,
-        onSuffixPressed: () {
-          context.router.root
-              .innerRouterOf<StackRouter>('HomeWrapperRoute')!
-              .push(ProfileWrapperRoute());
+        title: "Liked",
+        titleAlignment: TextAlign.start,
+        customAppBarType: CustomAppBarType.subhead,
+        onPrefixPressed: () {
+          context.router.pop();
         },
       ),
       body: RefreshIndicator(
@@ -38,7 +35,7 @@ class LikedItemsPage extends StatelessWidget {
                         likedItems.likedBlogs.isEmpty &&
                         likedItems.likedWallpapers.isEmpty
                     ? EmptyResultsView(
-                        message: 'NO SAVED ITEMS FOUND!',
+                        message: 'NO LIKED ITEMS FOUND!',
                       )
                     : LikedItemsBody(
                         likedItemsDataModel: likedItems,

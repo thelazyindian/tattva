@@ -23,6 +23,7 @@ class BlogItem extends StatelessWidget {
           ? context.router.push(LikedItemsBlogReaderRoute(
               blog: blog,
               blogReaderTabType: blogReaderTabType,
+              enableAudioPreviewPadding: false,
             ))
           : (blogReaderTabType == BlogReaderTabType.homeItems)
               ? context.router.push(HomeItemsBlogReaderRoute(

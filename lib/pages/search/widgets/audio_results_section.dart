@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tattva/domain/core/tattva_audio.dart';
+import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/audio/widgets/audio_title_bar.dart';
 
 class AudioResultsSection extends StatelessWidget {
@@ -22,7 +23,11 @@ class AudioResultsSection extends StatelessWidget {
         final audio = audios[idx];
 
         return InkWell(
-          onTap: () {},
+          onTap: () => onAudioItemClicked(
+            categoryName: 'Search Results',
+            audios: audios,
+            idx: idx,
+          ),
           child: Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 20.0,

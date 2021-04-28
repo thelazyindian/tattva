@@ -136,14 +136,14 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
             query: state.query,
           );
         } else if (e.index == 2) {
-          yield SearchState.wallpapers(
+          yield SearchState.blogs(
             searchItems: none(),
             loading: false,
             loadingMore: false,
             query: state.query,
           );
         } else {
-          yield SearchState.blogs(
+          yield SearchState.wallpapers(
             searchItems: none(),
             loading: false,
             loadingMore: false,
