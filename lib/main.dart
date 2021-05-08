@@ -6,6 +6,7 @@ import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/core/custom_scroll_behavior.dart';
 import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/styles.dart';
 
@@ -51,6 +52,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      builder: (_, child) => ScrollConfiguration(
+        behavior: CustomScrollBehavior(),
+        child: child ?? Container(),
+      ),
       debugShowCheckedModeBanner: false,
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
