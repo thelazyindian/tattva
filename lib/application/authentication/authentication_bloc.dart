@@ -172,6 +172,10 @@ class AuthenticationBloc
       updateUserToken: (e) async* {
         yield state.copyWith(userToken: e.token);
       },
+      updatedUser: (e) async* {
+        yield state.copyWith(
+            authFailureOrSuccessOption: optionOf(right(e.user)));
+      },
     );
   }
 

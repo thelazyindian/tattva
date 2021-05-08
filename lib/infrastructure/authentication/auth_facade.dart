@@ -13,6 +13,7 @@ import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/domain/authentication/name.dart';
 import 'package:tattva/domain/authentication/password.dart';
 import 'package:tattva/domain/authentication/user.dart' as user;
+import 'package:tattva/domain/failure.dart';
 import 'package:tattva/utils/db.dart';
 
 @LazySingleton(as: IAuthFacade)
@@ -212,6 +213,34 @@ class AuthFacade implements IAuthFacade {
     } on FacebookAuthException catch (e) {
       debugPrint('FACEBOOK_AUTH: ${e.errorCode}');
       return none();
+    }
+  }
+
+  @override
+  Future<Either<Failure, user.User>> updateProfile({
+    required String uid,
+    required String displayName,
+  }) async {
+    try {
+      debugPrint('updateProfile uid $uid');
+      debugPrint('updateProfile displayName $displayName');
+
+      final userRef = _firestore.doc('${DB.USERS}/$uid');
+      await Future.wait([
+        userRef.update({
+          'displayName': displayName,
+        }),
+        _firebaseAuth.currentUser!.updateProfile(displayName: displayName),
+      ]);
+      final userSnap = await userRef.get();
+      final userModel = user.User.fromJson(userSnap.data()!).copyWith(
+        uid: uid,
+        displayName: displayName,
+      );
+      return right(userModel);
+    } catch (e) {
+      debugPrint('updateProfile ERROR $e');
+      return left(Failure.serverError());
     }
   }
 

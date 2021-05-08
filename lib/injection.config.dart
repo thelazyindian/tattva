@@ -17,7 +17,8 @@ import 'application/audio/audio_bloc.dart' as _i30;
 import 'application/audio_player/audio_player_bloc.dart' as _i3;
 import 'application/authentication/authentication_bloc.dart' as _i31;
 import 'application/blog/blog_bloc.dart' as _i32;
-import 'application/home_items/home_items_bloc.dart' as _i33;
+import 'application/edit_profile/edit_profile_bloc.dart' as _i33;
+import 'application/home_items/home_items_bloc.dart' as _i34;
 import 'application/liked_items/liked_items_bloc.dart' as _i25;
 import 'application/search/search_bloc.dart' as _i27;
 import 'application/subscriptions/subscriptions_bloc.dart' as _i28;
@@ -33,7 +34,7 @@ import 'domain/wallpaper/i_wallpaper_facade.dart' as _i23;
 import 'infrastructure/audio/audio_facade.dart' as _i10;
 import 'infrastructure/authentication/auth_facade.dart' as _i12;
 import 'infrastructure/blog/blog_facade.dart' as _i14;
-import 'infrastructure/core/injectable_module.dart' as _i34;
+import 'infrastructure/core/injectable_module.dart' as _i35;
 import 'infrastructure/home_items/home_items_facade.dart' as _i16;
 import 'infrastructure/liked_items/liked_items_facade.dart' as _i18;
 import 'infrastructure/search/search_facade.dart' as _i20;
@@ -84,9 +85,11 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i31.AuthenticationBloc>(
       () => _i31.AuthenticationBloc(get<_i11.IAuthFacade>()));
   gh.lazySingleton<_i32.BlogBloc>(() => _i32.BlogBloc(get<_i13.IBlogFacade>()));
-  gh.lazySingleton<_i33.HomeItemsBloc>(
-      () => _i33.HomeItemsBloc(get<_i15.IHomeItemsFacade>()));
+  gh.lazySingleton<_i33.EditProfileBloc>(
+      () => _i33.EditProfileBloc(get<_i11.IAuthFacade>()));
+  gh.lazySingleton<_i34.HomeItemsBloc>(
+      () => _i34.HomeItemsBloc(get<_i15.IHomeItemsFacade>()));
   return get;
 }
 
-class _$InjectableModule extends _i34.InjectableModule {}
+class _$InjectableModule extends _i35.InjectableModule {}

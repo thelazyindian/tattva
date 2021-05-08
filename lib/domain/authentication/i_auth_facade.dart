@@ -5,6 +5,7 @@ import 'package:tattva/domain/authentication/email.dart';
 import 'package:tattva/domain/authentication/name.dart';
 import 'package:tattva/domain/authentication/password.dart';
 import 'package:tattva/domain/authentication/user.dart' as user;
+import 'package:tattva/domain/failure.dart';
 
 abstract class IAuthFacade {
   Future<Either<AuthFailure, user.User>> signInWithEmailAndPassword(
@@ -20,6 +21,10 @@ abstract class IAuthFacade {
   User? get currentUser;
   Future<Option<Either<AuthFailure, user.User>>> signInWithGoogle();
   Future<Option<Either<AuthFailure, user.User>>> signInWithFacebook();
+  Future<Either<Failure, user.User>> updateProfile({
+    required String uid,
+    required String displayName,
+  });
   Future<Option<Either<AuthFailure, user.User>>> getUser();
   Future<Either<AuthFailure, Unit>> resetPassword(Email email);
   Future<Either<AuthFailure, Unit>> signOut();

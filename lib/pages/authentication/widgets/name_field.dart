@@ -8,9 +8,18 @@ import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/strings.dart';
 
 class NameField extends StatelessWidget {
-  const NameField({Key? key, this.initialValue}) : super(key: key);
-
   final String? initialValue;
+  final ValueChanged<String> onChanged;
+  final bool? enabled;
+  final TextInputAction textInputAction;
+
+  const NameField({
+    Key? key,
+    this.initialValue,
+    required this.onChanged,
+    this.enabled,
+    this.textInputAction = TextInputAction.next,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +29,10 @@ class NameField extends StatelessWidget {
         return TextFormField(
           cursorWidth: cursorWidth,
           initialValue: initialValue,
-          enabled: !(state.loadingGoogleSignIn ||
-              state.loadingFacebookSignIn ||
-              state.status.isSubmissionInProgress),
+          enabled: enabled ??
+              !(state.loadingGoogleSignIn ||
+                  state.loadingFacebookSignIn ||
+                  state.status.isSubmissionInProgress),
           decoration: InputDecoration(
             hintText: HINT_TXT_FULLNAME,
             errorText: state.showErrorMessage
@@ -33,9 +43,8 @@ class NameField extends StatelessWidget {
                         : null
                 : null,
           ),
-          textInputAction: TextInputAction.next,
-          onChanged: (value) => getIt<AuthenticationBloc>()
-              .add(AuthenticationEvent.onNameChanged(value)),
+          textInputAction: textInputAction,
+          onChanged: onChanged,
         );
       },
     );

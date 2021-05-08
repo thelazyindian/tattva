@@ -62,6 +62,7 @@ class _PasswordFieldState extends State<PasswordField> {
               ),
             ),
           ),
+          textInputAction: TextInputAction.go,
           onChanged: (value) => getIt<AuthenticationBloc>()
               .add(AuthenticationEvent.onPasswordChanged(value)),
           onFieldSubmitted: widget.onFieldSubmitted,

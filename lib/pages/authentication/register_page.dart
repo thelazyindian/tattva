@@ -54,7 +54,10 @@ class _RegisterPageState extends State<RegisterPage> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  NameField(),
+                  NameField(
+                    onChanged: (value) => getIt<AuthenticationBloc>()
+                        .add(AuthenticationEvent.onNameChanged(value)),
+                  ),
                   const SizedBox(height: inputFieldsSpacing),
                   EmailField(),
                   const SizedBox(height: inputFieldsSpacing),
