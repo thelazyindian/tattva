@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 @module
 abstract class InjectableModule {
@@ -16,8 +17,11 @@ abstract class InjectableModule {
   @lazySingleton
   FacebookAuth get facebookAuth => FacebookAuth.instance;
   @lazySingleton
+  Razorpay get razorpay => Razorpay();
+  @lazySingleton
   Dio get dio => Dio(
         BaseOptions(
-            baseUrl: 'http://192.168.29.227:5001/tattva-app/us-central1/app'),
+            baseUrl:
+                'https://9cd38f378895.ngrok.io/tattva-app/us-central1/app'),
       );
 }

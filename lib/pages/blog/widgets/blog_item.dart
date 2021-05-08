@@ -52,7 +52,7 @@ class BlogItem extends StatelessWidget {
                     bottomLeft: Radius.circular(16.0),
                   ),
                   child: Hero(
-                    tag: blog.coverImage.first.url,
+                    tag: blog.id,
                     child: Image.network(
                       blog.coverImage.first.url,
                       fit: BoxFit.cover,

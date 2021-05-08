@@ -23,7 +23,10 @@ class ProfileItemsList extends StatelessWidget {
       {
         'icon': 'icons/list.svg',
         'name': PROFILE_ITEM_SUBSCRIPTIONS,
-        'onTap': () {},
+        'onTap': () => router.root
+            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
+            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
+            .push(SubscriptionsRoute()),
       },
       {
         'icon': 'icons/heart.svg',

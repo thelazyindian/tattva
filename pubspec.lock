@@ -295,6 +295,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  eventify:
+    dependency: transitive
+    description:
+      name: eventify
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:
@@ -863,6 +870,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+  razorpay_flutter:
+    dependency: "direct main"
+    description:
+      path: "../razorpay-flutter"
+      relative: true
+    source: path
+    version: "1.2.5"
   rxdart:
     dependency: transitive
     description:

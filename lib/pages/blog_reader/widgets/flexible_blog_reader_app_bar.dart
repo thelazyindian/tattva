@@ -3,9 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class FlexibleBlogReaderAppBar extends StatelessWidget {
   final String imageUrl;
+  final String heroId;
 
-  const FlexibleBlogReaderAppBar({Key? key, required this.imageUrl})
-      : super(key: key);
+  const FlexibleBlogReaderAppBar({
+    Key? key,
+    required this.imageUrl,
+    required this.heroId,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,7 @@ class FlexibleBlogReaderAppBar extends StatelessWidget {
         ),
         child: FlexibleSpaceBar(
           background: Hero(
-            tag: imageUrl,
+            tag: heroId,
             child: Image.network(
               imageUrl,
               fit: BoxFit.cover,

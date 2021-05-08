@@ -6,7 +6,7 @@ import 'package:tattva/domain/authentication/auth_form_type.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/authentication/widgets/custom_sliver_app_bar.dart';
 import 'package:tattva/pages/authentication/widgets/email_field.dart';
-import 'package:tattva/pages/authentication/widgets/primary_login_button.dart';
+import 'package:tattva/pages/core/primary_button.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
@@ -52,7 +52,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   children: [
                     EmailField(),
                     const SizedBox(height: formBtnSpacing),
-                    PrimaryLoginButton(
+                    PrimaryButton(
                       label: BTN_RESET_PASSWORD,
                       loading: state.status.isSubmissionInProgress,
                       onPressed: loadingRequest

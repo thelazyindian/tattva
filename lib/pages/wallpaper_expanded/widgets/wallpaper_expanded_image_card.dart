@@ -21,8 +21,23 @@ class WallpaperExpandedImageCard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.network(
-              wallpaper.image.first.url,
+              wallpaper.thumbnail.first.url,
               fit: BoxFit.fitHeight,
+              loadingBuilder: (_, child, ___) => Container(
+                height: double.infinity,
+                color: Colors.grey.shade200,
+                child: child,
+              ),
+              errorBuilder: (_, __, ___) => Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Colors.grey.shade200,
+                child: Icon(
+                  Icons.warning_rounded,
+                  color: Colors.red,
+                  size: 40.0,
+                ),
+              ),
             ),
           ),
         ),

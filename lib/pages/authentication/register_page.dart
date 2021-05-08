@@ -11,7 +11,7 @@ import 'package:tattva/pages/authentication/widgets/custom_sliver_app_bar.dart';
 import 'package:tattva/pages/authentication/widgets/email_field.dart';
 import 'package:tattva/pages/authentication/widgets/name_field.dart';
 import 'package:tattva/pages/authentication/widgets/password_field.dart';
-import 'package:tattva/pages/authentication/widgets/primary_login_button.dart';
+import 'package:tattva/pages/core/primary_button.dart';
 import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
@@ -62,7 +62,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     onFieldSubmitted: (_) => onRegisterPressed(),
                   ),
                   const SizedBox(height: formBtnSpacing),
-                  PrimaryLoginButton(
+                  PrimaryButton(
                     label: BTN_REGISTER,
                     loading: state.status.isSubmissionInProgress,
                     onPressed: loadingRequest ? null : onRegisterPressed,

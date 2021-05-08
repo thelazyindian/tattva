@@ -56,7 +56,10 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
       body: NestedScrollView(
         controller: _scrollController,
         headerSliverBuilder: (_, __) => [
-          FlexibleBlogReaderAppBar(imageUrl: widget.blog.coverImage.first.url),
+          FlexibleBlogReaderAppBar(
+            imageUrl: widget.blog.coverImage.first.url,
+            heroId: widget.blog.id,
+          ),
         ],
         body: Column(
           children: [

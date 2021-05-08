@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/styles.dart';
 
-class PrimaryLoginButton extends StatelessWidget {
-  const PrimaryLoginButton({
+class PrimaryButton extends StatelessWidget {
+  const PrimaryButton({
     Key? key,
     required this.label,
     this.loading = false,

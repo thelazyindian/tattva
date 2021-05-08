@@ -8,9 +8,14 @@ import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/strings.dart';
 
 class EmailField extends StatelessWidget {
-  const EmailField({Key? key, this.initialValue}) : super(key: key);
-
   final String? initialValue;
+  final bool editProfileView;
+
+  const EmailField({
+    Key? key,
+    this.initialValue,
+    this.editProfileView = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +25,11 @@ class EmailField extends StatelessWidget {
         return TextFormField(
           cursorWidth: cursorWidth,
           initialValue: initialValue,
-          enabled: !(state.loadingGoogleSignIn ||
-              state.loadingFacebookSignIn ||
-              state.status.isSubmissionInProgress),
+          enabled: editProfileView
+              ? false
+              : !(state.loadingGoogleSignIn ||
+                  state.loadingFacebookSignIn ||
+                  state.status.isSubmissionInProgress),
           decoration: InputDecoration(
             hintText: HINT_TXT_EMAIL,
             errorText: state.showErrorMessage
