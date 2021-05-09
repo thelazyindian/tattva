@@ -9,12 +9,12 @@ import 'package:tattva/utils/strings.dart';
 
 class EmailField extends StatelessWidget {
   final String? initialValue;
-  final bool editProfileView;
+  final bool? enabled;
 
   const EmailField({
     Key? key,
     this.initialValue,
-    this.editProfileView = false,
+    this.enabled,
   }) : super(key: key);
 
   @override
@@ -22,14 +22,17 @@ class EmailField extends StatelessWidget {
     return BlocBuilder<AuthenticationBloc, AuthenticationState>(
       bloc: getIt<AuthenticationBloc>(),
       builder: (context, state) {
+        final _enabled = enabled ??
+            !(state.loadingGoogleSignIn ||
+                state.loadingFacebookSignIn ||
+                state.status.isSubmissionInProgress);
         return TextFormField(
           cursorWidth: cursorWidth,
           initialValue: initialValue,
-          enabled: editProfileView
-              ? false
-              : !(state.loadingGoogleSignIn ||
-                  state.loadingFacebookSignIn ||
-                  state.status.isSubmissionInProgress),
+          enabled: _enabled,
+          style: TextStyle(
+            color: _enabled ? null : Colors.black54,
+          ),
           decoration: InputDecoration(
             hintText: HINT_TXT_EMAIL,
             errorText: state.showErrorMessage

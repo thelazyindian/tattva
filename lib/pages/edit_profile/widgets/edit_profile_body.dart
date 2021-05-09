@@ -25,24 +25,29 @@ class EditProfileBody extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(30.0, 24.0, 30.0, 30.0),
       children: [
-        Container(
-          height: editProfileUploadPicThumbnailSize,
-          width: editProfileUploadPicThumbnailSize,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: user.photoURL == null
-                  ? Image.asset(
-                      'images/profile.png',
-                      fit: BoxFit.cover,
-                    ).image
-                  : Image.network(
-                      user.photoURL!,
-                      fit: BoxFit.cover,
-                    ).image,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: editProfileUploadPicThumbnailSize,
+              width: editProfileUploadPicThumbnailSize,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: user.photoURL == null
+                      ? Image.asset(
+                          'images/profile.png',
+                          fit: BoxFit.cover,
+                        ).image
+                      : Image.network(
+                          user.photoURL!,
+                          fit: BoxFit.cover,
+                        ).image,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -68,7 +73,7 @@ class EditProfileBody extends StatelessWidget {
         const SizedBox(height: inputFieldsSpacing),
         EmailField(
           initialValue: user.email,
-          editProfileView: true,
+          enabled: false,
         ),
         const SizedBox(height: inputFieldsSpacing),
         PrimaryButton(
