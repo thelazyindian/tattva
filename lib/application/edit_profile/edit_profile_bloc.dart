@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
@@ -53,10 +54,16 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
         );
       },
       onNameChanged: (e) async* {
-        yield state.copyWith(displayName: e.value);
+        yield state.copyWith(
+          sendingMailOption: none(),
+          displayName: e.value,
+        );
       },
       updatedProfile: (e) async* {
-        yield state.copyWith(updating: true);
+        yield state.copyWith(
+          updating: true,
+          sendingMailOption: none(),
+        );
         yield* state.updateProfileOption.fold(
           () async* {},
           (sOrF) => sOrF.fold(
@@ -78,6 +85,18 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
               );
             },
           ),
+        );
+      },
+      sendVerificationMail: (e) async* {
+        yield state.copyWith(
+          sendingMail: true,
+          sendingMailOption: none(),
+        );
+        debugPrint('sendVerificationMail');
+        final response = await _authFacade.sendEmailVerification();
+        yield state.copyWith(
+          sendingMail: false,
+          sendingMailOption: optionOf(response),
         );
       },
     );

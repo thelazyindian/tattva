@@ -10,11 +10,13 @@ import 'package:tattva/utils/strings.dart';
 class EmailField extends StatelessWidget {
   final String? initialValue;
   final bool? enabled;
+  final Widget? suffixIcon;
 
   const EmailField({
     Key? key,
     this.initialValue,
     this.enabled,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override
@@ -42,6 +44,7 @@ class EmailField extends StatelessWidget {
                         ? INVALID_EMAIL_ERROR
                         : null
                 : null,
+            suffix: suffixIcon,
           ),
           textInputAction: TextInputAction.next,
           onChanged: (value) => getIt<AuthenticationBloc>()

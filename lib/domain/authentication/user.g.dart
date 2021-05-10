@@ -11,6 +11,7 @@ _$_User _$_$_UserFromJson(Map<String, dynamic> json) {
     uid: json['uid'] as String?,
     displayName: json['displayName'] as String,
     email: json['email'] as String,
+    emailVerified: json['emailVerified'] as bool? ?? false,
     creationTime:
         const TimestampConverter().fromJson(json['creationTime'] as Timestamp),
     lastSignInTime: const TimestampConverter()
@@ -23,6 +24,7 @@ Map<String, dynamic> _$_$_UserToJson(_$_User instance) => <String, dynamic>{
       'uid': instance.uid,
       'displayName': instance.displayName,
       'email': instance.email,
+      'emailVerified': instance.emailVerified,
       'creationTime': const TimestampConverter().toJson(instance.creationTime),
       'lastSignInTime':
           const TimestampConverter().toJson(instance.lastSignInTime),

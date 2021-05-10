@@ -24,6 +24,7 @@ class _$UserTearOff {
       {String? uid,
       required String displayName,
       required String email,
+      bool emailVerified = false,
       @TimestampConverter() required DateTime creationTime,
       @TimestampConverter() required DateTime lastSignInTime,
       String? photoURL}) {
@@ -31,6 +32,7 @@ class _$UserTearOff {
       uid: uid,
       displayName: displayName,
       email: email,
+      emailVerified: emailVerified,
       creationTime: creationTime,
       lastSignInTime: lastSignInTime,
       photoURL: photoURL,
@@ -50,6 +52,7 @@ mixin _$User {
   String? get uid => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  bool get emailVerified => throw _privateConstructorUsedError;
   @TimestampConverter()
   DateTime get creationTime => throw _privateConstructorUsedError;
   @TimestampConverter()
@@ -69,6 +72,7 @@ abstract class $UserCopyWith<$Res> {
       {String? uid,
       String displayName,
       String email,
+      bool emailVerified,
       @TimestampConverter() DateTime creationTime,
       @TimestampConverter() DateTime lastSignInTime,
       String? photoURL});
@@ -87,6 +91,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? uid = freezed,
     Object? displayName = freezed,
     Object? email = freezed,
+    Object? emailVerified = freezed,
     Object? creationTime = freezed,
     Object? lastSignInTime = freezed,
     Object? photoURL = freezed,
@@ -104,6 +109,10 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      emailVerified: emailVerified == freezed
+          ? _value.emailVerified
+          : emailVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
       creationTime: creationTime == freezed
           ? _value.creationTime
           : creationTime // ignore: cast_nullable_to_non_nullable
@@ -129,6 +138,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       {String? uid,
       String displayName,
       String email,
+      bool emailVerified,
       @TimestampConverter() DateTime creationTime,
       @TimestampConverter() DateTime lastSignInTime,
       String? photoURL});
@@ -148,6 +158,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? uid = freezed,
     Object? displayName = freezed,
     Object? email = freezed,
+    Object? emailVerified = freezed,
     Object? creationTime = freezed,
     Object? lastSignInTime = freezed,
     Object? photoURL = freezed,
@@ -165,6 +176,10 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      emailVerified: emailVerified == freezed
+          ? _value.emailVerified
+          : emailVerified // ignore: cast_nullable_to_non_nullable
+              as bool,
       creationTime: creationTime == freezed
           ? _value.creationTime
           : creationTime // ignore: cast_nullable_to_non_nullable
@@ -189,6 +204,7 @@ class _$_User implements _User {
       {this.uid,
       required this.displayName,
       required this.email,
+      this.emailVerified = false,
       @TimestampConverter() required this.creationTime,
       @TimestampConverter() required this.lastSignInTime,
       this.photoURL});
@@ -202,6 +218,9 @@ class _$_User implements _User {
   final String displayName;
   @override
   final String email;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool emailVerified;
   @override
   @TimestampConverter()
   final DateTime creationTime;
@@ -213,7 +232,7 @@ class _$_User implements _User {
 
   @override
   String toString() {
-    return 'User(uid: $uid, displayName: $displayName, email: $email, creationTime: $creationTime, lastSignInTime: $lastSignInTime, photoURL: $photoURL)';
+    return 'User(uid: $uid, displayName: $displayName, email: $email, emailVerified: $emailVerified, creationTime: $creationTime, lastSignInTime: $lastSignInTime, photoURL: $photoURL)';
   }
 
   @override
@@ -227,6 +246,9 @@ class _$_User implements _User {
                     .equals(other.displayName, displayName)) &&
             (identical(other.email, email) ||
                 const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.emailVerified, emailVerified) ||
+                const DeepCollectionEquality()
+                    .equals(other.emailVerified, emailVerified)) &&
             (identical(other.creationTime, creationTime) ||
                 const DeepCollectionEquality()
                     .equals(other.creationTime, creationTime)) &&
@@ -244,6 +266,7 @@ class _$_User implements _User {
       const DeepCollectionEquality().hash(uid) ^
       const DeepCollectionEquality().hash(displayName) ^
       const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(emailVerified) ^
       const DeepCollectionEquality().hash(creationTime) ^
       const DeepCollectionEquality().hash(lastSignInTime) ^
       const DeepCollectionEquality().hash(photoURL);
@@ -264,6 +287,7 @@ abstract class _User implements User {
       {String? uid,
       required String displayName,
       required String email,
+      bool emailVerified,
       @TimestampConverter() required DateTime creationTime,
       @TimestampConverter() required DateTime lastSignInTime,
       String? photoURL}) = _$_User;
@@ -276,6 +300,8 @@ abstract class _User implements User {
   String get displayName => throw _privateConstructorUsedError;
   @override
   String get email => throw _privateConstructorUsedError;
+  @override
+  bool get emailVerified => throw _privateConstructorUsedError;
   @override
   @TimestampConverter()
   DateTime get creationTime => throw _privateConstructorUsedError;

@@ -52,6 +52,7 @@ class AuthFacade implements IAuthFacade {
       final userModel = user.User.fromJson(userFirestore.data()!).copyWith(
         uid: userFirestore.id,
         lastSignInTime: _user.metadata.lastSignInTime!,
+        emailVerified: _user.emailVerified,
       );
       return right(userModel);
     } on FirebaseAuthException catch (e) {
@@ -97,7 +98,10 @@ class AuthFacade implements IAuthFacade {
         userRef.set(userMap),
       ]);
 
-      final userModel = user.User.fromJson(userMap).copyWith(uid: _user.uid);
+      final userModel = user.User.fromJson(userMap).copyWith(
+        uid: _user.uid,
+        emailVerified: _user.emailVerified,
+      );
       return right(userModel);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
@@ -151,7 +155,10 @@ class AuthFacade implements IAuthFacade {
       };
       await userRef.set(userMap);
 
-      final userModel = user.User.fromJson(userMap).copyWith(uid: _user.uid);
+      final userModel = user.User.fromJson(userMap).copyWith(
+        uid: _user.uid,
+        emailVerified: _user.emailVerified,
+      );
       return optionOf(right(userModel));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'account-exists-with-different-credential') {
@@ -200,7 +207,10 @@ class AuthFacade implements IAuthFacade {
       };
       await userRef.set(userMap);
 
-      final userModel = user.User.fromJson(userMap).copyWith(uid: _user.uid);
+      final userModel = user.User.fromJson(userMap).copyWith(
+        uid: _user.uid,
+        emailVerified: _user.emailVerified,
+      );
       return optionOf(right(userModel));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'account-exists-with-different-credential') {
@@ -257,13 +267,28 @@ class AuthFacade implements IAuthFacade {
           await _firestore.doc('${DB.USERS}/${firebaseUser.uid}').get();
       return optionOf(
         right(
-          user.User.fromJson(_user.data()!).copyWith(uid: firebaseUser.uid),
+          user.User.fromJson(_user.data()!).copyWith(
+            uid: firebaseUser.uid,
+            emailVerified: firebaseUser.emailVerified,
+          ),
         ),
       );
     } on FirebaseException {
       return optionOf(
         left(AuthFailure.serverError()),
       );
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> sendEmailVerification() async {
+    try {
+      final firebaseUser = await _firebaseAuth.authStateChanges().first;
+      await firebaseUser!.sendEmailVerification();
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      debugPrint('ERROR $e');
+      return left(Failure.serverError());
     }
   }
 

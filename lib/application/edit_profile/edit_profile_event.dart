@@ -6,4 +6,5 @@ class EditProfileEvent with _$EditProfileEvent {
   const factory EditProfileEvent.onNameChanged({required String value}) =
       _OnNameChanged;
   const factory EditProfileEvent.updatedProfile() = _UpdatedProfile;
+  const factory EditProfileEvent.sendVerificationMail() = _SendVerificationMail;
 }

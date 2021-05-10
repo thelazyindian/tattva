@@ -51,6 +51,20 @@ class EditProfilePage extends StatelessWidget {
                 (r) => EditProfileBody(
                   user: r,
                   updatingProfile: state.updating,
+                  sendingMail: state.sendingMail,
+                  verificationMailMsg: state.sendingMailOption.fold(
+                    () => null,
+                    (sOrF) => sOrF.fold(
+                      (l) => Text(
+                        'Failed to send verification mail.',
+                        style: TextStyle(color: Colors.red.shade400),
+                      ),
+                      (r) => Text(
+                        'Check email for verification link.',
+                        style: TextStyle(color: Colors.green.shade400),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             );

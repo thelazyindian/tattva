@@ -29,6 +29,10 @@ class _$EditProfileEventTearOff {
   _UpdatedProfile updatedProfile() {
     return const _UpdatedProfile();
   }
+
+  _SendVerificationMail sendVerificationMail() {
+    return const _SendVerificationMail();
+  }
 }
 
 /// @nodoc
@@ -41,6 +45,7 @@ mixin _$EditProfileEvent {
     required TResult Function() started,
     required TResult Function(String value) onNameChanged,
     required TResult Function() updatedProfile,
+    required TResult Function() sendVerificationMail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +53,7 @@ mixin _$EditProfileEvent {
     TResult Function()? started,
     TResult Function(String value)? onNameChanged,
     TResult Function()? updatedProfile,
+    TResult Function()? sendVerificationMail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +62,7 @@ mixin _$EditProfileEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_OnNameChanged value) onNameChanged,
     required TResult Function(_UpdatedProfile value) updatedProfile,
+    required TResult Function(_SendVerificationMail value) sendVerificationMail,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +70,7 @@ mixin _$EditProfileEvent {
     TResult Function(_Started value)? started,
     TResult Function(_OnNameChanged value)? onNameChanged,
     TResult Function(_UpdatedProfile value)? updatedProfile,
+    TResult Function(_SendVerificationMail value)? sendVerificationMail,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +132,7 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(String value) onNameChanged,
     required TResult Function() updatedProfile,
+    required TResult Function() sendVerificationMail,
   }) {
     return started();
   }
@@ -134,6 +143,7 @@ class _$_Started implements _Started {
     TResult Function()? started,
     TResult Function(String value)? onNameChanged,
     TResult Function()? updatedProfile,
+    TResult Function()? sendVerificationMail,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -148,6 +158,7 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_OnNameChanged value) onNameChanged,
     required TResult Function(_UpdatedProfile value) updatedProfile,
+    required TResult Function(_SendVerificationMail value) sendVerificationMail,
   }) {
     return started(this);
   }
@@ -158,6 +169,7 @@ class _$_Started implements _Started {
     TResult Function(_Started value)? started,
     TResult Function(_OnNameChanged value)? onNameChanged,
     TResult Function(_UpdatedProfile value)? updatedProfile,
+    TResult Function(_SendVerificationMail value)? sendVerificationMail,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -238,6 +250,7 @@ class _$_OnNameChanged implements _OnNameChanged {
     required TResult Function() started,
     required TResult Function(String value) onNameChanged,
     required TResult Function() updatedProfile,
+    required TResult Function() sendVerificationMail,
   }) {
     return onNameChanged(value);
   }
@@ -248,6 +261,7 @@ class _$_OnNameChanged implements _OnNameChanged {
     TResult Function()? started,
     TResult Function(String value)? onNameChanged,
     TResult Function()? updatedProfile,
+    TResult Function()? sendVerificationMail,
     required TResult orElse(),
   }) {
     if (onNameChanged != null) {
@@ -262,6 +276,7 @@ class _$_OnNameChanged implements _OnNameChanged {
     required TResult Function(_Started value) started,
     required TResult Function(_OnNameChanged value) onNameChanged,
     required TResult Function(_UpdatedProfile value) updatedProfile,
+    required TResult Function(_SendVerificationMail value) sendVerificationMail,
   }) {
     return onNameChanged(this);
   }
@@ -272,6 +287,7 @@ class _$_OnNameChanged implements _OnNameChanged {
     TResult Function(_Started value)? started,
     TResult Function(_OnNameChanged value)? onNameChanged,
     TResult Function(_UpdatedProfile value)? updatedProfile,
+    TResult Function(_SendVerificationMail value)? sendVerificationMail,
     required TResult orElse(),
   }) {
     if (onNameChanged != null) {
@@ -332,6 +348,7 @@ class _$_UpdatedProfile implements _UpdatedProfile {
     required TResult Function() started,
     required TResult Function(String value) onNameChanged,
     required TResult Function() updatedProfile,
+    required TResult Function() sendVerificationMail,
   }) {
     return updatedProfile();
   }
@@ -342,6 +359,7 @@ class _$_UpdatedProfile implements _UpdatedProfile {
     TResult Function()? started,
     TResult Function(String value)? onNameChanged,
     TResult Function()? updatedProfile,
+    TResult Function()? sendVerificationMail,
     required TResult orElse(),
   }) {
     if (updatedProfile != null) {
@@ -356,6 +374,7 @@ class _$_UpdatedProfile implements _UpdatedProfile {
     required TResult Function(_Started value) started,
     required TResult Function(_OnNameChanged value) onNameChanged,
     required TResult Function(_UpdatedProfile value) updatedProfile,
+    required TResult Function(_SendVerificationMail value) sendVerificationMail,
   }) {
     return updatedProfile(this);
   }
@@ -366,6 +385,7 @@ class _$_UpdatedProfile implements _UpdatedProfile {
     TResult Function(_Started value)? started,
     TResult Function(_OnNameChanged value)? onNameChanged,
     TResult Function(_UpdatedProfile value)? updatedProfile,
+    TResult Function(_SendVerificationMail value)? sendVerificationMail,
     required TResult orElse(),
   }) {
     if (updatedProfile != null) {
@@ -380,17 +400,114 @@ abstract class _UpdatedProfile implements EditProfileEvent {
 }
 
 /// @nodoc
+abstract class _$SendVerificationMailCopyWith<$Res> {
+  factory _$SendVerificationMailCopyWith(_SendVerificationMail value,
+          $Res Function(_SendVerificationMail) then) =
+      __$SendVerificationMailCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SendVerificationMailCopyWithImpl<$Res>
+    extends _$EditProfileEventCopyWithImpl<$Res>
+    implements _$SendVerificationMailCopyWith<$Res> {
+  __$SendVerificationMailCopyWithImpl(
+      _SendVerificationMail _value, $Res Function(_SendVerificationMail) _then)
+      : super(_value, (v) => _then(v as _SendVerificationMail));
+
+  @override
+  _SendVerificationMail get _value => super._value as _SendVerificationMail;
+}
+
+/// @nodoc
+class _$_SendVerificationMail implements _SendVerificationMail {
+  const _$_SendVerificationMail();
+
+  @override
+  String toString() {
+    return 'EditProfileEvent.sendVerificationMail()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _SendVerificationMail);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function() updatedProfile,
+    required TResult Function() sendVerificationMail,
+  }) {
+    return sendVerificationMail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(String value)? onNameChanged,
+    TResult Function()? updatedProfile,
+    TResult Function()? sendVerificationMail,
+    required TResult orElse(),
+  }) {
+    if (sendVerificationMail != null) {
+      return sendVerificationMail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_UpdatedProfile value) updatedProfile,
+    required TResult Function(_SendVerificationMail value) sendVerificationMail,
+  }) {
+    return sendVerificationMail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_UpdatedProfile value)? updatedProfile,
+    TResult Function(_SendVerificationMail value)? sendVerificationMail,
+    required TResult orElse(),
+  }) {
+    if (sendVerificationMail != null) {
+      return sendVerificationMail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendVerificationMail implements EditProfileEvent {
+  const factory _SendVerificationMail() = _$_SendVerificationMail;
+}
+
+/// @nodoc
 class _$EditProfileStateTearOff {
   const _$EditProfileStateTearOff();
 
   _EditProfileState call(
       {required Option<Either<Failure, User>> updateProfileOption,
+      required Option<Either<Failure, Unit>> sendingMailOption,
       required String displayName,
-      required bool updating}) {
+      required bool updating,
+      required bool sendingMail}) {
     return _EditProfileState(
       updateProfileOption: updateProfileOption,
+      sendingMailOption: sendingMailOption,
       displayName: displayName,
       updating: updating,
+      sendingMail: sendingMail,
     );
   }
 }
@@ -402,8 +519,11 @@ const $EditProfileState = _$EditProfileStateTearOff();
 mixin _$EditProfileState {
   Option<Either<Failure, User>> get updateProfileOption =>
       throw _privateConstructorUsedError;
+  Option<Either<Failure, Unit>> get sendingMailOption =>
+      throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   bool get updating => throw _privateConstructorUsedError;
+  bool get sendingMail => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $EditProfileStateCopyWith<EditProfileState> get copyWith =>
@@ -417,8 +537,10 @@ abstract class $EditProfileStateCopyWith<$Res> {
       _$EditProfileStateCopyWithImpl<$Res>;
   $Res call(
       {Option<Either<Failure, User>> updateProfileOption,
+      Option<Either<Failure, Unit>> sendingMailOption,
       String displayName,
-      bool updating});
+      bool updating,
+      bool sendingMail});
 }
 
 /// @nodoc
@@ -433,14 +555,20 @@ class _$EditProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? updateProfileOption = freezed,
+    Object? sendingMailOption = freezed,
     Object? displayName = freezed,
     Object? updating = freezed,
+    Object? sendingMail = freezed,
   }) {
     return _then(_value.copyWith(
       updateProfileOption: updateProfileOption == freezed
           ? _value.updateProfileOption
           : updateProfileOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<Failure, User>>,
+      sendingMailOption: sendingMailOption == freezed
+          ? _value.sendingMailOption
+          : sendingMailOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<Failure, Unit>>,
       displayName: displayName == freezed
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -448,6 +576,10 @@ class _$EditProfileStateCopyWithImpl<$Res>
       updating: updating == freezed
           ? _value.updating
           : updating // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sendingMail: sendingMail == freezed
+          ? _value.sendingMail
+          : sendingMail // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -462,8 +594,10 @@ abstract class _$EditProfileStateCopyWith<$Res>
   @override
   $Res call(
       {Option<Either<Failure, User>> updateProfileOption,
+      Option<Either<Failure, Unit>> sendingMailOption,
       String displayName,
-      bool updating});
+      bool updating,
+      bool sendingMail});
 }
 
 /// @nodoc
@@ -480,14 +614,20 @@ class __$EditProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? updateProfileOption = freezed,
+    Object? sendingMailOption = freezed,
     Object? displayName = freezed,
     Object? updating = freezed,
+    Object? sendingMail = freezed,
   }) {
     return _then(_EditProfileState(
       updateProfileOption: updateProfileOption == freezed
           ? _value.updateProfileOption
           : updateProfileOption // ignore: cast_nullable_to_non_nullable
               as Option<Either<Failure, User>>,
+      sendingMailOption: sendingMailOption == freezed
+          ? _value.sendingMailOption
+          : sendingMailOption // ignore: cast_nullable_to_non_nullable
+              as Option<Either<Failure, Unit>>,
       displayName: displayName == freezed
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -495,6 +635,10 @@ class __$EditProfileStateCopyWithImpl<$Res>
       updating: updating == freezed
           ? _value.updating
           : updating // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sendingMail: sendingMail == freezed
+          ? _value.sendingMail
+          : sendingMail // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -504,19 +648,25 @@ class __$EditProfileStateCopyWithImpl<$Res>
 class _$_EditProfileState implements _EditProfileState {
   const _$_EditProfileState(
       {required this.updateProfileOption,
+      required this.sendingMailOption,
       required this.displayName,
-      required this.updating});
+      required this.updating,
+      required this.sendingMail});
 
   @override
   final Option<Either<Failure, User>> updateProfileOption;
   @override
+  final Option<Either<Failure, Unit>> sendingMailOption;
+  @override
   final String displayName;
   @override
   final bool updating;
+  @override
+  final bool sendingMail;
 
   @override
   String toString() {
-    return 'EditProfileState(updateProfileOption: $updateProfileOption, displayName: $displayName, updating: $updating)';
+    return 'EditProfileState(updateProfileOption: $updateProfileOption, sendingMailOption: $sendingMailOption, displayName: $displayName, updating: $updating, sendingMail: $sendingMail)';
   }
 
   @override
@@ -526,20 +676,28 @@ class _$_EditProfileState implements _EditProfileState {
             (identical(other.updateProfileOption, updateProfileOption) ||
                 const DeepCollectionEquality()
                     .equals(other.updateProfileOption, updateProfileOption)) &&
+            (identical(other.sendingMailOption, sendingMailOption) ||
+                const DeepCollectionEquality()
+                    .equals(other.sendingMailOption, sendingMailOption)) &&
             (identical(other.displayName, displayName) ||
                 const DeepCollectionEquality()
                     .equals(other.displayName, displayName)) &&
             (identical(other.updating, updating) ||
                 const DeepCollectionEquality()
-                    .equals(other.updating, updating)));
+                    .equals(other.updating, updating)) &&
+            (identical(other.sendingMail, sendingMail) ||
+                const DeepCollectionEquality()
+                    .equals(other.sendingMail, sendingMail)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(updateProfileOption) ^
+      const DeepCollectionEquality().hash(sendingMailOption) ^
       const DeepCollectionEquality().hash(displayName) ^
-      const DeepCollectionEquality().hash(updating);
+      const DeepCollectionEquality().hash(updating) ^
+      const DeepCollectionEquality().hash(sendingMail);
 
   @JsonKey(ignore: true)
   @override
@@ -550,16 +708,23 @@ class _$_EditProfileState implements _EditProfileState {
 abstract class _EditProfileState implements EditProfileState {
   const factory _EditProfileState(
       {required Option<Either<Failure, User>> updateProfileOption,
+      required Option<Either<Failure, Unit>> sendingMailOption,
       required String displayName,
-      required bool updating}) = _$_EditProfileState;
+      required bool updating,
+      required bool sendingMail}) = _$_EditProfileState;
 
   @override
   Option<Either<Failure, User>> get updateProfileOption =>
       throw _privateConstructorUsedError;
   @override
+  Option<Either<Failure, Unit>> get sendingMailOption =>
+      throw _privateConstructorUsedError;
+  @override
   String get displayName => throw _privateConstructorUsedError;
   @override
   bool get updating => throw _privateConstructorUsedError;
+  @override
+  bool get sendingMail => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$EditProfileStateCopyWith<_EditProfileState> get copyWith =>

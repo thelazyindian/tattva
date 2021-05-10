@@ -46,3 +46,4 @@ const EDIT_PROFILE_TITLE = 'Edit Your Profile';
 const EDIT_PROFILE_SAVE_BUTTON = 'SAVE CHANGES';
 
 const BTN_UPLOAD_PROFILE_PIC = 'Upload Picture';
+const BTN_VERIFY_MAIL = 'Verify';

@@ -13,11 +13,15 @@ import 'package:tattva/utils/styles.dart';
 class EditProfileBody extends StatelessWidget {
   final User user;
   final bool updatingProfile;
+  final bool sendingMail;
+  final Widget? verificationMailMsg;
 
   const EditProfileBody({
     Key? key,
     required this.user,
     this.updatingProfile = false,
+    this.sendingMail = false,
+    this.verificationMailMsg,
   }) : super(key: key);
 
   @override
@@ -71,10 +75,56 @@ class EditProfileBody extends StatelessWidget {
           textInputAction: TextInputAction.go,
         ),
         const SizedBox(height: inputFieldsSpacing),
-        EmailField(
-          initialValue: user.email,
-          enabled: false,
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(inputFieldRadius),
+            color: Theme.of(context).inputDecorationTheme.fillColor,
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: EmailField(
+                  initialValue: user.email,
+                  enabled: false,
+                ),
+              ),
+              user.emailVerified
+                  ? Container()
+                  : Container(
+                      width: 80.0,
+                      // color: Colors.red,
+                      alignment: Alignment.center,
+                      child: sendingMail
+                          ? Container(
+                              height: 16.0,
+                              width: 16.0,
+                              child:
+                                  CircularProgressIndicator(strokeWidth: 2.0),
+                            )
+                          : TextButton(
+                              onPressed: () {
+                                debugPrint('PRESSED');
+                                getIt<EditProfileBloc>().add(
+                                    EditProfileEvent.sendVerificationMail());
+                              },
+                              child: Text(BTN_VERIFY_MAIL),
+                              style: secondaryBtnStyle.copyWith(
+                                textStyle: MaterialStateProperty.all(
+                                    secondaryBtnTextStyle.copyWith(
+                                        fontSize:
+                                            editProfileUploadPicBtnFontSize)),
+                              ),
+                            ),
+                    )
+            ],
+          ),
         ),
+        if (verificationMailMsg != null)
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.fromLTRB(24.0, 8.0, 24.0, .0),
+            child: verificationMailMsg!,
+          ),
         const SizedBox(height: inputFieldsSpacing),
         PrimaryButton(
           label: EDIT_PROFILE_SAVE_BUTTON,
