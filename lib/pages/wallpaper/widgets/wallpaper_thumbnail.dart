@@ -25,7 +25,7 @@ class _WallpaperThumbnailState extends State<WallpaperThumbnail> {
         child: Stack(
           children: [
             Image.network(
-              widget.wallpaper.thumbnail.first.url,
+              widget.wallpaper.imageSmall,
               fit: BoxFit.cover,
               loadingBuilder: (_, child, ___) => Container(
                 alignment: Alignment.center,

@@ -21,7 +21,7 @@ class WallpaperExpandedImageCard extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
             child: Image.network(
-              wallpaper.thumbnail.first.url,
+              wallpaper.imageMedium,
               fit: BoxFit.fitHeight,
               loadingBuilder: (_, child, ___) => Container(
                 height: double.infinity,

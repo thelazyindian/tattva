@@ -23,6 +23,7 @@ class WallPageView extends StatefulWidget {
 
 class _WallPageViewState extends State<WallPageView> {
   int currentPage = 0;
+  late double value;
   final PageController controller = PageController(
     viewportFraction: 0.65,
     initialPage: 0,
@@ -43,6 +44,7 @@ class _WallPageViewState extends State<WallPageView> {
         curve: Curves.easeOut,
       );
     });
+    value = 1.0;
   }
 
   @override
@@ -61,9 +63,9 @@ class _WallPageViewState extends State<WallPageView> {
   @override
   Widget build(BuildContext context) {
     return PageView.builder(
-      onPageChanged: (value) {
+      onPageChanged: (page) {
         setState(() {
-          currentPage = value;
+          currentPage = page;
         });
       },
       scrollDirection: Axis.horizontal,
@@ -73,10 +75,11 @@ class _WallPageViewState extends State<WallPageView> {
         return AnimatedBuilder(
           animation: controller,
           builder: (context, child) {
-            double value = 1.0;
             if (controller.position.haveDimensions) {
               value = controller.page! - index;
               value = ((value.abs() * 0.5)).clamp(0.0, 1.0);
+            } else {
+              value = widget.wallpaperIdx == 0 && index == 0 ? 0.0 : 0.5;
             }
             double paddingTop = 20 + (Curves.easeOut.transform(value) * 100);
             double paddingBottom = 20 + (Curves.easeOut.transform(value) * 100);

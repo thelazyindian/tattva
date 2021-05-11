@@ -23,13 +23,15 @@ class _$WallpaperTearOff {
   _Wallpaper call(
       {required String id,
       required String name,
-      required List<TattvaImage> thumbnail,
+      required String imageSmall,
+      required String imageMedium,
       required List<TattvaImage> image,
       DateTime? createdAt}) {
     return _Wallpaper(
       id: id,
       name: name,
-      thumbnail: thumbnail,
+      imageSmall: imageSmall,
+      imageMedium: imageMedium,
       image: image,
       createdAt: createdAt,
     );
@@ -47,7 +49,8 @@ const $Wallpaper = _$WallpaperTearOff();
 mixin _$Wallpaper {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  List<TattvaImage> get thumbnail => throw _privateConstructorUsedError;
+  String get imageSmall => throw _privateConstructorUsedError;
+  String get imageMedium => throw _privateConstructorUsedError;
   List<TattvaImage> get image => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
@@ -64,7 +67,8 @@ abstract class $WallpaperCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      List<TattvaImage> thumbnail,
+      String imageSmall,
+      String imageMedium,
       List<TattvaImage> image,
       DateTime? createdAt});
 }
@@ -81,7 +85,8 @@ class _$WallpaperCopyWithImpl<$Res> implements $WallpaperCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? thumbnail = freezed,
+    Object? imageSmall = freezed,
+    Object? imageMedium = freezed,
     Object? image = freezed,
     Object? createdAt = freezed,
   }) {
@@ -94,10 +99,14 @@ class _$WallpaperCopyWithImpl<$Res> implements $WallpaperCopyWith<$Res> {
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      thumbnail: thumbnail == freezed
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as List<TattvaImage>,
+      imageSmall: imageSmall == freezed
+          ? _value.imageSmall
+          : imageSmall // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageMedium: imageMedium == freezed
+          ? _value.imageMedium
+          : imageMedium // ignore: cast_nullable_to_non_nullable
+              as String,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -119,7 +128,8 @@ abstract class _$WallpaperCopyWith<$Res> implements $WallpaperCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      List<TattvaImage> thumbnail,
+      String imageSmall,
+      String imageMedium,
       List<TattvaImage> image,
       DateTime? createdAt});
 }
@@ -137,7 +147,8 @@ class __$WallpaperCopyWithImpl<$Res> extends _$WallpaperCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
-    Object? thumbnail = freezed,
+    Object? imageSmall = freezed,
+    Object? imageMedium = freezed,
     Object? image = freezed,
     Object? createdAt = freezed,
   }) {
@@ -150,10 +161,14 @@ class __$WallpaperCopyWithImpl<$Res> extends _$WallpaperCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      thumbnail: thumbnail == freezed
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
-              as List<TattvaImage>,
+      imageSmall: imageSmall == freezed
+          ? _value.imageSmall
+          : imageSmall // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageMedium: imageMedium == freezed
+          ? _value.imageMedium
+          : imageMedium // ignore: cast_nullable_to_non_nullable
+              as String,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -173,7 +188,8 @@ class _$_Wallpaper implements _Wallpaper {
   const _$_Wallpaper(
       {required this.id,
       required this.name,
-      required this.thumbnail,
+      required this.imageSmall,
+      required this.imageMedium,
       required this.image,
       this.createdAt});
 
@@ -185,7 +201,9 @@ class _$_Wallpaper implements _Wallpaper {
   @override
   final String name;
   @override
-  final List<TattvaImage> thumbnail;
+  final String imageSmall;
+  @override
+  final String imageMedium;
   @override
   final List<TattvaImage> image;
   @override
@@ -193,7 +211,7 @@ class _$_Wallpaper implements _Wallpaper {
 
   @override
   String toString() {
-    return 'Wallpaper(id: $id, name: $name, thumbnail: $thumbnail, image: $image, createdAt: $createdAt)';
+    return 'Wallpaper(id: $id, name: $name, imageSmall: $imageSmall, imageMedium: $imageMedium, image: $image, createdAt: $createdAt)';
   }
 
   @override
@@ -204,9 +222,12 @@ class _$_Wallpaper implements _Wallpaper {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.thumbnail, thumbnail) ||
+            (identical(other.imageSmall, imageSmall) ||
                 const DeepCollectionEquality()
-                    .equals(other.thumbnail, thumbnail)) &&
+                    .equals(other.imageSmall, imageSmall)) &&
+            (identical(other.imageMedium, imageMedium) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageMedium, imageMedium)) &&
             (identical(other.image, image) ||
                 const DeepCollectionEquality().equals(other.image, image)) &&
             (identical(other.createdAt, createdAt) ||
@@ -219,7 +240,8 @@ class _$_Wallpaper implements _Wallpaper {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(thumbnail) ^
+      const DeepCollectionEquality().hash(imageSmall) ^
+      const DeepCollectionEquality().hash(imageMedium) ^
       const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(createdAt);
 
@@ -238,7 +260,8 @@ abstract class _Wallpaper implements Wallpaper {
   const factory _Wallpaper(
       {required String id,
       required String name,
-      required List<TattvaImage> thumbnail,
+      required String imageSmall,
+      required String imageMedium,
       required List<TattvaImage> image,
       DateTime? createdAt}) = _$_Wallpaper;
 
@@ -250,7 +273,9 @@ abstract class _Wallpaper implements Wallpaper {
   @override
   String get name => throw _privateConstructorUsedError;
   @override
-  List<TattvaImage> get thumbnail => throw _privateConstructorUsedError;
+  String get imageSmall => throw _privateConstructorUsedError;
+  @override
+  String get imageMedium => throw _privateConstructorUsedError;
   @override
   List<TattvaImage> get image => throw _privateConstructorUsedError;
   @override

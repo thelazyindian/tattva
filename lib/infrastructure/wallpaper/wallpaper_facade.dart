@@ -30,7 +30,6 @@ class WallpaperFacade implements IWallpaperFacade {
         },
       );
       final data = Map<String, dynamic>.from(jsonDecode(response.data));
-
       return right(WallpaperDataModel.fromJson(data));
     } on DioError catch (e) {
       debugPrint('ERR_CODE ${e.error}');

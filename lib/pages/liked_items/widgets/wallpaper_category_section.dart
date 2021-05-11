@@ -40,7 +40,7 @@ class WallpaperCategorySection extends StatelessWidget {
                 child: InkWell(
                   onTap: () => onTapItem(idx),
                   child: Image.network(
-                    wallpaper.thumbnail.first.url,
+                    wallpaper.imageSmall,
                     fit: BoxFit.cover,
                     loadingBuilder: (_, child, ___) => Container(
                       width: 120.0,
