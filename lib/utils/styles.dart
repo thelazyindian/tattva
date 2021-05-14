@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 
@@ -33,6 +34,13 @@ final appTheme = ThemeData(
     focusedBorder: inputFieldBorder,
     border: inputFieldBorder,
   ),
+);
+
+final systemUiOverlayStyle = SystemUiOverlayStyle(
+  statusBarColor: Colors.white,
+  statusBarIconBrightness: Brightness.dark,
+  systemNavigationBarColor: Colors.white,
+  systemNavigationBarIconBrightness: Brightness.dark,
 );
 
 final primaryBtnShape = RoundedRectangleBorder(

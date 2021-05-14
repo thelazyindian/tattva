@@ -34,6 +34,7 @@ class SubscriptionsBloc extends Bloc<SubscriptionsEvent, SubscriptionsState> {
   ) async* {
     yield* event.map(
       started: (e) async* {
+        yield SubscriptionsState.initial();
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         final response =
             await _subscriptionsFacade.getSubscriptionItems(token: token);
@@ -59,19 +60,6 @@ class SubscriptionsBloc extends Bloc<SubscriptionsEvent, SubscriptionsState> {
           token: token,
           planId: activeSusbcription.id,
         );
-        // _razorpay.open({
-        //   'key': 'rzp_test_wAB48uFEbBb1jd',
-        //   'amount': 50000,
-        //   'name': 'Acme Corp.',
-        //   'description': 'Fine T-Shirt',
-        //   'prefill': {
-        //     'contact': '9123456789',
-        //     'email': 'gaurav.kumar@example.com'
-        //   },
-        //   'external': {
-        //     'wallets': ['paytm']
-        //   },
-        // });
 
         yield* response.fold(
           (l) async* {
@@ -85,6 +73,7 @@ class SubscriptionsBloc extends Bloc<SubscriptionsEvent, SubscriptionsState> {
               'subscription_id': subId,
               'name': activeSusbcription.name,
               'description': activeSusbcription.description,
+              'recurring': true,
               'prefill': {
                 // 'contact': '8888888888',
                 'email': user.email,

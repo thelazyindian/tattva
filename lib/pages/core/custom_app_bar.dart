@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
+import 'package:tattva/utils/styles.dart';
 
 enum CustomAppBarType { head, subhead, none }
 
@@ -29,58 +31,62 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Theme.of(context).primaryColor,
-      child: Container(
-        margin: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top),
-        padding:
-            const EdgeInsets.symmetric(horizontal: appBarPaddingHorizontal),
-        height: preferredSize.height,
-        alignment: Alignment.centerLeft,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            if (onPrefixPressed != null || Navigator.canPop(context))
-              IconButton(
-                onPressed: onPrefixPressed ??
-                    () {
-                      Navigator.pop(context);
-                    },
-                splashRadius: 28.0,
-                icon: SvgPicture.asset(
-                  'icons/back.svg',
-                  height: 14.0,
-                  width: 14.0,
-                ),
-              )
-            else
-              const SizedBox(width: 48.0),
-            if (customAppBarType != CustomAppBarType.none)
-              Expanded(
-                child: Text(
-                  title!,
-                  style: TextStyle(
-                    fontFamily: fontFamily,
-                    fontSize:
-                        customAppBarType == CustomAppBarType.head ? 28.0 : 20.0,
-                    fontWeight: FontWeight.w600,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: systemUiOverlayStyle,
+      child: Material(
+        color: Theme.of(context).primaryColor,
+        child: Container(
+          margin: EdgeInsets.only(top: MediaQuery.of(context).viewPadding.top),
+          padding:
+              const EdgeInsets.symmetric(horizontal: appBarPaddingHorizontal),
+          height: preferredSize.height,
+          alignment: Alignment.centerLeft,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              if (onPrefixPressed != null || Navigator.canPop(context))
+                IconButton(
+                  onPressed: onPrefixPressed ??
+                      () {
+                        Navigator.pop(context);
+                      },
+                  splashRadius: 28.0,
+                  icon: SvgPicture.asset(
+                    'icons/back.svg',
+                    height: 14.0,
+                    width: 14.0,
                   ),
-                  textAlign: titleAlignment,
+                )
+              else
+                const SizedBox(width: 48.0),
+              if (customAppBarType != CustomAppBarType.none)
+                Expanded(
+                  child: Text(
+                    title!,
+                    style: TextStyle(
+                      fontFamily: fontFamily,
+                      fontSize: customAppBarType == CustomAppBarType.head
+                          ? 28.0
+                          : 20.0,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: titleAlignment,
+                  ),
                 ),
-              ),
-            if (suffixIcon != null)
-              IconButton(
-                onPressed: onSuffixPressed,
-                splashRadius: 28.0,
-                icon: SvgPicture.asset(
-                  suffixIcon!,
-                  height: 21.0,
-                  width: 21.0,
-                ),
-              )
-            else
-              const SizedBox(width: 48.0),
-          ],
+              if (suffixIcon != null)
+                IconButton(
+                  onPressed: onSuffixPressed,
+                  splashRadius: 28.0,
+                  icon: SvgPicture.asset(
+                    suffixIcon!,
+                    height: 21.0,
+                    width: 21.0,
+                  ),
+                )
+              else
+                const SizedBox(width: 48.0),
+            ],
+          ),
         ),
       ),
     );

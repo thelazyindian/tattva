@@ -46,10 +46,22 @@ class SubscriptionsFacade implements ISubscriptionsFacade {
           'planId': planId,
         },
       );
+      // final response = await _dio.get(
+      //   '/updateSubscription',
+      //   queryParameters: {
+      //     'token': token,
+      //     'id': 'sub_H9nuj0Vf7SP4ey',
+      //     'planId': 'plan_H4bfmOvAmlaupS',
+      //   },
+      // );
+      debugPrint('RESP: $response');
+
       final data = jsonDecode(response.data);
+      debugPrint('DATA: $data');
       return right(Map<String, dynamic>.from(data)['id']);
-    } on DioError catch (e) {
+    } on DioError catch (e, trace) {
       debugPrint('ERROR: $e');
+      debugPrint('TRACE: $trace');
       return left(const Failure.serverError());
     }
   }
