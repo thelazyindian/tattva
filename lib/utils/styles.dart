@@ -6,6 +6,8 @@ import 'package:tattva/utils/others.dart';
 final appTheme = ThemeData(
   primaryColor: primaryColor,
   accentColor: accentColor,
+  backgroundColor: primaryColor,
+  scaffoldBackgroundColor: primaryColor,
   fontFamily: fontFamily,
   textTheme: TextTheme(
     headline3: TextStyle(
@@ -37,10 +39,11 @@ final appTheme = ThemeData(
 );
 
 final systemUiOverlayStyle = SystemUiOverlayStyle(
-  statusBarColor: Colors.white,
+  statusBarColor: primaryColor,
   statusBarIconBrightness: Brightness.dark,
-  systemNavigationBarColor: Colors.white,
+  systemNavigationBarColor: primaryColor,
   systemNavigationBarIconBrightness: Brightness.dark,
+  systemNavigationBarDividerColor: Colors.grey.shade300,
 );
 
 final primaryBtnShape = RoundedRectangleBorder(

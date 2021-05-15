@@ -21,4 +21,15 @@ class Blog with _$Blog {
   }) = _Blog;
 
   factory Blog.fromJson(Map<String, dynamic> json) => _$BlogFromJson(json);
+  factory Blog.fromId(String id) => _Blog(
+        id: id,
+        title: '',
+        slug: '',
+        author: '',
+        date: DateTime.now(),
+        coverImage: [],
+        durationInMins: 0,
+        summary: '',
+        likes: 0,
+      );
 }

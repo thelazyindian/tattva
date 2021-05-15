@@ -24,7 +24,7 @@ class AuthenticationBloc
   AuthenticationBloc(this._authFacade) : super(AuthenticationState.initial());
 
   final IAuthFacade _authFacade;
-  late StreamSubscription _idTokenStreamSubscription;
+  StreamSubscription? _idTokenStreamSubscription;
 
   @override
   Stream<AuthenticationState> mapEventToState(
@@ -121,13 +121,7 @@ class AuthenticationBloc
         }
       },
       authCheckRequested: (e) async* {
-        _idTokenStreamSubscription =
-            _authFacade.idTokenChanges().listen((event) {
-          event
-              ?.getIdToken()
-              .then((value) => add(AuthenticationEvent.updateUserToken(value)));
-        });
-
+        debugPrint('EVENT: authCheckRequested');
         yield newState.copyWith(checkingAuthStatus: true);
         final checkAuthOption = await _authFacade.getUser();
 
@@ -138,14 +132,20 @@ class AuthenticationBloc
 
         yield* checkAuthOption.fold(
           () async* {
+            debugPrint('AUTH: none');
+
             yield authCheckFailureOrNoneState;
           },
           (checkAuthSuccessOrFailure) async* {
             yield* checkAuthSuccessOrFailure.fold(
               (failure) async* {
+                debugPrint('AUTH: fail');
+
                 yield authCheckFailureOrNoneState;
               },
               (success) async* {
+                debugPrint('AUTH: success');
+
                 yield newState.copyWith(
                   authFailureOrSuccessOption: optionOf(right(success)),
                   checkingAuthStatus: false,
@@ -176,6 +176,15 @@ class AuthenticationBloc
         yield state.copyWith(
             authFailureOrSuccessOption: optionOf(right(e.user)));
       },
+      subscribeIdTokenChanges: (e) async* {
+        _idTokenStreamSubscription?.cancel();
+        _idTokenStreamSubscription =
+            _authFacade.idTokenChanges().listen((event) {
+          event
+              ?.getIdToken()
+              .then((value) => add(AuthenticationEvent.updateUserToken(value)));
+        });
+      },
     );
   }
 
@@ -201,8 +210,14 @@ class AuthenticationBloc
   }
 
   @override
+  void onEvent(AuthenticationEvent event) {
+    debugPrint('AuthenticationEvent $event');
+    super.onEvent(event);
+  }
+
+  @override
   Future<void> close() {
-    _idTokenStreamSubscription.cancel();
+    _idTokenStreamSubscription?.cancel();
     return super.close();
   }
 }

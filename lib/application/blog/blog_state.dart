@@ -9,7 +9,7 @@ class BlogState with _$BlogState {
     required bool readerLoading,
     required bool loadingMore,
     required Option<Failure> categoryError,
-    required Option<Either<Failure, String>> readerOption,
+    required Option<Either<Failure, Blog>> readerOption,
     required List<String> likedBlogs,
   }) = _BlogState;
 
@@ -18,7 +18,7 @@ class BlogState with _$BlogState {
         selectedCategory: none(),
         categoryLoading: false,
         loadingMore: false,
-        readerLoading: false,
+        readerLoading: true,
         readerOption: none(),
         categoryError: none(),
         likedBlogs: [],

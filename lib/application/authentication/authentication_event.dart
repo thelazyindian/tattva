@@ -13,6 +13,8 @@ class AuthenticationEvent with _$AuthenticationEvent {
   const factory AuthenticationEvent.authCheckRequested() = _AuthCheckRequested;
   const factory AuthenticationEvent.updatedUser({required User user}) =
       _UpdatedUser;
+  const factory AuthenticationEvent.subscribeIdTokenChanges() =
+      _SubscribeIdTokenChanges;
   const factory AuthenticationEvent.loginWithEmail() = _LoginWithEmail;
   const factory AuthenticationEvent.registerWithEmail() = _RegisterWithEmail;
   const factory AuthenticationEvent.loginWithGoogle() = _LoginWithGoogle;

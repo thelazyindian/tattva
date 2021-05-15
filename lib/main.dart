@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
@@ -15,6 +16,9 @@ void main() async {
   configureInjection(Environment.dev);
   await Firebase.initializeApp();
   await FlutterDownloader.initialize(debug: true);
+  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle.copyWith(
+    statusBarColor: Colors.transparent,
+  ));
   runApp(MyApp());
 }
 

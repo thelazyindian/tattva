@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/domain/blog/blog_data_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tattva/domain/blog/i_blog_facade.dart';
@@ -133,6 +134,30 @@ class BlogFacade implements IBlogFacade {
       final data = Map<String, dynamic>.from(jsonDecode(response.data));
       debugPrint(data.toString());
       return right(data['content']);
+    } on DioError catch (e) {
+      debugPrint('likeDislikeBlog ERR_CODE ${e.response}');
+      debugPrint(e.message);
+
+      return left(Failure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Blog>> getBlogFromId(
+    String token,
+    String blogId,
+  ) async {
+    try {
+      final response = await _dio.get(
+        '/getBlogFromId',
+        queryParameters: {
+          'token': token,
+          'id': blogId,
+        },
+      );
+      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      debugPrint(data.toString());
+      return right(Blog.fromJson(data));
     } on DioError catch (e) {
       debugPrint('likeDislikeBlog ERR_CODE ${e.response}');
       debugPrint(e.message);

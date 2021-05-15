@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/domain/blog/blog_data_model.dart';
 import 'package:tattva/domain/failure.dart';
 
@@ -21,6 +22,10 @@ abstract class IBlogFacade {
     bool liked,
   );
   Future<Either<Failure, String>> getBlogContent(
+    String token,
+    String blogId,
+  );
+  Future<Either<Failure, Blog>> getBlogFromId(
     String token,
     String blogId,
   );

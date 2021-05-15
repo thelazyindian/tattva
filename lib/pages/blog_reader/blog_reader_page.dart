@@ -53,51 +53,60 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      body: NestedScrollView(
-        controller: _scrollController,
-        headerSliverBuilder: (_, __) => [
-          FlexibleBlogReaderAppBar(
-            imageUrl: widget.blog.coverImage.first.url,
-            heroId: widget.blog.id,
-          ),
-        ],
-        body: Column(
-          children: [
-            BlogReaderTitleBar(
-              blog: widget.blog,
-              backButton: titleBarBackBtn,
-            ),
-            Expanded(
-              child: BlocBuilder<BlogBloc, BlogState>(
-                bloc: getIt<BlogBloc>()
-                  ..add(BlogEvent.readBlog(
-                    blogReaderTabType: widget.blogReaderTabType,
-                    id: widget.blog.id,
-                  )),
-                builder: (context, state) {
-                  if (state.readerLoading) {
-                    return Center(child: CircularProgressIndicator());
-                  } else {
-                    return state.readerOption.fold(
-                      () => Center(child: Text('ERROR')),
-                      (sOrF) => sOrF.fold(
-                        (l) => Center(child: Text('ERROR')),
-                        (content) => SingleChildScrollView(
-                          padding: const EdgeInsets.all(24.0),
-                          child: HtmlWidget(
-                            content,
-                            textStyle: TextStyle(fontWeight: FontWeight.w400),
-                          ),
-                        ),
-                      ),
-                    );
-                  }
-                },
+      body: BlocBuilder<BlogBloc, BlogState>(
+        bloc: getIt<BlogBloc>()
+          ..add(BlogEvent.readBlog(
+            blogReaderTabType: widget.blogReaderTabType,
+            blog: widget.blog,
+          )),
+        builder: (context, state) {
+          if (widget.blogReaderTabType == BlogReaderTabType.fromUrl &&
+              state.readerLoading)
+            return const Center(child: CircularProgressIndicator());
+          else {
+            final Blog blog =
+                (widget.blogReaderTabType == BlogReaderTabType.fromUrl)
+                    ? state.readerOption.fold(() => widget.blog,
+                        (sOrF) => sOrF.fold((l) => widget.blog, (blog) => blog))
+                    : widget.blog;
+            return NestedScrollView(
+              controller: _scrollController,
+              headerSliverBuilder: (_, __) => [
+                FlexibleBlogReaderAppBar(
+                  imageUrl: blog.coverImage.first.url,
+                  heroId: blog.id,
+                ),
+              ],
+              body: Column(
+                children: [
+                  BlogReaderTitleBar(
+                    blog: blog,
+                    backButton: titleBarBackBtn,
+                  ),
+                  Expanded(
+                      child: (state.readerLoading)
+                          ? const Center(child: CircularProgressIndicator())
+                          : state.readerOption.fold(
+                              () => Center(child: Text('ERROR')),
+                              (sOrF) => sOrF.fold(
+                                (l) => Center(child: Text('ERROR')),
+                                (_) => SingleChildScrollView(
+                                  padding: const EdgeInsets.all(24.0),
+                                  child: HtmlWidget(
+                                    blog.content ?? 'Empty Content.',
+                                    textStyle:
+                                        TextStyle(fontWeight: FontWeight.w400),
+                                  ),
+                                ),
+                              ),
+                            )),
+                  if (widget.enableAudioPreviewPadding)
+                    AudioPlayerPreviewPadding(),
+                ],
               ),
-            ),
-            if (widget.enableAudioPreviewPadding) AudioPlayerPreviewPadding(),
-          ],
-        ),
+            );
+          }
+        },
       ),
     );
   }

@@ -207,13 +207,12 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
                     final blogs = List<Blog>.from(likedItems.likedBlogs);
                     final blogIdx =
-                        blogs.indexWhere((element) => element.id == e.id);
+                        blogs.indexWhere((element) => element.id == e.blog.id);
                     if (blogIdx >= 0) {
                       if (blogs[blogIdx].content != null) {
                         yield state.copyWith(
                           readerLoading: false,
-                          readerOption:
-                              optionOf(right(blogs[blogIdx].content!)),
+                          readerOption: optionOf(right(blogs[blogIdx])),
                         );
                       } else {
                         final token = await getIt<IAuthFacade>()
@@ -222,7 +221,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
                         final responseSorF = await _blogFacade.getBlogContent(
                           token,
-                          e.id,
+                          e.blog.id,
                         );
 
                         yield* responseSorF.fold(
@@ -238,8 +237,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
                             yield state.copyWith(
                               readerLoading: false,
-                              readerOption:
-                                  optionOf(right(blogs[blogIdx].content!)),
+                              readerOption: optionOf(right(blogs[blogIdx])),
                             );
 
                             getIt<LikedItemsBloc>().add(
@@ -263,7 +261,34 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
           final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
           final responseSorF = await _blogFacade.getBlogContent(
             token,
-            e.id,
+            e.blog.id,
+          );
+
+          yield* responseSorF.fold(
+            (failure) async* {
+              yield state.copyWith(
+                readerLoading: false,
+                readerOption: optionOf(left(failure)),
+              );
+            },
+            (success) async* {
+              yield state.copyWith(
+                readerLoading: false,
+                readerOption:
+                    optionOf(right(e.blog.copyWith(content: success))),
+              );
+            },
+          );
+        } else if (e.blogReaderTabType == BlogReaderTabType.fromUrl) {
+          yield state.copyWith(
+            readerLoading: true,
+            readerOption: none(),
+          );
+
+          final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+          final responseSorF = await _blogFacade.getBlogFromId(
+            token,
+            e.blog.id,
           );
 
           yield* responseSorF.fold(
@@ -290,13 +315,13 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
               );
 
               final blogIdx = selectedCategory.blogs
-                  .indexWhere((element) => element.id == e.id);
+                  .indexWhere((element) => element.id == e.blog.id);
               if (blogIdx >= 0) {
                 if (selectedCategory.blogs[blogIdx].content != null) {
                   yield state.copyWith(
                     readerLoading: false,
-                    readerOption: optionOf(
-                        right(selectedCategory.blogs[blogIdx].content!)),
+                    readerOption:
+                        optionOf(right(selectedCategory.blogs[blogIdx])),
                   );
                 } else {
                   final token =
@@ -304,7 +329,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
                   final responseSorF = await _blogFacade.getBlogContent(
                     token,
-                    e.id,
+                    e.blog.id,
                   );
 
                   yield* responseSorF.fold(
@@ -331,7 +356,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
                       yield state.copyWith(
                         readerLoading: false,
-                        readerOption: optionOf(right(blogs[blogIdx].content!)),
+                        readerOption: optionOf(right(blogs[blogIdx])),
                         blogCategoriesOption: optionOf(right(blogCategories)),
                         selectedCategory: optionOf(updatedCategory),
                       );

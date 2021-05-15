@@ -39,10 +39,10 @@ class _$BlogEventTearOff {
   }
 
   _ReadBlog readBlog(
-      {required BlogReaderTabType blogReaderTabType, required String id}) {
+      {required BlogReaderTabType blogReaderTabType, required Blog blog}) {
     return _ReadBlog(
       blogReaderTabType: blogReaderTabType,
-      id: id,
+      blog: blog,
     );
   }
 
@@ -70,7 +70,7 @@ mixin _$BlogEvent {
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
-    required TResult Function(BlogReaderTabType blogReaderTabType, String id)
+    required TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)
         readBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -82,7 +82,7 @@ mixin _$BlogEvent {
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
-    TResult Function(BlogReaderTabType blogReaderTabType, String id)? readBlog,
+    TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)? readBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
     required TResult orElse(),
@@ -169,7 +169,7 @@ class _$_Started implements _Started {
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
-    required TResult Function(BlogReaderTabType blogReaderTabType, String id)
+    required TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)
         readBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -184,7 +184,7 @@ class _$_Started implements _Started {
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
-    TResult Function(BlogReaderTabType blogReaderTabType, String id)? readBlog,
+    TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)? readBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
     required TResult orElse(),
@@ -301,7 +301,7 @@ class _$_SelectedCategory implements _SelectedCategory {
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
-    required TResult Function(BlogReaderTabType blogReaderTabType, String id)
+    required TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)
         readBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -316,7 +316,7 @@ class _$_SelectedCategory implements _SelectedCategory {
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
-    TResult Function(BlogReaderTabType blogReaderTabType, String id)? readBlog,
+    TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)? readBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
     required TResult orElse(),
@@ -440,7 +440,7 @@ class _$_SelectedCategoryLoadMore implements _SelectedCategoryLoadMore {
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
-    required TResult Function(BlogReaderTabType blogReaderTabType, String id)
+    required TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)
         readBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -455,7 +455,7 @@ class _$_SelectedCategoryLoadMore implements _SelectedCategoryLoadMore {
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
-    TResult Function(BlogReaderTabType blogReaderTabType, String id)? readBlog,
+    TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)? readBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
     required TResult orElse(),
@@ -576,7 +576,7 @@ class _$_LikedBlog implements _LikedBlog {
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
-    required TResult Function(BlogReaderTabType blogReaderTabType, String id)
+    required TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)
         readBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -591,7 +591,7 @@ class _$_LikedBlog implements _LikedBlog {
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
-    TResult Function(BlogReaderTabType blogReaderTabType, String id)? readBlog,
+    TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)? readBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
     required TResult orElse(),
@@ -649,7 +649,9 @@ abstract class _LikedBlog implements BlogEvent {
 abstract class _$ReadBlogCopyWith<$Res> {
   factory _$ReadBlogCopyWith(_ReadBlog value, $Res Function(_ReadBlog) then) =
       __$ReadBlogCopyWithImpl<$Res>;
-  $Res call({BlogReaderTabType blogReaderTabType, String id});
+  $Res call({BlogReaderTabType blogReaderTabType, Blog blog});
+
+  $BlogCopyWith<$Res> get blog;
 }
 
 /// @nodoc
@@ -664,33 +666,40 @@ class __$ReadBlogCopyWithImpl<$Res> extends _$BlogEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? blogReaderTabType = freezed,
-    Object? id = freezed,
+    Object? blog = freezed,
   }) {
     return _then(_ReadBlog(
       blogReaderTabType: blogReaderTabType == freezed
           ? _value.blogReaderTabType
           : blogReaderTabType // ignore: cast_nullable_to_non_nullable
               as BlogReaderTabType,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
+      blog: blog == freezed
+          ? _value.blog
+          : blog // ignore: cast_nullable_to_non_nullable
+              as Blog,
     ));
+  }
+
+  @override
+  $BlogCopyWith<$Res> get blog {
+    return $BlogCopyWith<$Res>(_value.blog, (value) {
+      return _then(_value.copyWith(blog: value));
+    });
   }
 }
 
 /// @nodoc
 class _$_ReadBlog implements _ReadBlog {
-  const _$_ReadBlog({required this.blogReaderTabType, required this.id});
+  const _$_ReadBlog({required this.blogReaderTabType, required this.blog});
 
   @override
   final BlogReaderTabType blogReaderTabType;
   @override
-  final String id;
+  final Blog blog;
 
   @override
   String toString() {
-    return 'BlogEvent.readBlog(blogReaderTabType: $blogReaderTabType, id: $id)';
+    return 'BlogEvent.readBlog(blogReaderTabType: $blogReaderTabType, blog: $blog)';
   }
 
   @override
@@ -700,15 +709,15 @@ class _$_ReadBlog implements _ReadBlog {
             (identical(other.blogReaderTabType, blogReaderTabType) ||
                 const DeepCollectionEquality()
                     .equals(other.blogReaderTabType, blogReaderTabType)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)));
+            (identical(other.blog, blog) ||
+                const DeepCollectionEquality().equals(other.blog, blog)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(blogReaderTabType) ^
-      const DeepCollectionEquality().hash(id);
+      const DeepCollectionEquality().hash(blog);
 
   @JsonKey(ignore: true)
   @override
@@ -722,12 +731,12 @@ class _$_ReadBlog implements _ReadBlog {
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
-    required TResult Function(BlogReaderTabType blogReaderTabType, String id)
+    required TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)
         readBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
   }) {
-    return readBlog(blogReaderTabType, id);
+    return readBlog(blogReaderTabType, blog);
   }
 
   @override
@@ -737,13 +746,13 @@ class _$_ReadBlog implements _ReadBlog {
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
-    TResult Function(BlogReaderTabType blogReaderTabType, String id)? readBlog,
+    TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)? readBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
     required TResult orElse(),
   }) {
     if (readBlog != null) {
-      return readBlog(blogReaderTabType, id);
+      return readBlog(blogReaderTabType, blog);
     }
     return orElse();
   }
@@ -785,10 +794,10 @@ class _$_ReadBlog implements _ReadBlog {
 abstract class _ReadBlog implements BlogEvent {
   const factory _ReadBlog(
       {required BlogReaderTabType blogReaderTabType,
-      required String id}) = _$_ReadBlog;
+      required Blog blog}) = _$_ReadBlog;
 
   BlogReaderTabType get blogReaderTabType => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
+  Blog get blog => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ReadBlogCopyWith<_ReadBlog> get copyWith =>
       throw _privateConstructorUsedError;
@@ -861,7 +870,7 @@ class _$_DislikedBlog implements _DislikedBlog {
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
-    required TResult Function(BlogReaderTabType blogReaderTabType, String id)
+    required TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)
         readBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -876,7 +885,7 @@ class _$_DislikedBlog implements _DislikedBlog {
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
-    TResult Function(BlogReaderTabType blogReaderTabType, String id)? readBlog,
+    TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)? readBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
     required TResult orElse(),
@@ -998,7 +1007,7 @@ class _$_UpdateLikedBlogs implements _UpdateLikedBlogs {
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
-    required TResult Function(BlogReaderTabType blogReaderTabType, String id)
+    required TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)
         readBlog,
     required TResult Function(String id) dislikedBlog,
     required TResult Function(List<String> blogIds) updateLikedBlogs,
@@ -1013,7 +1022,7 @@ class _$_UpdateLikedBlogs implements _UpdateLikedBlogs {
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
-    TResult Function(BlogReaderTabType blogReaderTabType, String id)? readBlog,
+    TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)? readBlog,
     TResult Function(String id)? dislikedBlog,
     TResult Function(List<String> blogIds)? updateLikedBlogs,
     required TResult orElse(),
@@ -1080,7 +1089,7 @@ class _$BlogStateTearOff {
       required bool readerLoading,
       required bool loadingMore,
       required Option<Failure> categoryError,
-      required Option<Either<Failure, String>> readerOption,
+      required Option<Either<Failure, Blog>> readerOption,
       required List<String> likedBlogs}) {
     return _BlogState(
       blogCategoriesOption: blogCategoriesOption,
@@ -1108,7 +1117,7 @@ mixin _$BlogState {
   bool get readerLoading => throw _privateConstructorUsedError;
   bool get loadingMore => throw _privateConstructorUsedError;
   Option<Failure> get categoryError => throw _privateConstructorUsedError;
-  Option<Either<Failure, String>> get readerOption =>
+  Option<Either<Failure, Blog>> get readerOption =>
       throw _privateConstructorUsedError;
   List<String> get likedBlogs => throw _privateConstructorUsedError;
 
@@ -1128,7 +1137,7 @@ abstract class $BlogStateCopyWith<$Res> {
       bool readerLoading,
       bool loadingMore,
       Option<Failure> categoryError,
-      Option<Either<Failure, String>> readerOption,
+      Option<Either<Failure, Blog>> readerOption,
       List<String> likedBlogs});
 }
 
@@ -1179,7 +1188,7 @@ class _$BlogStateCopyWithImpl<$Res> implements $BlogStateCopyWith<$Res> {
       readerOption: readerOption == freezed
           ? _value.readerOption
           : readerOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, String>>,
+              as Option<Either<Failure, Blog>>,
       likedBlogs: likedBlogs == freezed
           ? _value.likedBlogs
           : likedBlogs // ignore: cast_nullable_to_non_nullable
@@ -1201,7 +1210,7 @@ abstract class _$BlogStateCopyWith<$Res> implements $BlogStateCopyWith<$Res> {
       bool readerLoading,
       bool loadingMore,
       Option<Failure> categoryError,
-      Option<Either<Failure, String>> readerOption,
+      Option<Either<Failure, Blog>> readerOption,
       List<String> likedBlogs});
 }
 
@@ -1253,7 +1262,7 @@ class __$BlogStateCopyWithImpl<$Res> extends _$BlogStateCopyWithImpl<$Res>
       readerOption: readerOption == freezed
           ? _value.readerOption
           : readerOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<Failure, String>>,
+              as Option<Either<Failure, Blog>>,
       likedBlogs: likedBlogs == freezed
           ? _value.likedBlogs
           : likedBlogs // ignore: cast_nullable_to_non_nullable
@@ -1287,7 +1296,7 @@ class _$_BlogState implements _BlogState {
   @override
   final Option<Failure> categoryError;
   @override
-  final Option<Either<Failure, String>> readerOption;
+  final Option<Either<Failure, Blog>> readerOption;
   @override
   final List<String> likedBlogs;
 
@@ -1353,7 +1362,7 @@ abstract class _BlogState implements BlogState {
       required bool readerLoading,
       required bool loadingMore,
       required Option<Failure> categoryError,
-      required Option<Either<Failure, String>> readerOption,
+      required Option<Either<Failure, Blog>> readerOption,
       required List<String> likedBlogs}) = _$_BlogState;
 
   @override
@@ -1371,7 +1380,7 @@ abstract class _BlogState implements BlogState {
   @override
   Option<Failure> get categoryError => throw _privateConstructorUsedError;
   @override
-  Option<Either<Failure, String>> get readerOption =>
+  Option<Either<Failure, Blog>> get readerOption =>
       throw _privateConstructorUsedError;
   @override
   List<String> get likedBlogs => throw _privateConstructorUsedError;
