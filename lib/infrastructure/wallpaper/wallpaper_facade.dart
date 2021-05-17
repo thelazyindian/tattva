@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
@@ -29,7 +28,7 @@ class WallpaperFacade implements IWallpaperFacade {
           'token': token,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       return right(WallpaperDataModel.fromJson(data));
     } on DioError catch (e) {
       debugPrint('ERR_CODE ${e.error}');
@@ -54,7 +53,7 @@ class WallpaperFacade implements IWallpaperFacade {
           if (startAfter != null) 'startAfter': startAfter,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       debugPrint('wallpapers data $data');
 
       return right(WallpaperDataModel.fromJson(data));
@@ -79,7 +78,7 @@ class WallpaperFacade implements IWallpaperFacade {
           if (startAfter != null) 'startAfter': startAfter,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       debugPrint('wallpapers data $data');
 
       return right(WallpaperDataModel.fromJson(data));
@@ -129,7 +128,7 @@ class WallpaperFacade implements IWallpaperFacade {
           'liked': liked,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       debugPrint('likeDislikeWallpaper $data');
       if (data.containsKey('success') && (data['success'] as bool)) {
         return right(unit);

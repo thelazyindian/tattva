@@ -1,11 +1,9 @@
-import 'dart:convert';
-
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/domain/blog/blog_data_model.dart';
-import 'package:dartz/dartz.dart';
 import 'package:tattva/domain/blog/i_blog_facade.dart';
 import 'package:tattva/domain/failure.dart';
 
@@ -28,7 +26,7 @@ class BlogFacade implements IBlogFacade {
           if (startAfter != null) 'startAfter': startAfter,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       debugPrint('blogs data $data');
 
       return right(BlogDataModel.fromJson(data));
@@ -49,7 +47,7 @@ class BlogFacade implements IBlogFacade {
           'token': token,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
 
       return right(BlogDataModel.fromJson(data));
     } on DioError catch (e) {
@@ -76,7 +74,7 @@ class BlogFacade implements IBlogFacade {
           if (startAfter != null) 'startAfter': startAfter,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       debugPrint('blogs data $data');
 
       return right(BlogDataModel.fromJson(data));
@@ -103,7 +101,7 @@ class BlogFacade implements IBlogFacade {
           'liked': liked,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       debugPrint('likeDislikeBlog $data');
       if (data.containsKey('success') && (data['success'] as bool)) {
         return right(unit);
@@ -131,7 +129,7 @@ class BlogFacade implements IBlogFacade {
           'id': blogId,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       debugPrint(data.toString());
       return right(data['content']);
     } on DioError catch (e) {
@@ -155,7 +153,7 @@ class BlogFacade implements IBlogFacade {
           'id': blogId,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       debugPrint(data.toString());
       return right(Blog.fromJson(data));
     } on DioError catch (e) {

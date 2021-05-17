@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -23,7 +21,7 @@ class HomeItemsFacade implements IHomeItemsFacade {
         '/getFeaturedItems',
         queryParameters: {'token': token},
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       return right(TattvaItemsModel.fromJson(data));
     } on DioError catch (e) {
       debugPrint('getFeaturedItems ERR_CODE ${e.response}');

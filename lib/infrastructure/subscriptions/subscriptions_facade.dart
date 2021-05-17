@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -24,7 +22,7 @@ class SubscriptionsFacade implements ISubscriptionsFacade {
           'token': token,
         },
       );
-      final data = jsonDecode(response.data);
+      final data = response.data;
       return right(
           (data as List).map((e) => Subscription.fromJson(e)).toList());
     } on DioError catch (e) {
@@ -56,7 +54,7 @@ class SubscriptionsFacade implements ISubscriptionsFacade {
       // );
       debugPrint('RESP: $response');
 
-      final data = jsonDecode(response.data);
+      final data = response.data;
       debugPrint('DATA: $data');
       return right(Map<String, dynamic>.from(data)['id']);
     } on DioError catch (e, trace) {

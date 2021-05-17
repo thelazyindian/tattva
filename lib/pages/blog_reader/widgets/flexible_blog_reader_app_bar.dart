@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:auto_route/auto_route.dart';
 
 class FlexibleBlogReaderAppBar extends StatelessWidget {
   final String imageUrl;
@@ -22,7 +23,7 @@ class FlexibleBlogReaderAppBar extends StatelessWidget {
       leading: Navigator.canPop(context)
           ? Center(
               child: IconButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => context.router.pop(),
                 icon: SvgPicture.asset(
                   'icons/back.svg',
                   color: Theme.of(context).primaryColor,

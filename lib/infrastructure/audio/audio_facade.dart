@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,7 +24,7 @@ class AudioFacade implements IAudioFacade {
           'token': token,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
 
       return right(AudioDataModel.fromJson(data));
     } on DioError catch (e) {
@@ -50,7 +48,7 @@ class AudioFacade implements IAudioFacade {
           'id': id,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
 
       return right(AudioSubDataModel.fromJson(data));
     } on DioError catch (e) {
@@ -76,7 +74,7 @@ class AudioFacade implements IAudioFacade {
           'liked': liked,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       debugPrint('likeDislikeAudio $data');
       if (data.containsKey('success') && (data['success'] as bool)) {
         return right(unit);

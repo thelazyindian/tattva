@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -31,7 +29,7 @@ class SearchFacade implements ISearchFacade {
           if (type != null) 'type': type,
         },
       );
-      final data = Map<String, dynamic>.from(jsonDecode(response.data));
+      final data = Map<String, dynamic>.from(response.data);
       return right(SearchItems.fromJson(data));
     } on DioError catch (e) {
       debugPrint('ERROR: $e');

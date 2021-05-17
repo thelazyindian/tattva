@@ -64,11 +64,8 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
               state.readerLoading)
             return const Center(child: CircularProgressIndicator());
           else {
-            final Blog blog =
-                (widget.blogReaderTabType == BlogReaderTabType.fromUrl)
-                    ? state.readerOption.fold(() => widget.blog,
-                        (sOrF) => sOrF.fold((l) => widget.blog, (blog) => blog))
-                    : widget.blog;
+            final Blog blog = state.readerOption.fold(() => widget.blog,
+                (sOrF) => sOrF.fold((l) => widget.blog, (blog) => blog));
             return NestedScrollView(
               controller: _scrollController,
               headerSliverBuilder: (_, __) => [
