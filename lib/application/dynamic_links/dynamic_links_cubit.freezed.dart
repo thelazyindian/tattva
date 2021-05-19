@@ -100,15 +100,25 @@ class __$DynamicLinksStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_DynamicLinksState implements _DynamicLinksState {
+class _$_DynamicLinksState
+    with DiagnosticableTreeMixin
+    implements _DynamicLinksState {
   const _$_DynamicLinksState({required this.linkType});
 
   @override
   final Option<DynamicLinkType> linkType;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'DynamicLinksState(linkType: $linkType)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DynamicLinksState'))
+      ..add(DiagnosticsProperty('linkType', linkType));
   }
 
   @override

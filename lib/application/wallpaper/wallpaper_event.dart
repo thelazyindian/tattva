@@ -11,6 +11,12 @@ class WallpaperEvent with _$WallpaperEvent {
       _LikedWallpaper;
   const factory WallpaperEvent.dislikedWallpaper({required String id}) =
       _DislikedWallpaper;
+  const factory WallpaperEvent.wallpaperFromId({required String id}) =
+      _GetWallpaperFromId;
+  const factory WallpaperEvent.expandedWallpapers({
+    required List<Wallpaper> wallpapers,
+    required int wallpaperIdx,
+  }) = _ExpandedWallpapers;
   const factory WallpaperEvent.updateLikedWallpapers(
       {required List<String> wallpaperIds}) = _UpdateLikedWallpapers;
 }

@@ -12,6 +12,10 @@ abstract class IWallpaperFacade {
     required String categoryId,
     String? startAfter,
   });
+  Future<Either<Failure, WallpaperDataModel>> getWallpaperFromId({
+    required String token,
+    required String id,
+  });
   Future<Either<Failure, WallpaperDataModel>> getAllWallpapers({
     required String token,
     String? startAfter,

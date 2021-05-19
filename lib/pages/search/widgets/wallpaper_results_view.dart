@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/search/search_bloc.dart';
+import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/core/empty_results_view.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
@@ -36,8 +37,10 @@ class WallpaperResultsView extends StatelessWidget {
                             getIt<SearchBloc>().add(SearchEvent.loadMore()),
                         onTap: (index) {
                           context.router.push(SearchItemsWallpaperExpandedRoute(
-                            wallpapers: searchItems.wallpapers,
-                            wallpaperIdx: index,
+                            wallpaperEvent: WallpaperEvent.expandedWallpapers(
+                              wallpapers: searchItems.wallpapers,
+                              wallpaperIdx: index,
+                            ),
                           ));
                         },
                       ),

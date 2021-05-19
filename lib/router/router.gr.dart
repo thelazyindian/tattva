@@ -8,9 +8,9 @@ import 'package:auto_route/auto_route.dart' as _i1;
 import 'package:flutter/material.dart' as _i24;
 
 import '../application/blog/blog_bloc.dart' as _i28;
+import '../application/wallpaper/wallpaper_bloc.dart' as _i26;
 import '../domain/blog/blog.dart' as _i27;
 import '../domain/core/tattva_audio.dart' as _i25;
-import '../domain/wallpaper/wallpaper.dart' as _i26;
 import '../pages/audio/audio_page.dart' as _i8;
 import '../pages/audio_sub_category/audio_sub_category_page.dart' as _i9;
 import '../pages/authentication/forgot_password_page.dart' as _i6;
@@ -116,8 +116,7 @@ class AppRouter extends _i1.RootStackRouter {
           entry: entry,
           child: _i11.WallpaperExpandedPage(
               key: args.key,
-              wallpapers: args.wallpapers,
-              wallpaperIdx: args.wallpaperIdx,
+              wallpaperEvent: args.wallpaperEvent,
               enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     },
     HomeItemsRoute.name: (entry) {
@@ -165,8 +164,7 @@ class AppRouter extends _i1.RootStackRouter {
           entry: entry,
           child: _i11.WallpaperExpandedPage(
               key: args.key,
-              wallpapers: args.wallpapers,
-              wallpaperIdx: args.wallpaperIdx,
+              wallpaperEvent: args.wallpaperEvent,
               enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     },
     BlogRoute.name: (entry) {
@@ -202,8 +200,7 @@ class AppRouter extends _i1.RootStackRouter {
           entry: entry,
           child: _i11.WallpaperExpandedPage(
               key: args.key,
-              wallpapers: args.wallpapers,
-              wallpaperIdx: args.wallpaperIdx,
+              wallpaperEvent: args.wallpaperEvent,
               enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     },
     ProfileRoute.name: (entry) {
@@ -264,8 +261,7 @@ class AppRouter extends _i1.RootStackRouter {
           entry: entry,
           child: _i11.WallpaperExpandedPage(
               key: args.key,
-              wallpapers: args.wallpapers,
-              wallpaperIdx: args.wallpaperIdx,
+              wallpaperEvent: args.wallpaperEvent,
               enableAudioPreviewPadding: args.enableAudioPreviewPadding));
     }
   };
@@ -514,15 +510,13 @@ class WallpaperExpandedRoute
     extends _i1.PageRouteInfo<WallpaperExpandedRouteArgs> {
   WallpaperExpandedRoute(
       {_i24.Key? key,
-      required List<_i26.Wallpaper> wallpapers,
-      required int wallpaperIdx,
+      required _i26.WallpaperEvent wallpaperEvent,
       bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'wallpaper-expanded-page',
             args: WallpaperExpandedRouteArgs(
                 key: key,
-                wallpapers: wallpapers,
-                wallpaperIdx: wallpaperIdx,
+                wallpaperEvent: wallpaperEvent,
                 enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'WallpaperExpandedRoute';
@@ -531,15 +525,12 @@ class WallpaperExpandedRoute
 class WallpaperExpandedRouteArgs {
   const WallpaperExpandedRouteArgs(
       {this.key,
-      required this.wallpapers,
-      required this.wallpaperIdx,
+      required this.wallpaperEvent,
       this.enableAudioPreviewPadding = true});
 
   final _i24.Key? key;
 
-  final List<_i26.Wallpaper> wallpapers;
-
-  final int wallpaperIdx;
+  final _i26.WallpaperEvent wallpaperEvent;
 
   final bool enableAudioPreviewPadding;
 }
@@ -664,15 +655,13 @@ class HomeItemsWallpaperExpandedRoute
     extends _i1.PageRouteInfo<HomeItemsWallpaperExpandedRouteArgs> {
   HomeItemsWallpaperExpandedRoute(
       {_i24.Key? key,
-      required List<_i26.Wallpaper> wallpapers,
-      required int wallpaperIdx,
+      required _i26.WallpaperEvent wallpaperEvent,
       bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'wallpaper-expanded-page',
             args: HomeItemsWallpaperExpandedRouteArgs(
                 key: key,
-                wallpapers: wallpapers,
-                wallpaperIdx: wallpaperIdx,
+                wallpaperEvent: wallpaperEvent,
                 enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'HomeItemsWallpaperExpandedRoute';
@@ -681,15 +670,12 @@ class HomeItemsWallpaperExpandedRoute
 class HomeItemsWallpaperExpandedRouteArgs {
   const HomeItemsWallpaperExpandedRouteArgs(
       {this.key,
-      required this.wallpapers,
-      required this.wallpaperIdx,
+      required this.wallpaperEvent,
       this.enableAudioPreviewPadding = true});
 
   final _i24.Key? key;
 
-  final List<_i26.Wallpaper> wallpapers;
-
-  final int wallpaperIdx;
+  final _i26.WallpaperEvent wallpaperEvent;
 
   final bool enableAudioPreviewPadding;
 }
@@ -777,15 +763,13 @@ class SearchItemsWallpaperExpandedRoute
     extends _i1.PageRouteInfo<SearchItemsWallpaperExpandedRouteArgs> {
   SearchItemsWallpaperExpandedRoute(
       {_i24.Key? key,
-      required List<_i26.Wallpaper> wallpapers,
-      required int wallpaperIdx,
+      required _i26.WallpaperEvent wallpaperEvent,
       bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'wallpaper-expanded-page',
             args: SearchItemsWallpaperExpandedRouteArgs(
                 key: key,
-                wallpapers: wallpapers,
-                wallpaperIdx: wallpaperIdx,
+                wallpaperEvent: wallpaperEvent,
                 enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'SearchItemsWallpaperExpandedRoute';
@@ -794,15 +778,12 @@ class SearchItemsWallpaperExpandedRoute
 class SearchItemsWallpaperExpandedRouteArgs {
   const SearchItemsWallpaperExpandedRouteArgs(
       {this.key,
-      required this.wallpapers,
-      required this.wallpaperIdx,
+      required this.wallpaperEvent,
       this.enableAudioPreviewPadding = true});
 
   final _i24.Key? key;
 
-  final List<_i26.Wallpaper> wallpapers;
-
-  final int wallpaperIdx;
+  final _i26.WallpaperEvent wallpaperEvent;
 
   final bool enableAudioPreviewPadding;
 }
@@ -953,15 +934,13 @@ class LikedItemsWallpaperExpandedRoute
     extends _i1.PageRouteInfo<LikedItemsWallpaperExpandedRouteArgs> {
   LikedItemsWallpaperExpandedRoute(
       {_i24.Key? key,
-      required List<_i26.Wallpaper> wallpapers,
-      required int wallpaperIdx,
+      required _i26.WallpaperEvent wallpaperEvent,
       bool enableAudioPreviewPadding = true})
       : super(name,
             path: 'wallpaper-expanded-page',
             args: LikedItemsWallpaperExpandedRouteArgs(
                 key: key,
-                wallpapers: wallpapers,
-                wallpaperIdx: wallpaperIdx,
+                wallpaperEvent: wallpaperEvent,
                 enableAudioPreviewPadding: enableAudioPreviewPadding));
 
   static const String name = 'LikedItemsWallpaperExpandedRoute';
@@ -970,15 +949,12 @@ class LikedItemsWallpaperExpandedRoute
 class LikedItemsWallpaperExpandedRouteArgs {
   const LikedItemsWallpaperExpandedRouteArgs(
       {this.key,
-      required this.wallpapers,
-      required this.wallpaperIdx,
+      required this.wallpaperEvent,
       this.enableAudioPreviewPadding = true});
 
   final _i24.Key? key;
 
-  final List<_i26.Wallpaper> wallpapers;
-
-  final int wallpaperIdx;
+  final _i26.WallpaperEvent wallpaperEvent;
 
   final bool enableAudioPreviewPadding;
 }

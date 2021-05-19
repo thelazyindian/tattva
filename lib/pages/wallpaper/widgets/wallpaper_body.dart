@@ -85,8 +85,10 @@ class WallpaperBody extends StatelessWidget {
                           ),
                           onTap: (index) =>
                               context.router.push(WallpaperExpandedRoute(
-                            wallpapers: selectedCategory.wallpapers,
-                            wallpaperIdx: index,
+                            wallpaperEvent: WallpaperEvent.expandedWallpapers(
+                              wallpapers: selectedCategory.wallpapers,
+                              wallpaperIdx: index,
+                            ),
                           )),
                         ),
                       ),

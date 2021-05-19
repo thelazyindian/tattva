@@ -207,6 +207,48 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
       updateLikedWallpapers: (e) async* {
         yield state.copyWith(likedWallpapers: e.wallpaperIds);
       },
+      expandedWallpapers: (e) async* {
+        yield state.copyWith(
+          expandedViewLoading: false,
+          expandedViewWallpapers: optionOf(right(e.wallpapers)),
+          wallpaperIdx: e.wallpaperIdx,
+        );
+      },
+      wallpaperFromId: (e) async* {
+        yield state.copyWith(
+          expandedViewLoading: true,
+          expandedViewWallpapers: none(),
+          wallpaperIdx: 0,
+        );
+
+        final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+        final responseSorF = await _wallpaperFacade.getWallpaperFromId(
+          token: token,
+          id: e.id,
+        );
+
+        yield* responseSorF.fold(
+          (failure) async* {
+            yield state.copyWith(
+              expandedViewLoading: false,
+              expandedViewWallpapers: optionOf(left(failure)),
+            );
+          },
+          (success) async* {
+            final likedWallpapers = List<String>.from(state.likedWallpapers);
+            if (success.likedWallpapers.isNotEmpty) {
+              if (!likedWallpapers.contains(success.likedWallpapers.first)) {
+                likedWallpapers.add(success.likedWallpapers.first);
+              }
+            }
+            yield state.copyWith(
+              expandedViewLoading: false,
+              expandedViewWallpapers: optionOf(right(success.wallpapers)),
+              likedWallpapers: likedWallpapers,
+            );
+          },
+        );
+      },
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:tattva/application/blog/blog_bloc.dart';
+import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/core/tattva_items_model.dart';
 import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
@@ -77,8 +78,10 @@ class HomeItemsBody extends StatelessWidget {
               )),
               onTapItem: (idx) {
                 context.router.push(HomeItemsWallpaperExpandedRoute(
-                  wallpapers: tattvaItemsModel.wallpaper,
-                  wallpaperIdx: idx,
+                  wallpaperEvent: WallpaperEvent.expandedWallpapers(
+                    wallpapers: tattvaItemsModel.wallpaper,
+                    wallpaperIdx: idx,
+                  ),
                 ));
               },
             ),

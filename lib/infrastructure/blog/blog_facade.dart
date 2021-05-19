@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/domain/blog/blog_data_model.dart';
 import 'package:tattva/domain/blog/i_blog_facade.dart';
 import 'package:tattva/domain/failure.dart';
@@ -141,7 +140,7 @@ class BlogFacade implements IBlogFacade {
   }
 
   @override
-  Future<Either<Failure, Blog>> getBlogFromId(
+  Future<Either<Failure, BlogDataModel>> getBlogFromId(
     String token,
     String blogId,
   ) async {
@@ -155,7 +154,7 @@ class BlogFacade implements IBlogFacade {
       );
       final data = Map<String, dynamic>.from(response.data);
       debugPrint(data.toString());
-      return right(Blog.fromJson(data));
+      return right(BlogDataModel.fromJson(data));
     } on DioError catch (e) {
       debugPrint('likeDislikeBlog ERR_CODE ${e.response}');
       debugPrint(e.message);

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/home_items/home_items_bloc.dart';
+import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
@@ -41,8 +42,10 @@ class HomeItemsWallpaperSubCategoryPage extends StatelessWidget {
                       completelyFetched: true,
                       onTap: (index) =>
                           context.router.push(HomeItemsWallpaperExpandedRoute(
-                        wallpapers: tattvaItems.wallpaper,
-                        wallpaperIdx: index,
+                        wallpaperEvent: WallpaperEvent.expandedWallpapers(
+                          wallpapers: tattvaItems.wallpaper,
+                          wallpaperIdx: index,
+                        ),
                       )),
                     ),
                   ),

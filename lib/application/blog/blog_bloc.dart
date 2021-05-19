@@ -300,9 +300,16 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
               );
             },
             (success) async* {
+              final likedBlogs = List<String>.from(state.likedBlogs);
+              if (success.likedBlogs.isNotEmpty) {
+                if (!likedBlogs.contains(success.likedBlogs.first)) {
+                  likedBlogs.add(success.likedBlogs.first);
+                }
+              }
               yield state.copyWith(
                 readerLoading: false,
-                readerOption: optionOf(right(success)),
+                readerOption: optionOf(right(success.blogs.first)),
+                likedBlogs: likedBlogs,
               );
             },
           );

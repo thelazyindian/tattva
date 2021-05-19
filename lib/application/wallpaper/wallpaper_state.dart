@@ -8,6 +8,9 @@ class WallpaperState with _$WallpaperState {
     required Option<WallpaperCategory> selectedCategory,
     required bool categoryLoading,
     required bool loadingMore,
+    required bool expandedViewLoading,
+    required Option<Either<Failure, List<Wallpaper>>> expandedViewWallpapers,
+    required int wallpaperIdx,
     required Option<Failure> categoryError,
     required List<String> likedWallpapers,
   }) = _WallpaperState;
@@ -17,6 +20,9 @@ class WallpaperState with _$WallpaperState {
         selectedCategory: none(),
         categoryLoading: false,
         loadingMore: false,
+        expandedViewLoading: false,
+        expandedViewWallpapers: none(),
+        wallpaperIdx: 0,
         categoryError: none(),
         likedWallpapers: [],
       );

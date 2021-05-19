@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:tattva/application/blog/blog_bloc.dart';
+import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/liked_items/liked_items_data_model.dart';
 import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/liked_items/widgets/blog_category_section.dart';
@@ -77,8 +78,10 @@ class LikedItemsBody extends StatelessWidget {
               )),
               onTapItem: (idx) {
                 context.router.push(LikedItemsWallpaperExpandedRoute(
-                  wallpapers: likedItemsDataModel.likedWallpapers,
-                  wallpaperIdx: idx,
+                  wallpaperEvent: WallpaperEvent.expandedWallpapers(
+                    wallpapers: likedItemsDataModel.likedWallpapers,
+                    wallpaperIdx: idx,
+                  ),
                   enableAudioPreviewPadding: false,
                 ));
               },

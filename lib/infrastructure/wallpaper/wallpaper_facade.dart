@@ -66,6 +66,29 @@ class WallpaperFacade implements IWallpaperFacade {
   }
 
   @override
+  Future<Either<Failure, WallpaperDataModel>> getWallpaperFromId({
+    required String token,
+    required String id,
+  }) async {
+    try {
+      final response = await _dio.get(
+        '/getWallpaperFromId',
+        queryParameters: {
+          'token': token,
+          'id': id,
+        },
+      );
+      final data = Map<String, dynamic>.from(response.data);
+      debugPrint('wallpapers data $data');
+      return right(WallpaperDataModel.fromJson(data));
+    } on DioError catch (e) {
+      debugPrint('ERR_CODE ${e.error}');
+      debugPrint(e.message);
+      return left(Failure.serverError());
+    }
+  }
+
+  @override
   Future<Either<Failure, WallpaperDataModel>> getAllWallpapers({
     required String token,
     String? startAfter,

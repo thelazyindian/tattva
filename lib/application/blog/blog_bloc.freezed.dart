@@ -146,12 +146,18 @@ class __$StartedCopyWithImpl<$Res> extends _$BlogEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_Started implements _Started {
+class _$_Started with DiagnosticableTreeMixin implements _Started {
   const _$_Started();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'BlogEvent.started()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'BlogEvent.started'));
   }
 
   @override
@@ -266,15 +272,25 @@ class __$SelectedCategoryCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_SelectedCategory implements _SelectedCategory {
+class _$_SelectedCategory
+    with DiagnosticableTreeMixin
+    implements _SelectedCategory {
   const _$_SelectedCategory({required this.id});
 
   @override
   final String id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'BlogEvent.selectedCategory(id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'BlogEvent.selectedCategory'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -404,15 +420,25 @@ class __$SelectedCategoryLoadMoreCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_SelectedCategoryLoadMore implements _SelectedCategoryLoadMore {
+class _$_SelectedCategoryLoadMore
+    with DiagnosticableTreeMixin
+    implements _SelectedCategoryLoadMore {
   const _$_SelectedCategoryLoadMore({required this.id});
 
   @override
   final String id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'BlogEvent.selectedCategoryLoadMore(id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'BlogEvent.selectedCategoryLoadMore'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -541,15 +567,23 @@ class __$LikedBlogCopyWithImpl<$Res> extends _$BlogEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_LikedBlog implements _LikedBlog {
+class _$_LikedBlog with DiagnosticableTreeMixin implements _LikedBlog {
   const _$_LikedBlog({required this.id});
 
   @override
   final String id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'BlogEvent.likedBlog(id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'BlogEvent.likedBlog'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -689,7 +723,7 @@ class __$ReadBlogCopyWithImpl<$Res> extends _$BlogEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_ReadBlog implements _ReadBlog {
+class _$_ReadBlog with DiagnosticableTreeMixin implements _ReadBlog {
   const _$_ReadBlog({required this.blogReaderTabType, required this.blog});
 
   @override
@@ -698,8 +732,17 @@ class _$_ReadBlog implements _ReadBlog {
   final Blog blog;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'BlogEvent.readBlog(blogReaderTabType: $blogReaderTabType, blog: $blog)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'BlogEvent.readBlog'))
+      ..add(DiagnosticsProperty('blogReaderTabType', blogReaderTabType))
+      ..add(DiagnosticsProperty('blog', blog));
   }
 
   @override
@@ -835,15 +878,23 @@ class __$DislikedBlogCopyWithImpl<$Res> extends _$BlogEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_DislikedBlog implements _DislikedBlog {
+class _$_DislikedBlog with DiagnosticableTreeMixin implements _DislikedBlog {
   const _$_DislikedBlog({required this.id});
 
   @override
   final String id;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'BlogEvent.dislikedBlog(id: $id)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'BlogEvent.dislikedBlog'))
+      ..add(DiagnosticsProperty('id', id));
   }
 
   @override
@@ -972,15 +1023,25 @@ class __$UpdateLikedBlogsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_UpdateLikedBlogs implements _UpdateLikedBlogs {
+class _$_UpdateLikedBlogs
+    with DiagnosticableTreeMixin
+    implements _UpdateLikedBlogs {
   const _$_UpdateLikedBlogs({required this.blogIds});
 
   @override
   final List<String> blogIds;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'BlogEvent.updateLikedBlogs(blogIds: $blogIds)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'BlogEvent.updateLikedBlogs'))
+      ..add(DiagnosticsProperty('blogIds', blogIds));
   }
 
   @override
@@ -1272,7 +1333,7 @@ class __$BlogStateCopyWithImpl<$Res> extends _$BlogStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_BlogState implements _BlogState {
+class _$_BlogState with DiagnosticableTreeMixin implements _BlogState {
   const _$_BlogState(
       {required this.blogCategoriesOption,
       required this.selectedCategory,
@@ -1301,8 +1362,23 @@ class _$_BlogState implements _BlogState {
   final List<String> likedBlogs;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'BlogState(blogCategoriesOption: $blogCategoriesOption, selectedCategory: $selectedCategory, categoryLoading: $categoryLoading, readerLoading: $readerLoading, loadingMore: $loadingMore, categoryError: $categoryError, readerOption: $readerOption, likedBlogs: $likedBlogs)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'BlogState'))
+      ..add(DiagnosticsProperty('blogCategoriesOption', blogCategoriesOption))
+      ..add(DiagnosticsProperty('selectedCategory', selectedCategory))
+      ..add(DiagnosticsProperty('categoryLoading', categoryLoading))
+      ..add(DiagnosticsProperty('readerLoading', readerLoading))
+      ..add(DiagnosticsProperty('loadingMore', loadingMore))
+      ..add(DiagnosticsProperty('categoryError', categoryError))
+      ..add(DiagnosticsProperty('readerOption', readerOption))
+      ..add(DiagnosticsProperty('likedBlogs', likedBlogs));
   }
 
   @override

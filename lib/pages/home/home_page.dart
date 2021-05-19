@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/application/dynamic_links/dynamic_links_cubit.dart';
+import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio_player/audio_player_page.dart';
@@ -40,9 +41,8 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                     blog: Blog.fromId(e.id),
                     blogReaderTabType: BlogReaderTabType.fromUrl,
                   ),
-                  wallpaper: (e) => HomeItemsBlogReaderRoute(
-                    blog: Blog.fromId(e.id),
-                    blogReaderTabType: BlogReaderTabType.fromUrl,
+                  wallpaper: (e) => HomeItemsWallpaperExpandedRoute(
+                    wallpaperEvent: WallpaperEvent.wallpaperFromId(id: e.id),
                   ),
                 ),
               ),
