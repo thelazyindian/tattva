@@ -10,8 +10,9 @@ _$_WallpaperDataModel _$_$_WallpaperDataModelFromJson(
     Map<String, dynamic> json) {
   return _$_WallpaperDataModel(
     categories: (json['categories'] as List<dynamic>?)
-        ?.map((e) => WallpaperCategory.fromJson(e as Map<String, dynamic>))
-        .toList(),
+            ?.map((e) => WallpaperCategory.fromJson(e as Map<String, dynamic>))
+            .toList() ??
+        [],
     wallpapers: (json['wallpapers'] as List<dynamic>)
         .map((e) => Wallpaper.fromJson(e as Map<String, dynamic>))
         .toList(),

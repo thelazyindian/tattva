@@ -9,6 +9,7 @@ import 'package:tattva/application/liked_items/liked_items_bloc.dart';
 import 'package:tattva/domain/audio/audio_category.dart';
 import 'package:tattva/domain/audio/i_audio_facade.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
+import 'package:tattva/domain/core/tattva_audio.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/injection.dart';
 
@@ -33,7 +34,7 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
 
         final audioCategoriesSuccessOrFailure =
-            await _audioFacade.getAudioCategories(token);
+            await _audioFacade.getAudioCategories(token: token);
         yield* audioCategoriesSuccessOrFailure.fold(
           (failure) async* {
             yield state.copyWith(
@@ -65,7 +66,7 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
             );
             final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
             final audioSubCategoriesSuccessOrFailure = await _audioFacade
-                .getAudioSubCategories(token, e.audioCategory.id);
+                .getAudioSubCategories(token: token, id: e.audioCategory.id);
 
             final audioCategoryFetched = e.audioCategory.copyWith(
               audioSubCategories: audioSubCategoriesSuccessOrFailure.fold(
@@ -105,7 +106,7 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
       likedAudio: (e) async* {
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         _audioFacade
-            .likeDislikeAudio(token, e.id, true)
+            .likeDislikeAudio(token: token, audioId: e.id, liked: true)
             .then((value) => value.fold((l) {
                   final likedAudios = List<String>.from(state.likedAudios);
                   likedAudios.removeWhere((element) => element == e.id);
@@ -119,9 +120,9 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         _audioFacade
             .likeDislikeAudio(
-              token,
-              e.id,
-              false,
+              token: token,
+              audioId: e.id,
+              liked: false,
             )
             .then((value) => value.fold((l) {
                   final likedAudios = List<String>.from(state.likedAudios);
@@ -137,6 +138,36 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
       },
       updateLikedAudios: (e) async* {
         yield state.copyWith(likedAudios: e.audioIds);
+      },
+      audioFromId: (e) async* {
+        yield state.copyWith(
+          audioFromIdOption: none(),
+        );
+        final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
+        final responseSorF = await _audioFacade.getAudioFromId(
+          token: token,
+          audioId: e.id,
+        );
+
+        yield* responseSorF.fold(
+          (failure) async* {
+            yield state.copyWith(
+              audioFromIdOption: optionOf(left(failure)),
+            );
+          },
+          (success) async* {
+            final likedAudios = List<String>.from(state.likedAudios);
+            if (success.likedAudios.isNotEmpty) {
+              if (!likedAudios.contains(success.likedAudios.first)) {
+                likedAudios.add(success.likedAudios.first);
+              }
+              yield state.copyWith(
+                audioFromIdOption: optionOf(right(success.audios.first)),
+                likedAudios: likedAudios,
+              );
+            }
+          },
+        );
       },
     );
   }

@@ -26,6 +26,7 @@ class _$WallpaperTearOff {
       required String imageSmall,
       required String imageMedium,
       required List<TattvaImage> image,
+      required String link,
       DateTime? createdAt}) {
     return _Wallpaper(
       id: id,
@@ -33,6 +34,7 @@ class _$WallpaperTearOff {
       imageSmall: imageSmall,
       imageMedium: imageMedium,
       image: image,
+      link: link,
       createdAt: createdAt,
     );
   }
@@ -52,6 +54,7 @@ mixin _$Wallpaper {
   String get imageSmall => throw _privateConstructorUsedError;
   String get imageMedium => throw _privateConstructorUsedError;
   List<TattvaImage> get image => throw _privateConstructorUsedError;
+  String get link => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -70,6 +73,7 @@ abstract class $WallpaperCopyWith<$Res> {
       String imageSmall,
       String imageMedium,
       List<TattvaImage> image,
+      String link,
       DateTime? createdAt});
 }
 
@@ -88,6 +92,7 @@ class _$WallpaperCopyWithImpl<$Res> implements $WallpaperCopyWith<$Res> {
     Object? imageSmall = freezed,
     Object? imageMedium = freezed,
     Object? image = freezed,
+    Object? link = freezed,
     Object? createdAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -111,6 +116,10 @@ class _$WallpaperCopyWithImpl<$Res> implements $WallpaperCopyWith<$Res> {
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
+      link: link == freezed
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -131,6 +140,7 @@ abstract class _$WallpaperCopyWith<$Res> implements $WallpaperCopyWith<$Res> {
       String imageSmall,
       String imageMedium,
       List<TattvaImage> image,
+      String link,
       DateTime? createdAt});
 }
 
@@ -150,6 +160,7 @@ class __$WallpaperCopyWithImpl<$Res> extends _$WallpaperCopyWithImpl<$Res>
     Object? imageSmall = freezed,
     Object? imageMedium = freezed,
     Object? image = freezed,
+    Object? link = freezed,
     Object? createdAt = freezed,
   }) {
     return _then(_Wallpaper(
@@ -173,6 +184,10 @@ class __$WallpaperCopyWithImpl<$Res> extends _$WallpaperCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
+      link: link == freezed
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String,
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -191,6 +206,7 @@ class _$_Wallpaper implements _Wallpaper {
       required this.imageSmall,
       required this.imageMedium,
       required this.image,
+      required this.link,
       this.createdAt});
 
   factory _$_Wallpaper.fromJson(Map<String, dynamic> json) =>
@@ -207,11 +223,13 @@ class _$_Wallpaper implements _Wallpaper {
   @override
   final List<TattvaImage> image;
   @override
+  final String link;
+  @override
   final DateTime? createdAt;
 
   @override
   String toString() {
-    return 'Wallpaper(id: $id, name: $name, imageSmall: $imageSmall, imageMedium: $imageMedium, image: $image, createdAt: $createdAt)';
+    return 'Wallpaper(id: $id, name: $name, imageSmall: $imageSmall, imageMedium: $imageMedium, image: $image, link: $link, createdAt: $createdAt)';
   }
 
   @override
@@ -230,6 +248,8 @@ class _$_Wallpaper implements _Wallpaper {
                     .equals(other.imageMedium, imageMedium)) &&
             (identical(other.image, image) ||
                 const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.link, link) ||
+                const DeepCollectionEquality().equals(other.link, link)) &&
             (identical(other.createdAt, createdAt) ||
                 const DeepCollectionEquality()
                     .equals(other.createdAt, createdAt)));
@@ -243,6 +263,7 @@ class _$_Wallpaper implements _Wallpaper {
       const DeepCollectionEquality().hash(imageSmall) ^
       const DeepCollectionEquality().hash(imageMedium) ^
       const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(link) ^
       const DeepCollectionEquality().hash(createdAt);
 
   @JsonKey(ignore: true)
@@ -263,6 +284,7 @@ abstract class _Wallpaper implements Wallpaper {
       required String imageSmall,
       required String imageMedium,
       required List<TattvaImage> image,
+      required String link,
       DateTime? createdAt}) = _$_Wallpaper;
 
   factory _Wallpaper.fromJson(Map<String, dynamic> json) =
@@ -278,6 +300,8 @@ abstract class _Wallpaper implements Wallpaper {
   String get imageMedium => throw _privateConstructorUsedError;
   @override
   List<TattvaImage> get image => throw _privateConstructorUsedError;
+  @override
+  String get link => throw _privateConstructorUsedError;
   @override
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @override

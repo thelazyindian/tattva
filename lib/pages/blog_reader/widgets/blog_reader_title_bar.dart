@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:share/share.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/pages/blog/widgets/blog_like_button.dart';
 
@@ -59,7 +60,7 @@ class BlogReaderTitleBar extends StatelessWidget {
           ),
           const SizedBox(width: 16.0),
           InkWell(
-            onTap: () {},
+            onTap: () => Share.share('Check out this blog ${blog.link}'),
             child: SvgPicture.asset(
               'icons/share.svg',
               height: 20.0,

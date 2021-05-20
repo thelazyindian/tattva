@@ -21,7 +21,7 @@ class _$WallpaperDataModelTearOff {
   const _$WallpaperDataModelTearOff();
 
   _WallpaperDataModel call(
-      {List<WallpaperCategory>? categories,
+      {List<WallpaperCategory> categories = const [],
       required List<Wallpaper> wallpapers,
       required List<String> likedWallpapers}) {
     return _WallpaperDataModel(
@@ -41,7 +41,7 @@ const $WallpaperDataModel = _$WallpaperDataModelTearOff();
 
 /// @nodoc
 mixin _$WallpaperDataModel {
-  List<WallpaperCategory>? get categories => throw _privateConstructorUsedError;
+  List<WallpaperCategory> get categories => throw _privateConstructorUsedError;
   List<Wallpaper> get wallpapers => throw _privateConstructorUsedError;
   List<String> get likedWallpapers => throw _privateConstructorUsedError;
 
@@ -57,7 +57,7 @@ abstract class $WallpaperDataModelCopyWith<$Res> {
           WallpaperDataModel value, $Res Function(WallpaperDataModel) then) =
       _$WallpaperDataModelCopyWithImpl<$Res>;
   $Res call(
-      {List<WallpaperCategory>? categories,
+      {List<WallpaperCategory> categories,
       List<Wallpaper> wallpapers,
       List<String> likedWallpapers});
 }
@@ -81,7 +81,7 @@ class _$WallpaperDataModelCopyWithImpl<$Res>
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<WallpaperCategory>?,
+              as List<WallpaperCategory>,
       wallpapers: wallpapers == freezed
           ? _value.wallpapers
           : wallpapers // ignore: cast_nullable_to_non_nullable
@@ -102,7 +102,7 @@ abstract class _$WallpaperDataModelCopyWith<$Res>
       __$WallpaperDataModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<WallpaperCategory>? categories,
+      {List<WallpaperCategory> categories,
       List<Wallpaper> wallpapers,
       List<String> likedWallpapers});
 }
@@ -128,7 +128,7 @@ class __$WallpaperDataModelCopyWithImpl<$Res>
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<WallpaperCategory>?,
+              as List<WallpaperCategory>,
       wallpapers: wallpapers == freezed
           ? _value.wallpapers
           : wallpapers // ignore: cast_nullable_to_non_nullable
@@ -146,15 +146,16 @@ class __$WallpaperDataModelCopyWithImpl<$Res>
 /// @nodoc
 class _$_WallpaperDataModel implements _WallpaperDataModel {
   const _$_WallpaperDataModel(
-      {this.categories,
+      {this.categories = const [],
       required this.wallpapers,
       required this.likedWallpapers});
 
   factory _$_WallpaperDataModel.fromJson(Map<String, dynamic> json) =>
       _$_$_WallpaperDataModelFromJson(json);
 
+  @JsonKey(defaultValue: const [])
   @override
-  final List<WallpaperCategory>? categories;
+  final List<WallpaperCategory> categories;
   @override
   final List<Wallpaper> wallpapers;
   @override
@@ -200,7 +201,7 @@ class _$_WallpaperDataModel implements _WallpaperDataModel {
 
 abstract class _WallpaperDataModel implements WallpaperDataModel {
   const factory _WallpaperDataModel(
-      {List<WallpaperCategory>? categories,
+      {List<WallpaperCategory> categories,
       required List<Wallpaper> wallpapers,
       required List<String> likedWallpapers}) = _$_WallpaperDataModel;
 
@@ -208,7 +209,7 @@ abstract class _WallpaperDataModel implements WallpaperDataModel {
       _$_WallpaperDataModel.fromJson;
 
   @override
-  List<WallpaperCategory>? get categories => throw _privateConstructorUsedError;
+  List<WallpaperCategory> get categories => throw _privateConstructorUsedError;
   @override
   List<Wallpaper> get wallpapers => throw _privateConstructorUsedError;
   @override

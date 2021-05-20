@@ -12,6 +12,7 @@ class TattvaAudio with _$TattvaAudio {
     required String name,
     required String language,
     required int durationInMins,
+    required String link,
     required List<TattvaImage> thumbnail,
     required List<TattvaAudioFile> audioFile,
     DateTime? createdAt,

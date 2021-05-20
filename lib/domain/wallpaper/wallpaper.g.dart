@@ -15,6 +15,7 @@ _$_Wallpaper _$_$_WallpaperFromJson(Map<String, dynamic> json) {
     image: (json['image'] as List<dynamic>)
         .map((e) => TattvaImage.fromJson(e as Map<String, dynamic>))
         .toList(),
+    link: json['link'] as String,
     createdAt: json['createdAt'] == null
         ? null
         : DateTime.parse(json['createdAt'] as String),
@@ -28,5 +29,6 @@ Map<String, dynamic> _$_$_WallpaperToJson(_$_Wallpaper instance) =>
       'imageSmall': instance.imageSmall,
       'imageMedium': instance.imageMedium,
       'image': instance.image,
+      'link': instance.link,
       'createdAt': instance.createdAt?.toIso8601String(),
     };

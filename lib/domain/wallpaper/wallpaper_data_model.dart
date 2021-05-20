@@ -8,7 +8,7 @@ part 'wallpaper_data_model.g.dart';
 @freezed
 class WallpaperDataModel with _$WallpaperDataModel {
   const factory WallpaperDataModel({
-    List<WallpaperCategory>? categories,
+    @Default([]) List<WallpaperCategory> categories,
     required List<Wallpaper> wallpapers,
     required List<String> likedWallpapers,
   }) = _WallpaperDataModel;

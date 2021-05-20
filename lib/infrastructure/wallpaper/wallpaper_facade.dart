@@ -19,8 +19,9 @@ class WallpaperFacade implements IWallpaperFacade {
   WallpaperFacade(this._dio);
 
   @override
-  Future<Either<Failure, WallpaperDataModel>> getWallpaperCategories(
-      String token) async {
+  Future<Either<Failure, WallpaperDataModel>> getWallpaperCategories({
+    required String token,
+  }) async {
     try {
       final response = await _dio.get(
         '/getWallpaperCategories',
@@ -137,11 +138,11 @@ class WallpaperFacade implements IWallpaperFacade {
   }
 
   @override
-  Future<Either<Failure, Unit>> likeDislikeWallpaper(
-    String token,
-    String wallpaperId,
-    bool liked,
-  ) async {
+  Future<Either<Failure, Unit>> likeDislikeWallpaper({
+    required String token,
+    required String wallpaperId,
+    required bool liked,
+  }) async {
     try {
       final response = await _dio.get(
         '/likeDislikeWallpaper',

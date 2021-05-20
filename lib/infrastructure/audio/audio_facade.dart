@@ -14,9 +14,9 @@ class AudioFacade implements IAudioFacade {
   AudioFacade(this._dio);
 
   @override
-  Future<Either<Failure, AudioDataModel>> getAudioCategories(
-    String token,
-  ) async {
+  Future<Either<Failure, AudioDataModel>> getAudioCategories({
+    required String token,
+  }) async {
     try {
       final response = await _dio.get(
         '/getAudioCategories',
@@ -36,10 +36,10 @@ class AudioFacade implements IAudioFacade {
   }
 
   @override
-  Future<Either<Failure, AudioSubDataModel>> getAudioSubCategories(
-    String token,
-    String id,
-  ) async {
+  Future<Either<Failure, AudioSubDataModel>> getAudioSubCategories({
+    required String token,
+    required String id,
+  }) async {
     try {
       final response = await _dio.get(
         '/getAudioSubCategories',
@@ -60,11 +60,11 @@ class AudioFacade implements IAudioFacade {
   }
 
   @override
-  Future<Either<Failure, Unit>> likeDislikeAudio(
-    String token,
-    String audioId,
-    bool liked,
-  ) async {
+  Future<Either<Failure, Unit>> likeDislikeAudio({
+    required String token,
+    required String audioId,
+    required bool liked,
+  }) async {
     try {
       final response = await _dio.get(
         '/likeDislikeAudio',
@@ -85,6 +85,26 @@ class AudioFacade implements IAudioFacade {
       debugPrint('likeDislikeAudio ERR_CODE ${e.response}');
       debugPrint(e.message);
 
+      return left(Failure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<Failure, AudioDataModel>> getAudioFromId({
+    required String token,
+    required String audioId,
+  }) async {
+    try {
+      final response = await _dio.get(
+        '/getAudioFromId',
+        queryParameters: {
+          'token': token,
+          'id': audioId,
+        },
+      );
+      final data = Map<String, dynamic>.from(response.data);
+      return right(AudioDataModel.fromJson(data));
+    } on DioError {
       return left(Failure.serverError());
     }
   }

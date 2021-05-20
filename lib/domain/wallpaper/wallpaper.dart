@@ -12,6 +12,7 @@ class Wallpaper with _$Wallpaper {
     required String imageSmall,
     required String imageMedium,
     required List<TattvaImage> image,
+    required String link,
     DateTime? createdAt,
   }) = _Wallpaper;
 

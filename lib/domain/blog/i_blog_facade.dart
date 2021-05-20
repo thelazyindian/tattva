@@ -3,9 +3,9 @@ import 'package:tattva/domain/blog/blog_data_model.dart';
 import 'package:tattva/domain/failure.dart';
 
 abstract class IBlogFacade {
-  Future<Either<Failure, BlogDataModel>> getBlogCategories(
-    String token,
-  );
+  Future<Either<Failure, BlogDataModel>> getBlogCategories({
+    required String token,
+  });
   Future<Either<Failure, BlogDataModel>> getBlogsFromCategory({
     required String token,
     required String categoryId,
@@ -15,17 +15,17 @@ abstract class IBlogFacade {
     required String token,
     String? startAfter,
   });
-  Future<Either<Failure, Unit>> likeDislikeBlog(
-    String token,
-    String blogId,
-    bool liked,
-  );
-  Future<Either<Failure, String>> getBlogContent(
-    String token,
-    String blogId,
-  );
-  Future<Either<Failure, BlogDataModel>> getBlogFromId(
-    String token,
-    String blogId,
-  );
+  Future<Either<Failure, Unit>> likeDislikeBlog({
+    required String token,
+    required String blogId,
+    required bool liked,
+  });
+  Future<Either<Failure, String>> getBlogContent({
+    required String token,
+    required String blogId,
+  });
+  Future<Either<Failure, BlogDataModel>> getBlogFromId({
+    required String token,
+    required String blogId,
+  });
 }

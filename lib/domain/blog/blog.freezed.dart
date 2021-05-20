@@ -29,6 +29,7 @@ class _$BlogTearOff {
       required List<TattvaImage> coverImage,
       required int durationInMins,
       required String summary,
+      required String link,
       String? content,
       DateTime? createdAt,
       required int likes}) {
@@ -41,6 +42,7 @@ class _$BlogTearOff {
       coverImage: coverImage,
       durationInMins: durationInMins,
       summary: summary,
+      link: link,
       content: content,
       createdAt: createdAt,
       likes: likes,
@@ -65,6 +67,7 @@ mixin _$Blog {
   List<TattvaImage> get coverImage => throw _privateConstructorUsedError;
   int get durationInMins => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
+  String get link => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   int get likes => throw _privateConstructorUsedError;
@@ -87,6 +90,7 @@ abstract class $BlogCopyWith<$Res> {
       List<TattvaImage> coverImage,
       int durationInMins,
       String summary,
+      String link,
       String? content,
       DateTime? createdAt,
       int likes});
@@ -110,6 +114,7 @@ class _$BlogCopyWithImpl<$Res> implements $BlogCopyWith<$Res> {
     Object? coverImage = freezed,
     Object? durationInMins = freezed,
     Object? summary = freezed,
+    Object? link = freezed,
     Object? content = freezed,
     Object? createdAt = freezed,
     Object? likes = freezed,
@@ -147,6 +152,10 @@ class _$BlogCopyWithImpl<$Res> implements $BlogCopyWith<$Res> {
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as String,
+      link: link == freezed
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String,
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -177,6 +186,7 @@ abstract class _$BlogCopyWith<$Res> implements $BlogCopyWith<$Res> {
       List<TattvaImage> coverImage,
       int durationInMins,
       String summary,
+      String link,
       String? content,
       DateTime? createdAt,
       int likes});
@@ -201,6 +211,7 @@ class __$BlogCopyWithImpl<$Res> extends _$BlogCopyWithImpl<$Res>
     Object? coverImage = freezed,
     Object? durationInMins = freezed,
     Object? summary = freezed,
+    Object? link = freezed,
     Object? content = freezed,
     Object? createdAt = freezed,
     Object? likes = freezed,
@@ -238,6 +249,10 @@ class __$BlogCopyWithImpl<$Res> extends _$BlogCopyWithImpl<$Res>
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as String,
+      link: link == freezed
+          ? _value.link
+          : link // ignore: cast_nullable_to_non_nullable
+              as String,
       content: content == freezed
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
@@ -267,6 +282,7 @@ class _$_Blog implements _Blog {
       required this.coverImage,
       required this.durationInMins,
       required this.summary,
+      required this.link,
       this.content,
       this.createdAt,
       required this.likes});
@@ -291,6 +307,8 @@ class _$_Blog implements _Blog {
   @override
   final String summary;
   @override
+  final String link;
+  @override
   final String? content;
   @override
   final DateTime? createdAt;
@@ -299,7 +317,7 @@ class _$_Blog implements _Blog {
 
   @override
   String toString() {
-    return 'Blog(id: $id, title: $title, slug: $slug, author: $author, date: $date, coverImage: $coverImage, durationInMins: $durationInMins, summary: $summary, content: $content, createdAt: $createdAt, likes: $likes)';
+    return 'Blog(id: $id, title: $title, slug: $slug, author: $author, date: $date, coverImage: $coverImage, durationInMins: $durationInMins, summary: $summary, link: $link, content: $content, createdAt: $createdAt, likes: $likes)';
   }
 
   @override
@@ -325,6 +343,8 @@ class _$_Blog implements _Blog {
             (identical(other.summary, summary) ||
                 const DeepCollectionEquality()
                     .equals(other.summary, summary)) &&
+            (identical(other.link, link) ||
+                const DeepCollectionEquality().equals(other.link, link)) &&
             (identical(other.content, content) ||
                 const DeepCollectionEquality()
                     .equals(other.content, content)) &&
@@ -346,6 +366,7 @@ class _$_Blog implements _Blog {
       const DeepCollectionEquality().hash(coverImage) ^
       const DeepCollectionEquality().hash(durationInMins) ^
       const DeepCollectionEquality().hash(summary) ^
+      const DeepCollectionEquality().hash(link) ^
       const DeepCollectionEquality().hash(content) ^
       const DeepCollectionEquality().hash(createdAt) ^
       const DeepCollectionEquality().hash(likes);
@@ -371,6 +392,7 @@ abstract class _Blog implements Blog {
       required List<TattvaImage> coverImage,
       required int durationInMins,
       required String summary,
+      required String link,
       String? content,
       DateTime? createdAt,
       required int likes}) = _$_Blog;
@@ -393,6 +415,8 @@ abstract class _Blog implements Blog {
   int get durationInMins => throw _privateConstructorUsedError;
   @override
   String get summary => throw _privateConstructorUsedError;
+  @override
+  String get link => throw _privateConstructorUsedError;
   @override
   String? get content => throw _privateConstructorUsedError;
   @override

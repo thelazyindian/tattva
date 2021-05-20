@@ -8,7 +8,7 @@ part 'blog_data_model.g.dart';
 @freezed
 class BlogDataModel with _$BlogDataModel {
   const factory BlogDataModel({
-    List<BlogCategory>? categories,
+    @Default([]) List<BlogCategory> categories,
     required List<Blog> blogs,
     required List<String> likedBlogs,
   }) = _BlogDataModel;

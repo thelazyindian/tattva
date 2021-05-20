@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:share/share.dart';
 import 'package:tattva/domain/wallpaper/i_wallpaper_facade.dart';
 import 'package:tattva/domain/wallpaper/wallpaper.dart';
 import 'package:tattva/injection.dart';
@@ -33,7 +34,8 @@ class WallpaperButtons extends StatelessWidget {
         ),
         const SizedBox(width: 24.0),
         IconButton(
-          onPressed: () {},
+          onPressed: () =>
+              Share.share('Check out this wallpaper ${wallpaper.link}'),
           icon: SvgPicture.asset(
             'icons/share.svg',
             height: size,

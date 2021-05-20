@@ -18,6 +18,7 @@ _$_Blog _$_$_BlogFromJson(Map<String, dynamic> json) {
         .toList(),
     durationInMins: json['durationInMins'] as int,
     summary: json['summary'] as String,
+    link: json['link'] as String,
     content: json['content'] as String?,
     createdAt: json['createdAt'] == null
         ? null
@@ -35,6 +36,7 @@ Map<String, dynamic> _$_$_BlogToJson(_$_Blog instance) => <String, dynamic>{
       'coverImage': instance.coverImage,
       'durationInMins': instance.durationInMins,
       'summary': instance.summary,
+      'link': instance.link,
       'content': instance.content,
       'createdAt': instance.createdAt?.toIso8601String(),
       'likes': instance.likes,

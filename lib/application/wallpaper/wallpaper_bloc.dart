@@ -31,7 +31,8 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
       started: (e) async* {
         yield WallpaperState.initial();
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
-        final response = await _wallpaperFacade.getWallpaperCategories(token);
+        final response =
+            await _wallpaperFacade.getWallpaperCategories(token: token);
 
         yield* response.fold(
           (failure) async* {
@@ -46,7 +47,7 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
                 wallpapers: success.wallpapers,
               ),
             ];
-            allwallpaperCategories.addAll(success.categories!);
+            allwallpaperCategories.addAll(success.categories);
 
             yield state.copyWith(
               wallpaperCategoriesOption:
@@ -171,7 +172,7 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
       likedWallpaper: (e) async* {
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         _wallpaperFacade
-            .likeDislikeWallpaper(token, e.id, true)
+            .likeDislikeWallpaper(token: token, wallpaperId: e.id, liked: true)
             .then((value) => value.fold((l) {
                   final likedWallpapers =
                       List<String>.from(state.likedWallpapers);
@@ -187,7 +188,7 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
       dislikedWallpaper: (e) async* {
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         _wallpaperFacade
-            .likeDislikeWallpaper(token, e.id, false)
+            .likeDislikeWallpaper(token: token, wallpaperId: e.id, liked: false)
             .then((value) => value.fold((l) {
                   final likedWallpapers =
                       List<String>.from(state.likedWallpapers);

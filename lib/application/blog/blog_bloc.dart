@@ -32,7 +32,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
       started: (e) async* {
         yield BlogState.initial();
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
-        final response = await _blogFacade.getBlogCategories(token);
+        final response = await _blogFacade.getBlogCategories(token: token);
 
         yield* response.fold(
           (failure) async* {
@@ -46,7 +46,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
                 blogs: success.blogs,
               ),
             ];
-            allblogCategories.addAll(success.categories!);
+            allblogCategories.addAll(success.categories);
 
             yield state.copyWith(
               blogCategoriesOption: optionOf(right(allblogCategories)),
@@ -165,7 +165,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
       likedBlog: (e) async* {
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         _blogFacade
-            .likeDislikeBlog(token, e.id, true)
+            .likeDislikeBlog(token: token, blogId: e.id, liked: true)
             .then((value) => value.fold((l) {
                   final likedBlogs = List<String>.from(state.likedBlogs);
                   likedBlogs.removeWhere((element) => element == e.id);
@@ -178,7 +178,7 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
       dislikedBlog: (e) async* {
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         _blogFacade
-            .likeDislikeBlog(token, e.id, false)
+            .likeDislikeBlog(token: token, blogId: e.id, liked: false)
             .then((value) => value.fold((l) {
                   final likedBlogs = List<String>.from(state.likedBlogs);
                   likedBlogs.add(e.id);
@@ -221,8 +221,8 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
                             .getIdToken();
 
                         final responseSorF = await _blogFacade.getBlogContent(
-                          token,
-                          e.blog.id,
+                          token: token,
+                          blogId: e.blog.id,
                         );
 
                         yield* responseSorF.fold(
@@ -261,8 +261,8 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
           final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
           final responseSorF = await _blogFacade.getBlogContent(
-            token,
-            e.blog.id,
+            token: token,
+            blogId: e.blog.id,
           );
 
           yield* responseSorF.fold(
@@ -288,8 +288,8 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
 
           final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
           final responseSorF = await _blogFacade.getBlogFromId(
-            token,
-            e.blog.id,
+            token: token,
+            blogId: e.blog.id,
           );
 
           yield* responseSorF.fold(
@@ -336,8 +336,8 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
                       await getIt<IAuthFacade>().currentUser!.getIdToken();
 
                   final responseSorF = await _blogFacade.getBlogContent(
-                    token,
-                    e.blog.id,
+                    token: token,
+                    blogId: e.blog.id,
                   );
 
                   yield* responseSorF.fold(

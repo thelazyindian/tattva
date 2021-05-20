@@ -7,6 +7,7 @@ class AudioState with _$AudioState {
     required List<String> likedAudios,
     required bool loadingSubCategory,
     required Option<AudioCategory> selectedAudioCategory,
+    required Option<Either<Failure, TattvaAudio>> audioFromIdOption,
   }) = _AudioState;
 
   factory AudioState.initial() => AudioState(
@@ -14,5 +15,6 @@ class AudioState with _$AudioState {
         loadingSubCategory: false,
         likedAudios: [],
         selectedAudioCategory: none(),
+        audioFromIdOption: none(),
       );
 }

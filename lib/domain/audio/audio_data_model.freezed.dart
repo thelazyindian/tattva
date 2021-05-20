@@ -21,10 +21,12 @@ class _$AudioDataModelTearOff {
   const _$AudioDataModelTearOff();
 
   _AudioDataModel call(
-      {required List<AudioCategory> categories,
+      {List<AudioCategory> categories = const [],
+      List<TattvaAudio> audios = const [],
       required List<String> likedAudios}) {
     return _AudioDataModel(
       categories: categories,
+      audios: audios,
       likedAudios: likedAudios,
     );
   }
@@ -40,6 +42,7 @@ const $AudioDataModel = _$AudioDataModelTearOff();
 /// @nodoc
 mixin _$AudioDataModel {
   List<AudioCategory> get categories => throw _privateConstructorUsedError;
+  List<TattvaAudio> get audios => throw _privateConstructorUsedError;
   List<String> get likedAudios => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,7 +56,10 @@ abstract class $AudioDataModelCopyWith<$Res> {
   factory $AudioDataModelCopyWith(
           AudioDataModel value, $Res Function(AudioDataModel) then) =
       _$AudioDataModelCopyWithImpl<$Res>;
-  $Res call({List<AudioCategory> categories, List<String> likedAudios});
+  $Res call(
+      {List<AudioCategory> categories,
+      List<TattvaAudio> audios,
+      List<String> likedAudios});
 }
 
 /// @nodoc
@@ -68,6 +74,7 @@ class _$AudioDataModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? categories = freezed,
+    Object? audios = freezed,
     Object? likedAudios = freezed,
   }) {
     return _then(_value.copyWith(
@@ -75,6 +82,10 @@ class _$AudioDataModelCopyWithImpl<$Res>
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<AudioCategory>,
+      audios: audios == freezed
+          ? _value.audios
+          : audios // ignore: cast_nullable_to_non_nullable
+              as List<TattvaAudio>,
       likedAudios: likedAudios == freezed
           ? _value.likedAudios
           : likedAudios // ignore: cast_nullable_to_non_nullable
@@ -90,7 +101,10 @@ abstract class _$AudioDataModelCopyWith<$Res>
           _AudioDataModel value, $Res Function(_AudioDataModel) then) =
       __$AudioDataModelCopyWithImpl<$Res>;
   @override
-  $Res call({List<AudioCategory> categories, List<String> likedAudios});
+  $Res call(
+      {List<AudioCategory> categories,
+      List<TattvaAudio> audios,
+      List<String> likedAudios});
 }
 
 /// @nodoc
@@ -107,6 +121,7 @@ class __$AudioDataModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? categories = freezed,
+    Object? audios = freezed,
     Object? likedAudios = freezed,
   }) {
     return _then(_AudioDataModel(
@@ -114,6 +129,10 @@ class __$AudioDataModelCopyWithImpl<$Res>
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
               as List<AudioCategory>,
+      audios: audios == freezed
+          ? _value.audios
+          : audios // ignore: cast_nullable_to_non_nullable
+              as List<TattvaAudio>,
       likedAudios: likedAudios == freezed
           ? _value.likedAudios
           : likedAudios // ignore: cast_nullable_to_non_nullable
@@ -127,19 +146,25 @@ class __$AudioDataModelCopyWithImpl<$Res>
 /// @nodoc
 class _$_AudioDataModel implements _AudioDataModel {
   const _$_AudioDataModel(
-      {required this.categories, required this.likedAudios});
+      {this.categories = const [],
+      this.audios = const [],
+      required this.likedAudios});
 
   factory _$_AudioDataModel.fromJson(Map<String, dynamic> json) =>
       _$_$_AudioDataModelFromJson(json);
 
+  @JsonKey(defaultValue: const [])
   @override
   final List<AudioCategory> categories;
+  @JsonKey(defaultValue: const [])
+  @override
+  final List<TattvaAudio> audios;
   @override
   final List<String> likedAudios;
 
   @override
   String toString() {
-    return 'AudioDataModel(categories: $categories, likedAudios: $likedAudios)';
+    return 'AudioDataModel(categories: $categories, audios: $audios, likedAudios: $likedAudios)';
   }
 
   @override
@@ -149,6 +174,8 @@ class _$_AudioDataModel implements _AudioDataModel {
             (identical(other.categories, categories) ||
                 const DeepCollectionEquality()
                     .equals(other.categories, categories)) &&
+            (identical(other.audios, audios) ||
+                const DeepCollectionEquality().equals(other.audios, audios)) &&
             (identical(other.likedAudios, likedAudios) ||
                 const DeepCollectionEquality()
                     .equals(other.likedAudios, likedAudios)));
@@ -158,6 +185,7 @@ class _$_AudioDataModel implements _AudioDataModel {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(categories) ^
+      const DeepCollectionEquality().hash(audios) ^
       const DeepCollectionEquality().hash(likedAudios);
 
   @JsonKey(ignore: true)
@@ -173,7 +201,8 @@ class _$_AudioDataModel implements _AudioDataModel {
 
 abstract class _AudioDataModel implements AudioDataModel {
   const factory _AudioDataModel(
-      {required List<AudioCategory> categories,
+      {List<AudioCategory> categories,
+      List<TattvaAudio> audios,
       required List<String> likedAudios}) = _$_AudioDataModel;
 
   factory _AudioDataModel.fromJson(Map<String, dynamic> json) =
@@ -181,6 +210,8 @@ abstract class _AudioDataModel implements AudioDataModel {
 
   @override
   List<AudioCategory> get categories => throw _privateConstructorUsedError;
+  @override
+  List<TattvaAudio> get audios => throw _privateConstructorUsedError;
   @override
   List<String> get likedAudios => throw _privateConstructorUsedError;
   @override

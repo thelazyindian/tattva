@@ -21,7 +21,7 @@ class _$BlogDataModelTearOff {
   const _$BlogDataModelTearOff();
 
   _BlogDataModel call(
-      {List<BlogCategory>? categories,
+      {List<BlogCategory> categories = const [],
       required List<Blog> blogs,
       required List<String> likedBlogs}) {
     return _BlogDataModel(
@@ -41,7 +41,7 @@ const $BlogDataModel = _$BlogDataModelTearOff();
 
 /// @nodoc
 mixin _$BlogDataModel {
-  List<BlogCategory>? get categories => throw _privateConstructorUsedError;
+  List<BlogCategory> get categories => throw _privateConstructorUsedError;
   List<Blog> get blogs => throw _privateConstructorUsedError;
   List<String> get likedBlogs => throw _privateConstructorUsedError;
 
@@ -57,7 +57,7 @@ abstract class $BlogDataModelCopyWith<$Res> {
           BlogDataModel value, $Res Function(BlogDataModel) then) =
       _$BlogDataModelCopyWithImpl<$Res>;
   $Res call(
-      {List<BlogCategory>? categories,
+      {List<BlogCategory> categories,
       List<Blog> blogs,
       List<String> likedBlogs});
 }
@@ -81,7 +81,7 @@ class _$BlogDataModelCopyWithImpl<$Res>
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<BlogCategory>?,
+              as List<BlogCategory>,
       blogs: blogs == freezed
           ? _value.blogs
           : blogs // ignore: cast_nullable_to_non_nullable
@@ -102,7 +102,7 @@ abstract class _$BlogDataModelCopyWith<$Res>
       __$BlogDataModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<BlogCategory>? categories,
+      {List<BlogCategory> categories,
       List<Blog> blogs,
       List<String> likedBlogs});
 }
@@ -128,7 +128,7 @@ class __$BlogDataModelCopyWithImpl<$Res>
       categories: categories == freezed
           ? _value.categories
           : categories // ignore: cast_nullable_to_non_nullable
-              as List<BlogCategory>?,
+              as List<BlogCategory>,
       blogs: blogs == freezed
           ? _value.blogs
           : blogs // ignore: cast_nullable_to_non_nullable
@@ -146,13 +146,16 @@ class __$BlogDataModelCopyWithImpl<$Res>
 /// @nodoc
 class _$_BlogDataModel implements _BlogDataModel {
   const _$_BlogDataModel(
-      {this.categories, required this.blogs, required this.likedBlogs});
+      {this.categories = const [],
+      required this.blogs,
+      required this.likedBlogs});
 
   factory _$_BlogDataModel.fromJson(Map<String, dynamic> json) =>
       _$_$_BlogDataModelFromJson(json);
 
+  @JsonKey(defaultValue: const [])
   @override
-  final List<BlogCategory>? categories;
+  final List<BlogCategory> categories;
   @override
   final List<Blog> blogs;
   @override
@@ -197,7 +200,7 @@ class _$_BlogDataModel implements _BlogDataModel {
 
 abstract class _BlogDataModel implements BlogDataModel {
   const factory _BlogDataModel(
-      {List<BlogCategory>? categories,
+      {List<BlogCategory> categories,
       required List<Blog> blogs,
       required List<String> likedBlogs}) = _$_BlogDataModel;
 
@@ -205,7 +208,7 @@ abstract class _BlogDataModel implements BlogDataModel {
       _$_BlogDataModel.fromJson;
 
   @override
-  List<BlogCategory>? get categories => throw _privateConstructorUsedError;
+  List<BlogCategory> get categories => throw _privateConstructorUsedError;
   @override
   List<Blog> get blogs => throw _privateConstructorUsedError;
   @override

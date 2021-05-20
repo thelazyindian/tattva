@@ -9,8 +9,9 @@ part of 'blog_data_model.dart';
 _$_BlogDataModel _$_$_BlogDataModelFromJson(Map<String, dynamic> json) {
   return _$_BlogDataModel(
     categories: (json['categories'] as List<dynamic>?)
-        ?.map((e) => BlogCategory.fromJson(e as Map<String, dynamic>))
-        .toList(),
+            ?.map((e) => BlogCategory.fromJson(e as Map<String, dynamic>))
+            .toList() ??
+        [],
     blogs: (json['blogs'] as List<dynamic>)
         .map((e) => Blog.fromJson(e as Map<String, dynamic>))
         .toList(),

@@ -38,7 +38,8 @@ class BlogFacade implements IBlogFacade {
   }
 
   @override
-  Future<Either<Failure, BlogDataModel>> getBlogCategories(String token) async {
+  Future<Either<Failure, BlogDataModel>> getBlogCategories(
+      {required String token}) async {
     try {
       final response = await _dio.get(
         '/getBlogCategories',
@@ -86,11 +87,11 @@ class BlogFacade implements IBlogFacade {
   }
 
   @override
-  Future<Either<Failure, Unit>> likeDislikeBlog(
-    String token,
-    String blogId,
-    bool liked,
-  ) async {
+  Future<Either<Failure, Unit>> likeDislikeBlog({
+    required String token,
+    required String blogId,
+    required bool liked,
+  }) async {
     try {
       final response = await _dio.get(
         '/likeDislikeBlog',
@@ -116,10 +117,10 @@ class BlogFacade implements IBlogFacade {
   }
 
   @override
-  Future<Either<Failure, String>> getBlogContent(
-    String token,
-    String blogId,
-  ) async {
+  Future<Either<Failure, String>> getBlogContent({
+    required String token,
+    required String blogId,
+  }) async {
     try {
       final response = await _dio.get(
         '/getBlogContentFromId',
@@ -140,10 +141,10 @@ class BlogFacade implements IBlogFacade {
   }
 
   @override
-  Future<Either<Failure, BlogDataModel>> getBlogFromId(
-    String token,
-    String blogId,
-  ) async {
+  Future<Either<Failure, BlogDataModel>> getBlogFromId({
+    required String token,
+    required String blogId,
+  }) async {
     try {
       final response = await _dio.get(
         '/getBlogFromId',

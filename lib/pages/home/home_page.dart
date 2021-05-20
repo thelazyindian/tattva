@@ -3,12 +3,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tattva/application/audio/audio_bloc.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/application/dynamic_links/dynamic_links_cubit.dart';
 import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/audio_player/audio_player_page.dart';
 import 'package:tattva/pages/core/custom_bottom_navigation_bar.dart';
 import 'package:tattva/router/router.gr.dart';
@@ -21,57 +23,72 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
-    return BlocListener<DynamicLinksCubit, DynamicLinksState>(
-      bloc: getIt<DynamicLinksCubit>(),
-      listenWhen: (previous, current) => previous.linkType != current.linkType,
+    return BlocListener<AudioBloc, AudioState>(
+      bloc: getIt<AudioBloc>(),
+      listenWhen: (previous, current) =>
+          previous.audioFromIdOption != current.audioFromIdOption,
       listener: (context, state) {
-        state.linkType.fold(
-          () => null,
-          (linkType) => context.router.root
+        state.audioFromIdOption.fold(
+            () => null,
+            (sOrF) => sOrF.fold(
+                  (l) => null,
+                  (audio) => onAudioItemClicked(
+                    categoryName: 'From Url',
+                    audios: [audio],
+                    idx: 0,
+                  ),
+                ));
+      },
+      child: BlocListener<DynamicLinksCubit, DynamicLinksState>(
+        bloc: getIt<DynamicLinksCubit>(),
+        listenWhen: (previous, current) =>
+            previous.linkType != current.linkType,
+        listener: (context, state) {
+          final routerPath = context.router.root
               .innerRouterOf<StackRouter>('HomeWrapperRoute')
               ?.innerRouterOf<TabsRouter>('HomeRoute')
-              ?.innerRouterOf<StackRouter>('HomeItemsWrapperRoute')
-              ?.push(
-                linkType.map(
-                  audio: (e) => HomeItemsBlogReaderRoute(
-                    blog: Blog.fromId(e.id),
-                    blogReaderTabType: BlogReaderTabType.fromUrl,
-                  ),
-                  blog: (e) => HomeItemsBlogReaderRoute(
-                    blog: Blog.fromId(e.id),
-                    blogReaderTabType: BlogReaderTabType.fromUrl,
-                  ),
-                  wallpaper: (e) => HomeItemsWallpaperExpandedRoute(
-                    wallpaperEvent: WallpaperEvent.wallpaperFromId(id: e.id),
-                  ),
-                ),
-              ),
-        );
-      },
-      child: AutoTabsRouter(
-        routes: [
-          AudioWrapperRoute(),
-          WallpaperWrapperRoute(),
-          HomeItemsWrapperRoute(),
-          BlogWrapperRoute(),
-          SearchWrapperRoute(),
-        ],
-        duration: Duration(milliseconds: 400),
-        builder: (context, child, animation) {
-          return Scaffold(
-            body: Stack(
-              children: [
-                FadeTransition(child: child, opacity: animation),
-                AudioPlayerPage(),
-                Positioned(
-                  bottom: .0,
-                  width: MediaQuery.of(context).size.width,
-                  child: CustomBottomNavigationBar(),
-                ),
-              ],
+              ?.innerRouterOf<StackRouter>('HomeItemsWrapperRoute');
+          state.linkType.fold(
+            () => null,
+            (linkType) => linkType.map(
+              audio: (e) =>
+                  getIt<AudioBloc>().add(AudioEvent.audioFromId(id: e.id)),
+              blog: (e) => routerPath?.push(HomeItemsBlogReaderRoute(
+                blog: Blog.fromId(e.id),
+                blogReaderTabType: BlogReaderTabType.fromUrl,
+              )),
+              wallpaper: (e) =>
+                  routerPath?.push(HomeItemsWallpaperExpandedRoute(
+                wallpaperEvent: WallpaperEvent.wallpaperFromId(id: e.id),
+              )),
             ),
           );
         },
+        child: AutoTabsRouter(
+          routes: [
+            AudioWrapperRoute(),
+            WallpaperWrapperRoute(),
+            HomeItemsWrapperRoute(),
+            BlogWrapperRoute(),
+            SearchWrapperRoute(),
+          ],
+          duration: Duration(milliseconds: 400),
+          builder: (context, child, animation) {
+            return Scaffold(
+              body: Stack(
+                children: [
+                  FadeTransition(child: child, opacity: animation),
+                  AudioPlayerPage(),
+                  Positioned(
+                    bottom: .0,
+                    width: MediaQuery.of(context).size.width,
+                    child: CustomBottomNavigationBar(),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -84,7 +101,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     getIt<DynamicLinksCubit>().started();
     getIt<AuthenticationBloc>()
         .add(AuthenticationEvent.subscribeIdTokenChanges());
-
+    getIt<AudioBloc>().add(AudioEvent.audioFromId(id: 'DDxGRDP9oBJ29uiofdWY'));
     debugPrint('AudioService.connect');
   }
 
