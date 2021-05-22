@@ -1,4 +1,5 @@
 import 'package:audio_service/audio_service.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
@@ -48,11 +49,17 @@ class AudioSubcategorySection extends StatelessWidget {
                 imageUri: audio.thumbnail.first.url,
                 firstSubHeading: '${audio.durationInMins} min',
                 secondSubHeading: audio.language,
-                onTap: () => onAudioItemClicked(
-                  categoryName: categoryName,
-                  audios: audios,
-                  idx: idx,
-                ),
+                onTap: () {
+                  if (context.router.current!.route.routeName ==
+                      'LikedItemsRoute') {
+                    context.router.pop().then((_) => context.router.pop());
+                  }
+                  onAudioItemClicked(
+                    categoryName: categoryName,
+                    audios: audios,
+                    idx: idx,
+                  );
+                },
               );
             },
             separatorBuilder: (context, idx) => const SizedBox(width: 10.0),
@@ -77,7 +84,10 @@ onAudioItemClicked({
             artUri: Uri.parse(e.thumbnail.first.url),
             album: categoryName,
             title: e.name,
-            extras: {'uid': e.id},
+            extras: {
+              'uid': e.id,
+              'link': e.link,
+            },
           ))
       .toList();
   if (AudioService.connected) {
@@ -90,6 +100,7 @@ onAudioItemClicked({
     } else {
       AudioService.start(
         backgroundTaskEntrypoint: _entrypoint,
+        androidStopForegroundOnPause: true,
         params: {
           'mediaItems': mediaItems.map((e) => e.toJson()).toList(),
           'index': idx,

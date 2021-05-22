@@ -4,6 +4,7 @@ import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/audio_sub_category/widgets/audio_sub_category_item.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
+import 'package:auto_route/auto_route.dart';
 
 class AudioSubCategoryPage extends StatelessWidget {
   final String title;
@@ -62,11 +63,21 @@ class AudioSubCategoryPage extends StatelessWidget {
               itemBuilder: (context, idx) {
                 return AudioSubCategoryItem(
                   tattvaAudio: audios[idx],
-                  onTap: () => onAudioItemClicked(
-                    categoryName: title,
-                    audios: audios,
-                    idx: idx,
-                  ),
+                  onTap: () {
+                    if (context.router.current!.route.routeName ==
+                        'LikedItemsAudioSubCategoryRoute') {
+                      context.router.pop().then(
+                            (_) => context.router.pop().then(
+                                  (_) => context.router.pop(),
+                                ),
+                          );
+                    }
+                    onAudioItemClicked(
+                      categoryName: title,
+                      audios: audios,
+                      idx: idx,
+                    );
+                  },
                 );
               },
             ),

@@ -161,11 +161,11 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
               if (!likedAudios.contains(success.likedAudios.first)) {
                 likedAudios.add(success.likedAudios.first);
               }
-              yield state.copyWith(
-                audioFromIdOption: optionOf(right(success.audios.first)),
-                likedAudios: likedAudios,
-              );
             }
+            yield state.copyWith(
+              audioFromIdOption: optionOf(right(success.audios.first)),
+              likedAudios: likedAudios,
+            );
           },
         );
       },

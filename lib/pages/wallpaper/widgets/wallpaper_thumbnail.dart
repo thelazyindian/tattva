@@ -22,37 +22,33 @@ class _WallpaperThumbnailState extends State<WallpaperThumbnail> {
       borderRadius: BorderRadius.circular(16.0),
       child: InkWell(
         onTap: widget.onTap,
-        child: Stack(
-          children: [
-            Image.network(
-              widget.wallpaper.imageSmall,
-              fit: BoxFit.cover,
-              loadingBuilder: (_, child, ___) => Container(
-                alignment: Alignment.center,
-                constraints: BoxConstraints(minHeight: 220.0),
-                color: Colors.grey.shade200,
-                child: child,
-              ),
-              errorBuilder: (_, __, ___) => Container(
-                alignment: Alignment.center,
-                constraints: BoxConstraints(minHeight: 220.0),
-                color: Colors.grey.shade200,
-                child: Icon(
+        child: Container(
+          alignment: Alignment.center,
+          constraints: BoxConstraints(minHeight: 230.0, maxHeight: 230.0),
+          color: Colors.grey.shade200,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Image.network(
+                widget.wallpaper.imageSmall,
+                fit: BoxFit.cover,
+                loadingBuilder: (_, child, ___) => child,
+                errorBuilder: (_, __, ___) => Icon(
                   Icons.warning_rounded,
                   color: Colors.red,
                   size: 40.0,
                 ),
               ),
-            ),
-            Positioned(
-              bottom: .0,
-              right: .0,
-              child: WallpaperLikeButton(
-                wallpaperId: widget.wallpaper.id,
-                iconColor: Colors.white,
+              Positioned(
+                bottom: .0,
+                right: .0,
+                child: WallpaperLikeButton(
+                  wallpaperId: widget.wallpaper.id,
+                  iconColor: Colors.white,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

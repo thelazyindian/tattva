@@ -29,15 +29,18 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
           previous.audioFromIdOption != current.audioFromIdOption,
       listener: (context, state) {
         state.audioFromIdOption.fold(
-            () => null,
-            (sOrF) => sOrF.fold(
-                  (l) => null,
-                  (audio) => onAudioItemClicked(
-                    categoryName: 'From Url',
-                    audios: [audio],
-                    idx: 0,
-                  ),
-                ));
+          () => null,
+          (sOrF) => sOrF.fold(
+            (failure) => ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Error fetching audio')),
+            ),
+            (audio) => onAudioItemClicked(
+              categoryName: 'From Url',
+              audios: [audio],
+              idx: 0,
+            ),
+          ),
+        );
       },
       child: BlocListener<DynamicLinksCubit, DynamicLinksState>(
         bloc: getIt<DynamicLinksCubit>(),
@@ -52,7 +55,9 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
             () => null,
             (linkType) => linkType.map(
               audio: (e) =>
-                  getIt<AudioBloc>().add(AudioEvent.audioFromId(id: e.id)),
+                  SchedulerBinding.instance?.addPostFrameCallback((timeStamp) {
+                getIt<AudioBloc>().add(AudioEvent.audioFromId(id: e.id));
+              }),
               blog: (e) => routerPath?.push(HomeItemsBlogReaderRoute(
                 blog: Blog.fromId(e.id),
                 blogReaderTabType: BlogReaderTabType.fromUrl,
@@ -101,20 +106,6 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     getIt<DynamicLinksCubit>().started();
     getIt<AuthenticationBloc>()
         .add(AuthenticationEvent.subscribeIdTokenChanges());
-    getIt<AudioBloc>().add(AudioEvent.audioFromId(id: 'DDxGRDP9oBJ29uiofdWY'));
-    debugPrint('AudioService.connect');
-  }
-
-  @override
-  void didChangeDependencies() {
-    debugPrint('AudioService.didChangeDependencies');
-    super.didChangeDependencies();
-  }
-
-  @override
-  void didUpdateWidget(covariant HomePage oldWidget) {
-    debugPrint('AudioService.didUpdateWidget');
-    super.didUpdateWidget(oldWidget);
   }
 
   @override

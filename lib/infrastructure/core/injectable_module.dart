@@ -22,6 +22,6 @@ abstract class InjectableModule {
   Dio get dio => Dio(
         BaseOptions(
             baseUrl:
-                'https://c6316551f355.ngrok.io/tattva-app/us-central1/app'),
+                'https://715157ae9815.ngrok.io/tattva-app/us-central1/app'),
       );
 }

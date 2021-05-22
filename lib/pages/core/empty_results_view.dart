@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/injection.dart';
-import 'package:tattva/utils/dimens.dart';
 
 class EmptyResultsView extends StatelessWidget {
   final String message;
@@ -14,21 +13,14 @@ class EmptyResultsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
-          bloc: getIt<AudioPlayerBloc>(),
-          builder: (context, state) {
-            return Container(
-              alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height -
-                  state.map(
-                    expanded: (_) => bottomNavbarHeight + kToolbarHeight,
-                    collapsed: (_) =>
-                        bottomNavbarHeight + kToolbarHeight + audioCollapsedBar,
-                    none: (_) => bottomNavbarHeight + kToolbarHeight,
-                  ),
-              child: Column(
+    return Center(
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
+            bloc: getIt<AudioPlayerBloc>(),
+            builder: (context, state) {
+              return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
@@ -45,11 +37,11 @@ class EmptyResultsView extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-            );
-          },
-        ),
-      ],
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

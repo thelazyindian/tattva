@@ -40,23 +40,13 @@ class _SearchPageState extends State<SearchPage>
             onTap: (index) =>
                 getIt<SearchBloc>().add(SearchEvent.changedTab(index: index)),
             tabs: [
-              Tab(
-                text: 'All',
-              ),
-              Tab(
-                text: 'Audios',
-              ),
-              Tab(
-                text: 'Blogs',
-              ),
-              Tab(
-                text: 'Wallpapers',
-              ),
+              Tab(text: 'All'),
+              Tab(text: 'Audios'),
+              Tab(text: 'Blogs'),
+              Tab(text: 'Wallpapers'),
             ],
           ),
-          const Divider(
-            height: 1.0,
-          ),
+          const Divider(height: 1.0),
           Expanded(
             child: ListenableProvider.value(
               value: _tabController,

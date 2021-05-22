@@ -102,6 +102,7 @@ class AudioPlayerCollapsed extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
+          const SizedBox(height: 4.0),
           Text(
             mediaItem.album,
             style: TextStyle(

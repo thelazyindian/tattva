@@ -30,7 +30,8 @@ class _SplashPageState extends State<SplashPage> {
       bloc: getIt<AuthenticationBloc>(),
       listenWhen: (previous, current) =>
           previous.authFailureOrSuccessOption !=
-          current.authFailureOrSuccessOption,
+              current.authFailureOrSuccessOption ||
+          previous.checkingAuthStatus != current.checkingAuthStatus,
       listener: (_, state) {
         if (!state.checkingAuthStatus) {
           final router = context.router;

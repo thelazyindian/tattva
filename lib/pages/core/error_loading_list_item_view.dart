@@ -15,6 +15,7 @@ class ErrorLoadingListItemView extends StatelessWidget {
             return Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height -
+                  MediaQuery.of(context).viewInsets.bottom -
                   state.map(
                     expanded: (_) => kToolbarHeight + bottomNavbarHeight,
                     collapsed: (_) =>
