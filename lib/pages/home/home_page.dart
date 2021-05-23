@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audio_service/audio_service.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +11,7 @@ import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/application/dynamic_links/dynamic_links_cubit.dart';
 import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/blog/blog.dart';
+import 'package:tattva/infrastructure/core/connection_status_singleton.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/audio_player/audio_player_page.dart';
@@ -32,7 +35,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
           () => null,
           (sOrF) => sOrF.fold(
             (failure) => ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Error fetching audio')),
+              SnackBar(
+                content: Text('Error fetching audio'),
+                behavior: SnackBarBehavior.floating,
+              ),
             ),
             (audio) => onAudioItemClicked(
               categoryName: 'From Url',
@@ -103,6 +109,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     super.initState();
     WidgetsBinding.instance!.addObserver(this);
     AudioService.connect();
+    getIt<ConnectionStatusSingleton>().initialize();
     getIt<DynamicLinksCubit>().started();
     getIt<AuthenticationBloc>()
         .add(AuthenticationEvent.subscribeIdTokenChanges());

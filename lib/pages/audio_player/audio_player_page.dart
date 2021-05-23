@@ -12,9 +12,15 @@ class AudioPlayerPage extends StatefulWidget {
 
 class _AudioPlayerPageState extends State<AudioPlayerPage> {
   @override
+  void initState() {
+    getIt<AudioPlayerBloc>().add(AudioPlayerEvent.started());
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
-      bloc: getIt<AudioPlayerBloc>()..add(AudioPlayerEvent.started()),
+      bloc: getIt<AudioPlayerBloc>(),
       builder: (context, state) {
         return AnimatedPositioned(
           bottom: .0,
