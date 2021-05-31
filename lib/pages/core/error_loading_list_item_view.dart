@@ -5,6 +5,10 @@ import 'package:tattva/injection.dart';
 import 'package:tattva/utils/dimens.dart';
 
 class ErrorLoadingListItemView extends StatelessWidget {
+  final double? height;
+
+  const ErrorLoadingListItemView({Key? key, this.height}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -14,14 +18,17 @@ class ErrorLoadingListItemView extends StatelessWidget {
           builder: (context, state) {
             return Container(
               alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height -
-                  MediaQuery.of(context).viewInsets.bottom -
-                  state.map(
-                    expanded: (_) => kToolbarHeight + bottomNavbarHeight,
-                    collapsed: (_) =>
-                        kToolbarHeight + bottomNavbarHeight + audioCollapsedBar,
-                    none: (_) => kToolbarHeight + bottomNavbarHeight,
-                  ),
+              height: height ??
+                  MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).viewInsets.bottom -
+                      state.map(
+                        expanded: (_) => kToolbarHeight + bottomNavbarHeight,
+                        collapsed: (_) =>
+                            kToolbarHeight +
+                            bottomNavbarHeight +
+                            audioCollapsedBar,
+                        none: (_) => kToolbarHeight + bottomNavbarHeight,
+                      ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -35,6 +42,14 @@ class ErrorLoadingListItemView extends StatelessWidget {
                     'SOME ERROR OCCURED!',
                     style: TextStyle(
                       fontSize: 18.0,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                  const SizedBox(height: 8.0),
+                  Text(
+                    'PULL TO REFRESH',
+                    style: TextStyle(
+                      fontSize: 13.0,
                       fontWeight: FontWeight.w700,
                     ),
                   ),

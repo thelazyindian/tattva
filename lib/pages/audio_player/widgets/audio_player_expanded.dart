@@ -33,9 +33,7 @@ class AudioPlayerExpanded extends StatelessWidget {
             if (queueState == null || queueState.mediaItem == null) {
               return const Center(child: CircularProgressIndicator());
             }
-
             final mediaItem = queueState.mediaItem;
-
             return Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

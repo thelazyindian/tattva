@@ -95,7 +95,7 @@ class AuthFacade implements IAuthFacade {
       };
       await Future.wait([
         _user.updateProfile(displayName: _name),
-        userRef.set(userMap),
+        userRef.set(userMap, SetOptions(merge: true)),
       ]);
 
       final userModel = user.User.fromJson(userMap).copyWith(

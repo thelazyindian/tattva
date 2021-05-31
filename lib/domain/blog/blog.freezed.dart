@@ -24,28 +24,24 @@ class _$BlogTearOff {
       {required String id,
       required String title,
       required String slug,
-      required String author,
-      required DateTime date,
+      required String language,
+      required int readingTime,
       required List<TattvaImage> coverImage,
-      required int durationInMins,
       required String summary,
       required String link,
       String? content,
-      DateTime? createdAt,
-      required int likes}) {
+      DateTime? createdAt}) {
     return _Blog(
       id: id,
       title: title,
       slug: slug,
-      author: author,
-      date: date,
+      language: language,
+      readingTime: readingTime,
       coverImage: coverImage,
-      durationInMins: durationInMins,
       summary: summary,
       link: link,
       content: content,
       createdAt: createdAt,
-      likes: likes,
     );
   }
 
@@ -62,15 +58,13 @@ mixin _$Blog {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get slug => throw _privateConstructorUsedError;
-  String get author => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
+  String get language => throw _privateConstructorUsedError;
+  int get readingTime => throw _privateConstructorUsedError;
   List<TattvaImage> get coverImage => throw _privateConstructorUsedError;
-  int get durationInMins => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
   String get link => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
-  int get likes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -85,15 +79,13 @@ abstract class $BlogCopyWith<$Res> {
       {String id,
       String title,
       String slug,
-      String author,
-      DateTime date,
+      String language,
+      int readingTime,
       List<TattvaImage> coverImage,
-      int durationInMins,
       String summary,
       String link,
       String? content,
-      DateTime? createdAt,
-      int likes});
+      DateTime? createdAt});
 }
 
 /// @nodoc
@@ -109,15 +101,13 @@ class _$BlogCopyWithImpl<$Res> implements $BlogCopyWith<$Res> {
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
-    Object? author = freezed,
-    Object? date = freezed,
+    Object? language = freezed,
+    Object? readingTime = freezed,
     Object? coverImage = freezed,
-    Object? durationInMins = freezed,
     Object? summary = freezed,
     Object? link = freezed,
     Object? content = freezed,
     Object? createdAt = freezed,
-    Object? likes = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -132,22 +122,18 @@ class _$BlogCopyWithImpl<$Res> implements $BlogCopyWith<$Res> {
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String,
-      author: author == freezed
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
+      language: language == freezed
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      readingTime: readingTime == freezed
+          ? _value.readingTime
+          : readingTime // ignore: cast_nullable_to_non_nullable
+              as int,
       coverImage: coverImage == freezed
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
-      durationInMins: durationInMins == freezed
-          ? _value.durationInMins
-          : durationInMins // ignore: cast_nullable_to_non_nullable
-              as int,
       summary: summary == freezed
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -164,10 +150,6 @@ class _$BlogCopyWithImpl<$Res> implements $BlogCopyWith<$Res> {
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      likes: likes == freezed
-          ? _value.likes
-          : likes // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -181,15 +163,13 @@ abstract class _$BlogCopyWith<$Res> implements $BlogCopyWith<$Res> {
       {String id,
       String title,
       String slug,
-      String author,
-      DateTime date,
+      String language,
+      int readingTime,
       List<TattvaImage> coverImage,
-      int durationInMins,
       String summary,
       String link,
       String? content,
-      DateTime? createdAt,
-      int likes});
+      DateTime? createdAt});
 }
 
 /// @nodoc
@@ -206,15 +186,13 @@ class __$BlogCopyWithImpl<$Res> extends _$BlogCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = freezed,
     Object? slug = freezed,
-    Object? author = freezed,
-    Object? date = freezed,
+    Object? language = freezed,
+    Object? readingTime = freezed,
     Object? coverImage = freezed,
-    Object? durationInMins = freezed,
     Object? summary = freezed,
     Object? link = freezed,
     Object? content = freezed,
     Object? createdAt = freezed,
-    Object? likes = freezed,
   }) {
     return _then(_Blog(
       id: id == freezed
@@ -229,22 +207,18 @@ class __$BlogCopyWithImpl<$Res> extends _$BlogCopyWithImpl<$Res>
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String,
-      author: author == freezed
-          ? _value.author
-          : author // ignore: cast_nullable_to_non_nullable
+      language: language == freezed
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
               as String,
-      date: date == freezed
-          ? _value.date
-          : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      readingTime: readingTime == freezed
+          ? _value.readingTime
+          : readingTime // ignore: cast_nullable_to_non_nullable
+              as int,
       coverImage: coverImage == freezed
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
-      durationInMins: durationInMins == freezed
-          ? _value.durationInMins
-          : durationInMins // ignore: cast_nullable_to_non_nullable
-              as int,
       summary: summary == freezed
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -261,10 +235,6 @@ class __$BlogCopyWithImpl<$Res> extends _$BlogCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      likes: likes == freezed
-          ? _value.likes
-          : likes // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -277,15 +247,13 @@ class _$_Blog implements _Blog {
       {required this.id,
       required this.title,
       required this.slug,
-      required this.author,
-      required this.date,
+      required this.language,
+      required this.readingTime,
       required this.coverImage,
-      required this.durationInMins,
       required this.summary,
       required this.link,
       this.content,
-      this.createdAt,
-      required this.likes});
+      this.createdAt});
 
   factory _$_Blog.fromJson(Map<String, dynamic> json) =>
       _$_$_BlogFromJson(json);
@@ -297,13 +265,11 @@ class _$_Blog implements _Blog {
   @override
   final String slug;
   @override
-  final String author;
+  final String language;
   @override
-  final DateTime date;
+  final int readingTime;
   @override
   final List<TattvaImage> coverImage;
-  @override
-  final int durationInMins;
   @override
   final String summary;
   @override
@@ -312,12 +278,10 @@ class _$_Blog implements _Blog {
   final String? content;
   @override
   final DateTime? createdAt;
-  @override
-  final int likes;
 
   @override
   String toString() {
-    return 'Blog(id: $id, title: $title, slug: $slug, author: $author, date: $date, coverImage: $coverImage, durationInMins: $durationInMins, summary: $summary, link: $link, content: $content, createdAt: $createdAt, likes: $likes)';
+    return 'Blog(id: $id, title: $title, slug: $slug, language: $language, readingTime: $readingTime, coverImage: $coverImage, summary: $summary, link: $link, content: $content, createdAt: $createdAt)';
   }
 
   @override
@@ -330,16 +294,15 @@ class _$_Blog implements _Blog {
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.slug, slug) ||
                 const DeepCollectionEquality().equals(other.slug, slug)) &&
-            (identical(other.author, author) ||
-                const DeepCollectionEquality().equals(other.author, author)) &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)) &&
+            (identical(other.language, language) ||
+                const DeepCollectionEquality()
+                    .equals(other.language, language)) &&
+            (identical(other.readingTime, readingTime) ||
+                const DeepCollectionEquality()
+                    .equals(other.readingTime, readingTime)) &&
             (identical(other.coverImage, coverImage) ||
                 const DeepCollectionEquality()
                     .equals(other.coverImage, coverImage)) &&
-            (identical(other.durationInMins, durationInMins) ||
-                const DeepCollectionEquality()
-                    .equals(other.durationInMins, durationInMins)) &&
             (identical(other.summary, summary) ||
                 const DeepCollectionEquality()
                     .equals(other.summary, summary)) &&
@@ -350,9 +313,7 @@ class _$_Blog implements _Blog {
                     .equals(other.content, content)) &&
             (identical(other.createdAt, createdAt) ||
                 const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
-            (identical(other.likes, likes) ||
-                const DeepCollectionEquality().equals(other.likes, likes)));
+                    .equals(other.createdAt, createdAt)));
   }
 
   @override
@@ -361,15 +322,13 @@ class _$_Blog implements _Blog {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(slug) ^
-      const DeepCollectionEquality().hash(author) ^
-      const DeepCollectionEquality().hash(date) ^
+      const DeepCollectionEquality().hash(language) ^
+      const DeepCollectionEquality().hash(readingTime) ^
       const DeepCollectionEquality().hash(coverImage) ^
-      const DeepCollectionEquality().hash(durationInMins) ^
       const DeepCollectionEquality().hash(summary) ^
       const DeepCollectionEquality().hash(link) ^
       const DeepCollectionEquality().hash(content) ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(likes);
+      const DeepCollectionEquality().hash(createdAt);
 
   @JsonKey(ignore: true)
   @override
@@ -387,15 +346,13 @@ abstract class _Blog implements Blog {
       {required String id,
       required String title,
       required String slug,
-      required String author,
-      required DateTime date,
+      required String language,
+      required int readingTime,
       required List<TattvaImage> coverImage,
-      required int durationInMins,
       required String summary,
       required String link,
       String? content,
-      DateTime? createdAt,
-      required int likes}) = _$_Blog;
+      DateTime? createdAt}) = _$_Blog;
 
   factory _Blog.fromJson(Map<String, dynamic> json) = _$_Blog.fromJson;
 
@@ -406,13 +363,11 @@ abstract class _Blog implements Blog {
   @override
   String get slug => throw _privateConstructorUsedError;
   @override
-  String get author => throw _privateConstructorUsedError;
+  String get language => throw _privateConstructorUsedError;
   @override
-  DateTime get date => throw _privateConstructorUsedError;
+  int get readingTime => throw _privateConstructorUsedError;
   @override
   List<TattvaImage> get coverImage => throw _privateConstructorUsedError;
-  @override
-  int get durationInMins => throw _privateConstructorUsedError;
   @override
   String get summary => throw _privateConstructorUsedError;
   @override
@@ -421,8 +376,6 @@ abstract class _Blog implements Blog {
   String? get content => throw _privateConstructorUsedError;
   @override
   DateTime? get createdAt => throw _privateConstructorUsedError;
-  @override
-  int get likes => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$BlogCopyWith<_Blog> get copyWith => throw _privateConstructorUsedError;

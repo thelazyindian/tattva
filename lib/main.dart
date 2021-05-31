@@ -19,6 +19,9 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle.copyWith(
     statusBarColor: Colors.transparent,
   ));
+  // const stripePublishableKey =
+  //     'pk_test_51IqeuUSJ8h7egCoetFqYf5OYliE6mHpxGCc1QkdpLyte3eWtxSwOmRu9g88nuLqemevikomcZZV7nnFhmeWc7wmr00hlGywYET';
+  // Stripe.publishableKey = stripePublishableKey;
   runApp(MyApp());
 }
 

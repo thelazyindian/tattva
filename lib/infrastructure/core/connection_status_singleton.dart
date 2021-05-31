@@ -1,5 +1,5 @@
-import 'dart:io'; //InternetAddress utility
-import 'dart:async'; //For StreamController/Stream
+import 'dart:async';
+import 'dart:io';
 
 import 'package:connectivity/connectivity.dart';
 import 'package:injectable/injectable.dart';
@@ -28,16 +28,20 @@ class ConnectionStatusSingleton {
   }
 
   void _connectionChange(ConnectivityResult result) {
-    checkConnection();
+    checkConnection(result);
   }
 
-  Future<bool> checkConnection() async {
+  Future<bool> checkConnection([ConnectivityResult? result]) async {
     _timer?.cancel();
     bool previousConnection = hasConnection;
-
     try {
-      final result = await InternetAddress.lookup('google.com');
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+      // if (result != null) {
+      //   hasConnection = !(result == ConnectivityResult.none);
+      //   debugPrint('hasConnectionResult: $hasConnection');
+      // }
+      await Future.delayed(Duration(milliseconds: 500));
+      final addressResult = await InternetAddress.lookup('google.com');
+      if (addressResult.isNotEmpty && addressResult[0].rawAddress.isNotEmpty) {
         hasConnection = true;
       } else {
         hasConnection = false;
@@ -48,17 +52,22 @@ class ConnectionStatusSingleton {
 
     if (previousConnection != hasConnection) {
       if (!previousConnection && hasConnection) {
+        connectionChangeController.add(ConnectivityStatus(
+          active: hasConnection,
+          viewMessage: true,
+        ));
         _timer = Timer(Duration(milliseconds: 800), () {
           connectionChangeController.add(ConnectivityStatus(
             active: hasConnection,
             viewMessage: false,
           ));
         });
+      } else if (!hasConnection) {
+        connectionChangeController.add(ConnectivityStatus(
+          active: hasConnection,
+          viewMessage: true,
+        ));
       }
-      connectionChangeController.add(ConnectivityStatus(
-        active: hasConnection,
-        viewMessage: true,
-      ));
     }
 
     return hasConnection;

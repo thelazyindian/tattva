@@ -915,10 +915,10 @@ packages:
   razorpay_flutter:
     dependency: "direct main"
     description:
-      path: "../razorpay-flutter"
-      relative: true
-    source: path
-    version: "1.2.5"
+      name: razorpay_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.6"
   rxdart:
     dependency: transitive
     description:

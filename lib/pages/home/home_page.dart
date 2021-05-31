@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/audio/audio_bloc.dart';
+import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/application/blog/blog_bloc.dart';
 import 'package:tattva/application/dynamic_links/dynamic_links_cubit.dart';
@@ -110,6 +111,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     WidgetsBinding.instance!.addObserver(this);
     AudioService.connect();
     getIt<ConnectionStatusSingleton>().initialize();
+    getIt<AudioPlayerBloc>().add(AudioPlayerEvent.started());
     getIt<DynamicLinksCubit>().started();
     getIt<AuthenticationBloc>()
         .add(AuthenticationEvent.subscribeIdTokenChanges());

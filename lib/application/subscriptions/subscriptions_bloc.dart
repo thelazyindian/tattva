@@ -12,9 +12,9 @@ import 'package:tattva/domain/subscriptions/i_subscriptions_facade.dart';
 import 'package:tattva/domain/subscriptions/subscription.dart';
 import 'package:tattva/injection.dart';
 
+part 'subscriptions_bloc.freezed.dart';
 part 'subscriptions_event.dart';
 part 'subscriptions_state.dart';
-part 'subscriptions_bloc.freezed.dart';
 
 @lazySingleton
 class SubscriptionsBloc extends Bloc<SubscriptionsEvent, SubscriptionsState> {
@@ -73,10 +73,18 @@ class SubscriptionsBloc extends Bloc<SubscriptionsEvent, SubscriptionsState> {
               'subscription_id': subId,
               'name': activeSusbcription.name,
               'description': activeSusbcription.description,
-              'recurring': true,
+              'theme': {
+                'color': '#000000',
+              },
+              'readonly': {
+                'contact': true,
+                'email': true,
+                'name': true,
+              },
               'prefill': {
                 // 'contact': '8888888888',
                 'email': user.email,
+                'method': 'upi',
               },
             });
           },
@@ -93,7 +101,7 @@ class SubscriptionsBloc extends Bloc<SubscriptionsEvent, SubscriptionsState> {
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
     debugPrint(
-        "SUCCESS: paymentId: ${response.paymentId} orderId: ${response.orderId} signature: ${response.signature} subscriptionId: ${response.subscriptionId}");
+        "SUCCESS: paymentId: ${response.paymentId} orderId: ${response.orderId} signature: ${response.signature}");
     add(SubscriptionsEvent.paymentSuccess());
   }
 
@@ -104,6 +112,6 @@ class SubscriptionsBloc extends Bloc<SubscriptionsEvent, SubscriptionsState> {
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {
-    debugPrint("EXTERNAL_WALLET: " + response.walletName);
+    debugPrint('EXTERNAL_WALLET: ${response.walletName}');
   }
 }

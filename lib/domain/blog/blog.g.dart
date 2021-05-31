@@ -11,19 +11,17 @@ _$_Blog _$_$_BlogFromJson(Map<String, dynamic> json) {
     id: json['id'] as String,
     title: json['title'] as String,
     slug: json['slug'] as String,
-    author: json['author'] as String,
-    date: DateTime.parse(json['date'] as String),
+    language: json['language'] as String,
+    readingTime: json['readingTime'] as int,
     coverImage: (json['coverImage'] as List<dynamic>)
         .map((e) => TattvaImage.fromJson(e as Map<String, dynamic>))
         .toList(),
-    durationInMins: json['durationInMins'] as int,
     summary: json['summary'] as String,
     link: json['link'] as String,
     content: json['content'] as String?,
     createdAt: json['createdAt'] == null
         ? null
         : DateTime.parse(json['createdAt'] as String),
-    likes: json['likes'] as int,
   );
 }
 
@@ -31,13 +29,11 @@ Map<String, dynamic> _$_$_BlogToJson(_$_Blog instance) => <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
       'slug': instance.slug,
-      'author': instance.author,
-      'date': instance.date.toIso8601String(),
+      'language': instance.language,
+      'readingTime': instance.readingTime,
       'coverImage': instance.coverImage,
-      'durationInMins': instance.durationInMins,
       'summary': instance.summary,
       'link': instance.link,
       'content': instance.content,
       'createdAt': instance.createdAt?.toIso8601String(),
-      'likes': instance.likes,
     };

@@ -10,15 +10,13 @@ class Blog with _$Blog {
     required String id,
     required String title,
     required String slug,
-    required String author,
-    required DateTime date,
+    required String language,
+    required int readingTime,
     required List<TattvaImage> coverImage,
-    required int durationInMins,
     required String summary,
     required String link,
     String? content,
     DateTime? createdAt,
-    required int likes,
   }) = _Blog;
 
   factory Blog.fromJson(Map<String, dynamic> json) => _$BlogFromJson(json);
@@ -26,12 +24,10 @@ class Blog with _$Blog {
         id: id,
         title: '',
         slug: '',
-        author: '',
-        date: DateTime.now(),
+        language: '',
+        readingTime: 0,
         link: '',
         coverImage: [],
-        durationInMins: 0,
         summary: '',
-        likes: 0,
       );
 }

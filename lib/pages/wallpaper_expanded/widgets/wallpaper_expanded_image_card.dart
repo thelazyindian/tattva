@@ -20,19 +20,16 @@ class WallpaperExpandedImageCard extends StatelessWidget {
         Expanded(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12.0),
-            child: Image.network(
-              wallpaper.imageMedium,
-              fit: BoxFit.fitHeight,
-              loadingBuilder: (_, child, ___) => Container(
-                height: double.infinity,
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
                 color: Colors.grey.shade200,
-                child: child,
               ),
-              errorBuilder: (_, __, ___) => Container(
-                width: double.infinity,
-                height: double.infinity,
-                color: Colors.grey.shade200,
-                child: Icon(
+              child: Image.network(
+                wallpaper.imageMedium,
+                fit: BoxFit.cover,
+                errorBuilder: (_, __, ___) => Icon(
                   Icons.warning_rounded,
                   color: Colors.red,
                   size: 40.0,
@@ -45,7 +42,6 @@ class WallpaperExpandedImageCard extends StatelessWidget {
         enableButtons
             ? WallpaperButtons(wallpaper: wallpaper)
             : const SizedBox(height: 24.0),
-        const SizedBox(height: 24.0),
       ],
     );
   }

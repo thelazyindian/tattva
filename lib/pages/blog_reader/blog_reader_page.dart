@@ -7,6 +7,7 @@ import 'package:tattva/injection.dart';
 import 'package:tattva/pages/blog_reader/widgets/blog_reader_title_bar.dart';
 import 'package:tattva/pages/blog_reader/widgets/flexible_blog_reader_app_bar.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
+import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 
 class BlogReaderPage extends StatefulWidget {
   final Blog blog;
@@ -51,6 +52,9 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final errorWidgetHeight = height - 300.0;
+
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: BlocBuilder<BlogBloc, BlogState>(
@@ -81,22 +85,31 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
                     backButton: titleBarBackBtn,
                   ),
                   Expanded(
-                      child: (state.readerLoading)
-                          ? const Center(child: CircularProgressIndicator())
-                          : state.readerOption.fold(
-                              () => Center(child: Text('ERROR')),
-                              (sOrF) => sOrF.fold(
-                                (l) => Center(child: Text('ERROR')),
-                                (_) => SingleChildScrollView(
-                                  padding: const EdgeInsets.all(24.0),
-                                  child: HtmlWidget(
-                                    blog.content ?? 'Empty Content.',
-                                    textStyle:
-                                        TextStyle(fontWeight: FontWeight.w400),
-                                  ),
+                      child: RefreshIndicator(
+                    onRefresh: () async =>
+                        getIt<BlogBloc>().add(BlogEvent.readBlog(
+                      blogReaderTabType: widget.blogReaderTabType,
+                      blog: widget.blog,
+                    )),
+                    child: (state.readerLoading)
+                        ? const Center(child: CircularProgressIndicator())
+                        : state.readerOption.fold(
+                            () => ErrorLoadingListItemView(
+                                height: errorWidgetHeight),
+                            (sOrF) => sOrF.fold(
+                              (l) => ErrorLoadingListItemView(
+                                  height: errorWidgetHeight),
+                              (_) => SingleChildScrollView(
+                                padding: const EdgeInsets.all(24.0),
+                                child: HtmlWidget(
+                                  blog.content ?? 'Empty Content.',
+                                  textStyle:
+                                      TextStyle(fontWeight: FontWeight.w400),
                                 ),
                               ),
-                            )),
+                            ),
+                          ),
+                  )),
                   if (widget.enableAudioPreviewPadding)
                     AudioPlayerPreviewPadding(),
                 ],

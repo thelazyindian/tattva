@@ -23,7 +23,7 @@ class BlogTitleBar extends StatelessWidget {
         Row(
           children: [
             Text(
-              blog.author,
+              blog.language,
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 12.0,
@@ -40,7 +40,7 @@ class BlogTitleBar extends StatelessWidget {
               ),
             ),
             Text(
-              '${blog.durationInMins} mins',
+              '${blog.readingTime} ${blog.readingTime > 1 ? 'mins' : 'min'} read',
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 12.0,

@@ -43,7 +43,7 @@ class BlogReaderTitleBar extends StatelessWidget {
                 ),
                 const SizedBox(height: 4.0),
                 Text(
-                  'Published ${DateTime.now().difference(blog.date).inDays} days ago',
+                  '${blog.readingTime} ${blog.readingTime > 1 ? 'mins' : 'min'} read',
                   style: TextStyle(
                     color: Color(0xff908A8A),
                     fontSize: 16.0,

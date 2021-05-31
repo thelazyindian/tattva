@@ -5,18 +5,7 @@ import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio_player/widgets/audio_player_collapsed.dart';
 import 'package:tattva/pages/audio_player/widgets/audio_player_expanded.dart';
 
-class AudioPlayerPage extends StatefulWidget {
-  @override
-  _AudioPlayerPageState createState() => _AudioPlayerPageState();
-}
-
-class _AudioPlayerPageState extends State<AudioPlayerPage> {
-  @override
-  void initState() {
-    getIt<AudioPlayerBloc>().add(AudioPlayerEvent.started());
-    super.initState();
-  }
-
+class AudioPlayerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AudioPlayerBloc, AudioPlayerState>(

@@ -47,6 +47,10 @@ class SubscriptionsBody extends StatelessWidget {
               label: 'SUBSCRIBE NOW',
               loading: subscribing,
               onPressed: () {
+                // Stripe.instance.initPaymentSheet(
+                //   paymentSheetParameters: SetupPaymentSheetParameters(
+                //       paymentIntentClientSecret: paymentIntentClientSecret),
+                // );
                 getIt<SubscriptionsBloc>().add(SubscriptionsEvent.subscribe());
               },
             ),
