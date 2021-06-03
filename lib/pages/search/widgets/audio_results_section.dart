@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/core/tattva_audio.dart';
-import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
+import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio/widgets/audio_title_bar.dart';
 
 class AudioResultsSection extends StatelessWidget {
@@ -23,11 +24,12 @@ class AudioResultsSection extends StatelessWidget {
         final audio = audios[idx];
 
         return InkWell(
-          onTap: () => onAudioItemClicked(
+          onTap: () =>
+              getIt<AudioPlayerBloc>().add(AudioPlayerEvent.audioItemClicked(
             categoryName: 'Search Results',
             audios: audios,
             idx: idx,
-          ),
+          )),
           child: Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 20.0,

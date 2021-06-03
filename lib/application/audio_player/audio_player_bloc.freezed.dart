@@ -20,8 +20,8 @@ class _$AudioPlayerEventTearOff {
     return const _Started();
   }
 
-  _NoneE none() {
-    return const _NoneE();
+  _None none() {
+    return const _None();
   }
 
   _Collapse collapse() {
@@ -30,6 +30,39 @@ class _$AudioPlayerEventTearOff {
 
   _Expand expand() {
     return const _Expand();
+  }
+
+  _Play play() {
+    return const _Play();
+  }
+
+  _UpdateQueueState updateQueueState(QueueState? queueState) {
+    return _UpdateQueueState(
+      queueState,
+    );
+  }
+
+  _UpdateMediaState updateMediaState(MediaState? mediaState) {
+    return _UpdateMediaState(
+      mediaState,
+    );
+  }
+
+  _UpdatePlaybackState updatePlaybackState(PlaybackState? playbackState) {
+    return _UpdatePlaybackState(
+      playbackState,
+    );
+  }
+
+  _AudioItemClicked audioItemClicked(
+      {required String categoryName,
+      required List<TattvaAudio> audios,
+      required int idx}) {
+    return _AudioItemClicked(
+      categoryName: categoryName,
+      audios: audios,
+      idx: idx,
+    );
   }
 }
 
@@ -44,6 +77,13 @@ mixin _$AudioPlayerEvent {
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,23 +92,39 @@ mixin _$AudioPlayerEvent {
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_NoneE value) none,
+    required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_NoneE value)? none,
+    TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -137,6 +193,13 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
   }) {
     return started();
   }
@@ -148,6 +211,12 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -160,9 +229,14 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_NoneE value) none,
+    required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
   }) {
     return started(this);
   }
@@ -171,9 +245,14 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_NoneE value)? none,
+    TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -188,24 +267,24 @@ abstract class _Started implements AudioPlayerEvent {
 }
 
 /// @nodoc
-abstract class _$NoneECopyWith<$Res> {
-  factory _$NoneECopyWith(_NoneE value, $Res Function(_NoneE) then) =
-      __$NoneECopyWithImpl<$Res>;
+abstract class _$NoneCopyWith<$Res> {
+  factory _$NoneCopyWith(_None value, $Res Function(_None) then) =
+      __$NoneCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$NoneECopyWithImpl<$Res> extends _$AudioPlayerEventCopyWithImpl<$Res>
-    implements _$NoneECopyWith<$Res> {
-  __$NoneECopyWithImpl(_NoneE _value, $Res Function(_NoneE) _then)
-      : super(_value, (v) => _then(v as _NoneE));
+class __$NoneCopyWithImpl<$Res> extends _$AudioPlayerEventCopyWithImpl<$Res>
+    implements _$NoneCopyWith<$Res> {
+  __$NoneCopyWithImpl(_None _value, $Res Function(_None) _then)
+      : super(_value, (v) => _then(v as _None));
 
   @override
-  _NoneE get _value => super._value as _NoneE;
+  _None get _value => super._value as _None;
 }
 
 /// @nodoc
-class _$_NoneE with DiagnosticableTreeMixin implements _NoneE {
-  const _$_NoneE();
+class _$_None with DiagnosticableTreeMixin implements _None {
+  const _$_None();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -220,7 +299,7 @@ class _$_NoneE with DiagnosticableTreeMixin implements _NoneE {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _NoneE);
+    return identical(this, other) || (other is _None);
   }
 
   @override
@@ -233,6 +312,13 @@ class _$_NoneE with DiagnosticableTreeMixin implements _NoneE {
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
   }) {
     return none();
   }
@@ -244,6 +330,12 @@ class _$_NoneE with DiagnosticableTreeMixin implements _NoneE {
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
     required TResult orElse(),
   }) {
     if (none != null) {
@@ -256,9 +348,14 @@ class _$_NoneE with DiagnosticableTreeMixin implements _NoneE {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_NoneE value) none,
+    required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
   }) {
     return none(this);
   }
@@ -267,9 +364,14 @@ class _$_NoneE with DiagnosticableTreeMixin implements _NoneE {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_NoneE value)? none,
+    TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
     required TResult orElse(),
   }) {
     if (none != null) {
@@ -279,8 +381,8 @@ class _$_NoneE with DiagnosticableTreeMixin implements _NoneE {
   }
 }
 
-abstract class _NoneE implements AudioPlayerEvent {
-  const factory _NoneE() = _$_NoneE;
+abstract class _None implements AudioPlayerEvent {
+  const factory _None() = _$_None;
 }
 
 /// @nodoc
@@ -329,6 +431,13 @@ class _$_Collapse with DiagnosticableTreeMixin implements _Collapse {
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
   }) {
     return collapse();
   }
@@ -340,6 +449,12 @@ class _$_Collapse with DiagnosticableTreeMixin implements _Collapse {
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
     required TResult orElse(),
   }) {
     if (collapse != null) {
@@ -352,9 +467,14 @@ class _$_Collapse with DiagnosticableTreeMixin implements _Collapse {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_NoneE value) none,
+    required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
   }) {
     return collapse(this);
   }
@@ -363,9 +483,14 @@ class _$_Collapse with DiagnosticableTreeMixin implements _Collapse {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_NoneE value)? none,
+    TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
     required TResult orElse(),
   }) {
     if (collapse != null) {
@@ -425,6 +550,13 @@ class _$_Expand with DiagnosticableTreeMixin implements _Expand {
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
   }) {
     return expand();
   }
@@ -436,6 +568,12 @@ class _$_Expand with DiagnosticableTreeMixin implements _Expand {
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
     required TResult orElse(),
   }) {
     if (expand != null) {
@@ -448,9 +586,14 @@ class _$_Expand with DiagnosticableTreeMixin implements _Expand {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_NoneE value) none,
+    required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
   }) {
     return expand(this);
   }
@@ -459,9 +602,14 @@ class _$_Expand with DiagnosticableTreeMixin implements _Expand {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_NoneE value)? none,
+    TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
     required TResult orElse(),
   }) {
     if (expand != null) {
@@ -476,19 +624,832 @@ abstract class _Expand implements AudioPlayerEvent {
 }
 
 /// @nodoc
+abstract class _$PlayCopyWith<$Res> {
+  factory _$PlayCopyWith(_Play value, $Res Function(_Play) then) =
+      __$PlayCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$PlayCopyWithImpl<$Res> extends _$AudioPlayerEventCopyWithImpl<$Res>
+    implements _$PlayCopyWith<$Res> {
+  __$PlayCopyWithImpl(_Play _value, $Res Function(_Play) _then)
+      : super(_value, (v) => _then(v as _Play));
+
+  @override
+  _Play get _value => super._value as _Play;
+}
+
+/// @nodoc
+class _$_Play with DiagnosticableTreeMixin implements _Play {
+  const _$_Play();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AudioPlayerEvent.play()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AudioPlayerEvent.play'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Play);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() none,
+    required TResult Function() collapse,
+    required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
+  }) {
+    return play();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? none,
+    TResult Function()? collapse,
+    TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (play != null) {
+      return play();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_None value) none,
+    required TResult Function(_Collapse value) collapse,
+    required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
+  }) {
+    return play(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_None value)? none,
+    TResult Function(_Collapse value)? collapse,
+    TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (play != null) {
+      return play(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Play implements AudioPlayerEvent {
+  const factory _Play() = _$_Play;
+}
+
+/// @nodoc
+abstract class _$UpdateQueueStateCopyWith<$Res> {
+  factory _$UpdateQueueStateCopyWith(
+          _UpdateQueueState value, $Res Function(_UpdateQueueState) then) =
+      __$UpdateQueueStateCopyWithImpl<$Res>;
+  $Res call({QueueState? queueState});
+
+  $QueueStateCopyWith<$Res>? get queueState;
+}
+
+/// @nodoc
+class __$UpdateQueueStateCopyWithImpl<$Res>
+    extends _$AudioPlayerEventCopyWithImpl<$Res>
+    implements _$UpdateQueueStateCopyWith<$Res> {
+  __$UpdateQueueStateCopyWithImpl(
+      _UpdateQueueState _value, $Res Function(_UpdateQueueState) _then)
+      : super(_value, (v) => _then(v as _UpdateQueueState));
+
+  @override
+  _UpdateQueueState get _value => super._value as _UpdateQueueState;
+
+  @override
+  $Res call({
+    Object? queueState = freezed,
+  }) {
+    return _then(_UpdateQueueState(
+      queueState == freezed
+          ? _value.queueState
+          : queueState // ignore: cast_nullable_to_non_nullable
+              as QueueState?,
+    ));
+  }
+
+  @override
+  $QueueStateCopyWith<$Res>? get queueState {
+    if (_value.queueState == null) {
+      return null;
+    }
+
+    return $QueueStateCopyWith<$Res>(_value.queueState!, (value) {
+      return _then(_value.copyWith(queueState: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_UpdateQueueState
+    with DiagnosticableTreeMixin
+    implements _UpdateQueueState {
+  const _$_UpdateQueueState(this.queueState);
+
+  @override
+  final QueueState? queueState;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AudioPlayerEvent.updateQueueState(queueState: $queueState)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AudioPlayerEvent.updateQueueState'))
+      ..add(DiagnosticsProperty('queueState', queueState));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateQueueState &&
+            (identical(other.queueState, queueState) ||
+                const DeepCollectionEquality()
+                    .equals(other.queueState, queueState)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(queueState);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdateQueueStateCopyWith<_UpdateQueueState> get copyWith =>
+      __$UpdateQueueStateCopyWithImpl<_UpdateQueueState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() none,
+    required TResult Function() collapse,
+    required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
+  }) {
+    return updateQueueState(queueState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? none,
+    TResult Function()? collapse,
+    TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (updateQueueState != null) {
+      return updateQueueState(queueState);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_None value) none,
+    required TResult Function(_Collapse value) collapse,
+    required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
+  }) {
+    return updateQueueState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_None value)? none,
+    TResult Function(_Collapse value)? collapse,
+    TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (updateQueueState != null) {
+      return updateQueueState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateQueueState implements AudioPlayerEvent {
+  const factory _UpdateQueueState(QueueState? queueState) = _$_UpdateQueueState;
+
+  QueueState? get queueState => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UpdateQueueStateCopyWith<_UpdateQueueState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$UpdateMediaStateCopyWith<$Res> {
+  factory _$UpdateMediaStateCopyWith(
+          _UpdateMediaState value, $Res Function(_UpdateMediaState) then) =
+      __$UpdateMediaStateCopyWithImpl<$Res>;
+  $Res call({MediaState? mediaState});
+
+  $MediaStateCopyWith<$Res>? get mediaState;
+}
+
+/// @nodoc
+class __$UpdateMediaStateCopyWithImpl<$Res>
+    extends _$AudioPlayerEventCopyWithImpl<$Res>
+    implements _$UpdateMediaStateCopyWith<$Res> {
+  __$UpdateMediaStateCopyWithImpl(
+      _UpdateMediaState _value, $Res Function(_UpdateMediaState) _then)
+      : super(_value, (v) => _then(v as _UpdateMediaState));
+
+  @override
+  _UpdateMediaState get _value => super._value as _UpdateMediaState;
+
+  @override
+  $Res call({
+    Object? mediaState = freezed,
+  }) {
+    return _then(_UpdateMediaState(
+      mediaState == freezed
+          ? _value.mediaState
+          : mediaState // ignore: cast_nullable_to_non_nullable
+              as MediaState?,
+    ));
+  }
+
+  @override
+  $MediaStateCopyWith<$Res>? get mediaState {
+    if (_value.mediaState == null) {
+      return null;
+    }
+
+    return $MediaStateCopyWith<$Res>(_value.mediaState!, (value) {
+      return _then(_value.copyWith(mediaState: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_UpdateMediaState
+    with DiagnosticableTreeMixin
+    implements _UpdateMediaState {
+  const _$_UpdateMediaState(this.mediaState);
+
+  @override
+  final MediaState? mediaState;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AudioPlayerEvent.updateMediaState(mediaState: $mediaState)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AudioPlayerEvent.updateMediaState'))
+      ..add(DiagnosticsProperty('mediaState', mediaState));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateMediaState &&
+            (identical(other.mediaState, mediaState) ||
+                const DeepCollectionEquality()
+                    .equals(other.mediaState, mediaState)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(mediaState);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdateMediaStateCopyWith<_UpdateMediaState> get copyWith =>
+      __$UpdateMediaStateCopyWithImpl<_UpdateMediaState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() none,
+    required TResult Function() collapse,
+    required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
+  }) {
+    return updateMediaState(mediaState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? none,
+    TResult Function()? collapse,
+    TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (updateMediaState != null) {
+      return updateMediaState(mediaState);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_None value) none,
+    required TResult Function(_Collapse value) collapse,
+    required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
+  }) {
+    return updateMediaState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_None value)? none,
+    TResult Function(_Collapse value)? collapse,
+    TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (updateMediaState != null) {
+      return updateMediaState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateMediaState implements AudioPlayerEvent {
+  const factory _UpdateMediaState(MediaState? mediaState) = _$_UpdateMediaState;
+
+  MediaState? get mediaState => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UpdateMediaStateCopyWith<_UpdateMediaState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$UpdatePlaybackStateCopyWith<$Res> {
+  factory _$UpdatePlaybackStateCopyWith(_UpdatePlaybackState value,
+          $Res Function(_UpdatePlaybackState) then) =
+      __$UpdatePlaybackStateCopyWithImpl<$Res>;
+  $Res call({PlaybackState? playbackState});
+}
+
+/// @nodoc
+class __$UpdatePlaybackStateCopyWithImpl<$Res>
+    extends _$AudioPlayerEventCopyWithImpl<$Res>
+    implements _$UpdatePlaybackStateCopyWith<$Res> {
+  __$UpdatePlaybackStateCopyWithImpl(
+      _UpdatePlaybackState _value, $Res Function(_UpdatePlaybackState) _then)
+      : super(_value, (v) => _then(v as _UpdatePlaybackState));
+
+  @override
+  _UpdatePlaybackState get _value => super._value as _UpdatePlaybackState;
+
+  @override
+  $Res call({
+    Object? playbackState = freezed,
+  }) {
+    return _then(_UpdatePlaybackState(
+      playbackState == freezed
+          ? _value.playbackState
+          : playbackState // ignore: cast_nullable_to_non_nullable
+              as PlaybackState?,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UpdatePlaybackState
+    with DiagnosticableTreeMixin
+    implements _UpdatePlaybackState {
+  const _$_UpdatePlaybackState(this.playbackState);
+
+  @override
+  final PlaybackState? playbackState;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AudioPlayerEvent.updatePlaybackState(playbackState: $playbackState)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AudioPlayerEvent.updatePlaybackState'))
+      ..add(DiagnosticsProperty('playbackState', playbackState));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdatePlaybackState &&
+            (identical(other.playbackState, playbackState) ||
+                const DeepCollectionEquality()
+                    .equals(other.playbackState, playbackState)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(playbackState);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdatePlaybackStateCopyWith<_UpdatePlaybackState> get copyWith =>
+      __$UpdatePlaybackStateCopyWithImpl<_UpdatePlaybackState>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() none,
+    required TResult Function() collapse,
+    required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
+  }) {
+    return updatePlaybackState(playbackState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? none,
+    TResult Function()? collapse,
+    TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (updatePlaybackState != null) {
+      return updatePlaybackState(playbackState);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_None value) none,
+    required TResult Function(_Collapse value) collapse,
+    required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
+  }) {
+    return updatePlaybackState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_None value)? none,
+    TResult Function(_Collapse value)? collapse,
+    TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (updatePlaybackState != null) {
+      return updatePlaybackState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePlaybackState implements AudioPlayerEvent {
+  const factory _UpdatePlaybackState(PlaybackState? playbackState) =
+      _$_UpdatePlaybackState;
+
+  PlaybackState? get playbackState => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$UpdatePlaybackStateCopyWith<_UpdatePlaybackState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$AudioItemClickedCopyWith<$Res> {
+  factory _$AudioItemClickedCopyWith(
+          _AudioItemClicked value, $Res Function(_AudioItemClicked) then) =
+      __$AudioItemClickedCopyWithImpl<$Res>;
+  $Res call({String categoryName, List<TattvaAudio> audios, int idx});
+}
+
+/// @nodoc
+class __$AudioItemClickedCopyWithImpl<$Res>
+    extends _$AudioPlayerEventCopyWithImpl<$Res>
+    implements _$AudioItemClickedCopyWith<$Res> {
+  __$AudioItemClickedCopyWithImpl(
+      _AudioItemClicked _value, $Res Function(_AudioItemClicked) _then)
+      : super(_value, (v) => _then(v as _AudioItemClicked));
+
+  @override
+  _AudioItemClicked get _value => super._value as _AudioItemClicked;
+
+  @override
+  $Res call({
+    Object? categoryName = freezed,
+    Object? audios = freezed,
+    Object? idx = freezed,
+  }) {
+    return _then(_AudioItemClicked(
+      categoryName: categoryName == freezed
+          ? _value.categoryName
+          : categoryName // ignore: cast_nullable_to_non_nullable
+              as String,
+      audios: audios == freezed
+          ? _value.audios
+          : audios // ignore: cast_nullable_to_non_nullable
+              as List<TattvaAudio>,
+      idx: idx == freezed
+          ? _value.idx
+          : idx // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_AudioItemClicked
+    with DiagnosticableTreeMixin
+    implements _AudioItemClicked {
+  const _$_AudioItemClicked(
+      {required this.categoryName, required this.audios, required this.idx});
+
+  @override
+  final String categoryName;
+  @override
+  final List<TattvaAudio> audios;
+  @override
+  final int idx;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AudioPlayerEvent.audioItemClicked(categoryName: $categoryName, audios: $audios, idx: $idx)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AudioPlayerEvent.audioItemClicked'))
+      ..add(DiagnosticsProperty('categoryName', categoryName))
+      ..add(DiagnosticsProperty('audios', audios))
+      ..add(DiagnosticsProperty('idx', idx));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _AudioItemClicked &&
+            (identical(other.categoryName, categoryName) ||
+                const DeepCollectionEquality()
+                    .equals(other.categoryName, categoryName)) &&
+            (identical(other.audios, audios) ||
+                const DeepCollectionEquality().equals(other.audios, audios)) &&
+            (identical(other.idx, idx) ||
+                const DeepCollectionEquality().equals(other.idx, idx)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(categoryName) ^
+      const DeepCollectionEquality().hash(audios) ^
+      const DeepCollectionEquality().hash(idx);
+
+  @JsonKey(ignore: true)
+  @override
+  _$AudioItemClickedCopyWith<_AudioItemClicked> get copyWith =>
+      __$AudioItemClickedCopyWithImpl<_AudioItemClicked>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() none,
+    required TResult Function() collapse,
+    required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
+  }) {
+    return audioItemClicked(categoryName, audios, idx);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? none,
+    TResult Function()? collapse,
+    TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (audioItemClicked != null) {
+      return audioItemClicked(categoryName, audios, idx);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_None value) none,
+    required TResult Function(_Collapse value) collapse,
+    required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
+  }) {
+    return audioItemClicked(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_None value)? none,
+    TResult Function(_Collapse value)? collapse,
+    TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (audioItemClicked != null) {
+      return audioItemClicked(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AudioItemClicked implements AudioPlayerEvent {
+  const factory _AudioItemClicked(
+      {required String categoryName,
+      required List<TattvaAudio> audios,
+      required int idx}) = _$_AudioItemClicked;
+
+  String get categoryName => throw _privateConstructorUsedError;
+  List<TattvaAudio> get audios => throw _privateConstructorUsedError;
+  int get idx => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$AudioItemClickedCopyWith<_AudioItemClicked> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+AudioPlayerState _$AudioPlayerStateFromJson(Map<String, dynamic> json) {
+  return _AudioPlayerState.fromJson(json);
+}
+
+/// @nodoc
 class _$AudioPlayerStateTearOff {
   const _$AudioPlayerStateTearOff();
 
-  _Expanded expanded() {
-    return const _Expanded();
+  _AudioPlayerState call(
+      {QueueState? queueState,
+      MediaState? mediaState,
+      @JsonKey(ignore: true) PlaybackState? playbackState,
+      required PlayerView playerView}) {
+    return _AudioPlayerState(
+      queueState: queueState,
+      mediaState: mediaState,
+      playbackState: playbackState,
+      playerView: playerView,
+    );
   }
 
-  _Collapsed collapsed() {
-    return const _Collapsed();
-  }
-
-  _None none() {
-    return const _None();
+  AudioPlayerState fromJson(Map<String, Object> json) {
+    return AudioPlayerState.fromJson(json);
   }
 }
 
@@ -497,35 +1458,15 @@ const $AudioPlayerState = _$AudioPlayerStateTearOff();
 
 /// @nodoc
 mixin _$AudioPlayerState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() expanded,
-    required TResult Function() collapsed,
-    required TResult Function() none,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? expanded,
-    TResult Function()? collapsed,
-    TResult Function()? none,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Expanded value) expanded,
-    required TResult Function(_Collapsed value) collapsed,
-    required TResult Function(_None value) none,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Expanded value)? expanded,
-    TResult Function(_Collapsed value)? collapsed,
-    TResult Function(_None value)? none,
-    required TResult orElse(),
-  }) =>
+  QueueState? get queueState => throw _privateConstructorUsedError;
+  MediaState? get mediaState => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  PlaybackState? get playbackState => throw _privateConstructorUsedError;
+  PlayerView get playerView => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AudioPlayerStateCopyWith<AudioPlayerState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -534,6 +1475,15 @@ abstract class $AudioPlayerStateCopyWith<$Res> {
   factory $AudioPlayerStateCopyWith(
           AudioPlayerState value, $Res Function(AudioPlayerState) then) =
       _$AudioPlayerStateCopyWithImpl<$Res>;
+  $Res call(
+      {QueueState? queueState,
+      MediaState? mediaState,
+      @JsonKey(ignore: true) PlaybackState? playbackState,
+      PlayerView playerView});
+
+  $QueueStateCopyWith<$Res>? get queueState;
+  $MediaStateCopyWith<$Res>? get mediaState;
+  $PlayerViewCopyWith<$Res> get playerView;
 }
 
 /// @nodoc
@@ -544,282 +1494,223 @@ class _$AudioPlayerStateCopyWithImpl<$Res>
   final AudioPlayerState _value;
   // ignore: unused_field
   final $Res Function(AudioPlayerState) _then;
-}
-
-/// @nodoc
-abstract class _$ExpandedCopyWith<$Res> {
-  factory _$ExpandedCopyWith(_Expanded value, $Res Function(_Expanded) then) =
-      __$ExpandedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ExpandedCopyWithImpl<$Res> extends _$AudioPlayerStateCopyWithImpl<$Res>
-    implements _$ExpandedCopyWith<$Res> {
-  __$ExpandedCopyWithImpl(_Expanded _value, $Res Function(_Expanded) _then)
-      : super(_value, (v) => _then(v as _Expanded));
 
   @override
-  _Expanded get _value => super._value as _Expanded;
-}
-
-/// @nodoc
-class _$_Expanded with DiagnosticableTreeMixin implements _Expanded {
-  const _$_Expanded();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AudioPlayerState.expanded()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'AudioPlayerState.expanded'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Expanded);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() expanded,
-    required TResult Function() collapsed,
-    required TResult Function() none,
+  $Res call({
+    Object? queueState = freezed,
+    Object? mediaState = freezed,
+    Object? playbackState = freezed,
+    Object? playerView = freezed,
   }) {
-    return expanded();
+    return _then(_value.copyWith(
+      queueState: queueState == freezed
+          ? _value.queueState
+          : queueState // ignore: cast_nullable_to_non_nullable
+              as QueueState?,
+      mediaState: mediaState == freezed
+          ? _value.mediaState
+          : mediaState // ignore: cast_nullable_to_non_nullable
+              as MediaState?,
+      playbackState: playbackState == freezed
+          ? _value.playbackState
+          : playbackState // ignore: cast_nullable_to_non_nullable
+              as PlaybackState?,
+      playerView: playerView == freezed
+          ? _value.playerView
+          : playerView // ignore: cast_nullable_to_non_nullable
+              as PlayerView,
+    ));
   }
 
   @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? expanded,
-    TResult Function()? collapsed,
-    TResult Function()? none,
-    required TResult orElse(),
-  }) {
-    if (expanded != null) {
-      return expanded();
+  $QueueStateCopyWith<$Res>? get queueState {
+    if (_value.queueState == null) {
+      return null;
     }
-    return orElse();
+
+    return $QueueStateCopyWith<$Res>(_value.queueState!, (value) {
+      return _then(_value.copyWith(queueState: value));
+    });
   }
 
   @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Expanded value) expanded,
-    required TResult Function(_Collapsed value) collapsed,
-    required TResult Function(_None value) none,
-  }) {
-    return expanded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Expanded value)? expanded,
-    TResult Function(_Collapsed value)? collapsed,
-    TResult Function(_None value)? none,
-    required TResult orElse(),
-  }) {
-    if (expanded != null) {
-      return expanded(this);
+  $MediaStateCopyWith<$Res>? get mediaState {
+    if (_value.mediaState == null) {
+      return null;
     }
-    return orElse();
+
+    return $MediaStateCopyWith<$Res>(_value.mediaState!, (value) {
+      return _then(_value.copyWith(mediaState: value));
+    });
+  }
+
+  @override
+  $PlayerViewCopyWith<$Res> get playerView {
+    return $PlayerViewCopyWith<$Res>(_value.playerView, (value) {
+      return _then(_value.copyWith(playerView: value));
+    });
   }
 }
 
-abstract class _Expanded implements AudioPlayerState {
-  const factory _Expanded() = _$_Expanded;
+/// @nodoc
+abstract class _$AudioPlayerStateCopyWith<$Res>
+    implements $AudioPlayerStateCopyWith<$Res> {
+  factory _$AudioPlayerStateCopyWith(
+          _AudioPlayerState value, $Res Function(_AudioPlayerState) then) =
+      __$AudioPlayerStateCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {QueueState? queueState,
+      MediaState? mediaState,
+      @JsonKey(ignore: true) PlaybackState? playbackState,
+      PlayerView playerView});
+
+  @override
+  $QueueStateCopyWith<$Res>? get queueState;
+  @override
+  $MediaStateCopyWith<$Res>? get mediaState;
+  @override
+  $PlayerViewCopyWith<$Res> get playerView;
 }
 
 /// @nodoc
-abstract class _$CollapsedCopyWith<$Res> {
-  factory _$CollapsedCopyWith(
-          _Collapsed value, $Res Function(_Collapsed) then) =
-      __$CollapsedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$CollapsedCopyWithImpl<$Res>
+class __$AudioPlayerStateCopyWithImpl<$Res>
     extends _$AudioPlayerStateCopyWithImpl<$Res>
-    implements _$CollapsedCopyWith<$Res> {
-  __$CollapsedCopyWithImpl(_Collapsed _value, $Res Function(_Collapsed) _then)
-      : super(_value, (v) => _then(v as _Collapsed));
+    implements _$AudioPlayerStateCopyWith<$Res> {
+  __$AudioPlayerStateCopyWithImpl(
+      _AudioPlayerState _value, $Res Function(_AudioPlayerState) _then)
+      : super(_value, (v) => _then(v as _AudioPlayerState));
 
   @override
-  _Collapsed get _value => super._value as _Collapsed;
+  _AudioPlayerState get _value => super._value as _AudioPlayerState;
+
+  @override
+  $Res call({
+    Object? queueState = freezed,
+    Object? mediaState = freezed,
+    Object? playbackState = freezed,
+    Object? playerView = freezed,
+  }) {
+    return _then(_AudioPlayerState(
+      queueState: queueState == freezed
+          ? _value.queueState
+          : queueState // ignore: cast_nullable_to_non_nullable
+              as QueueState?,
+      mediaState: mediaState == freezed
+          ? _value.mediaState
+          : mediaState // ignore: cast_nullable_to_non_nullable
+              as MediaState?,
+      playbackState: playbackState == freezed
+          ? _value.playbackState
+          : playbackState // ignore: cast_nullable_to_non_nullable
+              as PlaybackState?,
+      playerView: playerView == freezed
+          ? _value.playerView
+          : playerView // ignore: cast_nullable_to_non_nullable
+              as PlayerView,
+    ));
+  }
 }
 
+@JsonSerializable()
+
 /// @nodoc
-class _$_Collapsed with DiagnosticableTreeMixin implements _Collapsed {
-  const _$_Collapsed();
+class _$_AudioPlayerState
+    with DiagnosticableTreeMixin
+    implements _AudioPlayerState {
+  const _$_AudioPlayerState(
+      {this.queueState,
+      this.mediaState,
+      @JsonKey(ignore: true) this.playbackState,
+      required this.playerView});
+
+  factory _$_AudioPlayerState.fromJson(Map<String, dynamic> json) =>
+      _$_$_AudioPlayerStateFromJson(json);
+
+  @override
+  final QueueState? queueState;
+  @override
+  final MediaState? mediaState;
+  @override
+  @JsonKey(ignore: true)
+  final PlaybackState? playbackState;
+  @override
+  final PlayerView playerView;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AudioPlayerState.collapsed()';
+    return 'AudioPlayerState(queueState: $queueState, mediaState: $mediaState, playbackState: $playbackState, playerView: $playerView)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'AudioPlayerState.collapsed'));
+    properties
+      ..add(DiagnosticsProperty('type', 'AudioPlayerState'))
+      ..add(DiagnosticsProperty('queueState', queueState))
+      ..add(DiagnosticsProperty('mediaState', mediaState))
+      ..add(DiagnosticsProperty('playbackState', playbackState))
+      ..add(DiagnosticsProperty('playerView', playerView));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Collapsed);
+    return identical(this, other) ||
+        (other is _AudioPlayerState &&
+            (identical(other.queueState, queueState) ||
+                const DeepCollectionEquality()
+                    .equals(other.queueState, queueState)) &&
+            (identical(other.mediaState, mediaState) ||
+                const DeepCollectionEquality()
+                    .equals(other.mediaState, mediaState)) &&
+            (identical(other.playbackState, playbackState) ||
+                const DeepCollectionEquality()
+                    .equals(other.playbackState, playbackState)) &&
+            (identical(other.playerView, playerView) ||
+                const DeepCollectionEquality()
+                    .equals(other.playerView, playerView)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(queueState) ^
+      const DeepCollectionEquality().hash(mediaState) ^
+      const DeepCollectionEquality().hash(playbackState) ^
+      const DeepCollectionEquality().hash(playerView);
+
+  @JsonKey(ignore: true)
+  @override
+  _$AudioPlayerStateCopyWith<_AudioPlayerState> get copyWith =>
+      __$AudioPlayerStateCopyWithImpl<_AudioPlayerState>(this, _$identity);
 
   @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() expanded,
-    required TResult Function() collapsed,
-    required TResult Function() none,
-  }) {
-    return collapsed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? expanded,
-    TResult Function()? collapsed,
-    TResult Function()? none,
-    required TResult orElse(),
-  }) {
-    if (collapsed != null) {
-      return collapsed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Expanded value) expanded,
-    required TResult Function(_Collapsed value) collapsed,
-    required TResult Function(_None value) none,
-  }) {
-    return collapsed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Expanded value)? expanded,
-    TResult Function(_Collapsed value)? collapsed,
-    TResult Function(_None value)? none,
-    required TResult orElse(),
-  }) {
-    if (collapsed != null) {
-      return collapsed(this);
-    }
-    return orElse();
+  Map<String, dynamic> toJson() {
+    return _$_$_AudioPlayerStateToJson(this);
   }
 }
 
-abstract class _Collapsed implements AudioPlayerState {
-  const factory _Collapsed() = _$_Collapsed;
-}
+abstract class _AudioPlayerState implements AudioPlayerState {
+  const factory _AudioPlayerState(
+      {QueueState? queueState,
+      MediaState? mediaState,
+      @JsonKey(ignore: true) PlaybackState? playbackState,
+      required PlayerView playerView}) = _$_AudioPlayerState;
 
-/// @nodoc
-abstract class _$NoneCopyWith<$Res> {
-  factory _$NoneCopyWith(_None value, $Res Function(_None) then) =
-      __$NoneCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$NoneCopyWithImpl<$Res> extends _$AudioPlayerStateCopyWithImpl<$Res>
-    implements _$NoneCopyWith<$Res> {
-  __$NoneCopyWithImpl(_None _value, $Res Function(_None) _then)
-      : super(_value, (v) => _then(v as _None));
+  factory _AudioPlayerState.fromJson(Map<String, dynamic> json) =
+      _$_AudioPlayerState.fromJson;
 
   @override
-  _None get _value => super._value as _None;
-}
-
-/// @nodoc
-class _$_None with DiagnosticableTreeMixin implements _None {
-  const _$_None();
-
+  QueueState? get queueState => throw _privateConstructorUsedError;
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AudioPlayerState.none()';
-  }
-
+  MediaState? get mediaState => throw _privateConstructorUsedError;
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'AudioPlayerState.none'));
-  }
-
+  @JsonKey(ignore: true)
+  PlaybackState? get playbackState => throw _privateConstructorUsedError;
   @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _None);
-  }
-
+  PlayerView get playerView => throw _privateConstructorUsedError;
   @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() expanded,
-    required TResult Function() collapsed,
-    required TResult Function() none,
-  }) {
-    return none();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? expanded,
-    TResult Function()? collapsed,
-    TResult Function()? none,
-    required TResult orElse(),
-  }) {
-    if (none != null) {
-      return none();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Expanded value) expanded,
-    required TResult Function(_Collapsed value) collapsed,
-    required TResult Function(_None value) none,
-  }) {
-    return none(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Expanded value)? expanded,
-    TResult Function(_Collapsed value)? collapsed,
-    TResult Function(_None value)? none,
-    required TResult orElse(),
-  }) {
-    if (none != null) {
-      return none(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _None implements AudioPlayerState {
-  const factory _None() = _$_None;
+  @JsonKey(ignore: true)
+  _$AudioPlayerStateCopyWith<_AudioPlayerState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

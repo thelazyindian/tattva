@@ -61,21 +61,21 @@ class AudioPlayerTask extends BackgroundAudioTask {
       }
     });
 
-    try {
-      AudioServiceBackground.setQueue(mediaItems);
-      await _audioPlayer.setAudioSource(
-        ConcatenatingAudioSource(
-          children: mediaItems
-              .map((item) => AudioSource.uri(Uri.parse(item.id)))
-              .toList(),
-        ),
-        initialIndex: params['index'],
-      );
-      onPlay();
-    } catch (e) {
-      print("Error: $e");
-      onStop();
-    }
+    // try {
+    AudioServiceBackground.setQueue(mediaItems);
+    await _audioPlayer.setAudioSource(
+      ConcatenatingAudioSource(
+        children: mediaItems
+            .map((item) => AudioSource.uri(Uri.parse(item.id)))
+            .toList(),
+      ),
+      initialIndex: params['index'],
+    );
+    //   onPlay();
+    // } catch (e) {
+    //   print("Error: $e");
+    //   onStop();
+    // }
   }
 
   Future<void> _broadcastState() => AudioServiceBackground.setState(

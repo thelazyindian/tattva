@@ -1,8 +1,14 @@
 import 'package:audio_service/audio_service.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class QueueState {
-  final List<MediaItem>? queue;
-  final MediaItem? mediaItem;
+part 'queue_state.freezed.dart';
+part 'queue_state.g.dart';
 
-  QueueState(this.queue, this.mediaItem);
+@freezed
+class QueueState with _$QueueState {
+  const factory QueueState(List<MediaItem>? queue, MediaItem? mediaItem) =
+      _QueueState;
+
+  factory QueueState.fromJson(Map<String, dynamic> json) =>
+      _$QueueStateFromJson(json);
 }

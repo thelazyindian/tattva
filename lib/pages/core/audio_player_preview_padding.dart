@@ -11,7 +11,7 @@ class AudioPlayerPreviewPadding extends StatelessWidget {
       bloc: getIt<AudioPlayerBloc>(),
       builder: (context, state) {
         return SizedBox(
-          height: state.map(
+          height: state.playerView.map(
             expanded: (_) => bottomNavbarHeight,
             collapsed: (_) => bottomNavbarHeight + audioCollapsedBar,
             none: (_) => bottomNavbarHeight,

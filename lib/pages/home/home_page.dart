@@ -14,7 +14,6 @@ import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/blog/blog.dart';
 import 'package:tattva/infrastructure/core/connection_status_singleton.dart';
 import 'package:tattva/injection.dart';
-import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/audio_player/audio_player_page.dart';
 import 'package:tattva/pages/core/custom_bottom_navigation_bar.dart';
 import 'package:tattva/router/router.gr.dart';
@@ -41,11 +40,12 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 behavior: SnackBarBehavior.floating,
               ),
             ),
-            (audio) => onAudioItemClicked(
+            (audio) =>
+                getIt<AudioPlayerBloc>().add(AudioPlayerEvent.audioItemClicked(
               categoryName: 'From Url',
               audios: [audio],
               idx: 0,
-            ),
+            )),
           ),
         );
       },

@@ -1,5 +1,8 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tattva/application/audio_player/audio_player_bloc.dart';
+import 'package:tattva/injection.dart';
 
 enum PlayPauseButtonType { expanded, collapsed }
 
@@ -13,12 +16,11 @@ class PlayPauseButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<PlaybackState>(
-      stream: AudioService.playbackStateStream,
-      builder: (context, snapshot) {
-        final playerState = snapshot.data;
-        final processingState = playerState?.processingState;
-        final playing = playerState?.playing;
+    return BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
+      bloc: getIt<AudioPlayerBloc>(),
+      builder: (context, state) {
+        final processingState = state.playbackState?.processingState;
+        final playing = state.playbackState?.playing;
         final loading = processingState == AudioProcessingState.connecting ||
             processingState == AudioProcessingState.buffering;
 

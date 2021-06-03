@@ -18,7 +18,7 @@ dependencies:
   dartz: 0.10.0-nullsafety.1
   firebase_auth: ^1.0.1
   firebase_core: ^1.0.1
-  flutter_bloc: 7.0.0-nullsafety.5
+  flutter_bloc: ^7.0.1
   flutter_facebook_auth: ^3.1.1
   flutter_svg: ^0.21.0-nullsafety.0
   formz: 0.4.0-nullsafety.0
@@ -43,6 +43,7 @@ dependencies:
   share: ^2.0.1
   connectivity: ^3.0.4
   razorpay_flutter: ^1.2.6
+  hydrated_bloc: ^7.0.1
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,8 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
-import 'package:tattva/domain/audio_player/media_state.dart';
-import 'package:tattva/domain/audio_player/queue_state.dart';
 import 'package:tattva/injection.dart';
-import 'package:tattva/pages/audio_player/widgets/audio_player_expanded.dart';
 import 'package:tattva/pages/audio_player/widgets/play_pause_button.dart';
 import 'package:tattva/pages/audio_player/widgets/seek_bar.dart';
 import 'package:tattva/pages/core/audio_like_button.dart';
@@ -13,16 +11,15 @@ import 'package:tattva/utils/dimens.dart';
 class AudioPlayerCollapsed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QueueState?>(
-      stream: queueStateStream,
-      builder: (context, snapshot) {
-        final queueState = snapshot.data;
-        if (queueState == null || queueState.mediaItem == null) {
+    return BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
+      bloc: getIt<AudioPlayerBloc>(),
+      builder: (context, state) {
+        if ((state.queueState == null) ||
+            (state.queueState?.mediaItem == null)) {
           return Container();
         }
 
-        final mediaItem = queueState.mediaItem;
-
+        final mediaItem = state.queueState!.mediaItem;
         return Stack(
           children: [
             Row(
@@ -67,19 +64,12 @@ class AudioPlayerCollapsed extends StatelessWidget {
             Positioned(
               top: 0.0,
               width: MediaQuery.of(context).size.width,
-              child: StreamBuilder<MediaState>(
-                stream: mediaStateStream,
-                builder: (context, snapshot) {
-                  final mediaState = snapshot.data;
-                  return SeekBar(
-                    duration: mediaState?.mediaItem?.duration ?? Duration.zero,
-                    position: mediaState?.position ?? Duration.zero,
-                    collapsed: true,
-                    onChangeEnd: (newPosition) {
-                      AudioService.seekTo(newPosition);
-                    },
-                  );
-                },
+              child: SeekBar(
+                duration:
+                    state.mediaState?.mediaItem?.duration ?? Duration.zero,
+                position: state.mediaState?.position ?? Duration.zero,
+                collapsed: true,
+                onChangeEnd: (newPosition) => AudioService.seekTo(newPosition),
               ),
             )
           ],

@@ -15,23 +15,23 @@ class AudioPlayerPage extends StatelessWidget {
           bottom: .0,
           duration: Duration(milliseconds: 200),
           width: MediaQuery.of(context).size.width,
-          height: state.map(
+          height: state.playerView.map(
             expanded: (_) => MediaQuery.of(context).size.height,
             collapsed: (_) => 73.0 + 64.0,
             none: (_) => .0,
           ),
-          child: state.maybeMap(
+          child: state.playerView.maybeMap(
             none: (_) => Container(),
             orElse: () => Material(
               color: Theme.of(context).primaryColor,
               child: AnimatedContainer(
                 duration: Duration(milliseconds: 200),
                 decoration: BoxDecoration(
-                  borderRadius: state.maybeMap(
+                  borderRadius: state.playerView.maybeMap(
                       collapsed: (_) => BorderRadius.circular(28.0),
                       orElse: () => BorderRadius.zero),
                 ),
-                child: state.maybeMap(
+                child: state.playerView.maybeMap(
                   collapsed: (_) => Column(
                     children: [
                       AudioPlayerCollapsed(),

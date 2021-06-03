@@ -1,15 +1,11 @@
-import 'package:audio_service/audio_service.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/core/tattva_audio.dart';
-import 'package:tattva/infrastructure/audio_player/audio_player_task.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio/widgets/audio_item.dart';
 import 'package:tattva/pages/core/category_title_bar.dart';
-
-void _entrypoint() => AudioServiceBackground.run(() => AudioPlayerTask());
 
 class AudioSubcategorySection extends StatelessWidget {
   final String categoryName;
@@ -54,11 +50,12 @@ class AudioSubcategorySection extends StatelessWidget {
                       'LikedItemsRoute') {
                     context.router.pop().then((_) => context.router.pop());
                   }
-                  onAudioItemClicked(
+                  getIt<AudioPlayerBloc>()
+                      .add(AudioPlayerEvent.audioItemClicked(
                     categoryName: categoryName,
                     audios: audios,
                     idx: idx,
-                  );
+                  ));
                 },
               );
             },
@@ -68,46 +65,5 @@ class AudioSubcategorySection extends StatelessWidget {
         ),
       ],
     );
-  }
-}
-
-onAudioItemClicked({
-  required String categoryName,
-  required List<TattvaAudio> audios,
-  required int idx,
-}) {
-  final audio = audios[idx];
-
-  final mediaItems = audios
-      .map((e) => MediaItem(
-            id: e.audioFile.first.url,
-            artUri: Uri.parse(e.thumbnail.first.url),
-            album: categoryName,
-            title: e.name,
-            extras: {
-              'uid': e.id,
-              'link': e.link,
-            },
-          ))
-      .toList();
-  if (AudioService.connected) {
-    if (AudioService.running) {
-      debugPrint('updateQueue');
-      AudioService.customAction(
-        audio.audioFile.first.url,
-        mediaItems.map((e) => e.toJson()).toList(),
-      );
-    } else {
-      AudioService.start(
-        backgroundTaskEntrypoint: _entrypoint,
-        androidStopForegroundOnPause: true,
-        params: {
-          'mediaItems': mediaItems.map((e) => e.toJson()).toList(),
-          'index': idx,
-        },
-      );
-    }
-
-    getIt<AudioPlayerBloc>().add(AudioPlayerEvent.expand());
   }
 }

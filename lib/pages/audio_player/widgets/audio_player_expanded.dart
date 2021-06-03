@@ -1,10 +1,8 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
-import 'package:tattva/domain/audio_player/media_state.dart';
-import 'package:tattva/domain/audio_player/queue_state.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio_player/widgets/media_controls_bar.dart';
 import 'package:tattva/pages/audio_player/widgets/seek_bar.dart';
@@ -26,14 +24,14 @@ class AudioPlayerExpanded extends StatelessWidget {
           getIt<AudioPlayerBloc>().add(AudioPlayerEvent.collapse());
           return false;
         },
-        child: StreamBuilder<QueueState?>(
-          stream: queueStateStream,
-          builder: (context, snapshot) {
-            final queueState = snapshot.data;
-            if (queueState == null || queueState.mediaItem == null) {
+        child: BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
+          bloc: getIt<AudioPlayerBloc>(),
+          builder: (context, state) {
+            if ((state.queueState == null) ||
+                (state.queueState?.mediaItem == null)) {
               return const Center(child: CircularProgressIndicator());
             }
-            final mediaItem = queueState.mediaItem;
+            final mediaItem = state.queueState!.mediaItem!;
             return Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -53,7 +51,7 @@ class AudioPlayerExpanded extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              mediaItem!.title,
+                              mediaItem.title,
                               style: TextStyle(
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.w600,
@@ -100,19 +98,12 @@ class AudioPlayerExpanded extends StatelessWidget {
                       Padding(
                         padding:
                             const EdgeInsets.fromLTRB(21.0, 0.0, 21.0, 16.0),
-                        child: StreamBuilder<MediaState>(
-                          stream: mediaStateStream,
-                          builder: (context, snapshot) {
-                            final mediaState = snapshot.data;
-                            return SeekBar(
-                              duration: mediaState?.mediaItem?.duration ??
-                                  Duration.zero,
-                              position: mediaState?.position ?? Duration.zero,
-                              onChangeEnd: (newPosition) {
-                                AudioService.seekTo(newPosition);
-                              },
-                            );
-                          },
+                        child: SeekBar(
+                          duration: state.mediaState?.mediaItem?.duration ??
+                              Duration.zero,
+                          position: state.mediaState?.position ?? Duration.zero,
+                          onChangeEnd: (newPosition) =>
+                              AudioService.seekTo(newPosition),
                         ),
                       ),
                     ],
@@ -127,15 +118,3 @@ class AudioPlayerExpanded extends StatelessWidget {
     );
   }
 }
-
-Stream<QueueState> get queueStateStream =>
-    Rx.combineLatest2<List<MediaItem>?, MediaItem?, QueueState>(
-        AudioService.queueStream,
-        AudioService.currentMediaItemStream,
-        (queue, mediaItem) => QueueState(queue, mediaItem));
-
-Stream<MediaState> get mediaStateStream =>
-    Rx.combineLatest2<MediaItem?, Duration, MediaState>(
-        AudioService.currentMediaItemStream,
-        AudioService.positionStream,
-        (mediaItem, position) => MediaState(mediaItem, position));

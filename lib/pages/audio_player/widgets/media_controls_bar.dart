@@ -19,7 +19,7 @@ class MediaControlsBar extends StatelessWidget {
       children: [
         IconButton(
           onPressed: link != null
-              ? () => Share.share('Check out this blog $link')
+              ? () => Share.share('Check out this audio $link')
               : null,
           splashRadius: 24.0,
           icon: SvgPicture.asset(
@@ -29,18 +29,22 @@ class MediaControlsBar extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: AudioService.queue!.first == mediaItem
+          onPressed: (AudioService.queue?.isEmpty ?? true)
               ? null
-              : AudioService.skipToPrevious,
+              : AudioService.queue!.first == mediaItem
+                  ? null
+                  : AudioService.skipToPrevious,
           splashRadius: 24.0,
           iconSize: 32.0,
           icon: Icon(Icons.skip_previous_rounded),
         ),
         PlayPauseButton(),
         IconButton(
-          onPressed: AudioService.queue!.last == mediaItem
+          onPressed: (AudioService.queue?.isEmpty ?? true)
               ? null
-              : AudioService.skipToNext,
+              : AudioService.queue!.last == mediaItem
+                  ? null
+                  : AudioService.skipToNext,
           splashRadius: 24.0,
           iconSize: 32.0,
           icon: Icon(Icons.skip_next_rounded),

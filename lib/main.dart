@@ -10,6 +10,7 @@ import 'package:tattva/injection.dart';
 import 'package:tattva/pages/core/custom_scroll_behavior.dart';
 import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/styles.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +20,9 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle.copyWith(
     statusBarColor: Colors.transparent,
   ));
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: await getTemporaryDirectory(),
+  );
   // const stripePublishableKey =
   //     'pk_test_51IqeuUSJ8h7egCoetFqYf5OYliE6mHpxGCc1QkdpLyte3eWtxSwOmRu9g88nuLqemevikomcZZV7nnFhmeWc7wmr00hlGywYET';
   // Stripe.publishableKey = stripePublishableKey;

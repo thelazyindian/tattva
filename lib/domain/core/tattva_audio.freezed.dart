@@ -24,7 +24,7 @@ class _$TattvaAudioTearOff {
       {required String id,
       required String name,
       required String language,
-      required int durationInMins,
+      required double durationInMins,
       required String link,
       required List<TattvaImage> thumbnail,
       required List<TattvaAudioFile> audioFile,
@@ -54,7 +54,7 @@ mixin _$TattvaAudio {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
-  int get durationInMins => throw _privateConstructorUsedError;
+  double get durationInMins => throw _privateConstructorUsedError;
   String get link => throw _privateConstructorUsedError;
   List<TattvaImage> get thumbnail => throw _privateConstructorUsedError;
   List<TattvaAudioFile> get audioFile => throw _privateConstructorUsedError;
@@ -75,7 +75,7 @@ abstract class $TattvaAudioCopyWith<$Res> {
       {String id,
       String name,
       String language,
-      int durationInMins,
+      double durationInMins,
       String link,
       List<TattvaImage> thumbnail,
       List<TattvaAudioFile> audioFile,
@@ -117,7 +117,7 @@ class _$TattvaAudioCopyWithImpl<$Res> implements $TattvaAudioCopyWith<$Res> {
       durationInMins: durationInMins == freezed
           ? _value.durationInMins
           : durationInMins // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       link: link == freezed
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -149,7 +149,7 @@ abstract class _$TattvaAudioCopyWith<$Res>
       {String id,
       String name,
       String language,
-      int durationInMins,
+      double durationInMins,
       String link,
       List<TattvaImage> thumbnail,
       List<TattvaAudioFile> audioFile,
@@ -193,7 +193,7 @@ class __$TattvaAudioCopyWithImpl<$Res> extends _$TattvaAudioCopyWithImpl<$Res>
       durationInMins: durationInMins == freezed
           ? _value.durationInMins
           : durationInMins // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       link: link == freezed
           ? _value.link
           : link // ignore: cast_nullable_to_non_nullable
@@ -238,7 +238,7 @@ class _$_TattvaAudio implements _TattvaAudio {
   @override
   final String language;
   @override
-  final int durationInMins;
+  final double durationInMins;
   @override
   final String link;
   @override
@@ -308,7 +308,7 @@ abstract class _TattvaAudio implements TattvaAudio {
       {required String id,
       required String name,
       required String language,
-      required int durationInMins,
+      required double durationInMins,
       required String link,
       required List<TattvaImage> thumbnail,
       required List<TattvaAudioFile> audioFile,
@@ -324,7 +324,7 @@ abstract class _TattvaAudio implements TattvaAudio {
   @override
   String get language => throw _privateConstructorUsedError;
   @override
-  int get durationInMins => throw _privateConstructorUsedError;
+  double get durationInMins => throw _privateConstructorUsedError;
   @override
   String get link => throw _privateConstructorUsedError;
   @override

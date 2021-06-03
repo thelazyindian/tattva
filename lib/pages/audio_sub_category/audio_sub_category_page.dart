@@ -1,10 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/domain/core/tattva_audio.dart';
-import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
+import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio_sub_category/widgets/audio_sub_category_item.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
-import 'package:auto_route/auto_route.dart';
 
 class AudioSubCategoryPage extends StatelessWidget {
   final String title;
@@ -28,7 +29,7 @@ class AudioSubCategoryPage extends StatelessWidget {
         customAppBarType: CustomAppBarType.subhead,
         title: title,
         titleAlignment: TextAlign.start,
-        suffixIcon: 'icons/search.svg',
+        // suffixIcon: 'icons/search.svg',
       ),
       body: Align(
         alignment: Alignment.topCenter,
@@ -72,11 +73,12 @@ class AudioSubCategoryPage extends StatelessWidget {
                                 ),
                           );
                     }
-                    onAudioItemClicked(
+                    getIt<AudioPlayerBloc>()
+                        .add(AudioPlayerEvent.audioItemClicked(
                       categoryName: title,
                       audios: audios,
                       idx: idx,
-                    );
+                    ));
                   },
                 );
               },
