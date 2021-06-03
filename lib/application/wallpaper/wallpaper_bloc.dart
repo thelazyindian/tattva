@@ -211,8 +211,8 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
       expandedWallpapers: (e) async* {
         yield state.copyWith(
           expandedViewLoading: false,
-          expandedViewWallpapers: none(),
-          wallpaperIdx: 0,
+          expandedViewWallpapers: optionOf(right(e.wallpapers)),
+          wallpaperIdx: e.wallpaperIdx,
         );
       },
       wallpaperFromId: (e) async* {

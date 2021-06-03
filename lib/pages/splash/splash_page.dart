@@ -73,7 +73,7 @@ class _SplashPageState extends State<SplashPage> {
               Image.asset('images/logo.png'),
               const SizedBox(height: 16.0),
               Text(
-                APP_NAME,
+                APP_NAME_TM,
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                   fontWeight: appNameFontWeight,

@@ -8,7 +8,7 @@ class TattvaFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text(
-        APP_NAME,
+        APP_NAME_TM,
         style: TextStyle(
           color: Theme.of(context).accentColor,
           fontWeight: appNameFontWeight,

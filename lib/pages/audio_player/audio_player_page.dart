@@ -4,6 +4,7 @@ import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio_player/widgets/audio_player_collapsed.dart';
 import 'package:tattva/pages/audio_player/widgets/audio_player_expanded.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class AudioPlayerPage extends StatelessWidget {
   @override
@@ -17,7 +18,7 @@ class AudioPlayerPage extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: state.playerView.map(
             expanded: (_) => MediaQuery.of(context).size.height,
-            collapsed: (_) => 73.0 + 64.0,
+            collapsed: (_) => bottomNavbarHeight + audioCollapsedBar,
             none: (_) => .0,
           ),
           child: state.playerView.maybeMap(
@@ -35,7 +36,7 @@ class AudioPlayerPage extends StatelessWidget {
                   collapsed: (_) => Column(
                     children: [
                       AudioPlayerCollapsed(),
-                      const SizedBox(height: 73.0),
+                      const SizedBox(height: bottomNavbarHeight),
                     ],
                   ),
                   orElse: () => AudioPlayerExpanded(),

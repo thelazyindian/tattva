@@ -16,7 +16,9 @@ import 'package:tattva/infrastructure/core/connection_status_singleton.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio_player/audio_player_page.dart';
 import 'package:tattva/pages/core/custom_bottom_navigation_bar.dart';
+import 'package:tattva/pages/home/widgets/connectivity_status_messsage.dart';
 import 'package:tattva/router/router.gr.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -91,6 +93,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 children: [
                   FadeTransition(child: child, opacity: animation),
                   AudioPlayerPage(),
+                  connectivityStatus(),
                   Positioned(
                     bottom: .0,
                     width: MediaQuery.of(context).size.width,
@@ -104,6 +107,23 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       ),
     );
   }
+
+  Widget connectivityStatus() => BlocBuilder<AudioPlayerBloc, AudioPlayerState>(
+        bloc: getIt<AudioPlayerBloc>(),
+        buildWhen: (previous, current) =>
+            previous.playerView != current.playerView,
+        builder: (context, state) {
+          return AnimatedPositioned(
+            width: MediaQuery.of(context).size.width,
+            bottom: state.playerView.maybeMap(
+              collapsed: (_) => bottomNavbarHeight + audioCollapsedBar,
+              orElse: () => bottomNavbarHeight,
+            ),
+            duration: Duration(milliseconds: 300),
+            child: ConnectivityStatusMessage(),
+          );
+        },
+      );
 
   @override
   void initState() {
