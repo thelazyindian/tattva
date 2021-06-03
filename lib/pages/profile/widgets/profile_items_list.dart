@@ -20,14 +20,14 @@ class ProfileItemsList extends StatelessWidget {
           router.push(EditProfileRoute());
         },
       },
-      {
-        'icon': 'icons/list.svg',
-        'name': PROFILE_ITEM_SUBSCRIPTIONS,
-        'onTap': () => router.root
-            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
-            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
-            .push(SubscriptionsRoute()),
-      },
+      // {
+      //   'icon': 'icons/list.svg',
+      //   'name': PROFILE_ITEM_SUBSCRIPTIONS,
+      //   'onTap': () => router.root
+      //       .innerRouterOf<StackRouter>('HomeWrapperRoute')!
+      //       .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
+      //       .push(SubscriptionsRoute()),
+      // },
       {
         'icon': 'icons/heart.svg',
         'name': PROFILE_ITEM_SAVED_ITEMS,

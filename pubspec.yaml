@@ -42,7 +42,6 @@ dependencies:
   firebase_dynamic_links: ^2.0.3
   share: ^2.0.1
   connectivity: ^3.0.4
-  razorpay_flutter: ^1.2.6
   hydrated_bloc: ^7.0.1
 
 dev_dependencies:

@@ -18,7 +18,6 @@ import 'package:tattva/pages/liked_items_wallpaper_sub_category/liked_items_wall
 import 'package:tattva/pages/profile/profile_page.dart';
 import 'package:tattva/pages/search/search_page.dart';
 import 'package:tattva/pages/splash/splash_page.dart';
-import 'package:tattva/pages/subscriptions/subscriptions_page.dart';
 import 'package:tattva/pages/wallpaper/wallpaper_page.dart';
 import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
 
@@ -150,7 +149,6 @@ import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
                 ),
               ],
             ),
-            AutoRoute(page: SubscriptionsPage),
           ],
         ),
       ],
