@@ -24,7 +24,7 @@ class HomeItemsWallpaperSubCategoryPage extends StatelessWidget {
         customAppBarType: CustomAppBarType.subhead,
         title: title,
         titleAlignment: TextAlign.start,
-        suffixIcon: 'icons/search.svg',
+        // suffixIcon: 'icons/search.svg',
       ),
       body: Column(
         children: [

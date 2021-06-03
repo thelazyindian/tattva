@@ -33,6 +33,7 @@ class _WallPageViewState extends State<WallPageView> {
   @override
   void initState() {
     super.initState();
+    debugPrint('WallPageView initState');
     currentPage = widget.wallpaperIdx;
     IsolateNameServer.registerPortWithName(
         _port.sendPort, 'downloader_send_port');
@@ -49,6 +50,7 @@ class _WallPageViewState extends State<WallPageView> {
 
   @override
   void dispose() {
+    debugPrint('WallPageView dispose');
     IsolateNameServer.removePortNameMapping('downloader_send_port');
     super.dispose();
   }

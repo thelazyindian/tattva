@@ -23,7 +23,7 @@ class LikedItemsWallpaperSubCategoryPage extends StatelessWidget {
         customAppBarType: CustomAppBarType.subhead,
         title: title,
         titleAlignment: TextAlign.start,
-        suffixIcon: 'icons/search.svg',
+        // suffixIcon: 'icons/search.svg',
       ),
       body: BlocBuilder<LikedItemsBloc, LikedItemsState>(
         bloc: getIt<LikedItemsBloc>(),
