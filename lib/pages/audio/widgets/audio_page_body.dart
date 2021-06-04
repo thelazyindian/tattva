@@ -46,26 +46,6 @@ class AudioPageBody extends StatelessWidget {
     );
   }
 
-  Widget _generateItems(
-    BuildContext context,
-    AudioSubCategory audioSubCategory,
-  ) =>
-      Column(
-        children: [
-          AudioSubcategorySection(
-            categoryName: audioSubCategory.name,
-            audios: audioSubCategory.audios,
-            bannerImage: audioSubCategory.banner.first.url,
-            onTapNext: () => context.router.navigate(AudioSubCategoryRoute(
-              title: audioSubCategory.name,
-              audios: audioSubCategory.audios,
-              bannerImage: audioSubCategory.banner.first.url,
-            )),
-          ),
-          const SizedBox(height: 20.0),
-        ],
-      );
-
   Widget _subCategories(
     BuildContext context,
     List<AudioSubCategory> audioSubCategories,
@@ -73,8 +53,20 @@ class AudioPageBody extends StatelessWidget {
       Column(
         children: [
           ...audioSubCategories
-              .map((audioSubCategory) =>
-                  _generateItems(context, audioSubCategory))
+              .map((audioSubCategory) => Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: AudioSubcategorySection(
+                      categoryName: audioSubCategory.name,
+                      audios: audioSubCategory.audios,
+                      bannerImage: audioSubCategory.banner.first.url,
+                      onTapNext: () =>
+                          context.router.navigate(AudioSubCategoryRoute(
+                        title: audioSubCategory.name,
+                        audios: audioSubCategory.audios,
+                        bannerImage: audioSubCategory.banner.first.url,
+                      )),
+                    ),
+                  ))
               .toList(),
           AudioPlayerPreviewPadding(),
         ],

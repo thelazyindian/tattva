@@ -64,6 +64,7 @@ class _SearchFieldAppBarState extends State<SearchFieldAppBar> {
               Expanded(
                 child: TextField(
                   controller: _textEditingController,
+                  autofocus: true,
                   cursorWidth: 1.0,
                   onChanged: (value) => getIt<SearchBloc>()
                       .add(SearchEvent.onQueryChanged(value: value)),

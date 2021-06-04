@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tattva/domain/authentication/auth_failure.dart';
 import 'package:tattva/domain/authentication/email.dart';
@@ -316,6 +317,7 @@ class AuthFacade implements IAuthFacade {
         _googleSignIn.signOut(),
         _facebookAuth.logOut(),
         AudioService.stop(),
+        HydratedBloc.storage.clear(),
       ]);
       return right(unit);
     } on FirebaseException {

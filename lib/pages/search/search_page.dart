@@ -26,6 +26,13 @@ class _SearchPageState extends State<SearchPage>
           .add(SearchEvent.changedTab(index: _tabController.index));
     });
     super.initState();
+    debugPrint('SearchPage initState');
+  }
+
+  @override
+  void didChangeDependencies() {
+    debugPrint('SearchPage didChangeDependencies');
+    super.didChangeDependencies();
   }
 
   @override

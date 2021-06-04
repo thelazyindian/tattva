@@ -25,45 +25,51 @@ class AudioSubcategorySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        CategoryTitleBar(
-          title: uppercaseTitle ? categoryName.toUpperCase() : categoryName,
-          onTapNext: onTapNext,
-        ),
-        const SizedBox(height: 4.0),
-        SizedBox(
-          height: 120.0,
-          child: ListView.separated(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, idx) {
-              final audio = audios[idx];
-              return AudioItem(
-                heading: audio.name,
-                imageUri: audio.thumbnail.first.url,
-                firstSubHeading: '${audio.durationInMins} min',
-                secondSubHeading: audio.language,
-                onTap: () {
-                  if (context.router.current!.route.routeName ==
-                      'LikedItemsRoute') {
-                    context.router.pop().then((_) => context.router.pop());
-                  }
-                  getIt<AudioPlayerBloc>()
-                      .add(AudioPlayerEvent.audioItemClicked(
-                    categoryName: categoryName,
-                    audios: audios,
-                    idx: idx,
-                  ));
-                },
-              );
-            },
-            separatorBuilder: (context, idx) => const SizedBox(width: 10.0),
-            itemCount: audios.length,
-          ),
-        ),
-      ],
-    );
+    return audios.isNotEmpty
+        ? Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CategoryTitleBar(
+                title:
+                    uppercaseTitle ? categoryName.toUpperCase() : categoryName,
+                onTapNext: onTapNext,
+              ),
+              const SizedBox(height: 4.0),
+              SizedBox(
+                height: 120.0,
+                child: ListView.separated(
+                  padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, idx) {
+                    final audio = audios[idx];
+                    return AudioItem(
+                      heading: audio.name,
+                      imageUri: audio.thumbnail.first.url,
+                      firstSubHeading: '${audio.durationInMins} min',
+                      secondSubHeading: audio.language,
+                      onTap: () {
+                        if (context.router.current!.route.routeName ==
+                            'LikedItemsRoute') {
+                          context.router
+                              .pop()
+                              .then((_) => context.router.pop());
+                        }
+                        getIt<AudioPlayerBloc>()
+                            .add(AudioPlayerEvent.audioItemClicked(
+                          categoryName: categoryName,
+                          audios: audios,
+                          idx: idx,
+                        ));
+                      },
+                    );
+                  },
+                  separatorBuilder: (context, idx) =>
+                      const SizedBox(width: 10.0),
+                  itemCount: audios.length,
+                ),
+              ),
+            ],
+          )
+        : Container();
   }
 }

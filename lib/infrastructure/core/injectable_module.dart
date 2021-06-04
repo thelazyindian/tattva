@@ -18,7 +18,7 @@ abstract class InjectableModule {
   @lazySingleton
   Dio get dio => Dio(
         BaseOptions(
-          baseUrl: 'https://803474bd7cc0.ngrok.io/tattva-app/us-central1/app',
+          baseUrl: 'https://13ea9f33ee69.ngrok.io/tattva-app/us-central1/app',
         ),
       );
 }

@@ -1,3 +1,4 @@
+import 'package:audio_service/audio_service.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -63,9 +64,11 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      builder: (_, child) => ScrollConfiguration(
-        behavior: CustomScrollBehavior(),
-        child: child ?? Container(),
+      builder: (_, child) => AudioServiceWidget(
+        child: ScrollConfiguration(
+          behavior: CustomScrollBehavior(),
+          child: child ?? Container(),
+        ),
       ),
       debugShowCheckedModeBanner: false,
       routerDelegate: _appRouter.delegate(),

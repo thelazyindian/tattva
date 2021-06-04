@@ -128,39 +128,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addObserver(this);
-    AudioService.connect();
     getIt<ConnectionStatusSingleton>().initialize();
     getIt<AudioPlayerBloc>().add(AudioPlayerEvent.started());
     getIt<DynamicLinksCubit>().started();
     getIt<AuthenticationBloc>()
         .add(AuthenticationEvent.subscribeIdTokenChanges());
-  }
-
-  @override
-  void dispose() {
-    AudioService.disconnect();
-    WidgetsBinding.instance!.removeObserver(this);
-    super.dispose();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    switch (state) {
-      case AppLifecycleState.resumed:
-        AudioService.connect();
-        break;
-      case AppLifecycleState.paused:
-        AudioService.disconnect();
-        break;
-      default:
-        break;
-    }
-  }
-
-  @override
-  Future<bool> didPopRoute() async {
-    AudioService.disconnect();
-    return false;
   }
 }
