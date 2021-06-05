@@ -4,10 +4,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/core/tattva_footer.dart';
 import 'package:tattva/router/router.gr.dart';
-import 'package:tattva/utils/dimens.dart';
-import 'package:tattva/utils/others.dart';
-import 'package:tattva/utils/strings.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -72,15 +70,7 @@ class _SplashPageState extends State<SplashPage> {
             children: [
               Image.asset('images/logo.png'),
               const SizedBox(height: 16.0),
-              Text(
-                APP_NAME_TM,
-                style: TextStyle(
-                  color: Theme.of(context).accentColor,
-                  fontWeight: appNameFontWeight,
-                  fontSize: appNameFontSize,
-                  letterSpacing: appNameLetterSpacing,
-                ),
-              ),
+              TattvaFooter(),
             ],
           ),
         ),

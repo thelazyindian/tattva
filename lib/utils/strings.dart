@@ -1,5 +1,5 @@
 const APP_NAME = 'TATTVA APP';
-const APP_NAME_TM = '$APP_NAME™';
+const TM_SYMBOL = '™';
 
 const HOME_TITLE = "Let's get started";
 const HOME_SUB_TITLE = 'Balance your energy';

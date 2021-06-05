@@ -22,7 +22,8 @@ class AudioResultsSection extends StatelessWidget {
       separatorBuilder: (_, __) => const SizedBox(height: 8.0),
       itemBuilder: (_, idx) {
         final audio = audios[idx];
-
+        final duration = audio.durationInMins.round();
+        final firstSubHeading = '$duration ${duration > 1 ? 'mins' : 'min'}';
         return InkWell(
           onTap: () =>
               getIt<AudioPlayerBloc>().add(AudioPlayerEvent.audioItemClicked(
@@ -53,7 +54,7 @@ class AudioResultsSection extends StatelessWidget {
                 Expanded(
                   child: AudioTitleBar(
                     heading: audio.name,
-                    firstSubHeading: '${audio.durationInMins} min',
+                    firstSubHeading: firstSubHeading,
                     secondSubHeading: audio.language,
                     textColor: Colors.black,
                   ),

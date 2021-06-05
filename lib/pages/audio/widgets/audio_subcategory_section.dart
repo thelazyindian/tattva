@@ -42,10 +42,13 @@ class AudioSubcategorySection extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, idx) {
                     final audio = audios[idx];
+                    final duration = audio.durationInMins.round();
+                    final firstSubHeading =
+                        '$duration ${duration > 1 ? 'mins' : 'min'}';
                     return AudioItem(
                       heading: audio.name,
                       imageUri: audio.thumbnail.first.url,
-                      firstSubHeading: '${audio.durationInMins} min',
+                      firstSubHeading: firstSubHeading,
                       secondSubHeading: audio.language,
                       onTap: () {
                         if (context.router.current!.route.routeName ==

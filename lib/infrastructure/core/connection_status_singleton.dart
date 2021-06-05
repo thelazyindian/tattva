@@ -7,7 +7,7 @@ import 'package:tattva/domain/core/connectivity_status.dart';
 
 @lazySingleton
 class ConnectionStatusSingleton {
-  bool hasConnection = false;
+  bool hasConnection = true;
   Timer? _timer;
 
   StreamController<ConnectivityStatus> connectionChangeController =

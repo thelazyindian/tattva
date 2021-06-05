@@ -1,12 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tattva/application/authentication/authentication_bloc.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/core/tattva_footer.dart';
 import 'package:tattva/pages/profile/widgets/profile_items_list.dart';
 import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
-import 'package:tattva/utils/strings.dart';
-import 'package:auto_route/auto_route.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
@@ -91,17 +91,7 @@ class ProfilePage extends StatelessWidget {
                 ),
                 ProfileItemsList(),
                 const SizedBox(height: 20.0),
-                Center(
-                  child: Text(
-                    APP_NAME,
-                    style: TextStyle(
-                      color: Theme.of(context).accentColor,
-                      fontWeight: appNameFontWeight,
-                      fontSize: appNameFontSize,
-                      letterSpacing: appNameLetterSpacing,
-                    ),
-                  ),
-                )
+                TattvaFooter(),
               ],
             ),
           ),
