@@ -39,7 +39,10 @@ class ProfileItemsList extends StatelessWidget {
       {
         'icon': 'icons/message.svg',
         'name': PROFILE_ITEM_FEEDBACK,
-        'onTap': () {},
+        'onTap': () => router.root
+            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
+            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
+            .push(FeedbackRoute()),
       },
       {
         'icon': 'icons/add.svg',

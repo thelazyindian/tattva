@@ -7,6 +7,7 @@ import 'package:tattva/pages/authentication/register_page.dart';
 import 'package:tattva/pages/blog/blog_page.dart';
 import 'package:tattva/pages/blog_reader/blog_reader_page.dart';
 import 'package:tattva/pages/edit_profile/edit_profile_page.dart';
+import 'package:tattva/pages/feedback/feedback_page.dart';
 import 'package:tattva/pages/home/home_page.dart';
 import 'package:tattva/pages/home_items/home_items_page.dart';
 import 'package:tattva/pages/home_items_blog_sub_category/home_items_blog_sub_category_page.dart';
@@ -149,6 +150,7 @@ import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
                 ),
               ],
             ),
+            AutoRoute(page: FeedbackPage),
           ],
         ),
       ],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tattva/pages/audio/widgets/audio_title_bar.dart';
-import 'package:tattva/utils/others.dart';
 
 class AudioItem extends StatelessWidget {
   final String imageUri;

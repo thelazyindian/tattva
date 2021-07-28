@@ -1,40 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tattva/application/edit_profile/edit_profile_bloc.dart';
 import 'package:tattva/injection.dart';
+import 'package:tattva/pages/core/custom_app_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/edit_profile/widgets/edit_profile_body.dart';
 import 'package:tattva/utils/dimens.dart';
-import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
+import 'package:auto_route/auto_route.dart';
 
 class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
-      appBar: AppBar(
-        elevation: .0,
-        title: Text(
-          EDIT_PROFILE_TITLE,
-          style: TextStyle(
-            fontSize: editProfileTitleFontSize,
-            fontWeight: editProfileTitleFontWeight,
-          ),
-        ),
-        leading: Navigator.canPop(context)
-            ? Center(
-                child: IconButton(
-                  onPressed: () => Navigator.pop(context),
-                  icon: SvgPicture.asset(
-                    'icons/back.svg',
-                    height: authBackBtnSize,
-                    width: authBackBtnSize,
-                  ),
-                ),
-              )
-            : null,
+      appBar: CustomAppBar(
+        title: EDIT_PROFILE_TITLE,
+        titleAlignment: TextAlign.start,
+        customAppBarType: CustomAppBarType.subhead,
+        onPrefixPressed: () {
+          context.router.pop();
+        },
       ),
       body: RefreshIndicator(
         onRefresh: () async =>

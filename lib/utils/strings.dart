@@ -45,6 +45,9 @@ const PROFILE_ITEM_ABOUT_US = 'About us';
 const PROFILE_ITEM_LOGOUT = 'Logout';
 const EDIT_PROFILE_TITLE = 'Edit Your Profile';
 const EDIT_PROFILE_SAVE_BUTTON = 'SAVE CHANGES';
+const FEEDBACK_TITLE = 'Feedback';
+const FEEDBACK_FIELD_HINT = 'Enter your feedback here...';
+const FEEDBACK_SUBMIT = 'SUBMIT';
 
 const BTN_UPLOAD_PROFILE_PIC = 'Upload Picture';
 const BTN_VERIFY_MAIL = 'Verify';
