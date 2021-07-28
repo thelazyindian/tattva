@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tattva/application/audio/audio_bloc.dart';
@@ -7,7 +8,7 @@ import 'package:tattva/pages/audio/widgets/audio_categories_section.dart';
 import 'package:tattva/pages/audio/widgets/audio_subcategory_section.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
-import 'package:auto_route/auto_route.dart';
+import 'package:tattva/pages/core/error_view.dart';
 import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/dimens.dart';
 
@@ -45,7 +46,11 @@ class AudioPageBody extends StatelessWidget {
                             )),
                           )
                         : (category.audioSubCategories == null)
-                            ? ErrorLoadingListItemView()
+                            ? SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.4,
+                                child: const ErrorView(),
+                              )
                             : _subCategories(
                                 context, category.audioSubCategories!),
                   ),

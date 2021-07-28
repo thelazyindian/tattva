@@ -2,6 +2,7 @@ part of 'search_bloc.dart';
 
 @freezed
 class SearchEvent with _$SearchEvent {
+  const factory SearchEvent.reset() = _Reset;
   const factory SearchEvent.onQueryChanged({required String value}) =
       _OnQueryChanged;
   const factory SearchEvent.search() = _Search;

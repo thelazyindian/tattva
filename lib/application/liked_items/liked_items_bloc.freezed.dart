@@ -20,6 +20,10 @@ class _$LikedItemsEventTearOff {
     return const _Started();
   }
 
+  _Reset reset() {
+    return const _Reset();
+  }
+
   _LoadMoreAudios loadMoreAudios({required String id}) {
     return _LoadMoreAudios(
       id: id,
@@ -90,6 +94,7 @@ mixin _$LikedItemsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -105,6 +110,7 @@ mixin _$LikedItemsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -121,6 +127,7 @@ mixin _$LikedItemsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -137,6 +144,7 @@ mixin _$LikedItemsEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -206,6 +214,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -224,6 +233,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -246,6 +256,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -265,6 +276,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -286,6 +298,129 @@ class _$_Started implements _Started {
 
 abstract class _Started implements LikedItemsEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$ResetCopyWith<$Res> {
+  factory _$ResetCopyWith(_Reset value, $Res Function(_Reset) then) =
+      __$ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ResetCopyWithImpl<$Res> extends _$LikedItemsEventCopyWithImpl<$Res>
+    implements _$ResetCopyWith<$Res> {
+  __$ResetCopyWithImpl(_Reset _value, $Res Function(_Reset) _then)
+      : super(_value, (v) => _then(v as _Reset));
+
+  @override
+  _Reset get _value => super._value as _Reset;
+}
+
+/// @nodoc
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'LikedItemsEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() reset,
+    required TResult Function(String id) loadMoreAudios,
+    required TResult Function(String id) loadMoreBlogs,
+    required TResult Function(String id) loadMoreWallpapers,
+    required TResult Function(String id) dislikedAudios,
+    required TResult Function(String id) dislikedBlogs,
+    required TResult Function(String id) dislikedWallpapers,
+    required TResult Function(String id) restoredAudios,
+    required TResult Function(String id) restoredBlogs,
+    required TResult Function(String id) restoredWallpapers,
+    required TResult Function(LikedItemsDataModel data) updatedLikedItemsList,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? reset,
+    TResult Function(String id)? loadMoreAudios,
+    TResult Function(String id)? loadMoreBlogs,
+    TResult Function(String id)? loadMoreWallpapers,
+    TResult Function(String id)? dislikedAudios,
+    TResult Function(String id)? dislikedBlogs,
+    TResult Function(String id)? dislikedWallpapers,
+    TResult Function(String id)? restoredAudios,
+    TResult Function(String id)? restoredBlogs,
+    TResult Function(String id)? restoredWallpapers,
+    TResult Function(LikedItemsDataModel data)? updatedLikedItemsList,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
+    required TResult Function(_LoadMoreAudios value) loadMoreAudios,
+    required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
+    required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
+    required TResult Function(_DislikedAudios value) dislikedAudios,
+    required TResult Function(_DislikedBlogs value) dislikedBlogs,
+    required TResult Function(_DislikedWallpapers value) dislikedWallpapers,
+    required TResult Function(_RestoredAudios value) restoredAudios,
+    required TResult Function(_RestoredBlogs value) restoredBlogs,
+    required TResult Function(_RestoredWallpapers value) restoredWallpapers,
+    required TResult Function(_UpdatedLikedItemsList value)
+        updatedLikedItemsList,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
+    TResult Function(_LoadMoreAudios value)? loadMoreAudios,
+    TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
+    TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
+    TResult Function(_DislikedAudios value)? dislikedAudios,
+    TResult Function(_DislikedBlogs value)? dislikedBlogs,
+    TResult Function(_DislikedWallpapers value)? dislikedWallpapers,
+    TResult Function(_RestoredAudios value)? restoredAudios,
+    TResult Function(_RestoredBlogs value)? restoredBlogs,
+    TResult Function(_RestoredWallpapers value)? restoredWallpapers,
+    TResult Function(_UpdatedLikedItemsList value)? updatedLikedItemsList,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements LikedItemsEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc
@@ -353,6 +488,7 @@ class _$_LoadMoreAudios implements _LoadMoreAudios {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -371,6 +507,7 @@ class _$_LoadMoreAudios implements _LoadMoreAudios {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -393,6 +530,7 @@ class _$_LoadMoreAudios implements _LoadMoreAudios {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -412,6 +550,7 @@ class _$_LoadMoreAudios implements _LoadMoreAudios {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -505,6 +644,7 @@ class _$_LoadMoreBlogs implements _LoadMoreBlogs {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -523,6 +663,7 @@ class _$_LoadMoreBlogs implements _LoadMoreBlogs {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -545,6 +686,7 @@ class _$_LoadMoreBlogs implements _LoadMoreBlogs {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -564,6 +706,7 @@ class _$_LoadMoreBlogs implements _LoadMoreBlogs {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -657,6 +800,7 @@ class _$_LoadMoreWallpapers implements _LoadMoreWallpapers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -675,6 +819,7 @@ class _$_LoadMoreWallpapers implements _LoadMoreWallpapers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -697,6 +842,7 @@ class _$_LoadMoreWallpapers implements _LoadMoreWallpapers {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -716,6 +862,7 @@ class _$_LoadMoreWallpapers implements _LoadMoreWallpapers {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -810,6 +957,7 @@ class _$_DislikedAudios implements _DislikedAudios {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -828,6 +976,7 @@ class _$_DislikedAudios implements _DislikedAudios {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -850,6 +999,7 @@ class _$_DislikedAudios implements _DislikedAudios {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -869,6 +1019,7 @@ class _$_DislikedAudios implements _DislikedAudios {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -962,6 +1113,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -980,6 +1132,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -1002,6 +1155,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -1021,6 +1175,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -1114,6 +1269,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -1132,6 +1288,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -1154,6 +1311,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -1173,6 +1331,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -1267,6 +1426,7 @@ class _$_RestoredAudios implements _RestoredAudios {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -1285,6 +1445,7 @@ class _$_RestoredAudios implements _RestoredAudios {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -1307,6 +1468,7 @@ class _$_RestoredAudios implements _RestoredAudios {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -1326,6 +1488,7 @@ class _$_RestoredAudios implements _RestoredAudios {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -1419,6 +1582,7 @@ class _$_RestoredBlogs implements _RestoredBlogs {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -1437,6 +1601,7 @@ class _$_RestoredBlogs implements _RestoredBlogs {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -1459,6 +1624,7 @@ class _$_RestoredBlogs implements _RestoredBlogs {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -1478,6 +1644,7 @@ class _$_RestoredBlogs implements _RestoredBlogs {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -1571,6 +1738,7 @@ class _$_RestoredWallpapers implements _RestoredWallpapers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -1589,6 +1757,7 @@ class _$_RestoredWallpapers implements _RestoredWallpapers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -1611,6 +1780,7 @@ class _$_RestoredWallpapers implements _RestoredWallpapers {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -1630,6 +1800,7 @@ class _$_RestoredWallpapers implements _RestoredWallpapers {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,
@@ -1734,6 +1905,7 @@ class _$_UpdatedLikedItemsList implements _UpdatedLikedItemsList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) loadMoreAudios,
     required TResult Function(String id) loadMoreBlogs,
     required TResult Function(String id) loadMoreWallpapers,
@@ -1752,6 +1924,7 @@ class _$_UpdatedLikedItemsList implements _UpdatedLikedItemsList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? loadMoreAudios,
     TResult Function(String id)? loadMoreBlogs,
     TResult Function(String id)? loadMoreWallpapers,
@@ -1774,6 +1947,7 @@ class _$_UpdatedLikedItemsList implements _UpdatedLikedItemsList {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LoadMoreAudios value) loadMoreAudios,
     required TResult Function(_LoadMoreBlogs value) loadMoreBlogs,
     required TResult Function(_LoadMoreWallpapers value) loadMoreWallpapers,
@@ -1793,6 +1967,7 @@ class _$_UpdatedLikedItemsList implements _UpdatedLikedItemsList {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LoadMoreAudios value)? loadMoreAudios,
     TResult Function(_LoadMoreBlogs value)? loadMoreBlogs,
     TResult Function(_LoadMoreWallpapers value)? loadMoreWallpapers,

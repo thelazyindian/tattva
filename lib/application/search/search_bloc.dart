@@ -31,6 +31,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     SearchEvent event,
   ) async* {
     yield* event.map(
+      reset: (e) async* {
+        yield SearchState.initial();
+      },
       onQueryChanged: (e) async* {
         yield state.copyWith(query: e.value);
         timer?.cancel();

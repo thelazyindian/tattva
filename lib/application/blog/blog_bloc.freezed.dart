@@ -20,6 +20,10 @@ class _$BlogEventTearOff {
     return const _Started();
   }
 
+  _Reset reset() {
+    return const _Reset();
+  }
+
   _SelectedCategory selectedCategory({required String id}) {
     return _SelectedCategory(
       id: id,
@@ -67,6 +71,7 @@ mixin _$BlogEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
@@ -79,6 +84,7 @@ mixin _$BlogEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
@@ -91,6 +97,7 @@ mixin _$BlogEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_SelectedCategoryLoadMore value)
         selectedCategoryLoadMore,
@@ -103,6 +110,7 @@ mixin _$BlogEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
@@ -172,6 +180,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
@@ -187,6 +196,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
@@ -205,6 +215,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_SelectedCategoryLoadMore value)
         selectedCategoryLoadMore,
@@ -220,6 +231,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
@@ -237,6 +249,120 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
 
 abstract class _Started implements BlogEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$ResetCopyWith<$Res> {
+  factory _$ResetCopyWith(_Reset value, $Res Function(_Reset) then) =
+      __$ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ResetCopyWithImpl<$Res> extends _$BlogEventCopyWithImpl<$Res>
+    implements _$ResetCopyWith<$Res> {
+  __$ResetCopyWithImpl(_Reset _value, $Res Function(_Reset) _then)
+      : super(_value, (v) => _then(v as _Reset));
+
+  @override
+  _Reset get _value => super._value as _Reset;
+}
+
+/// @nodoc
+class _$_Reset with DiagnosticableTreeMixin implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'BlogEvent.reset()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'BlogEvent.reset'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() reset,
+    required TResult Function(String id) selectedCategory,
+    required TResult Function(String id) selectedCategoryLoadMore,
+    required TResult Function(String id) likedBlog,
+    required TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)
+        readBlog,
+    required TResult Function(String id) dislikedBlog,
+    required TResult Function(List<String> blogIds) updateLikedBlogs,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? reset,
+    TResult Function(String id)? selectedCategory,
+    TResult Function(String id)? selectedCategoryLoadMore,
+    TResult Function(String id)? likedBlog,
+    TResult Function(BlogReaderTabType blogReaderTabType, Blog blog)? readBlog,
+    TResult Function(String id)? dislikedBlog,
+    TResult Function(List<String> blogIds)? updateLikedBlogs,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
+    required TResult Function(_SelectedCategory value) selectedCategory,
+    required TResult Function(_SelectedCategoryLoadMore value)
+        selectedCategoryLoadMore,
+    required TResult Function(_LikedBlog value) likedBlog,
+    required TResult Function(_ReadBlog value) readBlog,
+    required TResult Function(_DislikedBlog value) dislikedBlog,
+    required TResult Function(_UpdateLikedBlogs value) updateLikedBlogs,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
+    TResult Function(_SelectedCategory value)? selectedCategory,
+    TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
+    TResult Function(_LikedBlog value)? likedBlog,
+    TResult Function(_ReadBlog value)? readBlog,
+    TResult Function(_DislikedBlog value)? dislikedBlog,
+    TResult Function(_UpdateLikedBlogs value)? updateLikedBlogs,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements BlogEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc
@@ -314,6 +440,7 @@ class _$_SelectedCategory
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
@@ -329,6 +456,7 @@ class _$_SelectedCategory
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
@@ -347,6 +475,7 @@ class _$_SelectedCategory
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_SelectedCategoryLoadMore value)
         selectedCategoryLoadMore,
@@ -362,6 +491,7 @@ class _$_SelectedCategory
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
@@ -463,6 +593,7 @@ class _$_SelectedCategoryLoadMore
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
@@ -478,6 +609,7 @@ class _$_SelectedCategoryLoadMore
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
@@ -496,6 +628,7 @@ class _$_SelectedCategoryLoadMore
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_SelectedCategoryLoadMore value)
         selectedCategoryLoadMore,
@@ -511,6 +644,7 @@ class _$_SelectedCategoryLoadMore
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
@@ -607,6 +741,7 @@ class _$_LikedBlog with DiagnosticableTreeMixin implements _LikedBlog {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
@@ -622,6 +757,7 @@ class _$_LikedBlog with DiagnosticableTreeMixin implements _LikedBlog {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
@@ -640,6 +776,7 @@ class _$_LikedBlog with DiagnosticableTreeMixin implements _LikedBlog {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_SelectedCategoryLoadMore value)
         selectedCategoryLoadMore,
@@ -655,6 +792,7 @@ class _$_LikedBlog with DiagnosticableTreeMixin implements _LikedBlog {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
@@ -771,6 +909,7 @@ class _$_ReadBlog with DiagnosticableTreeMixin implements _ReadBlog {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
@@ -786,6 +925,7 @@ class _$_ReadBlog with DiagnosticableTreeMixin implements _ReadBlog {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
@@ -804,6 +944,7 @@ class _$_ReadBlog with DiagnosticableTreeMixin implements _ReadBlog {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_SelectedCategoryLoadMore value)
         selectedCategoryLoadMore,
@@ -819,6 +960,7 @@ class _$_ReadBlog with DiagnosticableTreeMixin implements _ReadBlog {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
@@ -918,6 +1060,7 @@ class _$_DislikedBlog with DiagnosticableTreeMixin implements _DislikedBlog {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
@@ -933,6 +1076,7 @@ class _$_DislikedBlog with DiagnosticableTreeMixin implements _DislikedBlog {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
@@ -951,6 +1095,7 @@ class _$_DislikedBlog with DiagnosticableTreeMixin implements _DislikedBlog {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_SelectedCategoryLoadMore value)
         selectedCategoryLoadMore,
@@ -966,6 +1111,7 @@ class _$_DislikedBlog with DiagnosticableTreeMixin implements _DislikedBlog {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,
@@ -1065,6 +1211,7 @@ class _$_UpdateLikedBlogs
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) selectedCategory,
     required TResult Function(String id) selectedCategoryLoadMore,
     required TResult Function(String id) likedBlog,
@@ -1080,6 +1227,7 @@ class _$_UpdateLikedBlogs
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? selectedCategory,
     TResult Function(String id)? selectedCategoryLoadMore,
     TResult Function(String id)? likedBlog,
@@ -1098,6 +1246,7 @@ class _$_UpdateLikedBlogs
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SelectedCategory value) selectedCategory,
     required TResult Function(_SelectedCategoryLoadMore value)
         selectedCategoryLoadMore,
@@ -1113,6 +1262,7 @@ class _$_UpdateLikedBlogs
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_SelectedCategory value)? selectedCategory,
     TResult Function(_SelectedCategoryLoadMore value)? selectedCategoryLoadMore,
     TResult Function(_LikedBlog value)? likedBlog,

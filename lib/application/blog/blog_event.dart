@@ -5,6 +5,7 @@ enum BlogReaderTabType { blogs, likedItems, homeItems, searchItems, fromUrl }
 @freezed
 class BlogEvent with _$BlogEvent {
   const factory BlogEvent.started() = _Started;
+  const factory BlogEvent.reset() = _Reset;
   const factory BlogEvent.selectedCategory({required String id}) =
       _SelectedCategory;
   const factory BlogEvent.selectedCategoryLoadMore({required String id}) =

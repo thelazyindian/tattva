@@ -25,6 +25,9 @@ class HomeItemsBloc extends Bloc<HomeItemsEvent, HomeItemsState> {
     HomeItemsEvent event,
   ) async* {
     yield* event.map(
+      reset: (e) async* {
+        yield HomeItemsState.initial();
+      },
       started: (e) async* {
         yield HomeItemsState.initial();
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();

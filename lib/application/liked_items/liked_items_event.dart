@@ -3,6 +3,7 @@ part of 'liked_items_bloc.dart';
 @freezed
 class LikedItemsEvent with _$LikedItemsEvent {
   const factory LikedItemsEvent.started() = _Started;
+  const factory LikedItemsEvent.reset() = _Reset;
   const factory LikedItemsEvent.loadMoreAudios({required String id}) =
       _LoadMoreAudios;
   const factory LikedItemsEvent.loadMoreBlogs({required String id}) =

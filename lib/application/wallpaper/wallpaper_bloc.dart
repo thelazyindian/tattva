@@ -28,6 +28,9 @@ class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
     WallpaperEvent event,
   ) async* {
     yield* event.map(
+      reset: (e) async* {
+        yield WallpaperState.initial();
+      },
       started: (e) async* {
         yield WallpaperState.initial();
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();

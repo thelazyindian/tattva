@@ -8,6 +8,15 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:tattva/application/audio/audio_bloc.dart';
+import 'package:tattva/application/audio_player/audio_player_bloc.dart';
+import 'package:tattva/application/authentication/authentication_bloc.dart';
+import 'package:tattva/application/blog/blog_bloc.dart';
+import 'package:tattva/application/edit_profile/edit_profile_bloc.dart';
+import 'package:tattva/application/home_items/home_items_bloc.dart';
+import 'package:tattva/application/liked_items/liked_items_bloc.dart';
+import 'package:tattva/application/search/search_bloc.dart';
+import 'package:tattva/application/wallpaper/wallpaper_bloc.dart';
 import 'package:tattva/domain/authentication/auth_failure.dart';
 import 'package:tattva/domain/authentication/email.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
@@ -15,6 +24,7 @@ import 'package:tattva/domain/authentication/name.dart';
 import 'package:tattva/domain/authentication/password.dart';
 import 'package:tattva/domain/authentication/user.dart' as user;
 import 'package:tattva/domain/failure.dart';
+import 'package:tattva/injection.dart';
 import 'package:tattva/utils/db.dart';
 
 @LazySingleton(as: IAuthFacade)
@@ -319,6 +329,15 @@ class AuthFacade implements IAuthFacade {
         AudioService.stop(),
         HydratedBloc.storage.clear(),
       ]);
+      getIt<AudioBloc>().add(AudioEvent.reset());
+      getIt<AudioPlayerBloc>().add(AudioPlayerEvent.reset());
+      getIt<AuthenticationBloc>().add(AuthenticationEvent.reset());
+      getIt<BlogBloc>().add(BlogEvent.reset());
+      getIt<EditProfileBloc>().add(EditProfileEvent.reset());
+      getIt<HomeItemsBloc>().add(HomeItemsEvent.reset());
+      getIt<LikedItemsBloc>().add(LikedItemsEvent.reset());
+      getIt<SearchBloc>().add(SearchEvent.reset());
+      getIt<WallpaperBloc>().add(WallpaperEvent.reset());
       return right(unit);
     } on FirebaseException {
       return left(AuthFailure.serverError());

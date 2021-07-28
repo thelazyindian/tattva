@@ -29,6 +29,9 @@ class BlogBloc extends Bloc<BlogEvent, BlogState> {
     BlogEvent event,
   ) async* {
     yield* event.map(
+      reset: (e) async* {
+        yield BlogState.initial();
+      },
       started: (e) async* {
         yield BlogState.initial();
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();

@@ -16,6 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthenticationEventTearOff {
   const _$AuthenticationEventTearOff();
 
+  _Reset reset() {
+    return const _Reset();
+  }
+
   _SetFormType setFormType(AuthFormType authFormType) {
     return _SetFormType(
       authFormType,
@@ -88,6 +92,7 @@ const $AuthenticationEvent = _$AuthenticationEventTearOff();
 mixin _$AuthenticationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -105,6 +110,7 @@ mixin _$AuthenticationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -123,6 +129,7 @@ mixin _$AuthenticationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -141,6 +148,7 @@ mixin _$AuthenticationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -174,6 +182,137 @@ class _$AuthenticationEventCopyWithImpl<$Res>
   final AuthenticationEvent _value;
   // ignore: unused_field
   final $Res Function(AuthenticationEvent) _then;
+}
+
+/// @nodoc
+abstract class _$ResetCopyWith<$Res> {
+  factory _$ResetCopyWith(_Reset value, $Res Function(_Reset) then) =
+      __$ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ResetCopyWithImpl<$Res> extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$ResetCopyWith<$Res> {
+  __$ResetCopyWithImpl(_Reset _value, $Res Function(_Reset) _then)
+      : super(_value, (v) => _then(v as _Reset));
+
+  @override
+  _Reset get _value => super._value as _Reset;
+}
+
+/// @nodoc
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() reset,
+    required TResult Function(AuthFormType authFormType) setFormType,
+    required TResult Function(String value) onEmailChanged,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function(String value) onPasswordChanged,
+    required TResult Function() authCheckRequested,
+    required TResult Function(User user) updatedUser,
+    required TResult Function() subscribeIdTokenChanges,
+    required TResult Function() loginWithEmail,
+    required TResult Function() registerWithEmail,
+    required TResult Function() loginWithGoogle,
+    required TResult Function() loginWithFacebook,
+    required TResult Function() resetPassword,
+    required TResult Function(String? token) updateUserToken,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
+    TResult Function(AuthFormType authFormType)? setFormType,
+    TResult Function(String value)? onEmailChanged,
+    TResult Function(String value)? onNameChanged,
+    TResult Function(String value)? onPasswordChanged,
+    TResult Function()? authCheckRequested,
+    TResult Function(User user)? updatedUser,
+    TResult Function()? subscribeIdTokenChanges,
+    TResult Function()? loginWithEmail,
+    TResult Function()? registerWithEmail,
+    TResult Function()? loginWithGoogle,
+    TResult Function()? loginWithFacebook,
+    TResult Function()? resetPassword,
+    TResult Function(String? token)? updateUserToken,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
+    required TResult Function(_SetFormType value) setFormType,
+    required TResult Function(_OnEmailChanged value) onEmailChanged,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_OnPasswordChanged value) onPasswordChanged,
+    required TResult Function(_AuthCheckRequested value) authCheckRequested,
+    required TResult Function(_UpdatedUser value) updatedUser,
+    required TResult Function(_SubscribeIdTokenChanges value)
+        subscribeIdTokenChanges,
+    required TResult Function(_LoginWithEmail value) loginWithEmail,
+    required TResult Function(_RegisterWithEmail value) registerWithEmail,
+    required TResult Function(_LoginWithGoogle value) loginWithGoogle,
+    required TResult Function(_LoginWithFacebook value) loginWithFacebook,
+    required TResult Function(_ResetPassword value) resetPassword,
+    required TResult Function(_UpdateUserToken value) updateUserToken,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
+    TResult Function(_SetFormType value)? setFormType,
+    TResult Function(_OnEmailChanged value)? onEmailChanged,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_OnPasswordChanged value)? onPasswordChanged,
+    TResult Function(_AuthCheckRequested value)? authCheckRequested,
+    TResult Function(_UpdatedUser value)? updatedUser,
+    TResult Function(_SubscribeIdTokenChanges value)? subscribeIdTokenChanges,
+    TResult Function(_LoginWithEmail value)? loginWithEmail,
+    TResult Function(_RegisterWithEmail value)? registerWithEmail,
+    TResult Function(_LoginWithGoogle value)? loginWithGoogle,
+    TResult Function(_LoginWithFacebook value)? loginWithFacebook,
+    TResult Function(_ResetPassword value)? resetPassword,
+    TResult Function(_UpdateUserToken value)? updateUserToken,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements AuthenticationEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc
@@ -250,6 +389,7 @@ class _$_SetFormType implements _SetFormType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -270,6 +410,7 @@ class _$_SetFormType implements _SetFormType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -294,6 +435,7 @@ class _$_SetFormType implements _SetFormType {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -315,6 +457,7 @@ class _$_SetFormType implements _SetFormType {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -410,6 +553,7 @@ class _$_OnEmailChanged implements _OnEmailChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -430,6 +574,7 @@ class _$_OnEmailChanged implements _OnEmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -454,6 +599,7 @@ class _$_OnEmailChanged implements _OnEmailChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -475,6 +621,7 @@ class _$_OnEmailChanged implements _OnEmailChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -570,6 +717,7 @@ class _$_OnNameChanged implements _OnNameChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -590,6 +738,7 @@ class _$_OnNameChanged implements _OnNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -614,6 +763,7 @@ class _$_OnNameChanged implements _OnNameChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -635,6 +785,7 @@ class _$_OnNameChanged implements _OnNameChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -730,6 +881,7 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -750,6 +902,7 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -774,6 +927,7 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -795,6 +949,7 @@ class _$_OnPasswordChanged implements _OnPasswordChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -865,6 +1020,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -885,6 +1041,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -909,6 +1066,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -930,6 +1088,7 @@ class _$_AuthCheckRequested implements _AuthCheckRequested {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -1029,6 +1188,7 @@ class _$_UpdatedUser implements _UpdatedUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -1049,6 +1209,7 @@ class _$_UpdatedUser implements _UpdatedUser {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -1073,6 +1234,7 @@ class _$_UpdatedUser implements _UpdatedUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -1094,6 +1256,7 @@ class _$_UpdatedUser implements _UpdatedUser {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -1165,6 +1328,7 @@ class _$_SubscribeIdTokenChanges implements _SubscribeIdTokenChanges {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -1185,6 +1349,7 @@ class _$_SubscribeIdTokenChanges implements _SubscribeIdTokenChanges {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -1209,6 +1374,7 @@ class _$_SubscribeIdTokenChanges implements _SubscribeIdTokenChanges {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -1230,6 +1396,7 @@ class _$_SubscribeIdTokenChanges implements _SubscribeIdTokenChanges {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -1295,6 +1462,7 @@ class _$_LoginWithEmail implements _LoginWithEmail {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -1315,6 +1483,7 @@ class _$_LoginWithEmail implements _LoginWithEmail {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -1339,6 +1508,7 @@ class _$_LoginWithEmail implements _LoginWithEmail {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -1360,6 +1530,7 @@ class _$_LoginWithEmail implements _LoginWithEmail {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -1425,6 +1596,7 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -1445,6 +1617,7 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -1469,6 +1642,7 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -1490,6 +1664,7 @@ class _$_RegisterWithEmail implements _RegisterWithEmail {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -1555,6 +1730,7 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -1575,6 +1751,7 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -1599,6 +1776,7 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -1620,6 +1798,7 @@ class _$_LoginWithGoogle implements _LoginWithGoogle {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -1685,6 +1864,7 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -1705,6 +1885,7 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -1729,6 +1910,7 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -1750,6 +1932,7 @@ class _$_LoginWithFacebook implements _LoginWithFacebook {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -1815,6 +1998,7 @@ class _$_ResetPassword implements _ResetPassword {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -1835,6 +2019,7 @@ class _$_ResetPassword implements _ResetPassword {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -1859,6 +2044,7 @@ class _$_ResetPassword implements _ResetPassword {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -1880,6 +2066,7 @@ class _$_ResetPassword implements _ResetPassword {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,
@@ -1970,6 +2157,7 @@ class _$_UpdateUserToken implements _UpdateUserToken {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(AuthFormType authFormType) setFormType,
     required TResult Function(String value) onEmailChanged,
     required TResult Function(String value) onNameChanged,
@@ -1990,6 +2178,7 @@ class _$_UpdateUserToken implements _UpdateUserToken {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(AuthFormType authFormType)? setFormType,
     TResult Function(String value)? onEmailChanged,
     TResult Function(String value)? onNameChanged,
@@ -2014,6 +2203,7 @@ class _$_UpdateUserToken implements _UpdateUserToken {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_SetFormType value) setFormType,
     required TResult Function(_OnEmailChanged value) onEmailChanged,
     required TResult Function(_OnNameChanged value) onNameChanged,
@@ -2035,6 +2225,7 @@ class _$_UpdateUserToken implements _UpdateUserToken {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_SetFormType value)? setFormType,
     TResult Function(_OnEmailChanged value)? onEmailChanged,
     TResult Function(_OnNameChanged value)? onNameChanged,

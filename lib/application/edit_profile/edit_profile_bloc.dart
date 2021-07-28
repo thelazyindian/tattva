@@ -26,6 +26,9 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
     EditProfileEvent event,
   ) async* {
     yield* event.map(
+      reset: (e) async* {
+        yield EditProfileState.initial();
+      },
       started: (e) async* {
         yield EditProfileState.initial();
         final userOption = await getIt<IAuthFacade>().getUser();

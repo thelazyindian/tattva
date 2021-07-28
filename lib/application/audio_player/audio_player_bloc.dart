@@ -32,6 +32,9 @@ class AudioPlayerBloc extends HydratedBloc<AudioPlayerEvent, AudioPlayerState> {
     AudioPlayerEvent event,
   ) async* {
     yield* event.map(
+      reset: (e) async* {
+        yield AudioPlayerState.initial();
+      },
       started: (_) async* {
         debugPrint('AudioPlayerBloc started');
         _queueSubscription?.cancel();

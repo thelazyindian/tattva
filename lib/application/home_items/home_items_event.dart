@@ -3,6 +3,7 @@ part of 'home_items_bloc.dart';
 @freezed
 class HomeItemsEvent with _$HomeItemsEvent {
   const factory HomeItemsEvent.started() = _Started;
+  const factory HomeItemsEvent.reset() = _Reset;
   const factory HomeItemsEvent.likedAudios({required String id}) = _LikedAudios;
   const factory HomeItemsEvent.likedBlogs({required String id}) = _LikedBlogs;
   const factory HomeItemsEvent.likedWallpapers({required String id}) =

@@ -20,6 +20,10 @@ class _$AudioPlayerEventTearOff {
     return const _Started();
   }
 
+  _Reset reset() {
+    return const _Reset();
+  }
+
   _None none() {
     return const _None();
   }
@@ -74,6 +78,7 @@ mixin _$AudioPlayerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -89,6 +94,7 @@ mixin _$AudioPlayerEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -104,6 +110,7 @@ mixin _$AudioPlayerEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -117,6 +124,7 @@ mixin _$AudioPlayerEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
@@ -190,6 +198,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -208,6 +217,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -229,6 +239,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -245,6 +256,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
@@ -264,6 +276,129 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
 
 abstract class _Started implements AudioPlayerEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$ResetCopyWith<$Res> {
+  factory _$ResetCopyWith(_Reset value, $Res Function(_Reset) then) =
+      __$ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ResetCopyWithImpl<$Res> extends _$AudioPlayerEventCopyWithImpl<$Res>
+    implements _$ResetCopyWith<$Res> {
+  __$ResetCopyWithImpl(_Reset _value, $Res Function(_Reset) _then)
+      : super(_value, (v) => _then(v as _Reset));
+
+  @override
+  _Reset get _value => super._value as _Reset;
+}
+
+/// @nodoc
+class _$_Reset with DiagnosticableTreeMixin implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AudioPlayerEvent.reset()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'AudioPlayerEvent.reset'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() reset,
+    required TResult Function() none,
+    required TResult Function() collapse,
+    required TResult Function() expand,
+    required TResult Function() play,
+    required TResult Function(QueueState? queueState) updateQueueState,
+    required TResult Function(MediaState? mediaState) updateMediaState,
+    required TResult Function(PlaybackState? playbackState) updatePlaybackState,
+    required TResult Function(
+            String categoryName, List<TattvaAudio> audios, int idx)
+        audioItemClicked,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? reset,
+    TResult Function()? none,
+    TResult Function()? collapse,
+    TResult Function()? expand,
+    TResult Function()? play,
+    TResult Function(QueueState? queueState)? updateQueueState,
+    TResult Function(MediaState? mediaState)? updateMediaState,
+    TResult Function(PlaybackState? playbackState)? updatePlaybackState,
+    TResult Function(String categoryName, List<TattvaAudio> audios, int idx)?
+        audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
+    required TResult Function(_None value) none,
+    required TResult Function(_Collapse value) collapse,
+    required TResult Function(_Expand value) expand,
+    required TResult Function(_Play value) play,
+    required TResult Function(_UpdateQueueState value) updateQueueState,
+    required TResult Function(_UpdateMediaState value) updateMediaState,
+    required TResult Function(_UpdatePlaybackState value) updatePlaybackState,
+    required TResult Function(_AudioItemClicked value) audioItemClicked,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
+    TResult Function(_None value)? none,
+    TResult Function(_Collapse value)? collapse,
+    TResult Function(_Expand value)? expand,
+    TResult Function(_Play value)? play,
+    TResult Function(_UpdateQueueState value)? updateQueueState,
+    TResult Function(_UpdateMediaState value)? updateMediaState,
+    TResult Function(_UpdatePlaybackState value)? updatePlaybackState,
+    TResult Function(_AudioItemClicked value)? audioItemClicked,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements AudioPlayerEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc
@@ -309,6 +444,7 @@ class _$_None with DiagnosticableTreeMixin implements _None {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -327,6 +463,7 @@ class _$_None with DiagnosticableTreeMixin implements _None {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -348,6 +485,7 @@ class _$_None with DiagnosticableTreeMixin implements _None {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -364,6 +502,7 @@ class _$_None with DiagnosticableTreeMixin implements _None {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
@@ -428,6 +567,7 @@ class _$_Collapse with DiagnosticableTreeMixin implements _Collapse {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -446,6 +586,7 @@ class _$_Collapse with DiagnosticableTreeMixin implements _Collapse {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -467,6 +608,7 @@ class _$_Collapse with DiagnosticableTreeMixin implements _Collapse {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -483,6 +625,7 @@ class _$_Collapse with DiagnosticableTreeMixin implements _Collapse {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
@@ -547,6 +690,7 @@ class _$_Expand with DiagnosticableTreeMixin implements _Expand {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -565,6 +709,7 @@ class _$_Expand with DiagnosticableTreeMixin implements _Expand {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -586,6 +731,7 @@ class _$_Expand with DiagnosticableTreeMixin implements _Expand {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -602,6 +748,7 @@ class _$_Expand with DiagnosticableTreeMixin implements _Expand {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
@@ -666,6 +813,7 @@ class _$_Play with DiagnosticableTreeMixin implements _Play {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -684,6 +832,7 @@ class _$_Play with DiagnosticableTreeMixin implements _Play {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -705,6 +854,7 @@ class _$_Play with DiagnosticableTreeMixin implements _Play {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -721,6 +871,7 @@ class _$_Play with DiagnosticableTreeMixin implements _Play {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
@@ -831,6 +982,7 @@ class _$_UpdateQueueState
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -849,6 +1001,7 @@ class _$_UpdateQueueState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -870,6 +1023,7 @@ class _$_UpdateQueueState
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -886,6 +1040,7 @@ class _$_UpdateQueueState
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
@@ -1001,6 +1156,7 @@ class _$_UpdateMediaState
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -1019,6 +1175,7 @@ class _$_UpdateMediaState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -1040,6 +1197,7 @@ class _$_UpdateMediaState
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -1056,6 +1214,7 @@ class _$_UpdateMediaState
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
@@ -1159,6 +1318,7 @@ class _$_UpdatePlaybackState
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -1177,6 +1337,7 @@ class _$_UpdatePlaybackState
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -1198,6 +1359,7 @@ class _$_UpdatePlaybackState
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -1214,6 +1376,7 @@ class _$_UpdatePlaybackState
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,
@@ -1341,6 +1504,7 @@ class _$_AudioItemClicked
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function() none,
     required TResult Function() collapse,
     required TResult Function() expand,
@@ -1359,6 +1523,7 @@ class _$_AudioItemClicked
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function()? none,
     TResult Function()? collapse,
     TResult Function()? expand,
@@ -1380,6 +1545,7 @@ class _$_AudioItemClicked
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_None value) none,
     required TResult Function(_Collapse value) collapse,
     required TResult Function(_Expand value) expand,
@@ -1396,6 +1562,7 @@ class _$_AudioItemClicked
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_None value)? none,
     TResult Function(_Collapse value)? collapse,
     TResult Function(_Expand value)? expand,

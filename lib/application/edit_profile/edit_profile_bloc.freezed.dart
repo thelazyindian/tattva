@@ -20,6 +20,10 @@ class _$EditProfileEventTearOff {
     return const _Started();
   }
 
+  _Reset reset() {
+    return const _Reset();
+  }
+
   _OnNameChanged onNameChanged({required String value}) {
     return _OnNameChanged(
       value: value,
@@ -43,6 +47,7 @@ mixin _$EditProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String value) onNameChanged,
     required TResult Function() updatedProfile,
     required TResult Function() sendVerificationMail,
@@ -51,6 +56,7 @@ mixin _$EditProfileEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String value)? onNameChanged,
     TResult Function()? updatedProfile,
     TResult Function()? sendVerificationMail,
@@ -60,6 +66,7 @@ mixin _$EditProfileEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnNameChanged value) onNameChanged,
     required TResult Function(_UpdatedProfile value) updatedProfile,
     required TResult Function(_SendVerificationMail value) sendVerificationMail,
@@ -68,6 +75,7 @@ mixin _$EditProfileEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnNameChanged value)? onNameChanged,
     TResult Function(_UpdatedProfile value)? updatedProfile,
     TResult Function(_SendVerificationMail value)? sendVerificationMail,
@@ -130,6 +138,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String value) onNameChanged,
     required TResult Function() updatedProfile,
     required TResult Function() sendVerificationMail,
@@ -141,6 +150,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String value)? onNameChanged,
     TResult Function()? updatedProfile,
     TResult Function()? sendVerificationMail,
@@ -156,6 +166,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnNameChanged value) onNameChanged,
     required TResult Function(_UpdatedProfile value) updatedProfile,
     required TResult Function(_SendVerificationMail value) sendVerificationMail,
@@ -167,6 +178,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnNameChanged value)? onNameChanged,
     TResult Function(_UpdatedProfile value)? updatedProfile,
     TResult Function(_SendVerificationMail value)? sendVerificationMail,
@@ -181,6 +193,100 @@ class _$_Started implements _Started {
 
 abstract class _Started implements EditProfileEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$ResetCopyWith<$Res> {
+  factory _$ResetCopyWith(_Reset value, $Res Function(_Reset) then) =
+      __$ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ResetCopyWithImpl<$Res> extends _$EditProfileEventCopyWithImpl<$Res>
+    implements _$ResetCopyWith<$Res> {
+  __$ResetCopyWithImpl(_Reset _value, $Res Function(_Reset) _then)
+      : super(_value, (v) => _then(v as _Reset));
+
+  @override
+  _Reset get _value => super._value as _Reset;
+}
+
+/// @nodoc
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'EditProfileEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() reset,
+    required TResult Function(String value) onNameChanged,
+    required TResult Function() updatedProfile,
+    required TResult Function() sendVerificationMail,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? reset,
+    TResult Function(String value)? onNameChanged,
+    TResult Function()? updatedProfile,
+    TResult Function()? sendVerificationMail,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
+    required TResult Function(_OnNameChanged value) onNameChanged,
+    required TResult Function(_UpdatedProfile value) updatedProfile,
+    required TResult Function(_SendVerificationMail value) sendVerificationMail,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
+    TResult Function(_OnNameChanged value)? onNameChanged,
+    TResult Function(_UpdatedProfile value)? updatedProfile,
+    TResult Function(_SendVerificationMail value)? sendVerificationMail,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements EditProfileEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc
@@ -248,6 +354,7 @@ class _$_OnNameChanged implements _OnNameChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String value) onNameChanged,
     required TResult Function() updatedProfile,
     required TResult Function() sendVerificationMail,
@@ -259,6 +366,7 @@ class _$_OnNameChanged implements _OnNameChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String value)? onNameChanged,
     TResult Function()? updatedProfile,
     TResult Function()? sendVerificationMail,
@@ -274,6 +382,7 @@ class _$_OnNameChanged implements _OnNameChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnNameChanged value) onNameChanged,
     required TResult Function(_UpdatedProfile value) updatedProfile,
     required TResult Function(_SendVerificationMail value) sendVerificationMail,
@@ -285,6 +394,7 @@ class _$_OnNameChanged implements _OnNameChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnNameChanged value)? onNameChanged,
     TResult Function(_UpdatedProfile value)? updatedProfile,
     TResult Function(_SendVerificationMail value)? sendVerificationMail,
@@ -346,6 +456,7 @@ class _$_UpdatedProfile implements _UpdatedProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String value) onNameChanged,
     required TResult Function() updatedProfile,
     required TResult Function() sendVerificationMail,
@@ -357,6 +468,7 @@ class _$_UpdatedProfile implements _UpdatedProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String value)? onNameChanged,
     TResult Function()? updatedProfile,
     TResult Function()? sendVerificationMail,
@@ -372,6 +484,7 @@ class _$_UpdatedProfile implements _UpdatedProfile {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnNameChanged value) onNameChanged,
     required TResult Function(_UpdatedProfile value) updatedProfile,
     required TResult Function(_SendVerificationMail value) sendVerificationMail,
@@ -383,6 +496,7 @@ class _$_UpdatedProfile implements _UpdatedProfile {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnNameChanged value)? onNameChanged,
     TResult Function(_UpdatedProfile value)? updatedProfile,
     TResult Function(_SendVerificationMail value)? sendVerificationMail,
@@ -439,6 +553,7 @@ class _$_SendVerificationMail implements _SendVerificationMail {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String value) onNameChanged,
     required TResult Function() updatedProfile,
     required TResult Function() sendVerificationMail,
@@ -450,6 +565,7 @@ class _$_SendVerificationMail implements _SendVerificationMail {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String value)? onNameChanged,
     TResult Function()? updatedProfile,
     TResult Function()? sendVerificationMail,
@@ -465,6 +581,7 @@ class _$_SendVerificationMail implements _SendVerificationMail {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnNameChanged value) onNameChanged,
     required TResult Function(_UpdatedProfile value) updatedProfile,
     required TResult Function(_SendVerificationMail value) sendVerificationMail,
@@ -476,6 +593,7 @@ class _$_SendVerificationMail implements _SendVerificationMail {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnNameChanged value)? onNameChanged,
     TResult Function(_UpdatedProfile value)? updatedProfile,
     TResult Function(_SendVerificationMail value)? sendVerificationMail,

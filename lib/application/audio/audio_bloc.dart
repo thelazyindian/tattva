@@ -28,6 +28,9 @@ class AudioBloc extends Bloc<AudioEvent, AudioState> {
     AudioEvent event,
   ) async* {
     yield* event.map(
+      reset: (e) async* {
+        yield AudioState.initial();
+      },
       started: (e) async* {
         yield AudioState.initial();
 

@@ -20,6 +20,10 @@ class _$HomeItemsEventTearOff {
     return const _Started();
   }
 
+  _Reset reset() {
+    return const _Reset();
+  }
+
   _LikedAudios likedAudios({required String id}) {
     return _LikedAudios(
       id: id,
@@ -71,6 +75,7 @@ mixin _$HomeItemsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) likedAudios,
     required TResult Function(String id) likedBlogs,
     required TResult Function(String id) likedWallpapers,
@@ -83,6 +88,7 @@ mixin _$HomeItemsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? likedAudios,
     TResult Function(String id)? likedBlogs,
     TResult Function(String id)? likedWallpapers,
@@ -96,6 +102,7 @@ mixin _$HomeItemsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LikedAudios value) likedAudios,
     required TResult Function(_LikedBlogs value) likedBlogs,
     required TResult Function(_LikedWallpapers value) likedWallpapers,
@@ -108,6 +115,7 @@ mixin _$HomeItemsEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LikedAudios value)? likedAudios,
     TResult Function(_LikedBlogs value)? likedBlogs,
     TResult Function(_LikedWallpapers value)? likedWallpapers,
@@ -174,6 +182,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) likedAudios,
     required TResult Function(String id) likedBlogs,
     required TResult Function(String id) likedWallpapers,
@@ -189,6 +198,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? likedAudios,
     TResult Function(String id)? likedBlogs,
     TResult Function(String id)? likedWallpapers,
@@ -208,6 +218,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LikedAudios value) likedAudios,
     required TResult Function(_LikedBlogs value) likedBlogs,
     required TResult Function(_LikedWallpapers value) likedWallpapers,
@@ -223,6 +234,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LikedAudios value)? likedAudios,
     TResult Function(_LikedBlogs value)? likedBlogs,
     TResult Function(_LikedWallpapers value)? likedWallpapers,
@@ -241,6 +253,116 @@ class _$_Started implements _Started {
 
 abstract class _Started implements HomeItemsEvent {
   const factory _Started() = _$_Started;
+}
+
+/// @nodoc
+abstract class _$ResetCopyWith<$Res> {
+  factory _$ResetCopyWith(_Reset value, $Res Function(_Reset) then) =
+      __$ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ResetCopyWithImpl<$Res> extends _$HomeItemsEventCopyWithImpl<$Res>
+    implements _$ResetCopyWith<$Res> {
+  __$ResetCopyWithImpl(_Reset _value, $Res Function(_Reset) _then)
+      : super(_value, (v) => _then(v as _Reset));
+
+  @override
+  _Reset get _value => super._value as _Reset;
+}
+
+/// @nodoc
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'HomeItemsEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() reset,
+    required TResult Function(String id) likedAudios,
+    required TResult Function(String id) likedBlogs,
+    required TResult Function(String id) likedWallpapers,
+    required TResult Function(String id) dislikedAudios,
+    required TResult Function(String id) dislikedBlogs,
+    required TResult Function(String id) dislikedWallpapers,
+    required TResult Function(TattvaItemsModel data) updatedTattvaItems,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? reset,
+    TResult Function(String id)? likedAudios,
+    TResult Function(String id)? likedBlogs,
+    TResult Function(String id)? likedWallpapers,
+    TResult Function(String id)? dislikedAudios,
+    TResult Function(String id)? dislikedBlogs,
+    TResult Function(String id)? dislikedWallpapers,
+    TResult Function(TattvaItemsModel data)? updatedTattvaItems,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
+    required TResult Function(_LikedAudios value) likedAudios,
+    required TResult Function(_LikedBlogs value) likedBlogs,
+    required TResult Function(_LikedWallpapers value) likedWallpapers,
+    required TResult Function(_DislikedAudios value) dislikedAudios,
+    required TResult Function(_DislikedBlogs value) dislikedBlogs,
+    required TResult Function(_DislikedWallpapers value) dislikedWallpapers,
+    required TResult Function(_UpdatedTattvaItems value) updatedTattvaItems,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
+    TResult Function(_LikedAudios value)? likedAudios,
+    TResult Function(_LikedBlogs value)? likedBlogs,
+    TResult Function(_LikedWallpapers value)? likedWallpapers,
+    TResult Function(_DislikedAudios value)? dislikedAudios,
+    TResult Function(_DislikedBlogs value)? dislikedBlogs,
+    TResult Function(_DislikedWallpapers value)? dislikedWallpapers,
+    TResult Function(_UpdatedTattvaItems value)? updatedTattvaItems,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements HomeItemsEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc
@@ -308,6 +430,7 @@ class _$_LikedAudios implements _LikedAudios {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) likedAudios,
     required TResult Function(String id) likedBlogs,
     required TResult Function(String id) likedWallpapers,
@@ -323,6 +446,7 @@ class _$_LikedAudios implements _LikedAudios {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? likedAudios,
     TResult Function(String id)? likedBlogs,
     TResult Function(String id)? likedWallpapers,
@@ -342,6 +466,7 @@ class _$_LikedAudios implements _LikedAudios {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LikedAudios value) likedAudios,
     required TResult Function(_LikedBlogs value) likedBlogs,
     required TResult Function(_LikedWallpapers value) likedWallpapers,
@@ -357,6 +482,7 @@ class _$_LikedAudios implements _LikedAudios {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LikedAudios value)? likedAudios,
     TResult Function(_LikedBlogs value)? likedBlogs,
     TResult Function(_LikedWallpapers value)? likedWallpapers,
@@ -446,6 +572,7 @@ class _$_LikedBlogs implements _LikedBlogs {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) likedAudios,
     required TResult Function(String id) likedBlogs,
     required TResult Function(String id) likedWallpapers,
@@ -461,6 +588,7 @@ class _$_LikedBlogs implements _LikedBlogs {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? likedAudios,
     TResult Function(String id)? likedBlogs,
     TResult Function(String id)? likedWallpapers,
@@ -480,6 +608,7 @@ class _$_LikedBlogs implements _LikedBlogs {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LikedAudios value) likedAudios,
     required TResult Function(_LikedBlogs value) likedBlogs,
     required TResult Function(_LikedWallpapers value) likedWallpapers,
@@ -495,6 +624,7 @@ class _$_LikedBlogs implements _LikedBlogs {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LikedAudios value)? likedAudios,
     TResult Function(_LikedBlogs value)? likedBlogs,
     TResult Function(_LikedWallpapers value)? likedWallpapers,
@@ -585,6 +715,7 @@ class _$_LikedWallpapers implements _LikedWallpapers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) likedAudios,
     required TResult Function(String id) likedBlogs,
     required TResult Function(String id) likedWallpapers,
@@ -600,6 +731,7 @@ class _$_LikedWallpapers implements _LikedWallpapers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? likedAudios,
     TResult Function(String id)? likedBlogs,
     TResult Function(String id)? likedWallpapers,
@@ -619,6 +751,7 @@ class _$_LikedWallpapers implements _LikedWallpapers {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LikedAudios value) likedAudios,
     required TResult Function(_LikedBlogs value) likedBlogs,
     required TResult Function(_LikedWallpapers value) likedWallpapers,
@@ -634,6 +767,7 @@ class _$_LikedWallpapers implements _LikedWallpapers {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LikedAudios value)? likedAudios,
     TResult Function(_LikedBlogs value)? likedBlogs,
     TResult Function(_LikedWallpapers value)? likedWallpapers,
@@ -724,6 +858,7 @@ class _$_DislikedAudios implements _DislikedAudios {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) likedAudios,
     required TResult Function(String id) likedBlogs,
     required TResult Function(String id) likedWallpapers,
@@ -739,6 +874,7 @@ class _$_DislikedAudios implements _DislikedAudios {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? likedAudios,
     TResult Function(String id)? likedBlogs,
     TResult Function(String id)? likedWallpapers,
@@ -758,6 +894,7 @@ class _$_DislikedAudios implements _DislikedAudios {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LikedAudios value) likedAudios,
     required TResult Function(_LikedBlogs value) likedBlogs,
     required TResult Function(_LikedWallpapers value) likedWallpapers,
@@ -773,6 +910,7 @@ class _$_DislikedAudios implements _DislikedAudios {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LikedAudios value)? likedAudios,
     TResult Function(_LikedBlogs value)? likedBlogs,
     TResult Function(_LikedWallpapers value)? likedWallpapers,
@@ -863,6 +1001,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) likedAudios,
     required TResult Function(String id) likedBlogs,
     required TResult Function(String id) likedWallpapers,
@@ -878,6 +1017,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? likedAudios,
     TResult Function(String id)? likedBlogs,
     TResult Function(String id)? likedWallpapers,
@@ -897,6 +1037,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LikedAudios value) likedAudios,
     required TResult Function(_LikedBlogs value) likedBlogs,
     required TResult Function(_LikedWallpapers value) likedWallpapers,
@@ -912,6 +1053,7 @@ class _$_DislikedBlogs implements _DislikedBlogs {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LikedAudios value)? likedAudios,
     TResult Function(_LikedBlogs value)? likedBlogs,
     TResult Function(_LikedWallpapers value)? likedWallpapers,
@@ -1002,6 +1144,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) likedAudios,
     required TResult Function(String id) likedBlogs,
     required TResult Function(String id) likedWallpapers,
@@ -1017,6 +1160,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? likedAudios,
     TResult Function(String id)? likedBlogs,
     TResult Function(String id)? likedWallpapers,
@@ -1036,6 +1180,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LikedAudios value) likedAudios,
     required TResult Function(_LikedBlogs value) likedBlogs,
     required TResult Function(_LikedWallpapers value) likedWallpapers,
@@ -1051,6 +1196,7 @@ class _$_DislikedWallpapers implements _DislikedWallpapers {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LikedAudios value)? likedAudios,
     TResult Function(_LikedBlogs value)? likedBlogs,
     TResult Function(_LikedWallpapers value)? likedWallpapers,
@@ -1151,6 +1297,7 @@ class _$_UpdatedTattvaItems implements _UpdatedTattvaItems {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
+    required TResult Function() reset,
     required TResult Function(String id) likedAudios,
     required TResult Function(String id) likedBlogs,
     required TResult Function(String id) likedWallpapers,
@@ -1166,6 +1313,7 @@ class _$_UpdatedTattvaItems implements _UpdatedTattvaItems {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
+    TResult Function()? reset,
     TResult Function(String id)? likedAudios,
     TResult Function(String id)? likedBlogs,
     TResult Function(String id)? likedWallpapers,
@@ -1185,6 +1333,7 @@ class _$_UpdatedTattvaItems implements _UpdatedTattvaItems {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_Reset value) reset,
     required TResult Function(_LikedAudios value) likedAudios,
     required TResult Function(_LikedBlogs value) likedBlogs,
     required TResult Function(_LikedWallpapers value) likedWallpapers,
@@ -1200,6 +1349,7 @@ class _$_UpdatedTattvaItems implements _UpdatedTattvaItems {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_Reset value)? reset,
     TResult Function(_LikedAudios value)? likedAudios,
     TResult Function(_LikedBlogs value)? likedBlogs,
     TResult Function(_LikedWallpapers value)? likedWallpapers,

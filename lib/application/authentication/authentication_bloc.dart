@@ -42,6 +42,9 @@ class AuthenticationBloc
     );
 
     yield* event.map(
+      reset: (e) async* {
+        yield AuthenticationState.initial();
+      },
       setFormType: (e) async* {
         yield AuthenticationState.initial().copyWith(
           authFormType: e.authFormType,

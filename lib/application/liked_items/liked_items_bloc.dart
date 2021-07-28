@@ -28,6 +28,9 @@ class LikedItemsBloc extends Bloc<LikedItemsEvent, LikedItemsState> {
     LikedItemsEvent event,
   ) async* {
     yield* event.map(
+      reset: (e) async* {
+        yield LikedItemsState.initial();
+      },
       started: (e) async* {
         yield LikedItemsState.initial();
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();

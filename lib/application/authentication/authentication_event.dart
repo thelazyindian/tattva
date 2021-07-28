@@ -2,6 +2,7 @@ part of 'authentication_bloc.dart';
 
 @freezed
 class AuthenticationEvent with _$AuthenticationEvent {
+  const factory AuthenticationEvent.reset() = _Reset;
   const factory AuthenticationEvent.setFormType(AuthFormType authFormType) =
       _SetFormType;
   const factory AuthenticationEvent.onEmailChanged(String value) =

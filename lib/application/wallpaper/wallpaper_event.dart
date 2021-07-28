@@ -3,6 +3,7 @@ part of 'wallpaper_bloc.dart';
 @freezed
 class WallpaperEvent with _$WallpaperEvent {
   const factory WallpaperEvent.started() = _Started;
+  const factory WallpaperEvent.reset() = _Reset;
   const factory WallpaperEvent.selectedCategory({required String id}) =
       _SelectedCategory;
   const factory WallpaperEvent.selectedCategoryLoadMore({required String id}) =

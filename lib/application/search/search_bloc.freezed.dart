@@ -16,6 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SearchEventTearOff {
   const _$SearchEventTearOff();
 
+  _Reset reset() {
+    return const _Reset();
+  }
+
   _OnQueryChanged onQueryChanged({required String value}) {
     return _OnQueryChanged(
       value: value,
@@ -48,6 +52,7 @@ const $SearchEvent = _$SearchEventTearOff();
 mixin _$SearchEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(String value) onQueryChanged,
     required TResult Function() search,
     required TResult Function() loadMore,
@@ -57,6 +62,7 @@ mixin _$SearchEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(String value)? onQueryChanged,
     TResult Function()? search,
     TResult Function()? loadMore,
@@ -67,6 +73,7 @@ mixin _$SearchEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnQueryChanged value) onQueryChanged,
     required TResult Function(_Search value) search,
     required TResult Function(_LoadMore value) loadMore,
@@ -76,6 +83,7 @@ mixin _$SearchEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnQueryChanged value)? onQueryChanged,
     TResult Function(_Search value)? search,
     TResult Function(_LoadMore value)? loadMore,
@@ -100,6 +108,110 @@ class _$SearchEventCopyWithImpl<$Res> implements $SearchEventCopyWith<$Res> {
   final SearchEvent _value;
   // ignore: unused_field
   final $Res Function(SearchEvent) _then;
+}
+
+/// @nodoc
+abstract class _$ResetCopyWith<$Res> {
+  factory _$ResetCopyWith(_Reset value, $Res Function(_Reset) then) =
+      __$ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ResetCopyWithImpl<$Res> extends _$SearchEventCopyWithImpl<$Res>
+    implements _$ResetCopyWith<$Res> {
+  __$ResetCopyWithImpl(_Reset _value, $Res Function(_Reset) _then)
+      : super(_value, (v) => _then(v as _Reset));
+
+  @override
+  _Reset get _value => super._value as _Reset;
+}
+
+/// @nodoc
+class _$_Reset with DiagnosticableTreeMixin implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SearchEvent.reset()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'SearchEvent.reset'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() reset,
+    required TResult Function(String value) onQueryChanged,
+    required TResult Function() search,
+    required TResult Function() loadMore,
+    required TResult Function() cancel,
+    required TResult Function(int index) changedTab,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
+    TResult Function(String value)? onQueryChanged,
+    TResult Function()? search,
+    TResult Function()? loadMore,
+    TResult Function()? cancel,
+    TResult Function(int index)? changedTab,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
+    required TResult Function(_OnQueryChanged value) onQueryChanged,
+    required TResult Function(_Search value) search,
+    required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_Cancel value) cancel,
+    required TResult Function(_ChangedTab value) changedTab,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
+    TResult Function(_OnQueryChanged value)? onQueryChanged,
+    TResult Function(_Search value)? search,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_Cancel value)? cancel,
+    TResult Function(_ChangedTab value)? changedTab,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements SearchEvent {
+  const factory _Reset() = _$_Reset;
 }
 
 /// @nodoc
@@ -176,6 +288,7 @@ class _$_OnQueryChanged
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(String value) onQueryChanged,
     required TResult Function() search,
     required TResult Function() loadMore,
@@ -188,6 +301,7 @@ class _$_OnQueryChanged
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(String value)? onQueryChanged,
     TResult Function()? search,
     TResult Function()? loadMore,
@@ -204,6 +318,7 @@ class _$_OnQueryChanged
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnQueryChanged value) onQueryChanged,
     required TResult Function(_Search value) search,
     required TResult Function(_LoadMore value) loadMore,
@@ -216,6 +331,7 @@ class _$_OnQueryChanged
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnQueryChanged value)? onQueryChanged,
     TResult Function(_Search value)? search,
     TResult Function(_LoadMore value)? loadMore,
@@ -281,6 +397,7 @@ class _$_Search with DiagnosticableTreeMixin implements _Search {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(String value) onQueryChanged,
     required TResult Function() search,
     required TResult Function() loadMore,
@@ -293,6 +410,7 @@ class _$_Search with DiagnosticableTreeMixin implements _Search {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(String value)? onQueryChanged,
     TResult Function()? search,
     TResult Function()? loadMore,
@@ -309,6 +427,7 @@ class _$_Search with DiagnosticableTreeMixin implements _Search {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnQueryChanged value) onQueryChanged,
     required TResult Function(_Search value) search,
     required TResult Function(_LoadMore value) loadMore,
@@ -321,6 +440,7 @@ class _$_Search with DiagnosticableTreeMixin implements _Search {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnQueryChanged value)? onQueryChanged,
     TResult Function(_Search value)? search,
     TResult Function(_LoadMore value)? loadMore,
@@ -381,6 +501,7 @@ class _$_LoadMore with DiagnosticableTreeMixin implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(String value) onQueryChanged,
     required TResult Function() search,
     required TResult Function() loadMore,
@@ -393,6 +514,7 @@ class _$_LoadMore with DiagnosticableTreeMixin implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(String value)? onQueryChanged,
     TResult Function()? search,
     TResult Function()? loadMore,
@@ -409,6 +531,7 @@ class _$_LoadMore with DiagnosticableTreeMixin implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnQueryChanged value) onQueryChanged,
     required TResult Function(_Search value) search,
     required TResult Function(_LoadMore value) loadMore,
@@ -421,6 +544,7 @@ class _$_LoadMore with DiagnosticableTreeMixin implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnQueryChanged value)? onQueryChanged,
     TResult Function(_Search value)? search,
     TResult Function(_LoadMore value)? loadMore,
@@ -481,6 +605,7 @@ class _$_Cancel with DiagnosticableTreeMixin implements _Cancel {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(String value) onQueryChanged,
     required TResult Function() search,
     required TResult Function() loadMore,
@@ -493,6 +618,7 @@ class _$_Cancel with DiagnosticableTreeMixin implements _Cancel {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(String value)? onQueryChanged,
     TResult Function()? search,
     TResult Function()? loadMore,
@@ -509,6 +635,7 @@ class _$_Cancel with DiagnosticableTreeMixin implements _Cancel {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnQueryChanged value) onQueryChanged,
     required TResult Function(_Search value) search,
     required TResult Function(_LoadMore value) loadMore,
@@ -521,6 +648,7 @@ class _$_Cancel with DiagnosticableTreeMixin implements _Cancel {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnQueryChanged value)? onQueryChanged,
     TResult Function(_Search value)? search,
     TResult Function(_LoadMore value)? loadMore,
@@ -610,6 +738,7 @@ class _$_ChangedTab with DiagnosticableTreeMixin implements _ChangedTab {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() reset,
     required TResult Function(String value) onQueryChanged,
     required TResult Function() search,
     required TResult Function() loadMore,
@@ -622,6 +751,7 @@ class _$_ChangedTab with DiagnosticableTreeMixin implements _ChangedTab {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? reset,
     TResult Function(String value)? onQueryChanged,
     TResult Function()? search,
     TResult Function()? loadMore,
@@ -638,6 +768,7 @@ class _$_ChangedTab with DiagnosticableTreeMixin implements _ChangedTab {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Reset value) reset,
     required TResult Function(_OnQueryChanged value) onQueryChanged,
     required TResult Function(_Search value) search,
     required TResult Function(_LoadMore value) loadMore,
@@ -650,6 +781,7 @@ class _$_ChangedTab with DiagnosticableTreeMixin implements _ChangedTab {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Reset value)? reset,
     TResult Function(_OnQueryChanged value)? onQueryChanged,
     TResult Function(_Search value)? search,
     TResult Function(_LoadMore value)? loadMore,
