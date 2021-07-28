@@ -7,6 +7,7 @@ import 'package:tattva/pages/blog/widgets/blog_grid_view.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class HomeItemsBlogSubCategoryPage extends StatelessWidget {
   final String title;
@@ -31,7 +32,9 @@ class HomeItemsBlogSubCategoryPage extends StatelessWidget {
               bloc: getIt<HomeItemsBloc>(),
               builder: (context, state) {
                 return state.tattvaItemsOption.fold(
-                  () => const Center(child: CircularProgressIndicator()),
+                  () => const Center(
+                      child: CircularProgressIndicator(
+                          strokeWidth: progressIndicatorStrokeWidth)),
                   (sOrF) => sOrF.fold(
                     (l) => ErrorLoadingListItemView(),
                     (tattvaItems) => BlogGridView(

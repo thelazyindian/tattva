@@ -6,6 +6,7 @@ import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper_expanded/widgets/wallpaper_expanded_view.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class WallpaperExpandedPage extends StatefulWidget {
   final WallpaperEvent wallpaperEvent;
@@ -49,10 +50,14 @@ class _WallpaperExpandedPageState extends State<WallpaperExpandedPage> {
               bloc: getIt<WallpaperBloc>(),
               builder: (context, state) {
                 if (state.expandedViewLoading) {
-                  return const Center(child: CircularProgressIndicator());
+                  return const Center(
+                      child: CircularProgressIndicator(
+                          strokeWidth: progressIndicatorStrokeWidth));
                 }
                 return state.expandedViewWallpapers.fold(
-                  () => const Center(child: CircularProgressIndicator()),
+                  () => const Center(
+                      child: CircularProgressIndicator(
+                          strokeWidth: progressIndicatorStrokeWidth)),
                   (sOrF) => sOrF.fold(
                     (l) => ErrorLoadingListItemView(),
                     (wallpapers) => widget.wallpaperEvent.maybeMap(

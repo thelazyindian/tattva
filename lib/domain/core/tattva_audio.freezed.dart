@@ -27,6 +27,7 @@ class _$TattvaAudioTearOff {
       required double durationInMins,
       required String link,
       required List<TattvaImage> thumbnail,
+      required String mediaArt,
       required List<TattvaAudioFile> audioFile,
       DateTime? createdAt}) {
     return _TattvaAudio(
@@ -36,6 +37,7 @@ class _$TattvaAudioTearOff {
       durationInMins: durationInMins,
       link: link,
       thumbnail: thumbnail,
+      mediaArt: mediaArt,
       audioFile: audioFile,
       createdAt: createdAt,
     );
@@ -57,6 +59,7 @@ mixin _$TattvaAudio {
   double get durationInMins => throw _privateConstructorUsedError;
   String get link => throw _privateConstructorUsedError;
   List<TattvaImage> get thumbnail => throw _privateConstructorUsedError;
+  String get mediaArt => throw _privateConstructorUsedError;
   List<TattvaAudioFile> get audioFile => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
@@ -78,6 +81,7 @@ abstract class $TattvaAudioCopyWith<$Res> {
       double durationInMins,
       String link,
       List<TattvaImage> thumbnail,
+      String mediaArt,
       List<TattvaAudioFile> audioFile,
       DateTime? createdAt});
 }
@@ -98,6 +102,7 @@ class _$TattvaAudioCopyWithImpl<$Res> implements $TattvaAudioCopyWith<$Res> {
     Object? durationInMins = freezed,
     Object? link = freezed,
     Object? thumbnail = freezed,
+    Object? mediaArt = freezed,
     Object? audioFile = freezed,
     Object? createdAt = freezed,
   }) {
@@ -126,6 +131,10 @@ class _$TattvaAudioCopyWithImpl<$Res> implements $TattvaAudioCopyWith<$Res> {
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
+      mediaArt: mediaArt == freezed
+          ? _value.mediaArt
+          : mediaArt // ignore: cast_nullable_to_non_nullable
+              as String,
       audioFile: audioFile == freezed
           ? _value.audioFile
           : audioFile // ignore: cast_nullable_to_non_nullable
@@ -152,6 +161,7 @@ abstract class _$TattvaAudioCopyWith<$Res>
       double durationInMins,
       String link,
       List<TattvaImage> thumbnail,
+      String mediaArt,
       List<TattvaAudioFile> audioFile,
       DateTime? createdAt});
 }
@@ -174,6 +184,7 @@ class __$TattvaAudioCopyWithImpl<$Res> extends _$TattvaAudioCopyWithImpl<$Res>
     Object? durationInMins = freezed,
     Object? link = freezed,
     Object? thumbnail = freezed,
+    Object? mediaArt = freezed,
     Object? audioFile = freezed,
     Object? createdAt = freezed,
   }) {
@@ -202,6 +213,10 @@ class __$TattvaAudioCopyWithImpl<$Res> extends _$TattvaAudioCopyWithImpl<$Res>
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
+      mediaArt: mediaArt == freezed
+          ? _value.mediaArt
+          : mediaArt // ignore: cast_nullable_to_non_nullable
+              as String,
       audioFile: audioFile == freezed
           ? _value.audioFile
           : audioFile // ignore: cast_nullable_to_non_nullable
@@ -225,6 +240,7 @@ class _$_TattvaAudio implements _TattvaAudio {
       required this.durationInMins,
       required this.link,
       required this.thumbnail,
+      required this.mediaArt,
       required this.audioFile,
       this.createdAt});
 
@@ -244,13 +260,15 @@ class _$_TattvaAudio implements _TattvaAudio {
   @override
   final List<TattvaImage> thumbnail;
   @override
+  final String mediaArt;
+  @override
   final List<TattvaAudioFile> audioFile;
   @override
   final DateTime? createdAt;
 
   @override
   String toString() {
-    return 'TattvaAudio(id: $id, name: $name, language: $language, durationInMins: $durationInMins, link: $link, thumbnail: $thumbnail, audioFile: $audioFile, createdAt: $createdAt)';
+    return 'TattvaAudio(id: $id, name: $name, language: $language, durationInMins: $durationInMins, link: $link, thumbnail: $thumbnail, mediaArt: $mediaArt, audioFile: $audioFile, createdAt: $createdAt)';
   }
 
   @override
@@ -272,6 +290,9 @@ class _$_TattvaAudio implements _TattvaAudio {
             (identical(other.thumbnail, thumbnail) ||
                 const DeepCollectionEquality()
                     .equals(other.thumbnail, thumbnail)) &&
+            (identical(other.mediaArt, mediaArt) ||
+                const DeepCollectionEquality()
+                    .equals(other.mediaArt, mediaArt)) &&
             (identical(other.audioFile, audioFile) ||
                 const DeepCollectionEquality()
                     .equals(other.audioFile, audioFile)) &&
@@ -289,6 +310,7 @@ class _$_TattvaAudio implements _TattvaAudio {
       const DeepCollectionEquality().hash(durationInMins) ^
       const DeepCollectionEquality().hash(link) ^
       const DeepCollectionEquality().hash(thumbnail) ^
+      const DeepCollectionEquality().hash(mediaArt) ^
       const DeepCollectionEquality().hash(audioFile) ^
       const DeepCollectionEquality().hash(createdAt);
 
@@ -311,6 +333,7 @@ abstract class _TattvaAudio implements TattvaAudio {
       required double durationInMins,
       required String link,
       required List<TattvaImage> thumbnail,
+      required String mediaArt,
       required List<TattvaAudioFile> audioFile,
       DateTime? createdAt}) = _$_TattvaAudio;
 
@@ -329,6 +352,8 @@ abstract class _TattvaAudio implements TattvaAudio {
   String get link => throw _privateConstructorUsedError;
   @override
   List<TattvaImage> get thumbnail => throw _privateConstructorUsedError;
+  @override
+  String get mediaArt => throw _privateConstructorUsedError;
   @override
   List<TattvaAudioFile> get audioFile => throw _privateConstructorUsedError;
   @override

@@ -43,6 +43,7 @@ dependencies:
   share: ^2.0.1
   connectivity: ^3.0.4
   hydrated_bloc: ^7.0.1
+  marquee: ^2.2.0
 
 dev_dependencies:
   flutter_test:

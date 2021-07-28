@@ -7,6 +7,7 @@ import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpaper_body.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:tattva/router/router.gr.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class WallpaperPage extends StatelessWidget {
   @override
@@ -30,7 +31,9 @@ class WallpaperPage extends StatelessWidget {
           bloc: getIt<WallpaperBloc>()..add(WallpaperEvent.started()),
           builder: (context, state) {
             return state.wallpaperCategoriesOption.fold(
-              () => const Center(child: CircularProgressIndicator()),
+              () => const Center(
+                  child: CircularProgressIndicator(
+                      strokeWidth: progressIndicatorStrokeWidth)),
               (sOrF) => sOrF.fold(
                 (f) => ErrorLoadingListItemView(),
                 (wallpaperCategories) =>

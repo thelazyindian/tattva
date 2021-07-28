@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tattva/utils/others.dart';
 
 class SearchBarDummy extends StatelessWidget {
   @override
@@ -20,7 +21,7 @@ class SearchBarDummy extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
-            color: Color(0xFFF2F3F7),
+            color: secondaryColor,
           ),
           child: Row(
             children: [

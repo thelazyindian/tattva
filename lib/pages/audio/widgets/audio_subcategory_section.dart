@@ -50,6 +50,7 @@ class AudioSubcategorySection extends StatelessWidget {
                       imageUri: audio.thumbnail.first.url,
                       firstSubHeading: firstSubHeading,
                       secondSubHeading: audio.language,
+                      enableTextShadow: true,
                       onTap: () {
                         if (context.router.current!.route.routeName ==
                             'LikedItemsRoute') {

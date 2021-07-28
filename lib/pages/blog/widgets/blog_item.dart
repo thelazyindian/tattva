@@ -40,7 +40,7 @@ class BlogItem extends StatelessWidget {
         shadowColor: Color(0x40BFBABA),
         borderRadius: BorderRadius.circular(16.0),
         child: SizedBox(
-          height: 150.0,
+          height: 160.0,
           child: Row(
             children: [
               SizedBox(
@@ -56,6 +56,8 @@ class BlogItem extends StatelessWidget {
                     child: Image.network(
                       blog.coverImage.first.url,
                       fit: BoxFit.cover,
+                      errorBuilder: (_, __, ___) =>
+                          Container(color: Colors.grey.shade200),
                     ),
                   ),
                 ),
@@ -70,11 +72,16 @@ class BlogItem extends StatelessWidget {
                         children: [
                           BlogTitleBar(blog: blog),
                           const SizedBox(height: 16.0),
-                          Text(
-                            blog.summary,
-                            style: TextStyle(
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w400,
+                          Padding(
+                            padding: const EdgeInsets.only(right: 16.0),
+                            child: Text(
+                              blog.summary,
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
                           ),
                         ],

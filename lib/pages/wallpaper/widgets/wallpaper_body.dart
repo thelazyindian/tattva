@@ -10,6 +10,7 @@ import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
 import 'package:tattva/router/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class WallpaperBody extends StatelessWidget {
   final List<WallpaperCategory> wallpaperCategories;
@@ -72,7 +73,9 @@ class WallpaperBody extends StatelessWidget {
             builder: (context, state) {
               return state.categoryError.fold(
                 () => state.categoryLoading
-                    ? const Center(child: CircularProgressIndicator())
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                            strokeWidth: progressIndicatorStrokeWidth))
                     : state.selectedCategory.fold(
                         () => Container(),
                         (selectedCategory) => WallpapersGridView(

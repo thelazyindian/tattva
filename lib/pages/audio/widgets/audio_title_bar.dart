@@ -4,6 +4,7 @@ class AudioTitleBar extends StatelessWidget {
   final String heading;
   final String firstSubHeading;
   final String secondSubHeading;
+  final bool enableShadow;
   final Color textColor;
 
   const AudioTitleBar({
@@ -12,6 +13,7 @@ class AudioTitleBar extends StatelessWidget {
     required this.firstSubHeading,
     required this.secondSubHeading,
     this.textColor = Colors.white,
+    this.enableShadow = false,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,34 @@ class AudioTitleBar extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.w600,
             color: textColor,
+            // shadows: (enableShadow)
+            //     ? [
+            //         Shadow(
+            //           // bottomLeft
+            //           offset: Offset(-0.65, -0.65),
+            //           blurRadius: 1.0,
+            //           color: Colors.black45,
+            //         ),
+            //         Shadow(
+            //           // bottomRight
+            //           offset: Offset(0.65, -0.65),
+            //           blurRadius: 1.0,
+            //           color: Colors.black45,
+            //         ),
+            //         Shadow(
+            //           // topRight
+            //           offset: Offset(0.65, 0.65),
+            //           blurRadius: 1.0,
+            //           color: Colors.black45,
+            //         ),
+            //         Shadow(
+            //           // topLeft
+            //           blurRadius: 1.0,
+            //           offset: Offset(-0.65, 0.65),
+            //           color: Colors.black45,
+            //         ),
+            //       ]
+            //     : null,
           ),
         ),
         Row(

@@ -1,6 +1,7 @@
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:marquee/marquee.dart';
 import 'package:tattva/application/audio_player/audio_player_bloc.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/pages/audio_player/widgets/play_pause_button.dart';
@@ -30,18 +31,20 @@ class AudioPlayerCollapsed extends StatelessWidget {
                     onTap: onCollapsedItemClicked,
                     child: Row(
                       children: [
-                        Image.network(
-                          mediaItem!.artUri.toString(),
-                          fit: BoxFit.cover,
+                        SizedBox(
                           height: audioCollapsedBar,
                           width: audioCollapsedBar,
-                          errorBuilder: (_, __, ___) =>
-                              Container(color: Colors.grey.shade200),
+                          child: Image.network(
+                            mediaItem!.artUri.toString(),
+                            fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) =>
+                                Container(color: Colors.grey.shade200),
+                          ),
                         ),
                         Expanded(
                           child: Padding(
                             padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
+                                const EdgeInsets.symmetric(horizontal: 12.0),
                             child: _audioTitleSubtitle(mediaItem),
                           ),
                         ),
@@ -85,16 +88,39 @@ class AudioPlayerCollapsed extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            mediaItem.title,
-            style: TextStyle(
-              fontSize: 16.0,
-              fontWeight: FontWeight.w600,
+          // Text(
+          //   mediaItem.title,
+          //   maxLines: 1,
+          //   style: TextStyle(
+          //     fontSize: 16.0,
+          //     fontWeight: FontWeight.w600,
+          //   ),
+          // ),
+          SizedBox(
+            height: 20.0,
+            child: Marquee(
+              text: mediaItem.title,
+              style: const TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+              ),
+              scrollAxis: Axis.horizontal,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              blankSpace: 20.0,
+              velocity: 50.0,
+              pauseAfterRound: Duration(seconds: 2),
+              startPadding: .0,
+              accelerationDuration: Duration(seconds: 2),
+              accelerationCurve: Curves.linear,
+              decelerationDuration: Duration(milliseconds: 500),
+              decelerationCurve: Curves.easeOut,
             ),
           ),
           const SizedBox(height: 4.0),
           Text(
             mediaItem.album,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontSize: 14.0,
               color: Color(0xFF908A8A),

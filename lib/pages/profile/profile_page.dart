@@ -43,6 +43,7 @@ class ProfilePage extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: profileIconSize / 2,
+                  backgroundColor: Colors.grey.shade200,
                   backgroundImage: (user!.photoURL != null)
                       ? NetworkImage(user.photoURL!)
                       : Image.asset('images/profile.png').image,

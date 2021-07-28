@@ -8,6 +8,7 @@ import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:tattva/router/router.gr.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class WallpaperResultsView extends StatelessWidget {
   @override
@@ -16,8 +17,9 @@ class WallpaperResultsView extends StatelessWidget {
       bloc: getIt<SearchBloc>(),
       builder: (context, state) {
         if (state.loading) {
-          return Center(
-            child: CircularProgressIndicator(),
+          return const Center(
+            child: CircularProgressIndicator(
+                strokeWidth: progressIndicatorStrokeWidth),
           );
         } else {
           return state.maybeMap(

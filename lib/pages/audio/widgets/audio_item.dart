@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tattva/pages/audio/widgets/audio_title_bar.dart';
+import 'package:tattva/utils/others.dart';
 
 class AudioItem extends StatelessWidget {
   final String imageUri;
   final String heading;
   final String firstSubHeading;
   final String secondSubHeading;
+  final bool enableTextShadow;
   final VoidCallback? onTap;
 
   const AudioItem({
@@ -14,6 +16,7 @@ class AudioItem extends StatelessWidget {
     required this.heading,
     required this.firstSubHeading,
     required this.secondSubHeading,
+    this.enableTextShadow = false,
     this.onTap,
   }) : super(key: key);
   @override
@@ -21,6 +24,7 @@ class AudioItem extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12.0),
       child: Material(
+        color: Colors.grey.shade300,
         child: InkWell(
           borderRadius: BorderRadius.circular(12.0),
           onTap: onTap,
@@ -40,6 +44,7 @@ class AudioItem extends StatelessWidget {
                     heading: heading,
                     firstSubHeading: firstSubHeading,
                     secondSubHeading: secondSubHeading,
+                    enableShadow: enableTextShadow,
                   ),
                   bottom: 13.0,
                   left: 10.0,

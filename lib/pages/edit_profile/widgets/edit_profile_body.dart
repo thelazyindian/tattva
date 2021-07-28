@@ -39,34 +39,33 @@ class EditProfileBody extends StatelessWidget {
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: user.photoURL == null
-                      ? Image.asset(
-                          'images/profile.png',
-                          fit: BoxFit.cover,
-                        ).image
-                      : Image.network(
-                          user.photoURL!,
-                          fit: BoxFit.cover,
-                        ).image,
+                  image: Image.network(
+                    user.photoURL ?? '',
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, __, ___) => Image.asset(
+                      'images/profile.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ).image,
                 ),
               ),
             ),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton(
-              onPressed: () {},
-              child: Text(BTN_UPLOAD_PROFILE_PIC),
-              style: secondaryBtnStyle.copyWith(
-                textStyle: MaterialStateProperty.all(secondaryBtnTextStyle
-                    .copyWith(fontSize: editProfileUploadPicBtnFontSize)),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: inputFieldsSpacing),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     TextButton(
+        //       onPressed: () {},
+        //       child: Text(BTN_UPLOAD_PROFILE_PIC),
+        //       style: secondaryBtnStyle.copyWith(
+        //         textStyle: MaterialStateProperty.all(secondaryBtnTextStyle
+        //             .copyWith(fontSize: editProfileUploadPicBtnFontSize)),
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        const SizedBox(height: inputFieldsSpacing * 2),
         NameField(
           initialValue: user.displayName,
           enabled: !updatingProfile,

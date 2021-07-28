@@ -100,6 +100,7 @@ class AudioPlayerBloc extends HydratedBloc<AudioPlayerEvent, AudioPlayerState> {
             title: item.name,
             extras: {
               'uid': item.id,
+              'mediaArt': item.mediaArt,
               'link': item.link,
             },
           );
@@ -119,20 +120,22 @@ class AudioPlayerBloc extends HydratedBloc<AudioPlayerEvent, AudioPlayerState> {
               mediaItems.map((e) => e.toJson()).toList(),
             );
           } else {
-            AudioService.start(
-              backgroundTaskEntrypoint: _entrypoint,
-              androidStopForegroundOnPause: true,
-              params: {
-                'mediaItems': mediaItems.map((e) => e.toJson()).toList(),
-                'index': e.idx,
-              },
-            )
-                .then((value) => AudioService.play())
-                .catchError((onError) => AudioService.stop());
+            startAudioService(mediaItems, e.idx);
           }
         }
       },
-      play: (e) async* {},
+      play: (e) async* {
+        if (AudioService.connected) {
+          if (AudioService.running) {
+            AudioService.play();
+          } else {
+            final idx = state.queueState!.queue!.indexWhere((element) =>
+                element.extras!['uid'] ==
+                state.queueState!.mediaItem!.extras!['uid']);
+            startAudioService(state.queueState!.queue!, idx);
+          }
+        }
+      },
     );
   }
 
@@ -147,6 +150,19 @@ class AudioPlayerBloc extends HydratedBloc<AudioPlayerEvent, AudioPlayerState> {
           AudioService.currentMediaItemStream,
           AudioService.positionStream,
           (mediaItem, position) => MediaState(mediaItem, position));
+
+  startAudioService(List<MediaItem> mediaItems, int index) {
+    AudioService.start(
+      backgroundTaskEntrypoint: _entrypoint,
+      androidStopForegroundOnPause: true,
+      params: {
+        'mediaItems': mediaItems.map((e) => e.toJson()).toList(),
+        'index': index,
+      },
+    )
+        .then((value) => AudioService.play())
+        .catchError((onError) => AudioService.stop());
+  }
 
   @override
   Future<void> close() {

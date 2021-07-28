@@ -8,6 +8,7 @@ import 'package:tattva/pages/blog_reader/widgets/blog_reader_title_bar.dart';
 import 'package:tattva/pages/blog_reader/widgets/flexible_blog_reader_app_bar.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class BlogReaderPage extends StatefulWidget {
   final Blog blog;
@@ -66,7 +67,9 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
         builder: (context, state) {
           if (widget.blogReaderTabType == BlogReaderTabType.fromUrl &&
               state.readerLoading)
-            return const Center(child: CircularProgressIndicator());
+            return const Center(
+                child: CircularProgressIndicator(
+                    strokeWidth: progressIndicatorStrokeWidth));
           else {
             final Blog blog = state.readerOption.fold(() => widget.blog,
                 (sOrF) => sOrF.fold((l) => widget.blog, (blog) => blog));
@@ -74,7 +77,7 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
               controller: _scrollController,
               headerSliverBuilder: (_, __) => [
                 FlexibleBlogReaderAppBar(
-                  imageUrl: blog.coverImage.first.url,
+                  imageUrl: blog.coverImageFull,
                   heroId: blog.id,
                 ),
               ],
@@ -92,7 +95,9 @@ class _BlogReaderPageState extends State<BlogReaderPage> {
                       blog: widget.blog,
                     )),
                     child: (state.readerLoading)
-                        ? const Center(child: CircularProgressIndicator())
+                        ? const Center(
+                            child: CircularProgressIndicator(
+                                strokeWidth: progressIndicatorStrokeWidth))
                         : state.readerOption.fold(
                             () => ErrorLoadingListItemView(
                                 height: errorWidgetHeight),

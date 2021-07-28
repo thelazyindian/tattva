@@ -14,6 +14,7 @@ class TattvaAudio with _$TattvaAudio {
     required double durationInMins,
     required String link,
     required List<TattvaImage> thumbnail,
+    required String mediaArt,
     required List<TattvaAudioFile> audioFile,
     DateTime? createdAt,
   }) = _TattvaAudio;

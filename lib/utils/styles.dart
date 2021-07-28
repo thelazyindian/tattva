@@ -4,6 +4,21 @@ import 'package:tattva/utils/dimens.dart';
 import 'package:tattva/utils/others.dart';
 
 final appTheme = ThemeData(
+  colorScheme: ColorScheme(
+    primary: accentColor,
+    primaryVariant: accentColor,
+    secondary: secondaryColor,
+    secondaryVariant: secondaryColor,
+    surface: primaryColor,
+    background: primaryColor,
+    error: Colors.red.shade300,
+    onPrimary: accentColor,
+    onSecondary: accentColor,
+    onSurface: accentColor,
+    onBackground: accentColor,
+    onError: Colors.white,
+    brightness: Brightness.light,
+  ),
   primaryColor: primaryColor,
   accentColor: accentColor,
   backgroundColor: primaryColor,
@@ -39,7 +54,7 @@ final appTheme = ThemeData(
 );
 
 final systemUiOverlayStyle = SystemUiOverlayStyle(
-  statusBarColor: primaryColor,
+  statusBarColor: Colors.transparent,
   statusBarIconBrightness: Brightness.dark,
   systemNavigationBarColor: primaryColor,
   systemNavigationBarIconBrightness: Brightness.dark,

@@ -26,7 +26,8 @@ class PlayPauseButton extends StatelessWidget {
 
         if (playing != true) {
           return IconButton(
-            onPressed: AudioService.play,
+            onPressed: () =>
+                getIt<AudioPlayerBloc>().add(AudioPlayerEvent.play()),
             splashRadius: 36.0,
             iconSize: playPauseButtonType == PlayPauseButtonType.expanded
                 ? 48.0

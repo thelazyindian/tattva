@@ -44,7 +44,8 @@ class EditProfilePage extends StatelessWidget {
           builder: (context, state) {
             return state.updateProfileOption.fold(
               () => const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                    strokeWidth: progressIndicatorStrokeWidth),
               ),
               (sOrF) => sOrF.fold(
                 (l) => ErrorLoadingListItemView(),

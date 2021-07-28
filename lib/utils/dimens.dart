@@ -48,3 +48,4 @@ const editProfileUploadPicThumbnailSize = 154.0;
 const appBarPaddingHorizontal = 8.0;
 const bottomNavbarHeight = 73.0;
 const audioCollapsedBar = 64.0;
+const progressIndicatorStrokeWidth = 2.5;

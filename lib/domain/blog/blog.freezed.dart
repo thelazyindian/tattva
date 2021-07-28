@@ -27,6 +27,7 @@ class _$BlogTearOff {
       required String language,
       required int readingTime,
       required List<TattvaImage> coverImage,
+      required String coverImageFull,
       required String summary,
       required String link,
       String? content,
@@ -38,6 +39,7 @@ class _$BlogTearOff {
       language: language,
       readingTime: readingTime,
       coverImage: coverImage,
+      coverImageFull: coverImageFull,
       summary: summary,
       link: link,
       content: content,
@@ -61,6 +63,7 @@ mixin _$Blog {
   String get language => throw _privateConstructorUsedError;
   int get readingTime => throw _privateConstructorUsedError;
   List<TattvaImage> get coverImage => throw _privateConstructorUsedError;
+  String get coverImageFull => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
   String get link => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
@@ -82,6 +85,7 @@ abstract class $BlogCopyWith<$Res> {
       String language,
       int readingTime,
       List<TattvaImage> coverImage,
+      String coverImageFull,
       String summary,
       String link,
       String? content,
@@ -104,6 +108,7 @@ class _$BlogCopyWithImpl<$Res> implements $BlogCopyWith<$Res> {
     Object? language = freezed,
     Object? readingTime = freezed,
     Object? coverImage = freezed,
+    Object? coverImageFull = freezed,
     Object? summary = freezed,
     Object? link = freezed,
     Object? content = freezed,
@@ -134,6 +139,10 @@ class _$BlogCopyWithImpl<$Res> implements $BlogCopyWith<$Res> {
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
+      coverImageFull: coverImageFull == freezed
+          ? _value.coverImageFull
+          : coverImageFull // ignore: cast_nullable_to_non_nullable
+              as String,
       summary: summary == freezed
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -166,6 +175,7 @@ abstract class _$BlogCopyWith<$Res> implements $BlogCopyWith<$Res> {
       String language,
       int readingTime,
       List<TattvaImage> coverImage,
+      String coverImageFull,
       String summary,
       String link,
       String? content,
@@ -189,6 +199,7 @@ class __$BlogCopyWithImpl<$Res> extends _$BlogCopyWithImpl<$Res>
     Object? language = freezed,
     Object? readingTime = freezed,
     Object? coverImage = freezed,
+    Object? coverImageFull = freezed,
     Object? summary = freezed,
     Object? link = freezed,
     Object? content = freezed,
@@ -219,6 +230,10 @@ class __$BlogCopyWithImpl<$Res> extends _$BlogCopyWithImpl<$Res>
           ? _value.coverImage
           : coverImage // ignore: cast_nullable_to_non_nullable
               as List<TattvaImage>,
+      coverImageFull: coverImageFull == freezed
+          ? _value.coverImageFull
+          : coverImageFull // ignore: cast_nullable_to_non_nullable
+              as String,
       summary: summary == freezed
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -250,6 +265,7 @@ class _$_Blog implements _Blog {
       required this.language,
       required this.readingTime,
       required this.coverImage,
+      required this.coverImageFull,
       required this.summary,
       required this.link,
       this.content,
@@ -271,6 +287,8 @@ class _$_Blog implements _Blog {
   @override
   final List<TattvaImage> coverImage;
   @override
+  final String coverImageFull;
+  @override
   final String summary;
   @override
   final String link;
@@ -281,7 +299,7 @@ class _$_Blog implements _Blog {
 
   @override
   String toString() {
-    return 'Blog(id: $id, title: $title, slug: $slug, language: $language, readingTime: $readingTime, coverImage: $coverImage, summary: $summary, link: $link, content: $content, createdAt: $createdAt)';
+    return 'Blog(id: $id, title: $title, slug: $slug, language: $language, readingTime: $readingTime, coverImage: $coverImage, coverImageFull: $coverImageFull, summary: $summary, link: $link, content: $content, createdAt: $createdAt)';
   }
 
   @override
@@ -303,6 +321,9 @@ class _$_Blog implements _Blog {
             (identical(other.coverImage, coverImage) ||
                 const DeepCollectionEquality()
                     .equals(other.coverImage, coverImage)) &&
+            (identical(other.coverImageFull, coverImageFull) ||
+                const DeepCollectionEquality()
+                    .equals(other.coverImageFull, coverImageFull)) &&
             (identical(other.summary, summary) ||
                 const DeepCollectionEquality()
                     .equals(other.summary, summary)) &&
@@ -325,6 +346,7 @@ class _$_Blog implements _Blog {
       const DeepCollectionEquality().hash(language) ^
       const DeepCollectionEquality().hash(readingTime) ^
       const DeepCollectionEquality().hash(coverImage) ^
+      const DeepCollectionEquality().hash(coverImageFull) ^
       const DeepCollectionEquality().hash(summary) ^
       const DeepCollectionEquality().hash(link) ^
       const DeepCollectionEquality().hash(content) ^
@@ -349,6 +371,7 @@ abstract class _Blog implements Blog {
       required String language,
       required int readingTime,
       required List<TattvaImage> coverImage,
+      required String coverImageFull,
       required String summary,
       required String link,
       String? content,
@@ -368,6 +391,8 @@ abstract class _Blog implements Blog {
   int get readingTime => throw _privateConstructorUsedError;
   @override
   List<TattvaImage> get coverImage => throw _privateConstructorUsedError;
+  @override
+  String get coverImageFull => throw _privateConstructorUsedError;
   @override
   String get summary => throw _privateConstructorUsedError;
   @override

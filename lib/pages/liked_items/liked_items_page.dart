@@ -7,6 +7,7 @@ import 'package:tattva/pages/core/empty_results_view.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/liked_items/widgets/liked_items_body.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class LikedItemsPage extends StatelessWidget {
   @override
@@ -28,7 +29,9 @@ class LikedItemsPage extends StatelessWidget {
           bloc: getIt<LikedItemsBloc>()..add(LikedItemsEvent.started()),
           builder: (context, state) {
             return state.likedItemsOption.fold(
-              () => const Center(child: CircularProgressIndicator()),
+              () => const Center(
+                  child: CircularProgressIndicator(
+                      strokeWidth: progressIndicatorStrokeWidth)),
               (likedItemsSorF) => likedItemsSorF.fold(
                 (failure) => ErrorLoadingListItemView(),
                 (likedItems) => likedItems.likedAudios.isEmpty &&

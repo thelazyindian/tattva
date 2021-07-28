@@ -24,7 +24,6 @@ class AudioSubCategoryItem extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(10.0),
         child: Container(
-          height: 80.0,
           padding: const EdgeInsets.symmetric(
             horizontal: 20.0,
             vertical: 18.0,
@@ -42,12 +41,17 @@ class AudioSubCategoryItem extends StatelessWidget {
     );
   }
 
-  Widget _thumbnail() => ClipRRect(
-        borderRadius: BorderRadius.circular(10.0),
-        child: Image.network(
-          tattvaAudio.thumbnail.first.url,
-          fit: BoxFit.cover,
-          errorBuilder: (_, __, ___) => Container(color: Colors.grey.shade200),
+  Widget _thumbnail() => SizedBox(
+        height: 50.0,
+        width: 50.0,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10.0),
+          child: Image.network(
+            tattvaAudio.thumbnail.first.url,
+            fit: BoxFit.cover,
+            errorBuilder: (_, __, ___) =>
+                Container(color: Colors.grey.shade200),
+          ),
         ),
       );
 
@@ -61,6 +65,7 @@ class AudioSubCategoryItem extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
+          const SizedBox(height: 4.0),
           Row(
             children: [
               Text(

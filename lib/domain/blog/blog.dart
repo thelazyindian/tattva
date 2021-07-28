@@ -13,6 +13,7 @@ class Blog with _$Blog {
     required String language,
     required int readingTime,
     required List<TattvaImage> coverImage,
+    required String coverImageFull,
     required String summary,
     required String link,
     String? content,
@@ -28,6 +29,7 @@ class Blog with _$Blog {
         readingTime: 0,
         link: '',
         coverImage: [],
+        coverImageFull: '',
         summary: '',
       );
 }

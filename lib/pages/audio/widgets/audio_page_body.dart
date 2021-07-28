@@ -9,6 +9,7 @@ import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:tattva/router/router.gr.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class AudioPageBody extends StatelessWidget {
   @override
@@ -19,7 +20,8 @@ class AudioPageBody extends StatelessWidget {
         bloc: getIt<AudioBloc>()..add(AudioEvent.started()),
         builder: (context, state) {
           return state.audioCategoriesOption.fold(
-            () => const Center(child: CircularProgressIndicator()),
+            () => const Center(
+                child: CircularProgressIndicator(strokeWidth: 2.5)),
             (audioCategoriesSuccessOrFailure) =>
                 audioCategoriesSuccessOrFailure.fold(
               (l) => ErrorLoadingListItemView(),
@@ -27,11 +29,21 @@ class AudioPageBody extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 children: [
                   AudioCategoriesSection(audioCategories: audioCategories),
-                  const SizedBox(height: 48.0),
+                  const SizedBox(height: 24.0),
                   state.selectedAudioCategory.fold(
                     () => const Center(child: Text('NO SUBS')),
                     (category) => state.loadingSubCategory
-                        ? const Center(child: CircularProgressIndicator())
+                        ? SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            width: double.infinity,
+                            child: const Center(
+                                child: SizedBox(
+                              height: 30.0,
+                              width: 30.0,
+                              child: CircularProgressIndicator(
+                                  strokeWidth: progressIndicatorStrokeWidth),
+                            )),
+                          )
                         : (category.audioSubCategories == null)
                             ? ErrorLoadingListItemView()
                             : _subCategories(

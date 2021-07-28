@@ -9,6 +9,7 @@ import 'package:tattva/pages/core/custom_app_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid_view.dart';
 import 'package:tattva/router/router.gr.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class HomeItemsWallpaperSubCategoryPage extends StatelessWidget {
   final String title;
@@ -33,7 +34,9 @@ class HomeItemsWallpaperSubCategoryPage extends StatelessWidget {
               bloc: getIt<HomeItemsBloc>(),
               builder: (context, state) {
                 return state.tattvaItemsOption.fold(
-                  () => const Center(child: CircularProgressIndicator()),
+                  () => const Center(
+                      child: CircularProgressIndicator(
+                          strokeWidth: progressIndicatorStrokeWidth)),
                   (sOrF) => sOrF.fold(
                     (l) => ErrorLoadingListItemView(),
                     (tattvaItems) => WallpapersGridView(

@@ -16,6 +16,7 @@ _$_Blog _$_$_BlogFromJson(Map<String, dynamic> json) {
     coverImage: (json['coverImage'] as List<dynamic>)
         .map((e) => TattvaImage.fromJson(e as Map<String, dynamic>))
         .toList(),
+    coverImageFull: json['coverImageFull'] as String,
     summary: json['summary'] as String,
     link: json['link'] as String,
     content: json['content'] as String?,
@@ -32,6 +33,7 @@ Map<String, dynamic> _$_$_BlogToJson(_$_Blog instance) => <String, dynamic>{
       'language': instance.language,
       'readingTime': instance.readingTime,
       'coverImage': instance.coverImage,
+      'coverImageFull': instance.coverImageFull,
       'summary': instance.summary,
       'link': instance.link,
       'content': instance.content,

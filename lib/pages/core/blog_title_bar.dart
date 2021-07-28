@@ -14,6 +14,8 @@ class BlogTitleBar extends StatelessWidget {
       children: [
         Text(
           blog.title,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 16.0,

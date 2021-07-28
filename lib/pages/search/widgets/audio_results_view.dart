@@ -6,6 +6,7 @@ import 'package:tattva/pages/core/empty_results_view.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/search/widgets/audio_results_section.dart';
 import 'package:tattva/pages/search/widgets/pagination_handler.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class AudioResultsView extends StatelessWidget {
   @override
@@ -15,7 +16,8 @@ class AudioResultsView extends StatelessWidget {
       builder: (context, state) {
         if (state.loading) {
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+                strokeWidth: progressIndicatorStrokeWidth),
           );
         } else {
           return state.maybeMap(

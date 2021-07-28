@@ -12,6 +12,7 @@ import 'package:tattva/pages/search/widgets/blog_results_section.dart';
 import 'package:tattva/pages/wallpaper/widgets/wallpapers_grid.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:tattva/router/router.gr.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class AllResultsView extends StatelessWidget {
   @override
@@ -21,7 +22,8 @@ class AllResultsView extends StatelessWidget {
       builder: (context, state) {
         if (state.loading) {
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+                strokeWidth: progressIndicatorStrokeWidth),
           );
         } else {
           return state.maybeMap(

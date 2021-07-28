@@ -16,6 +16,7 @@ _$_TattvaAudio _$_$_TattvaAudioFromJson(Map<String, dynamic> json) {
     thumbnail: (json['thumbnail'] as List<dynamic>)
         .map((e) => TattvaImage.fromJson(e as Map<String, dynamic>))
         .toList(),
+    mediaArt: json['mediaArt'] as String,
     audioFile: (json['audioFile'] as List<dynamic>)
         .map((e) => TattvaAudioFile.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -33,6 +34,7 @@ Map<String, dynamic> _$_$_TattvaAudioToJson(_$_TattvaAudio instance) =>
       'durationInMins': instance.durationInMins,
       'link': instance.link,
       'thumbnail': instance.thumbnail,
+      'mediaArt': instance.mediaArt,
       'audioFile': instance.audioFile,
       'createdAt': instance.createdAt?.toIso8601String(),
     };

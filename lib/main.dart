@@ -18,9 +18,7 @@ void main() async {
   configureInjection(Environment.dev);
   await Firebase.initializeApp();
   await FlutterDownloader.initialize(debug: true);
-  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle.copyWith(
-    statusBarColor: Colors.transparent,
-  ));
+  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getTemporaryDirectory(),
   );

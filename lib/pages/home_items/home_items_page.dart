@@ -8,6 +8,7 @@ import 'package:tattva/pages/core/empty_results_view.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
 import 'package:tattva/pages/home_items/widgets/home_items_body.dart';
 import 'package:tattva/router/router.gr.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class HomeItemsPage extends StatelessWidget {
   @override
@@ -31,7 +32,9 @@ class HomeItemsPage extends StatelessWidget {
           bloc: getIt<HomeItemsBloc>()..add(HomeItemsEvent.started()),
           builder: (context, state) {
             return state.tattvaItemsOption.fold(
-              () => const Center(child: CircularProgressIndicator()),
+              () => const Center(
+                  child: CircularProgressIndicator(
+                      strokeWidth: progressIndicatorStrokeWidth)),
               (tattvaItemsSorF) => tattvaItemsSorF.fold(
                 (failure) => ErrorLoadingListItemView(),
                 (tattvaItems) => tattvaItems.audios.isEmpty &&

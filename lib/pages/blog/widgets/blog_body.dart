@@ -7,6 +7,7 @@ import 'package:tattva/pages/blog/widgets/blog_grid_view.dart';
 import 'package:tattva/pages/core/audio_player_preview_padding.dart';
 import 'package:tattva/pages/core/categories_bar.dart';
 import 'package:tattva/pages/core/error_loading_list_item_view.dart';
+import 'package:tattva/utils/dimens.dart';
 
 class BlogBody extends StatelessWidget {
   final List<BlogCategory> blogCategories;
@@ -66,7 +67,9 @@ class BlogBody extends StatelessWidget {
             builder: (context, state) {
               return state.categoryError.fold(
                 () => state.categoryLoading
-                    ? const Center(child: CircularProgressIndicator())
+                    ? const Center(
+                        child: CircularProgressIndicator(
+                            strokeWidth: progressIndicatorStrokeWidth))
                     : state.selectedCategory.fold(
                         () => Container(),
                         (selectedCategory) => BlogGridView(
