@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:tattva/pages/about_us/about_us_page.dart';
 import 'package:tattva/pages/audio/audio_page.dart';
 import 'package:tattva/pages/audio_sub_category/audio_sub_category_page.dart';
 import 'package:tattva/pages/authentication/forgot_password_page.dart';
@@ -16,6 +17,7 @@ import 'package:tattva/pages/landing/landing_page.dart';
 import 'package:tattva/pages/liked_items/liked_items_page.dart';
 import 'package:tattva/pages/liked_items_blog_sub_category/liked_items_blog_sub_category_page.dart';
 import 'package:tattva/pages/liked_items_wallpaper_sub_category/liked_items_wallpaper_sub_category_page.dart';
+import 'package:tattva/pages/privacy_policy/privacy_policy_page.dart';
 import 'package:tattva/pages/profile/profile_page.dart';
 import 'package:tattva/pages/search/search_page.dart';
 import 'package:tattva/pages/splash/splash_page.dart';
@@ -151,6 +153,8 @@ import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
               ],
             ),
             AutoRoute(page: FeedbackPage),
+            AutoRoute(page: AboutUsPage),
+            AutoRoute(page: PrivacyPolicyPage),
           ],
         ),
       ],

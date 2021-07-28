@@ -42,12 +42,15 @@ const PROFILE_ITEM_FEEDBACK = 'Feedback';
 const PROFILE_ITEM_INVITE_FRIENDS = 'Invite Friends';
 const PROFILE_ITEM_RATE_US = 'Rate us';
 const PROFILE_ITEM_ABOUT_US = 'About us';
+const PROFILE_ITEM_PRIVACY_POLICY = 'Privacy Policy';
 const PROFILE_ITEM_LOGOUT = 'Logout';
 const EDIT_PROFILE_TITLE = 'Edit Your Profile';
 const EDIT_PROFILE_SAVE_BUTTON = 'SAVE CHANGES';
 const FEEDBACK_TITLE = 'Feedback';
 const FEEDBACK_FIELD_HINT = 'Enter your feedback here...';
 const FEEDBACK_SUBMIT = 'SUBMIT';
+const PRIVACY_POLICY_TITLE = 'Privacy Policy';
+const ABOUT_US_TITLE = 'About Us';
 
 const BTN_UPLOAD_PROFILE_PIC = 'Upload Picture';
 const BTN_VERIFY_MAIL = 'Verify';

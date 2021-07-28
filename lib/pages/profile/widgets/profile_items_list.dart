@@ -1,11 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:share/share.dart';
 import 'package:tattva/domain/authentication/i_auth_facade.dart';
 import 'package:tattva/injection.dart';
 import 'package:tattva/router/router.gr.dart';
 import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
+import 'package:tattva/utils/uris.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProfileItemsList extends StatelessWidget {
   @override
@@ -47,17 +50,34 @@ class ProfileItemsList extends StatelessWidget {
       {
         'icon': 'icons/add.svg',
         'name': PROFILE_ITEM_INVITE_FRIENDS,
-        'onTap': () {},
+        'onTap': () {
+          Share.share('Check out this app $inviteFriendsUri');
+        },
       },
       {
         'icon': 'icons/star.svg',
         'name': PROFILE_ITEM_RATE_US,
-        'onTap': () {},
+        'onTap': () async {
+          if (await canLaunch(rateUri)) {
+            launch(rateUri);
+          }
+        },
       },
       {
         'icon': 'icons/drop.svg',
         'name': PROFILE_ITEM_ABOUT_US,
-        'onTap': () {},
+        'onTap': () => router.root
+            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
+            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
+            .push(AboutUsRoute()),
+      },
+      {
+        'icon': 'icons/shield_lock.svg',
+        'name': PROFILE_ITEM_PRIVACY_POLICY,
+        'onTap': () => router.root
+            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
+            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
+            .push(PrivacyPolicyRoute()),
       },
       {
         'icon': 'icons/exit.svg',
@@ -81,7 +101,11 @@ class ProfileItemsList extends StatelessWidget {
       itemBuilder: (context, idx) {
         return ListTile(
           onTap: items[idx]['onTap']!,
-          leading: SvgPicture.asset(items[idx]['icon']!),
+          leading: SizedBox(
+            height: 24.0,
+            width: 24.0,
+            child: SvgPicture.asset(items[idx]['icon']!),
+          ),
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 30.0, vertical: .0),
           title: Text(
