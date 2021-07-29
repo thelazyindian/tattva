@@ -6,6 +6,7 @@ import 'package:tattva/domain/audio/audio_data_model.dart';
 import 'package:tattva/domain/audio/audio_sub_data_model.dart';
 import 'package:tattva/domain/audio/i_audio_facade.dart';
 import 'package:tattva/domain/failure.dart';
+import 'package:tattva/utils/api_routes.dart';
 
 @LazySingleton(as: IAudioFacade)
 class AudioFacade implements IAudioFacade {
@@ -19,7 +20,7 @@ class AudioFacade implements IAudioFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getAudioCategories',
+        ApiRoutes.audioCategories,
         queryParameters: {
           'token': token,
         },
@@ -42,7 +43,7 @@ class AudioFacade implements IAudioFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getAudioSubCategories',
+        ApiRoutes.audioSubcategories,
         queryParameters: {
           'token': token,
           'id': id,
@@ -67,7 +68,7 @@ class AudioFacade implements IAudioFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/likeDislikeAudio',
+        ApiRoutes.audioLike,
         queryParameters: {
           'token': token,
           'itemId': audioId,
@@ -96,7 +97,7 @@ class AudioFacade implements IAudioFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getAudioFromId',
+        ApiRoutes.audio,
         queryParameters: {
           'token': token,
           'id': audioId,

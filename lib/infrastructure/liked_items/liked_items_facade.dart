@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/liked_items/i_liked_items_facade.dart';
 import 'package:tattva/domain/liked_items/liked_items_data_model.dart';
+import 'package:tattva/utils/api_routes.dart';
 
 @LazySingleton(as: ILikedItemsFacade)
 class LikedItemsFacade implements ILikedItemsFacade {
@@ -18,7 +19,7 @@ class LikedItemsFacade implements ILikedItemsFacade {
   ) async {
     try {
       final response = await _dio.get(
-        '/getAllLikedItems',
+        ApiRoutes.likedItems,
         queryParameters: {'token': token},
       );
       final data = Map<String, dynamic>.from(response.data);
@@ -38,7 +39,7 @@ class LikedItemsFacade implements ILikedItemsFacade {
       getMoreLikedItems(
         token: token,
         startAfter: startAfter,
-        pathUri: '/getMoreLikedWallpapers',
+        pathUri: ApiRoutes.likedWallpapersMore,
       );
 
   @override
@@ -49,7 +50,7 @@ class LikedItemsFacade implements ILikedItemsFacade {
       getMoreLikedItems(
         token: token,
         startAfter: startAfter,
-        pathUri: '/getMoreLikedAudios',
+        pathUri: ApiRoutes.likedAudiosMore,
       );
 
   @override
@@ -60,7 +61,7 @@ class LikedItemsFacade implements ILikedItemsFacade {
       getMoreLikedItems(
         token: token,
         startAfter: startAfter,
-        pathUri: '/getMoreLikedBlogs',
+        pathUri: ApiRoutes.likedBlogsMore,
       );
 
   Future<Either<Failure, LikedItemsDataModel>> getMoreLikedItems({

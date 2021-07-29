@@ -11,6 +11,7 @@ import 'package:tattva/domain/core/tattva_image.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/wallpaper/i_wallpaper_facade.dart';
 import 'package:tattva/domain/wallpaper/wallpaper_data_model.dart';
+import 'package:tattva/utils/api_routes.dart';
 
 @LazySingleton(as: IWallpaperFacade)
 class WallpaperFacade implements IWallpaperFacade {
@@ -24,7 +25,7 @@ class WallpaperFacade implements IWallpaperFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getWallpaperCategories',
+        ApiRoutes.wallpaperCategories,
         queryParameters: {
           'token': token,
         },
@@ -47,7 +48,7 @@ class WallpaperFacade implements IWallpaperFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getWallpapersFromCategory',
+        ApiRoutes.wallpaperCategory,
         queryParameters: {
           'token': token,
           'id': categoryId,
@@ -73,7 +74,7 @@ class WallpaperFacade implements IWallpaperFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getWallpaperFromId',
+        ApiRoutes.wallpaper,
         queryParameters: {
           'token': token,
           'id': id,
@@ -96,7 +97,7 @@ class WallpaperFacade implements IWallpaperFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getAllWallpapers',
+        ApiRoutes.wallpaperAll,
         queryParameters: {
           'token': token,
           if (startAfter != null) 'startAfter': startAfter,
@@ -145,7 +146,7 @@ class WallpaperFacade implements IWallpaperFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/likeDislikeWallpaper',
+        ApiRoutes.wallpaperLike,
         queryParameters: {
           'token': token,
           'itemId': wallpaperId,

@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:tattva/domain/core/tattva_items_model.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/home_items/i_home_items_facade.dart';
+import 'package:tattva/utils/api_routes.dart';
 
 @LazySingleton(as: IHomeItemsFacade)
 class HomeItemsFacade implements IHomeItemsFacade {
@@ -18,7 +19,7 @@ class HomeItemsFacade implements IHomeItemsFacade {
   ) async {
     try {
       final response = await _dio.get(
-        '/getFeaturedItems',
+        ApiRoutes.featuredItems,
         queryParameters: {'token': token},
       );
       final data = Map<String, dynamic>.from(response.data);

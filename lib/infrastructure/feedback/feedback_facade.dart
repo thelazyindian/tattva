@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:tattva/domain/failure.dart';
 import 'package:tattva/domain/feedback/i_feedback_facade.dart';
+import 'package:tattva/utils/api_routes.dart';
 
 @LazySingleton(as: IFeedbackFacade)
 class FeedbackFacade implements IFeedbackFacade {
@@ -18,7 +19,7 @@ class FeedbackFacade implements IFeedbackFacade {
   }) async {
     try {
       final response = await _dio.post(
-        '/feedback',
+        ApiRoutes.feedback,
         queryParameters: {
           'token': token,
         },

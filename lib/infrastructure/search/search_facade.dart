@@ -5,6 +5,7 @@ import 'package:tattva/domain/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:tattva/domain/search/i_search_facade.dart';
 import 'package:tattva/domain/search/search_items.dart';
+import 'package:tattva/utils/api_routes.dart';
 
 @LazySingleton(as: ISearchFacade)
 class SearchFacade implements ISearchFacade {
@@ -21,7 +22,7 @@ class SearchFacade implements ISearchFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/search',
+        ApiRoutes.search,
         queryParameters: {
           'token': token,
           'q': query,

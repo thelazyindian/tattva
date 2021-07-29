@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:tattva/domain/blog/blog_data_model.dart';
 import 'package:tattva/domain/blog/i_blog_facade.dart';
 import 'package:tattva/domain/failure.dart';
+import 'package:tattva/utils/api_routes.dart';
 
 @LazySingleton(as: IBlogFacade)
 class BlogFacade implements IBlogFacade {
@@ -19,7 +20,7 @@ class BlogFacade implements IBlogFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getAllBlogs',
+        ApiRoutes.blogAll,
         queryParameters: {
           'token': token,
           if (startAfter != null) 'startAfter': startAfter,
@@ -42,7 +43,7 @@ class BlogFacade implements IBlogFacade {
       {required String token}) async {
     try {
       final response = await _dio.get(
-        '/getBlogCategories',
+        ApiRoutes.blogCategories,
         queryParameters: {
           'token': token,
         },
@@ -67,7 +68,7 @@ class BlogFacade implements IBlogFacade {
     try {
       debugPrint('getBlogsFromCategory: $categoryId');
       final response = await _dio.get(
-        '/getBlogsFromCategory',
+        ApiRoutes.blogCategory,
         queryParameters: {
           'token': token,
           'id': categoryId,
@@ -94,7 +95,7 @@ class BlogFacade implements IBlogFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/likeDislikeBlog',
+        ApiRoutes.blogLike,
         queryParameters: {
           'token': token,
           'itemId': blogId,
@@ -123,7 +124,7 @@ class BlogFacade implements IBlogFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getBlogContentFromId',
+        ApiRoutes.blogContent,
         queryParameters: {
           'token': token,
           'id': blogId,
@@ -147,7 +148,7 @@ class BlogFacade implements IBlogFacade {
   }) async {
     try {
       final response = await _dio.get(
-        '/getBlogFromId',
+        ApiRoutes.blog,
         queryParameters: {
           'token': token,
           'id': blogId,
