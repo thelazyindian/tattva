@@ -26,6 +26,12 @@ abstract class IAuthFacade {
     required String displayName,
   });
   Future<Either<Failure, Unit>> sendEmailVerification();
+  Future<Either<AuthFailure, Unit>> updatePassword({
+    required Password newPassword,
+  });
+  Future<Either<AuthFailure, Unit>> reauthenticateAccount({
+    required Password password,
+  });
   Future<Option<Either<AuthFailure, user.User>>> getUser();
   Future<Either<AuthFailure, Unit>> resetPassword(Email email);
   Future<Either<AuthFailure, Unit>> signOut();

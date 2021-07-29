@@ -32,7 +32,7 @@ class _FeedbackPageState extends State<FeedbackPage> {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: CustomAppBar(
-        title: FEEDBACK_TITLE,
+        title: PROFILE_ITEM_FEEDBACK,
         titleAlignment: TextAlign.start,
         customAppBarType: CustomAppBarType.subhead,
         onPrefixPressed: () {
@@ -92,7 +92,7 @@ class _FeedbackPageState extends State<FeedbackPage> {
                 ),
                 const SizedBox(height: inputFieldsSpacing),
                 PrimaryButton(
-                  label: FEEDBACK_SUBMIT,
+                  label: SUBMIT_BUTTON,
                   loading: state.submitting,
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {

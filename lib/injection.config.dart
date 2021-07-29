@@ -16,10 +16,11 @@ import 'application/audio/audio_bloc.dart' as _i31;
 import 'application/audio_player/audio_player_bloc.dart' as _i3;
 import 'application/authentication/authentication_bloc.dart' as _i32;
 import 'application/blog/blog_bloc.dart' as _i33;
-import 'application/dynamic_links/dynamic_links_cubit.dart' as _i34;
-import 'application/edit_profile/edit_profile_bloc.dart' as _i35;
-import 'application/feedback/feedback_bloc.dart' as _i36;
-import 'application/home_items/home_items_bloc.dart' as _i37;
+import 'application/change_password/change_password_bloc.dart' as _i34;
+import 'application/dynamic_links/dynamic_links_cubit.dart' as _i35;
+import 'application/edit_profile/edit_profile_bloc.dart' as _i36;
+import 'application/feedback/feedback_bloc.dart' as _i37;
+import 'application/home_items/home_items_bloc.dart' as _i38;
 import 'application/liked_items/liked_items_bloc.dart' as _i28;
 import 'application/search/search_bloc.dart' as _i29;
 import 'application/wallpaper/wallpaper_bloc.dart' as _i30;
@@ -37,7 +38,7 @@ import 'infrastructure/authentication/auth_facade.dart' as _i13;
 import 'infrastructure/blog/blog_facade.dart' as _i15;
 import 'infrastructure/core/connection_status_singleton.dart' as _i4;
 import 'infrastructure/core/dynamic_links_facade.dart' as _i17;
-import 'infrastructure/core/injectable_module.dart' as _i38;
+import 'infrastructure/core/injectable_module.dart' as _i39;
 import 'infrastructure/feedback/feedback_facade.dart' as _i19;
 import 'infrastructure/home_items/home_items_facade.dart' as _i21;
 import 'infrastructure/liked_items/liked_items_facade.dart' as _i23;
@@ -88,15 +89,17 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i32.AuthenticationBloc>(
       () => _i32.AuthenticationBloc(get<_i12.IAuthFacade>()));
   gh.lazySingleton<_i33.BlogBloc>(() => _i33.BlogBloc(get<_i14.IBlogFacade>()));
-  gh.lazySingleton<_i34.DynamicLinksCubit>(
-      () => _i34.DynamicLinksCubit(get<_i16.IDynamicLinksFacade>()));
-  gh.lazySingleton<_i35.EditProfileBloc>(
-      () => _i35.EditProfileBloc(get<_i12.IAuthFacade>()));
-  gh.factory<_i36.FeedbackBloc>(
-      () => _i36.FeedbackBloc(get<_i18.IFeedbackFacade>()));
-  gh.lazySingleton<_i37.HomeItemsBloc>(
-      () => _i37.HomeItemsBloc(get<_i20.IHomeItemsFacade>()));
+  gh.lazySingleton<_i34.ChangePasswordBloc>(
+      () => _i34.ChangePasswordBloc(get<_i12.IAuthFacade>()));
+  gh.lazySingleton<_i35.DynamicLinksCubit>(
+      () => _i35.DynamicLinksCubit(get<_i16.IDynamicLinksFacade>()));
+  gh.lazySingleton<_i36.EditProfileBloc>(
+      () => _i36.EditProfileBloc(get<_i12.IAuthFacade>()));
+  gh.factory<_i37.FeedbackBloc>(
+      () => _i37.FeedbackBloc(get<_i18.IFeedbackFacade>()));
+  gh.lazySingleton<_i38.HomeItemsBloc>(
+      () => _i38.HomeItemsBloc(get<_i20.IHomeItemsFacade>()));
   return get;
 }
 
-class _$InjectableModule extends _i38.InjectableModule {}
+class _$InjectableModule extends _i39.InjectableModule {}

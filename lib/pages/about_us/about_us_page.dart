@@ -12,7 +12,7 @@ class AboutUsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: ABOUT_US_TITLE,
+        title: PROFILE_ITEM_ABOUT_US,
         titleAlignment: TextAlign.start,
         customAppBarType: CustomAppBarType.subhead,
         onPrefixPressed: () {

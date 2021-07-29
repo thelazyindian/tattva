@@ -23,6 +23,13 @@ class ProfileItemsList extends StatelessWidget {
           router.push(EditProfileRoute());
         },
       },
+      {
+        'icon': 'icons/key.svg',
+        'name': PROFILE_ITEM_CHANGE_PASSWORD,
+        'onTap': () {
+          router.push(ChangePasswordWrapperRoute());
+        },
+      },
       // {
       //   'icon': 'icons/list.svg',
       //   'name': PROFILE_ITEM_SUBSCRIPTIONS,
@@ -34,18 +41,12 @@ class ProfileItemsList extends StatelessWidget {
       {
         'icon': 'icons/heart.svg',
         'name': PROFILE_ITEM_SAVED_ITEMS,
-        'onTap': () => router.root
-            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
-            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
-            .push(LikedItemsWrapperRoute()),
+        'onTap': () => router.push(LikedItemsWrapperRoute()),
       },
       {
         'icon': 'icons/message.svg',
         'name': PROFILE_ITEM_FEEDBACK,
-        'onTap': () => router.root
-            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
-            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
-            .push(FeedbackRoute()),
+        'onTap': () => router.push(FeedbackRoute()),
       },
       {
         'icon': 'icons/add.svg',
@@ -66,18 +67,12 @@ class ProfileItemsList extends StatelessWidget {
       {
         'icon': 'icons/drop.svg',
         'name': PROFILE_ITEM_ABOUT_US,
-        'onTap': () => router.root
-            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
-            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
-            .push(AboutUsRoute()),
+        'onTap': () => router.push(AboutUsRoute()),
       },
       {
         'icon': 'icons/shield_lock.svg',
         'name': PROFILE_ITEM_PRIVACY_POLICY,
-        'onTap': () => router.root
-            .innerRouterOf<StackRouter>('HomeWrapperRoute')!
-            .innerRouterOf<StackRouter>('ProfileWrapperRoute')!
-            .push(PrivacyPolicyRoute()),
+        'onTap': () => router.push(PrivacyPolicyRoute()),
       },
       {
         'icon': 'icons/exit.svg',
@@ -102,8 +97,8 @@ class ProfileItemsList extends StatelessWidget {
         return ListTile(
           onTap: items[idx]['onTap']!,
           leading: SizedBox(
-            height: 24.0,
-            width: 24.0,
+            height: 28.0,
+            width: 28.0,
             child: SvgPicture.asset(items[idx]['icon']!),
           ),
           contentPadding:

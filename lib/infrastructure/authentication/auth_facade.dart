@@ -266,6 +266,72 @@ class AuthFacade implements IAuthFacade {
   }
 
   @override
+  Future<Either<AuthFailure, Unit>> updatePassword({
+    required Password newPassword,
+  }) async {
+    try {
+      await _firebaseAuth.currentUser!.updatePassword(newPassword.value);
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      debugPrint('updateProfile ERROR $e');
+      if (e.code == 'requires-recent-login') {
+        final _user = _firebaseAuth.currentUser!;
+        final provider = _user.providerData.first;
+        if (provider.providerId == 'google.com' ||
+            provider.providerId == 'facebook.com') {
+          return reauthenticateAccount(password: Password.pure());
+        }
+        return left(AuthFailure.requiresRecentLogin());
+      }
+      return left(AuthFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<AuthFailure, Unit>> reauthenticateAccount({
+    required Password password,
+  }) async {
+    try {
+      final _user = _firebaseAuth.currentUser!;
+      final provider = _user.providerData.first;
+      AuthCredential authCredential;
+      if (provider.providerId == 'google.com') {
+        final account = await _googleSignIn.signIn();
+        if (account == null) {
+          return left(AuthFailure.loginFailed());
+        }
+
+        final authentication = await account.authentication;
+        authCredential = GoogleAuthProvider.credential(
+          idToken: authentication.idToken,
+          accessToken: authentication.accessToken,
+        );
+      } else if (provider.providerId == 'facebook.com') {
+        final loginResult = await _facebookAuth.login();
+        authCredential = FacebookAuthProvider.credential(loginResult.token);
+      } else {
+        final credential = await _firebaseAuth.signInWithEmailAndPassword(
+          email: _user.email!,
+          password: password.value,
+        );
+        authCredential = credential.credential!;
+      }
+      await _user.reauthenticateWithCredential(authCredential);
+      return right(unit);
+    } on FirebaseAuthException catch (e) {
+      debugPrint('updateProfile ERROR $e');
+      if (e.code == 'user-mismatch' ||
+          e.code == 'invalid-email' ||
+          e.code == 'user-not-found') {
+        return left(AuthFailure.userMismatch());
+      } else if (e.code == 'wrong-password') {
+        return left(AuthFailure.invalidPassword());
+      }
+      return left(AuthFailure.serverError());
+    }
+  }
+
+  @override
   Future<Option<Either<AuthFailure, user.User>>> getUser() async {
     final firebaseUser = await _firebaseAuth.authStateChanges().first;
 

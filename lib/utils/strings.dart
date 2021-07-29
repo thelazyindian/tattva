@@ -33,9 +33,11 @@ const PASSWORD_HELPER =
 const INVALID_PASSWORD_ERROR = PASSWORD_HELPER;
 const INVALID_PASSWORD_LOGIN_ERROR = 'Invalid password.';
 const RESET_PASSWORD_EMAIL_MSG = 'Check your email for password reset link.';
+const CHANGE_PASSWORD_SUCCESS = 'Password changed successfully.';
 
 const PROFILE_ITEMS_HEADER = 'Account';
 const PROFILE_ITEM_MY_PROFILE = 'My Profile';
+const PROFILE_ITEM_CHANGE_PASSWORD = 'Change Password';
 const PROFILE_ITEM_SUBSCRIPTIONS = 'Subscriptions';
 const PROFILE_ITEM_SAVED_ITEMS = 'Liked Items';
 const PROFILE_ITEM_FEEDBACK = 'Feedback';
@@ -46,11 +48,9 @@ const PROFILE_ITEM_PRIVACY_POLICY = 'Privacy Policy';
 const PROFILE_ITEM_LOGOUT = 'Logout';
 const EDIT_PROFILE_TITLE = 'Edit Your Profile';
 const EDIT_PROFILE_SAVE_BUTTON = 'SAVE CHANGES';
-const FEEDBACK_TITLE = 'Feedback';
 const FEEDBACK_FIELD_HINT = 'Enter your feedback here...';
-const FEEDBACK_SUBMIT = 'SUBMIT';
-const PRIVACY_POLICY_TITLE = 'Privacy Policy';
-const ABOUT_US_TITLE = 'About Us';
+const LOGIN_WITH_PASSWORD_TITLE = 'Enter current password';
+const SUBMIT_BUTTON = 'SUBMIT';
 
 const BTN_UPLOAD_PROFILE_PIC = 'Upload Picture';
 const BTN_VERIFY_MAIL = 'Verify';

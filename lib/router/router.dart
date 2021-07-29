@@ -2,8 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:tattva/pages/about_us/about_us_page.dart';
 import 'package:tattva/pages/audio/audio_page.dart';
 import 'package:tattva/pages/audio_sub_category/audio_sub_category_page.dart';
+import 'package:tattva/pages/authentication/change_password_page.dart';
 import 'package:tattva/pages/authentication/forgot_password_page.dart';
 import 'package:tattva/pages/authentication/login_page.dart';
+import 'package:tattva/pages/authentication/login_password_page.dart';
 import 'package:tattva/pages/authentication/register_page.dart';
 import 'package:tattva/pages/blog/blog_page.dart';
 import 'package:tattva/pages/blog_reader/blog_reader_page.dart';
@@ -125,6 +127,14 @@ import 'package:tattva/pages/wallpaper_expanded/wallpaper_expanded_page.dart';
           children: [
             AutoRoute(page: ProfilePage, initial: true),
             AutoRoute(page: EditProfilePage),
+            AutoRoute(
+              name: 'ChangePasswordWrapperRoute',
+              page: EmptyRouterPage,
+              children: [
+                AutoRoute(page: ChangePasswordPage, initial: true),
+                AutoRoute(page: LoginPasswordPage),
+              ],
+            ),
             AutoRoute(
               name: 'LikedItemsWrapperRoute',
               page: EmptyRouterPage,

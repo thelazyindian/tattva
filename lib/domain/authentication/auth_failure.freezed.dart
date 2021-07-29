@@ -23,6 +23,12 @@ class _$AuthFailureTearOff {
     );
   }
 
+  _InvalidPassword invalidPassword({String? msg = 'Invalid Password.'}) {
+    return _InvalidPassword(
+      msg: msg,
+    );
+  }
+
   _InvalidEmail invalidEmail({String? msg = 'Invalid Email.'}) {
     return _InvalidEmail(
       msg: msg,
@@ -56,6 +62,25 @@ class _$AuthFailureTearOff {
     );
   }
 
+  _RequiresRecentLogin requiresRecentLogin(
+      {String? msg = 'Requires recent login.'}) {
+    return _RequiresRecentLogin(
+      msg: msg,
+    );
+  }
+
+  _LoginFailed loginFailed({String? msg = 'Login failed.'}) {
+    return _LoginFailed(
+      msg: msg,
+    );
+  }
+
+  _UserMismatch userMismatch({String? msg = 'Logged in user doesn\'t match.'}) {
+    return _UserMismatch(
+      msg: msg,
+    );
+  }
+
   _ServerError serverError({String? msg = 'Server Error Occured.'}) {
     return _ServerError(
       msg: msg,
@@ -73,22 +98,30 @@ mixin _$AuthFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
     required TResult Function(String? msg) invalidEmail,
     required TResult Function(String? msg) accountAlreadyExists,
     required TResult Function(String? msg) accountExistsWithDifferentCredential,
     required TResult Function(String? msg) weakPassword,
     required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
     required TResult Function(String? msg) serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
     TResult Function(String? msg)? invalidEmail,
     TResult Function(String? msg)? accountAlreadyExists,
     TResult Function(String? msg)? accountExistsWithDifferentCredential,
     TResult Function(String? msg)? weakPassword,
     TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
     TResult Function(String? msg)? serverError,
     required TResult orElse(),
   }) =>
@@ -97,24 +130,32 @@ mixin _$AuthFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_InvalidEmailOrPassword value)
         invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
     required TResult Function(_AccountExistsWithDifferentCredential value)
         accountExistsWithDifferentCredential,
     required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
     required TResult Function(_ServerError value) serverError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
     TResult Function(_AccountExistsWithDifferentCredential value)?
         accountExistsWithDifferentCredential,
     TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
     TResult Function(_ServerError value)? serverError,
     required TResult orElse(),
   }) =>
@@ -223,11 +264,15 @@ class _$_InvalidEmailOrPassword implements _InvalidEmailOrPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
     required TResult Function(String? msg) invalidEmail,
     required TResult Function(String? msg) accountAlreadyExists,
     required TResult Function(String? msg) accountExistsWithDifferentCredential,
     required TResult Function(String? msg) weakPassword,
     required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
     required TResult Function(String? msg) serverError,
   }) {
     return invalidEmailOrPassword(msg);
@@ -237,11 +282,15 @@ class _$_InvalidEmailOrPassword implements _InvalidEmailOrPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
     TResult Function(String? msg)? invalidEmail,
     TResult Function(String? msg)? accountAlreadyExists,
     TResult Function(String? msg)? accountExistsWithDifferentCredential,
     TResult Function(String? msg)? weakPassword,
     TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
     TResult Function(String? msg)? serverError,
     required TResult orElse(),
   }) {
@@ -256,12 +305,16 @@ class _$_InvalidEmailOrPassword implements _InvalidEmailOrPassword {
   TResult map<TResult extends Object?>({
     required TResult Function(_InvalidEmailOrPassword value)
         invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
     required TResult Function(_AccountExistsWithDifferentCredential value)
         accountExistsWithDifferentCredential,
     required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
     required TResult Function(_ServerError value) serverError,
   }) {
     return invalidEmailOrPassword(this);
@@ -271,12 +324,16 @@ class _$_InvalidEmailOrPassword implements _InvalidEmailOrPassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
     TResult Function(_AccountExistsWithDifferentCredential value)?
         accountExistsWithDifferentCredential,
     TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
     TResult Function(_ServerError value)? serverError,
     required TResult orElse(),
   }) {
@@ -296,6 +353,165 @@ abstract class _InvalidEmailOrPassword implements AuthFailure {
   @override
   @JsonKey(ignore: true)
   _$InvalidEmailOrPasswordCopyWith<_InvalidEmailOrPassword> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$InvalidPasswordCopyWith<$Res>
+    implements $AuthFailureCopyWith<$Res> {
+  factory _$InvalidPasswordCopyWith(
+          _InvalidPassword value, $Res Function(_InvalidPassword) then) =
+      __$InvalidPasswordCopyWithImpl<$Res>;
+  @override
+  $Res call({String? msg});
+}
+
+/// @nodoc
+class __$InvalidPasswordCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$InvalidPasswordCopyWith<$Res> {
+  __$InvalidPasswordCopyWithImpl(
+      _InvalidPassword _value, $Res Function(_InvalidPassword) _then)
+      : super(_value, (v) => _then(v as _InvalidPassword));
+
+  @override
+  _InvalidPassword get _value => super._value as _InvalidPassword;
+
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_InvalidPassword(
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_InvalidPassword implements _InvalidPassword {
+  const _$_InvalidPassword({this.msg = 'Invalid Password.'});
+
+  @JsonKey(defaultValue: 'Invalid Password.')
+  @override
+  final String? msg;
+
+  @override
+  String toString() {
+    return 'AuthFailure.invalidPassword(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _InvalidPassword &&
+            (identical(other.msg, msg) ||
+                const DeepCollectionEquality().equals(other.msg, msg)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(msg);
+
+  @JsonKey(ignore: true)
+  @override
+  _$InvalidPasswordCopyWith<_InvalidPassword> get copyWith =>
+      __$InvalidPasswordCopyWithImpl<_InvalidPassword>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
+    required TResult Function(String? msg) invalidEmail,
+    required TResult Function(String? msg) accountAlreadyExists,
+    required TResult Function(String? msg) accountExistsWithDifferentCredential,
+    required TResult Function(String? msg) weakPassword,
+    required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
+    required TResult Function(String? msg) serverError,
+  }) {
+    return invalidPassword(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
+    TResult Function(String? msg)? invalidEmail,
+    TResult Function(String? msg)? accountAlreadyExists,
+    TResult Function(String? msg)? accountExistsWithDifferentCredential,
+    TResult Function(String? msg)? weakPassword,
+    TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
+    TResult Function(String? msg)? serverError,
+    required TResult orElse(),
+  }) {
+    if (invalidPassword != null) {
+      return invalidPassword(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InvalidEmailOrPassword value)
+        invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
+    required TResult Function(_InvalidEmail value) invalidEmail,
+    required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
+    required TResult Function(_AccountExistsWithDifferentCredential value)
+        accountExistsWithDifferentCredential,
+    required TResult Function(_WeakPassword value) weakPassword,
+    required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
+    required TResult Function(_ServerError value) serverError,
+  }) {
+    return invalidPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
+    TResult Function(_InvalidEmail value)? invalidEmail,
+    TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
+    TResult Function(_AccountExistsWithDifferentCredential value)?
+        accountExistsWithDifferentCredential,
+    TResult Function(_WeakPassword value)? weakPassword,
+    TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
+    TResult Function(_ServerError value)? serverError,
+    required TResult orElse(),
+  }) {
+    if (invalidPassword != null) {
+      return invalidPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidPassword implements AuthFailure {
+  const factory _InvalidPassword({String? msg}) = _$_InvalidPassword;
+
+  @override
+  String? get msg => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$InvalidPasswordCopyWith<_InvalidPassword> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -366,11 +582,15 @@ class _$_InvalidEmail implements _InvalidEmail {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
     required TResult Function(String? msg) invalidEmail,
     required TResult Function(String? msg) accountAlreadyExists,
     required TResult Function(String? msg) accountExistsWithDifferentCredential,
     required TResult Function(String? msg) weakPassword,
     required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
     required TResult Function(String? msg) serverError,
   }) {
     return invalidEmail(msg);
@@ -380,11 +600,15 @@ class _$_InvalidEmail implements _InvalidEmail {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
     TResult Function(String? msg)? invalidEmail,
     TResult Function(String? msg)? accountAlreadyExists,
     TResult Function(String? msg)? accountExistsWithDifferentCredential,
     TResult Function(String? msg)? weakPassword,
     TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
     TResult Function(String? msg)? serverError,
     required TResult orElse(),
   }) {
@@ -399,12 +623,16 @@ class _$_InvalidEmail implements _InvalidEmail {
   TResult map<TResult extends Object?>({
     required TResult Function(_InvalidEmailOrPassword value)
         invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
     required TResult Function(_AccountExistsWithDifferentCredential value)
         accountExistsWithDifferentCredential,
     required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
     required TResult Function(_ServerError value) serverError,
   }) {
     return invalidEmail(this);
@@ -414,12 +642,16 @@ class _$_InvalidEmail implements _InvalidEmail {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
     TResult Function(_AccountExistsWithDifferentCredential value)?
         accountExistsWithDifferentCredential,
     TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
     TResult Function(_ServerError value)? serverError,
     required TResult orElse(),
   }) {
@@ -510,11 +742,15 @@ class _$_AccountAlreadyExists implements _AccountAlreadyExists {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
     required TResult Function(String? msg) invalidEmail,
     required TResult Function(String? msg) accountAlreadyExists,
     required TResult Function(String? msg) accountExistsWithDifferentCredential,
     required TResult Function(String? msg) weakPassword,
     required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
     required TResult Function(String? msg) serverError,
   }) {
     return accountAlreadyExists(msg);
@@ -524,11 +760,15 @@ class _$_AccountAlreadyExists implements _AccountAlreadyExists {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
     TResult Function(String? msg)? invalidEmail,
     TResult Function(String? msg)? accountAlreadyExists,
     TResult Function(String? msg)? accountExistsWithDifferentCredential,
     TResult Function(String? msg)? weakPassword,
     TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
     TResult Function(String? msg)? serverError,
     required TResult orElse(),
   }) {
@@ -543,12 +783,16 @@ class _$_AccountAlreadyExists implements _AccountAlreadyExists {
   TResult map<TResult extends Object?>({
     required TResult Function(_InvalidEmailOrPassword value)
         invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
     required TResult Function(_AccountExistsWithDifferentCredential value)
         accountExistsWithDifferentCredential,
     required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
     required TResult Function(_ServerError value) serverError,
   }) {
     return accountAlreadyExists(this);
@@ -558,12 +802,16 @@ class _$_AccountAlreadyExists implements _AccountAlreadyExists {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
     TResult Function(_AccountExistsWithDifferentCredential value)?
         accountExistsWithDifferentCredential,
     TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
     TResult Function(_ServerError value)? serverError,
     required TResult orElse(),
   }) {
@@ -660,11 +908,15 @@ class _$_AccountExistsWithDifferentCredential
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
     required TResult Function(String? msg) invalidEmail,
     required TResult Function(String? msg) accountAlreadyExists,
     required TResult Function(String? msg) accountExistsWithDifferentCredential,
     required TResult Function(String? msg) weakPassword,
     required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
     required TResult Function(String? msg) serverError,
   }) {
     return accountExistsWithDifferentCredential(msg);
@@ -674,11 +926,15 @@ class _$_AccountExistsWithDifferentCredential
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
     TResult Function(String? msg)? invalidEmail,
     TResult Function(String? msg)? accountAlreadyExists,
     TResult Function(String? msg)? accountExistsWithDifferentCredential,
     TResult Function(String? msg)? weakPassword,
     TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
     TResult Function(String? msg)? serverError,
     required TResult orElse(),
   }) {
@@ -693,12 +949,16 @@ class _$_AccountExistsWithDifferentCredential
   TResult map<TResult extends Object?>({
     required TResult Function(_InvalidEmailOrPassword value)
         invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
     required TResult Function(_AccountExistsWithDifferentCredential value)
         accountExistsWithDifferentCredential,
     required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
     required TResult Function(_ServerError value) serverError,
   }) {
     return accountExistsWithDifferentCredential(this);
@@ -708,12 +968,16 @@ class _$_AccountExistsWithDifferentCredential
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
     TResult Function(_AccountExistsWithDifferentCredential value)?
         accountExistsWithDifferentCredential,
     TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
     TResult Function(_ServerError value)? serverError,
     required TResult orElse(),
   }) {
@@ -804,11 +1068,15 @@ class _$_WeakPassword implements _WeakPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
     required TResult Function(String? msg) invalidEmail,
     required TResult Function(String? msg) accountAlreadyExists,
     required TResult Function(String? msg) accountExistsWithDifferentCredential,
     required TResult Function(String? msg) weakPassword,
     required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
     required TResult Function(String? msg) serverError,
   }) {
     return weakPassword(msg);
@@ -818,11 +1086,15 @@ class _$_WeakPassword implements _WeakPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
     TResult Function(String? msg)? invalidEmail,
     TResult Function(String? msg)? accountAlreadyExists,
     TResult Function(String? msg)? accountExistsWithDifferentCredential,
     TResult Function(String? msg)? weakPassword,
     TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
     TResult Function(String? msg)? serverError,
     required TResult orElse(),
   }) {
@@ -837,12 +1109,16 @@ class _$_WeakPassword implements _WeakPassword {
   TResult map<TResult extends Object?>({
     required TResult Function(_InvalidEmailOrPassword value)
         invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
     required TResult Function(_AccountExistsWithDifferentCredential value)
         accountExistsWithDifferentCredential,
     required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
     required TResult Function(_ServerError value) serverError,
   }) {
     return weakPassword(this);
@@ -852,12 +1128,16 @@ class _$_WeakPassword implements _WeakPassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
     TResult Function(_AccountExistsWithDifferentCredential value)?
         accountExistsWithDifferentCredential,
     TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
     TResult Function(_ServerError value)? serverError,
     required TResult orElse(),
   }) {
@@ -948,11 +1228,15 @@ class _$_AccountDoesnotExist implements _AccountDoesnotExist {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
     required TResult Function(String? msg) invalidEmail,
     required TResult Function(String? msg) accountAlreadyExists,
     required TResult Function(String? msg) accountExistsWithDifferentCredential,
     required TResult Function(String? msg) weakPassword,
     required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
     required TResult Function(String? msg) serverError,
   }) {
     return accountDoesnotExist(msg);
@@ -962,11 +1246,15 @@ class _$_AccountDoesnotExist implements _AccountDoesnotExist {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
     TResult Function(String? msg)? invalidEmail,
     TResult Function(String? msg)? accountAlreadyExists,
     TResult Function(String? msg)? accountExistsWithDifferentCredential,
     TResult Function(String? msg)? weakPassword,
     TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
     TResult Function(String? msg)? serverError,
     required TResult orElse(),
   }) {
@@ -981,12 +1269,16 @@ class _$_AccountDoesnotExist implements _AccountDoesnotExist {
   TResult map<TResult extends Object?>({
     required TResult Function(_InvalidEmailOrPassword value)
         invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
     required TResult Function(_AccountExistsWithDifferentCredential value)
         accountExistsWithDifferentCredential,
     required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
     required TResult Function(_ServerError value) serverError,
   }) {
     return accountDoesnotExist(this);
@@ -996,12 +1288,16 @@ class _$_AccountDoesnotExist implements _AccountDoesnotExist {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
     TResult Function(_AccountExistsWithDifferentCredential value)?
         accountExistsWithDifferentCredential,
     TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
     TResult Function(_ServerError value)? serverError,
     required TResult orElse(),
   }) {
@@ -1020,6 +1316,482 @@ abstract class _AccountDoesnotExist implements AuthFailure {
   @override
   @JsonKey(ignore: true)
   _$AccountDoesnotExistCopyWith<_AccountDoesnotExist> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$RequiresRecentLoginCopyWith<$Res>
+    implements $AuthFailureCopyWith<$Res> {
+  factory _$RequiresRecentLoginCopyWith(_RequiresRecentLogin value,
+          $Res Function(_RequiresRecentLogin) then) =
+      __$RequiresRecentLoginCopyWithImpl<$Res>;
+  @override
+  $Res call({String? msg});
+}
+
+/// @nodoc
+class __$RequiresRecentLoginCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$RequiresRecentLoginCopyWith<$Res> {
+  __$RequiresRecentLoginCopyWithImpl(
+      _RequiresRecentLogin _value, $Res Function(_RequiresRecentLogin) _then)
+      : super(_value, (v) => _then(v as _RequiresRecentLogin));
+
+  @override
+  _RequiresRecentLogin get _value => super._value as _RequiresRecentLogin;
+
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_RequiresRecentLogin(
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_RequiresRecentLogin implements _RequiresRecentLogin {
+  const _$_RequiresRecentLogin({this.msg = 'Requires recent login.'});
+
+  @JsonKey(defaultValue: 'Requires recent login.')
+  @override
+  final String? msg;
+
+  @override
+  String toString() {
+    return 'AuthFailure.requiresRecentLogin(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _RequiresRecentLogin &&
+            (identical(other.msg, msg) ||
+                const DeepCollectionEquality().equals(other.msg, msg)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(msg);
+
+  @JsonKey(ignore: true)
+  @override
+  _$RequiresRecentLoginCopyWith<_RequiresRecentLogin> get copyWith =>
+      __$RequiresRecentLoginCopyWithImpl<_RequiresRecentLogin>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
+    required TResult Function(String? msg) invalidEmail,
+    required TResult Function(String? msg) accountAlreadyExists,
+    required TResult Function(String? msg) accountExistsWithDifferentCredential,
+    required TResult Function(String? msg) weakPassword,
+    required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
+    required TResult Function(String? msg) serverError,
+  }) {
+    return requiresRecentLogin(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
+    TResult Function(String? msg)? invalidEmail,
+    TResult Function(String? msg)? accountAlreadyExists,
+    TResult Function(String? msg)? accountExistsWithDifferentCredential,
+    TResult Function(String? msg)? weakPassword,
+    TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
+    TResult Function(String? msg)? serverError,
+    required TResult orElse(),
+  }) {
+    if (requiresRecentLogin != null) {
+      return requiresRecentLogin(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InvalidEmailOrPassword value)
+        invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
+    required TResult Function(_InvalidEmail value) invalidEmail,
+    required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
+    required TResult Function(_AccountExistsWithDifferentCredential value)
+        accountExistsWithDifferentCredential,
+    required TResult Function(_WeakPassword value) weakPassword,
+    required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
+    required TResult Function(_ServerError value) serverError,
+  }) {
+    return requiresRecentLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
+    TResult Function(_InvalidEmail value)? invalidEmail,
+    TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
+    TResult Function(_AccountExistsWithDifferentCredential value)?
+        accountExistsWithDifferentCredential,
+    TResult Function(_WeakPassword value)? weakPassword,
+    TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
+    TResult Function(_ServerError value)? serverError,
+    required TResult orElse(),
+  }) {
+    if (requiresRecentLogin != null) {
+      return requiresRecentLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RequiresRecentLogin implements AuthFailure {
+  const factory _RequiresRecentLogin({String? msg}) = _$_RequiresRecentLogin;
+
+  @override
+  String? get msg => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$RequiresRecentLoginCopyWith<_RequiresRecentLogin> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$LoginFailedCopyWith<$Res>
+    implements $AuthFailureCopyWith<$Res> {
+  factory _$LoginFailedCopyWith(
+          _LoginFailed value, $Res Function(_LoginFailed) then) =
+      __$LoginFailedCopyWithImpl<$Res>;
+  @override
+  $Res call({String? msg});
+}
+
+/// @nodoc
+class __$LoginFailedCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$LoginFailedCopyWith<$Res> {
+  __$LoginFailedCopyWithImpl(
+      _LoginFailed _value, $Res Function(_LoginFailed) _then)
+      : super(_value, (v) => _then(v as _LoginFailed));
+
+  @override
+  _LoginFailed get _value => super._value as _LoginFailed;
+
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_LoginFailed(
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_LoginFailed implements _LoginFailed {
+  const _$_LoginFailed({this.msg = 'Login failed.'});
+
+  @JsonKey(defaultValue: 'Login failed.')
+  @override
+  final String? msg;
+
+  @override
+  String toString() {
+    return 'AuthFailure.loginFailed(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _LoginFailed &&
+            (identical(other.msg, msg) ||
+                const DeepCollectionEquality().equals(other.msg, msg)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(msg);
+
+  @JsonKey(ignore: true)
+  @override
+  _$LoginFailedCopyWith<_LoginFailed> get copyWith =>
+      __$LoginFailedCopyWithImpl<_LoginFailed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
+    required TResult Function(String? msg) invalidEmail,
+    required TResult Function(String? msg) accountAlreadyExists,
+    required TResult Function(String? msg) accountExistsWithDifferentCredential,
+    required TResult Function(String? msg) weakPassword,
+    required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
+    required TResult Function(String? msg) serverError,
+  }) {
+    return loginFailed(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
+    TResult Function(String? msg)? invalidEmail,
+    TResult Function(String? msg)? accountAlreadyExists,
+    TResult Function(String? msg)? accountExistsWithDifferentCredential,
+    TResult Function(String? msg)? weakPassword,
+    TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
+    TResult Function(String? msg)? serverError,
+    required TResult orElse(),
+  }) {
+    if (loginFailed != null) {
+      return loginFailed(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InvalidEmailOrPassword value)
+        invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
+    required TResult Function(_InvalidEmail value) invalidEmail,
+    required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
+    required TResult Function(_AccountExistsWithDifferentCredential value)
+        accountExistsWithDifferentCredential,
+    required TResult Function(_WeakPassword value) weakPassword,
+    required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
+    required TResult Function(_ServerError value) serverError,
+  }) {
+    return loginFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
+    TResult Function(_InvalidEmail value)? invalidEmail,
+    TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
+    TResult Function(_AccountExistsWithDifferentCredential value)?
+        accountExistsWithDifferentCredential,
+    TResult Function(_WeakPassword value)? weakPassword,
+    TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
+    TResult Function(_ServerError value)? serverError,
+    required TResult orElse(),
+  }) {
+    if (loginFailed != null) {
+      return loginFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoginFailed implements AuthFailure {
+  const factory _LoginFailed({String? msg}) = _$_LoginFailed;
+
+  @override
+  String? get msg => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$LoginFailedCopyWith<_LoginFailed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$UserMismatchCopyWith<$Res>
+    implements $AuthFailureCopyWith<$Res> {
+  factory _$UserMismatchCopyWith(
+          _UserMismatch value, $Res Function(_UserMismatch) then) =
+      __$UserMismatchCopyWithImpl<$Res>;
+  @override
+  $Res call({String? msg});
+}
+
+/// @nodoc
+class __$UserMismatchCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
+    implements _$UserMismatchCopyWith<$Res> {
+  __$UserMismatchCopyWithImpl(
+      _UserMismatch _value, $Res Function(_UserMismatch) _then)
+      : super(_value, (v) => _then(v as _UserMismatch));
+
+  @override
+  _UserMismatch get _value => super._value as _UserMismatch;
+
+  @override
+  $Res call({
+    Object? msg = freezed,
+  }) {
+    return _then(_UserMismatch(
+      msg: msg == freezed
+          ? _value.msg
+          : msg // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_UserMismatch implements _UserMismatch {
+  const _$_UserMismatch({this.msg = 'Logged in user doesn\'t match.'});
+
+  @JsonKey(defaultValue: 'Logged in user doesn\'t match.')
+  @override
+  final String? msg;
+
+  @override
+  String toString() {
+    return 'AuthFailure.userMismatch(msg: $msg)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UserMismatch &&
+            (identical(other.msg, msg) ||
+                const DeepCollectionEquality().equals(other.msg, msg)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(msg);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UserMismatchCopyWith<_UserMismatch> get copyWith =>
+      __$UserMismatchCopyWithImpl<_UserMismatch>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
+    required TResult Function(String? msg) invalidEmail,
+    required TResult Function(String? msg) accountAlreadyExists,
+    required TResult Function(String? msg) accountExistsWithDifferentCredential,
+    required TResult Function(String? msg) weakPassword,
+    required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
+    required TResult Function(String? msg) serverError,
+  }) {
+    return userMismatch(msg);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
+    TResult Function(String? msg)? invalidEmail,
+    TResult Function(String? msg)? accountAlreadyExists,
+    TResult Function(String? msg)? accountExistsWithDifferentCredential,
+    TResult Function(String? msg)? weakPassword,
+    TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
+    TResult Function(String? msg)? serverError,
+    required TResult orElse(),
+  }) {
+    if (userMismatch != null) {
+      return userMismatch(msg);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InvalidEmailOrPassword value)
+        invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
+    required TResult Function(_InvalidEmail value) invalidEmail,
+    required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
+    required TResult Function(_AccountExistsWithDifferentCredential value)
+        accountExistsWithDifferentCredential,
+    required TResult Function(_WeakPassword value) weakPassword,
+    required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
+    required TResult Function(_ServerError value) serverError,
+  }) {
+    return userMismatch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
+    TResult Function(_InvalidEmail value)? invalidEmail,
+    TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
+    TResult Function(_AccountExistsWithDifferentCredential value)?
+        accountExistsWithDifferentCredential,
+    TResult Function(_WeakPassword value)? weakPassword,
+    TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
+    TResult Function(_ServerError value)? serverError,
+    required TResult orElse(),
+  }) {
+    if (userMismatch != null) {
+      return userMismatch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UserMismatch implements AuthFailure {
+  const factory _UserMismatch({String? msg}) = _$_UserMismatch;
+
+  @override
+  String? get msg => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$UserMismatchCopyWith<_UserMismatch> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1090,11 +1862,15 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? msg) invalidEmailOrPassword,
+    required TResult Function(String? msg) invalidPassword,
     required TResult Function(String? msg) invalidEmail,
     required TResult Function(String? msg) accountAlreadyExists,
     required TResult Function(String? msg) accountExistsWithDifferentCredential,
     required TResult Function(String? msg) weakPassword,
     required TResult Function(String? msg) accountDoesnotExist,
+    required TResult Function(String? msg) requiresRecentLogin,
+    required TResult Function(String? msg) loginFailed,
+    required TResult Function(String? msg) userMismatch,
     required TResult Function(String? msg) serverError,
   }) {
     return serverError(msg);
@@ -1104,11 +1880,15 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? msg)? invalidEmailOrPassword,
+    TResult Function(String? msg)? invalidPassword,
     TResult Function(String? msg)? invalidEmail,
     TResult Function(String? msg)? accountAlreadyExists,
     TResult Function(String? msg)? accountExistsWithDifferentCredential,
     TResult Function(String? msg)? weakPassword,
     TResult Function(String? msg)? accountDoesnotExist,
+    TResult Function(String? msg)? requiresRecentLogin,
+    TResult Function(String? msg)? loginFailed,
+    TResult Function(String? msg)? userMismatch,
     TResult Function(String? msg)? serverError,
     required TResult orElse(),
   }) {
@@ -1123,12 +1903,16 @@ class _$_ServerError implements _ServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(_InvalidEmailOrPassword value)
         invalidEmailOrPassword,
+    required TResult Function(_InvalidPassword value) invalidPassword,
     required TResult Function(_InvalidEmail value) invalidEmail,
     required TResult Function(_AccountAlreadyExists value) accountAlreadyExists,
     required TResult Function(_AccountExistsWithDifferentCredential value)
         accountExistsWithDifferentCredential,
     required TResult Function(_WeakPassword value) weakPassword,
     required TResult Function(_AccountDoesnotExist value) accountDoesnotExist,
+    required TResult Function(_RequiresRecentLogin value) requiresRecentLogin,
+    required TResult Function(_LoginFailed value) loginFailed,
+    required TResult Function(_UserMismatch value) userMismatch,
     required TResult Function(_ServerError value) serverError,
   }) {
     return serverError(this);
@@ -1138,12 +1922,16 @@ class _$_ServerError implements _ServerError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InvalidEmailOrPassword value)? invalidEmailOrPassword,
+    TResult Function(_InvalidPassword value)? invalidPassword,
     TResult Function(_InvalidEmail value)? invalidEmail,
     TResult Function(_AccountAlreadyExists value)? accountAlreadyExists,
     TResult Function(_AccountExistsWithDifferentCredential value)?
         accountExistsWithDifferentCredential,
     TResult Function(_WeakPassword value)? weakPassword,
     TResult Function(_AccountDoesnotExist value)? accountDoesnotExist,
+    TResult Function(_RequiresRecentLogin value)? requiresRecentLogin,
+    TResult Function(_LoginFailed value)? loginFailed,
+    TResult Function(_UserMismatch value)? userMismatch,
     TResult Function(_ServerError value)? serverError,
     required TResult orElse(),
   }) {

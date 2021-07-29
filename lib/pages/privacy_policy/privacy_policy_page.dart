@@ -12,7 +12,7 @@ class PrivacyPolicyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: PRIVACY_POLICY_TITLE,
+        title: PROFILE_ITEM_PRIVACY_POLICY,
         titleAlignment: TextAlign.start,
         customAppBarType: CustomAppBarType.subhead,
         onPrefixPressed: () {
