@@ -7,6 +7,7 @@ import 'package:tattva/injection.dart';
 import 'package:tattva/pages/core/custom_app_bar.dart';
 import 'package:tattva/pages/core/primary_button.dart';
 import 'package:tattva/utils/dimens.dart';
+import 'package:tattva/utils/others.dart';
 import 'package:tattva/utils/strings.dart';
 
 class FeedbackPage extends StatefulWidget {
@@ -39,38 +40,8 @@ class _FeedbackPageState extends State<FeedbackPage> {
           context.router.pop();
         },
       ),
-      body: BlocConsumer<FeedbackBloc, FeedbackState>(
+      body: BlocBuilder<FeedbackBloc, FeedbackState>(
         bloc: _feedbackBloc,
-        listenWhen: (prev, curr) => prev.submitting != curr.submitting,
-        listener: (context, state) {
-          state.submitFeedbackOption.fold(
-            () => null,
-            (sOrF) => sOrF.fold(
-              (failure) => ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  duration: const Duration(seconds: 2),
-                  content: Text(
-                    'Error submitting feedback.',
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  backgroundColor: Colors.red.shade400,
-                  behavior: SnackBarBehavior.floating,
-                ),
-              ),
-              (r) => ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  duration: const Duration(seconds: 2),
-                  content: Text(
-                    'Feedback submitted.',
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                  backgroundColor: Colors.green.shade400,
-                  behavior: SnackBarBehavior.floating,
-                ),
-              ),
-            ),
-          );
-        },
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(30.0),
@@ -88,6 +59,30 @@ class _FeedbackPageState extends State<FeedbackPage> {
                     decoration: InputDecoration(hintText: FEEDBACK_FIELD_HINT),
                     onSaved: (value) => _feedbackBloc
                         .add(FeedbackEvent.submit(feedback: value!)),
+                  ),
+                ),
+                state.submitFeedbackOption.fold(
+                  () => Container(),
+                  (sOrF) => Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: sOrF.fold(
+                      (failure) => Text(
+                        FEEDBACK_SUBMIT_FAILURE,
+                        style: TextStyle(
+                          fontSize: errorTextSize,
+                          fontWeight: FontWeight.w400,
+                          color: errorTextColor,
+                        ),
+                      ),
+                      (success) => Text(
+                        FEEDBACK_SUBMIT_SUCCESS,
+                        style: TextStyle(
+                          fontSize: successTextSize,
+                          fontWeight: FontWeight.w400,
+                          color: successTextColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(height: inputFieldsSpacing),

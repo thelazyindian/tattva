@@ -34,6 +34,8 @@ const INVALID_PASSWORD_ERROR = PASSWORD_HELPER;
 const INVALID_PASSWORD_LOGIN_ERROR = 'Invalid password.';
 const RESET_PASSWORD_EMAIL_MSG = 'Check your email for password reset link.';
 const CHANGE_PASSWORD_SUCCESS = 'Password changed successfully.';
+const FEEDBACK_SUBMIT_SUCCESS = 'Feedback submitted.';
+const FEEDBACK_SUBMIT_FAILURE = 'Error submitting feedback.';
 
 const PROFILE_ITEMS_HEADER = 'Account';
 const PROFILE_ITEM_MY_PROFILE = 'My Profile';

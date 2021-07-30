@@ -276,7 +276,8 @@ class AuthFacade implements IAuthFacade {
       debugPrint('updateProfile ERROR $e');
       if (e.code == 'requires-recent-login') {
         final _user = _firebaseAuth.currentUser!;
-        final provider = _user.providerData.first;
+        final provider = _user.providerData[1];
+        debugPrint('PROVIDER $provider');
         if (provider.providerId == 'google.com' ||
             provider.providerId == 'facebook.com') {
           return reauthenticateAccount(password: Password.pure());
@@ -293,7 +294,7 @@ class AuthFacade implements IAuthFacade {
   }) async {
     try {
       final _user = _firebaseAuth.currentUser!;
-      final provider = _user.providerData.first;
+      final provider = _user.providerData[1];
       AuthCredential authCredential;
       if (provider.providerId == 'google.com') {
         final account = await _googleSignIn.signIn();
@@ -310,11 +311,10 @@ class AuthFacade implements IAuthFacade {
         final loginResult = await _facebookAuth.login();
         authCredential = FacebookAuthProvider.credential(loginResult.token);
       } else {
-        final credential = await _firebaseAuth.signInWithEmailAndPassword(
+        authCredential = EmailAuthProvider.credential(
           email: _user.email!,
           password: password.value,
         );
-        authCredential = credential.credential!;
       }
       await _user.reauthenticateWithCredential(authCredential);
       return right(unit);
@@ -328,6 +328,10 @@ class AuthFacade implements IAuthFacade {
         return left(AuthFailure.invalidPassword());
       }
       return left(AuthFailure.serverError());
+    } on FacebookAuthException {
+      return left(AuthFailure.loginFailed());
+    } on PlatformException {
+      return left(AuthFailure.loginFailed());
     }
   }
 

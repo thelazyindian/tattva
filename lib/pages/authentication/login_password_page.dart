@@ -82,12 +82,15 @@ class _LoginPasswordPageState extends State<LoginPasswordPage> {
                   (sOrF) => Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: sOrF.fold(
-                      (failure) => Text(
-                        failure.msg!,
-                        style: TextStyle(
-                          fontSize: errorTextSize,
-                          fontWeight: FontWeight.w400,
-                          color: errorTextColor,
+                      (failure) => failure.maybeMap(
+                        requiresRecentLogin: (_) => Container(),
+                        orElse: () => Text(
+                          failure.msg!,
+                          style: TextStyle(
+                            fontSize: errorTextSize,
+                            fontWeight: FontWeight.w400,
+                            color: errorTextColor,
+                          ),
                         ),
                       ),
                       (_) => null,

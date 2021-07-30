@@ -25,7 +25,10 @@ class FeedbackBloc extends Bloc<FeedbackEvent, FeedbackState> {
   ) async* {
     yield* event.map(
       submit: (e) async* {
-        yield state.copyWith(submitting: true);
+        yield state.copyWith(
+          submitting: true,
+          submitFeedbackOption: none(),
+        );
         final token = await getIt<IAuthFacade>().currentUser!.getIdToken();
         final response = await _feedbackFacade.sendFeedback(
           token: token,
