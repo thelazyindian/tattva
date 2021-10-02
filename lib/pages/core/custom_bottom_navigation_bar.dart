@@ -1,9 +1,34 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:tattva/application/audio_player/audio_player_bloc.dart';
+import 'package:tattva/injection.dart';
 import 'package:tattva/utils/dimens.dart';
 
-class CustomBottomNavigationBar extends StatelessWidget {
+class CustomBottomNavigationBar extends StatefulWidget {
+  @override
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
+}
+
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+  @override
+  void initState() {
+    // Collapse Player if open while switching tabs
+    SchedulerBinding.instance?.addPostFrameCallback((_) {
+      context.tabsRouter.addListener(() {
+        getIt<AudioPlayerBloc>().state.playerView.maybeMap(
+              expanded: (_) {
+                getIt<AudioPlayerBloc>().add(AudioPlayerEvent.collapse());
+              },
+              orElse: () {},
+            );
+      });
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
