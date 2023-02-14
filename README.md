@@ -1,16 +1,24 @@
-# tattva
+# Tattva - A meditation app
 
-A new Flutter project.
+## Screenshots
 
-## Getting Started
+<div>
+<img src="https://i.imgur.com/OHYyQV0.png" width="20%"> 
+<img src="https://i.imgur.com/s19dFfa.png" width="20%">
+<img src="https://i.imgur.com/uBfrMHm.png" width="20%">
+<img src="https://i.imgur.com/GuoxwOr.png" width="20%"> 
+</div>
 
-This project is a starting point for a Flutter application.
+<div>
+<img src="https://i.imgur.com/IqwBBMC.png" width="20%">
+<img src="https://i.imgur.com/oQlCMqR.png" width="20%"> 
+<img src="https://i.imgur.com/8u3nrbn.png" width="20%">
+<img src="https://i.imgur.com/Y41tgMV.png" width="20%">
+</div>
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div>
+<img src="https://i.imgur.com/mi5A66l.png" width="20%">
+<img src="https://i.imgur.com/GuoxwOr.png" width="20%"> 
+<img src="https://i.imgur.com/SKAvPJO.png" width="20%">
+<img src="https://i.imgur.com/NCQgwrH.png" width="20%">
+</div>
